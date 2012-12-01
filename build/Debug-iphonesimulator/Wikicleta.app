@@ -1,0 +1,1 @@
+/Users/spalatin/Desktop/Wikicleta/Frank/frankified_build/./Wikicleta.app
