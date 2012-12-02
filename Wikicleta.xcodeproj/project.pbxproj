@@ -72,10 +72,10 @@
 		3A01B596164A35F100F78822 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01B594164A35EA00F78822 /* MobileCoreServices.framework */; };
 		3A01B599164A361500F78822 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01B597164A360D00F78822 /* SystemConfiguration.framework */; };
 		3A417ACF16699E9000E6DF0B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44216692E7C006F251D /* Accounts.framework */; };
-		3A417AD11669A48100E6DF0B /* SinglySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A417AD01669A48100E6DF0B /* SinglySDK.bundle */; };
-		3A417AD31669A48B00E6DF0B /* SinglySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A417AD21669A48B00E6DF0B /* SinglySDK.framework */; };
-		3A417AD71669A53000E6DF0B /* SinglySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A417AD51669A53000E6DF0B /* SinglySDK.bundle */; };
-		3A417AD81669A53000E6DF0B /* SinglySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A417AD61669A53000E6DF0B /* SinglySDK.framework */; };
+		3A5C3BD01669A9CF009DDA1C /* FirstAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C3BCF1669A9CF009DDA1C /* FirstAccessViewController.m */; };
+		3A5C3BD61669B310009DDA1C /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C3BD41669B310009DDA1C /* RegistrationViewController.m */; };
+		3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */; };
+		3A5C3BDA1669DEC9009DDA1C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C3BD91669DEC9009DDA1C /* User.m */; };
 		3A698284164B739B004F1E01 /* UIButtonWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698283164B739B004F1E01 /* UIButtonWS.m */; };
 		3A698287164B7C03004F1E01 /* wikicleta_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A698286164B7C03004F1E01 /* wikicleta_logo@2x.png */; };
 		3AC7B2B5164CD96B008A3B58 /* Authenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B2B4164CD96B008A3B58 /* Authenticator.m */; };
@@ -237,10 +237,15 @@
 		3A01B590164A35B000F78822 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		3A01B594164A35EA00F78822 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3A01B597164A360D00F78822 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		3A417AD01669A48100E6DF0B /* SinglySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SinglySDK.bundle; path = Wikicleta/Libraries/Singly/SinglySDK.bundle; sourceTree = "<group>"; };
-		3A417AD21669A48B00E6DF0B /* SinglySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SinglySDK.framework; path = Wikicleta/Libraries/Singly/SinglySDK.framework; sourceTree = "<group>"; };
 		3A417AD51669A53000E6DF0B /* SinglySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinglySDK.bundle; sourceTree = "<group>"; };
 		3A417AD61669A53000E6DF0B /* SinglySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinglySDK.framework; sourceTree = "<group>"; };
+		3A5C3BCE1669A9CF009DDA1C /* FirstAccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstAccessViewController.h; sourceTree = "<group>"; };
+		3A5C3BCF1669A9CF009DDA1C /* FirstAccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstAccessViewController.m; sourceTree = "<group>"; };
+		3A5C3BD31669B310009DDA1C /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		3A5C3BD41669B310009DDA1C /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		3A5C3BD81669DEC9009DDA1C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3A5C3BD91669DEC9009DDA1C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3A698282164B739B004F1E01 /* UIButtonWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonWS.h; sourceTree = "<group>"; };
 		3A698283164B739B004F1E01 /* UIButtonWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonWS.m; sourceTree = "<group>"; };
 		3A698286164B7C03004F1E01 /* wikicleta_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wikicleta_logo@2x.png"; sourceTree = "<group>"; };
@@ -248,9 +253,9 @@
 		3AC7B2B4164CD96B008A3B58 /* Authenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authenticator.m; sourceTree = "<group>"; };
 		3AC7B2BE164CE521008A3B58 /* AuthenticatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticatorDelegate.h; sourceTree = "<group>"; };
 		3AC7B2BF164CE7FA008A3B58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		3AE39CC51668460C002DE754 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		3AE39CC61668460C002DE754 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		3AE39CC71668460C002DE754 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		3AE39CC51668460C002DE754 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
+		3AE39CC61668460C002DE754 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		3AE39CC71668460C002DE754 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ../LoginViewController.xib; sourceTree = "<group>"; };
 		3AE7A44216692E7C006F251D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3AE7A44416692E8D006F251D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3AE7A44816693BFA006F251D /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
@@ -276,8 +281,6 @@
 				3A01B491164A2F6E00F78822 /* Foundation.framework in Frameworks */,
 				3A01B493164A2F6E00F78822 /* CoreGraphics.framework in Frameworks */,
 				3A01B495164A2F6E00F78822 /* CoreData.framework in Frameworks */,
-				3A417AD31669A48B00E6DF0B /* SinglySDK.framework in Frameworks */,
-				3A417AD81669A53000E6DF0B /* SinglySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +320,6 @@
 		3A01B48D164A2F6E00F78822 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A417AD21669A48B00E6DF0B /* SinglySDK.framework */,
-				3A417AD01669A48100E6DF0B /* SinglySDK.bundle */,
 				3AE7A44416692E8D006F251D /* QuartzCore.framework */,
 				3AE7A44216692E7C006F251D /* Accounts.framework */,
 				3AC7B2BF164CE7FA008A3B58 /* Security.framework */,
@@ -403,13 +404,13 @@
 		3A01B4CA164A2FAA00F78822 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A5C3BD21669B2F1009DDA1C /* FirstAccessControllers */,
 				3A01B4CD164A2FDA00F78822 /* HomeViewController.h */,
 				3A01B4CE164A2FDA00F78822 /* HomeViewController.m */,
-				3AE39CC51668460C002DE754 /* LoginViewController.h */,
-				3AE39CC61668460C002DE754 /* LoginViewController.m */,
-				3AE39CC71668460C002DE754 /* LoginViewController.xib */,
 				3AE7A44816693BFA006F251D /* ExploreViewController.h */,
 				3AE7A44916693BFA006F251D /* ExploreViewController.m */,
+				3A5C3BCE1669A9CF009DDA1C /* FirstAccessViewController.h */,
+				3A5C3BCF1669A9CF009DDA1C /* FirstAccessViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -417,6 +418,8 @@
 		3A01B4CB164A2FAA00F78822 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3A5C3BD81669DEC9009DDA1C /* User.h */,
+				3A5C3BD91669DEC9009DDA1C /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -609,6 +612,19 @@
 			path = Singly;
 			sourceTree = "<group>";
 		};
+		3A5C3BD21669B2F1009DDA1C /* FirstAccessControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AE39CC51668460C002DE754 /* LoginViewController.h */,
+				3AE39CC61668460C002DE754 /* LoginViewController.m */,
+				3AE39CC71668460C002DE754 /* LoginViewController.xib */,
+				3A5C3BD31669B310009DDA1C /* RegistrationViewController.h */,
+				3A5C3BD41669B310009DDA1C /* RegistrationViewController.m */,
+				3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */,
+			);
+			path = FirstAccessControllers;
+			sourceTree = "<group>";
+		};
 		3AC7B2B2164CD92E008A3B58 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,8 +715,7 @@
 				3A01B585164A329D00F78822 /* urls.plist in Resources */,
 				3A698287164B7C03004F1E01 /* wikicleta_logo@2x.png in Resources */,
 				3AE39CC91668460C002DE754 /* LoginViewController.xib in Resources */,
-				3A417AD11669A48100E6DF0B /* SinglySDK.bundle in Resources */,
-				3A417AD71669A53000E6DF0B /* SinglySDK.bundle in Resources */,
+				3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,6 +794,9 @@
 				3AC7B2B5164CD96B008A3B58 /* Authenticator.m in Sources */,
 				3AE39CC81668460C002DE754 /* LoginViewController.m in Sources */,
 				3AE7A44A16693BFA006F251D /* ExploreViewController.m in Sources */,
+				3A5C3BD01669A9CF009DDA1C /* FirstAccessViewController.m in Sources */,
+				3A5C3BD61669B310009DDA1C /* RegistrationViewController.m in Sources */,
+				3A5C3BDA1669DEC9009DDA1C /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

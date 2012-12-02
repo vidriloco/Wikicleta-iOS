@@ -54,18 +54,6 @@ static int environment;
 
 + (void) initializeWithEnv:(int)env {
     environment = env;
-    
-    SinglySession *session = [SinglySession sharedSession];
-    session.clientID = kClientId;
-    session.clientSecret = kClientSecret;
-    
-    [session startSessionWithCompletionHandler:^(BOOL ready) {
-        if (ready) {
-            NSLog(@"Session started");
-        } else {
-            NSLog(@"Session could not start");
-        }
-    }];
 }
 
 

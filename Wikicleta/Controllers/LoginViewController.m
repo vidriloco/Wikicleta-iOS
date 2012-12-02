@@ -19,43 +19,24 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Iniciar Sesión";
-        [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     }
     return self;
 }
 
 - (IBAction)loginWithFacebook:(id)sender
 {
-    SinglyService *service = [SinglyService serviceWithIdentifier:@"facebook"];
-    service.delegate = self;
-    [service requestAuthorizationWithViewController:self];
+
 }
 
 - (IBAction)loginWithTwitter:(id)sender
 {
-    SinglyService *service = [SinglyService serviceWithIdentifier:@"twitter"];
-    service.delegate = self;
-    [service requestAuthorizationWithViewController:self];
+
 }
 
-- (IBAction) dismiss
+- (IBAction)displayRegistrationView:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void) singlyServiceDidAuthorize:(SinglyService *)service
-{
-    //NSLog([[[SinglySession sharedSession] profiles] description]);
-    //NSLog([[SinglySession sharedSession] accessToken]);
-}
-
-- (void) singlyServiceDidFail:(SinglyService *)service withError:(NSError *)error
-{
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Login Error"
-                                                    message:[error localizedDescription]
-                                                   delegate:self cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    RegistrationViewController *registration = [[RegistrationViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:registration animated:YES];
 }
 
 - (void)viewDidLoad

@@ -50,8 +50,8 @@
 
 - (void) presentLoginController
 {
-    LoginViewController *loginController = [[LoginViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
-    [self presentViewController:loginController animated:YES completion:nil];
+    FirstAccessViewController *controller = [FirstAccessViewController build];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void) presentExploreController

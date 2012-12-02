@@ -11,7 +11,7 @@
 #import "App.h"
 #import "UIButtonWS.h"
 
-#import "LoginViewController.h"
+#import "FirstAccessViewController.h"
 #import "ExploreViewController.h"
 
 #define Kblue    @"0x3F71F5"

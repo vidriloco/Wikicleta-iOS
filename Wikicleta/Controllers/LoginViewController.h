@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "App.h"
-#import <SinglySDK/SinglySDK.h>
+#import "RegistrationViewController.h"
 
-@interface LoginViewController : UIViewController<SinglyServiceDelegate>
+@interface LoginViewController : UIViewController
 
 - (IBAction)loginWithTwitter:(id)sender;
 - (IBAction)loginWithFacebook:(id)sender;
-- (IBAction) dismiss;
-
+- (IBAction)displayRegistrationView:(id)sender;
 @end

@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <SinglySDK/SinglySDK.h>
 
 #define kURLsFile   @"urls.plist"
 #define kDev        0
