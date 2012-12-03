@@ -14,7 +14,7 @@
 
 @implementation RegistrationViewController
 
-@synthesize name, username, password, passwordConfirmation, email;
+@synthesize name, password, passwordConfirmation, email;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,34 +32,30 @@
 
 - (IBAction)commitRegistrationData:(id)sender
 {
-   /* if (password.text != passwordConfirmation.text || [password.text length] < 5) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Verifica tu contraseña"
-                                                        message:@"Debe tener al menos 5 caracteres y debe ser igual a la confirmación"
-                                                       delegate:nil
+    User *user = [User initWithName:name.text
+                          withEmail:email.text
+                       withPassword:password.text
+            andPasswordConfirmation:passwordConfirmation.text];
+    
+    if ([user isValidForSave]) {
+        NSURL *url = [NSURL URLWithString:[App urlForResource:@"createUsers"]];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request addRequestHeader:@"User-Agent" value:@"ASIHTTPRequest"];
+        [request addRequestHeader:@"Content-Type" value:@"application/json"];
+        [request appendPostData:[[user toJSON]  dataUsingEncoding:NSUTF8StringEncoding]];
+        [request startSynchronous];
+        
+        if ([request isFinished] && [request responseStatusCode] == 200) {
+            NSLog(@"Success");
+        }
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                        message:[user errorMsj]
+                                                       delegate:self
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"Aceptar", nil];
         [alert show];
-    } else {*/
-        // Data
-        NSMutableDictionary *newUser = [NSMutableDictionary dictionary];
-        NSMutableDictionary *user = [NSMutableDictionary dictionary];
-    
-    [user setObject:[name text] forKey:kName];
-    [user setObject:[username text] forKey:kUsername];
-    [user setObject:[email text] forKey:kEmail];
-    [user setObject:[password text] forKey:kPassword];
-    [newUser setObject:user forKey:@"user"];
-
-    
-        NSURL *url = [NSURL URLWithString:[App urlForResource:@"createUsers"]];
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-        
-        
-        [request addRequestHeader:@"User-Agent" value:@"ASIHTTPRequest"];
-        [request addRequestHeader:@"Content-Type" value:@"application/json"];
-        [request appendPostData:[[newUser JSONRepresentation]  dataUsingEncoding:NSUTF8StringEncoding]];
-        [request startSynchronous];
-    //}
+    }
 
 }
 
