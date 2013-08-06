@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeViewController.h"
+#import "LandingViewController.h"
+#import "CoreData+MagicalRecord.h"
 #import "App.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

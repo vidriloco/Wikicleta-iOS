@@ -26,8 +26,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self.window setRootViewController:[[HomeViewController alloc] init]];
-    
+    [self.window setRootViewController:[[LandingViewController alloc] init]];
     
     return YES;
 }
