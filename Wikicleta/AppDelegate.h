@@ -10,6 +10,7 @@
 #import "LandingViewController.h"
 #import "CoreData+MagicalRecord.h"
 #import "App.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

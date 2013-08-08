@@ -136,6 +136,19 @@
 		3A5C3BD61669B310009DDA1C /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C3BD41669B310009DDA1C /* RegistrationViewController.m */; };
 		3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */; };
 		3A698284164B739B004F1E01 /* UIButtonWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698283164B739B004F1E01 /* UIButtonWS.m */; };
+		3A73F54A17B3513E00FA7A71 /* explore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A73F54417B3513E00FA7A71 /* explore.png */; };
+		3A73F54B17B3513E00FA7A71 /* explore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A73F54517B3513E00FA7A71 /* explore@2x.png */; };
+		3A73F54C17B3513E00FA7A71 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A73F54617B3513E00FA7A71 /* login.png */; };
+		3A73F54D17B3513E00FA7A71 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A73F54717B3513E00FA7A71 /* login@2x.png */; };
+		3A73F54E17B3513E00FA7A71 /* unite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A73F54817B3513E00FA7A71 /* unite.png */; };
+		3A73F54F17B3513E00FA7A71 /* unite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A73F54917B3513E00FA7A71 /* unite@2x.png */; };
+		3A73F55117B35FB200FA7A71 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73F55017B35FB200FA7A71 /* GoogleMaps.framework */; };
+		3A73F55517B3600400FA7A71 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A73F55417B3600400FA7A71 /* GoogleMaps.bundle */; };
+		3A73F55817B3603200FA7A71 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73F55617B3602900FA7A71 /* CoreText.framework */; };
+		3A73F55B17B3605100FA7A71 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73F55917B3604700FA7A71 /* GLKit.framework */; };
+		3A73F55E17B3606A00FA7A71 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73F55C17B3606300FA7A71 /* libc++.dylib */; };
+		3A73F56117B3608000FA7A71 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73F55F17B3607900FA7A71 /* libicucore.dylib */; };
+		3A73F56417B3609400FA7A71 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73F56217B3608E00FA7A71 /* OpenGLES.framework */; };
 		3AC7B2B5164CD96B008A3B58 /* Authenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B2B4164CD96B008A3B58 /* Authenticator.m */; };
 		3AC7B2C1164CE804008A3B58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC7B2BF164CE7FA008A3B58 /* Security.framework */; };
 		3ADA306F166C479500839DD9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA306E166C479500839DD9 /* User.m */; };
@@ -422,6 +435,19 @@
 		3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		3A698282164B739B004F1E01 /* UIButtonWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonWS.h; sourceTree = "<group>"; };
 		3A698283164B739B004F1E01 /* UIButtonWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonWS.m; sourceTree = "<group>"; };
+		3A73F54417B3513E00FA7A71 /* explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explore.png; sourceTree = "<group>"; };
+		3A73F54517B3513E00FA7A71 /* explore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explore@2x.png"; sourceTree = "<group>"; };
+		3A73F54617B3513E00FA7A71 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		3A73F54717B3513E00FA7A71 /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
+		3A73F54817B3513E00FA7A71 /* unite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unite.png; sourceTree = "<group>"; };
+		3A73F54917B3513E00FA7A71 /* unite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unite@2x.png"; sourceTree = "<group>"; };
+		3A73F55017B35FB200FA7A71 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		3A73F55417B3600400FA7A71 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		3A73F55617B3602900FA7A71 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		3A73F55917B3604700FA7A71 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		3A73F55C17B3606300FA7A71 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		3A73F55F17B3607900FA7A71 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		3A73F56217B3608E00FA7A71 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3AC7B2B3164CD96B008A3B58 /* Authenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authenticator.h; sourceTree = "<group>"; };
 		3AC7B2B4164CD96B008A3B58 /* Authenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authenticator.m; sourceTree = "<group>"; };
 		3AC7B2BE164CE521008A3B58 /* AuthenticatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticatorDelegate.h; sourceTree = "<group>"; };
@@ -445,6 +471,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A01B495164A2F6E00F78822 /* CoreData.framework in Frameworks */,
+				3A73F56117B3608000FA7A71 /* libicucore.dylib in Frameworks */,
+				3A73F56417B3609400FA7A71 /* OpenGLES.framework in Frameworks */,
+				3A73F55E17B3606A00FA7A71 /* libc++.dylib in Frameworks */,
+				3A73F55B17B3605100FA7A71 /* GLKit.framework in Frameworks */,
+				3A73F55817B3603200FA7A71 /* CoreText.framework in Frameworks */,
 				3A417ACF16699E9000E6DF0B /* Accounts.framework in Frameworks */,
 				3A01B599164A361500F78822 /* SystemConfiguration.framework in Frameworks */,
 				3A01B596164A35F100F78822 /* MobileCoreServices.framework in Frameworks */,
@@ -459,6 +490,7 @@
 				3AC7B2C1164CE804008A3B58 /* Security.framework in Frameworks */,
 				3A01B491164A2F6E00F78822 /* Foundation.framework in Frameworks */,
 				3A01B493164A2F6E00F78822 /* CoreGraphics.framework in Frameworks */,
+				3A73F55117B35FB200FA7A71 /* GoogleMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +521,7 @@
 		181534C617B1645F009FE8CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A73F54317B3513E00FA7A71 /* LandingView */,
 				181534C717B1645F009FE8CB /* blue_gradient_iphone.png */,
 				181534C817B1645F009FE8CB /* blue_gradient_iphone@2x.png */,
 				181534C917B1645F009FE8CB /* pin.png */,
@@ -675,6 +708,13 @@
 		3A01B48D164A2F6E00F78822 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A73F56217B3608E00FA7A71 /* OpenGLES.framework */,
+				3A73F55F17B3607900FA7A71 /* libicucore.dylib */,
+				3A73F55C17B3606300FA7A71 /* libc++.dylib */,
+				3A73F55917B3604700FA7A71 /* GLKit.framework */,
+				3A73F55617B3602900FA7A71 /* CoreText.framework */,
+				3A73F55417B3600400FA7A71 /* GoogleMaps.bundle */,
+				3A73F55017B35FB200FA7A71 /* GoogleMaps.framework */,
 				1863D55117B053A0007E7460 /* ImageIO.framework */,
 				3AE7A44416692E8D006F251D /* QuartzCore.framework */,
 				3AE7A44216692E7C006F251D /* Accounts.framework */,
@@ -992,6 +1032,19 @@
 			path = FirstAccessControllers;
 			sourceTree = "<group>";
 		};
+		3A73F54317B3513E00FA7A71 /* LandingView */ = {
+			isa = PBXGroup;
+			children = (
+				3A73F54417B3513E00FA7A71 /* explore.png */,
+				3A73F54517B3513E00FA7A71 /* explore@2x.png */,
+				3A73F54617B3513E00FA7A71 /* login.png */,
+				3A73F54717B3513E00FA7A71 /* login@2x.png */,
+				3A73F54817B3513E00FA7A71 /* unite.png */,
+				3A73F54917B3513E00FA7A71 /* unite@2x.png */,
+			);
+			path = LandingView;
+			sourceTree = "<group>";
+		};
 		3AC7B2B2164CD92E008A3B58 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1089,6 +1142,13 @@
 				181534D017B1645F009FE8CB /* pin@2x.png in Resources */,
 				181534D117B1645F009FE8CB /* wikicleta.png in Resources */,
 				181534D217B1645F009FE8CB /* wikicleta@2x.png in Resources */,
+				3A73F54A17B3513E00FA7A71 /* explore.png in Resources */,
+				3A73F54B17B3513E00FA7A71 /* explore@2x.png in Resources */,
+				3A73F54C17B3513E00FA7A71 /* login.png in Resources */,
+				3A73F54D17B3513E00FA7A71 /* login@2x.png in Resources */,
+				3A73F54E17B3513E00FA7A71 /* unite.png in Resources */,
+				3A73F54F17B3513E00FA7A71 /* unite@2x.png in Resources */,
+				3A73F55517B3600400FA7A71 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1334,10 +1394,7 @@
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/iOS App Unit Tests/Frameworks/OCMockLibrary\"",
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks/OCMockLibrary\"",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"$(FRANK_LDFLAGS)",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1362,6 +1419,7 @@
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/iOS App Unit Tests/Frameworks/OCMockLibrary\"",
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks/OCMockLibrary\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
