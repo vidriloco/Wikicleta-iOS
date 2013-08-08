@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+        [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     }
     return self;
 }

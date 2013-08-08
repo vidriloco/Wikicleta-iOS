@@ -11,6 +11,9 @@
 #import "App.h"
 #import "LandingAccessView.h"
 #import "UIButtonWithLabel.h"
+#import "ExploreViewController.h"
+#import "RegistrationViewController.h"
+#import "LoginViewController.h"
 
 @interface LandingViewController : UIViewController {
 }

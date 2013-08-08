@@ -72,18 +72,17 @@
 - (void) launchLoginController
 {
     NSLog(@"Login controller launched");
+    [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
 }
 
 - (void) launchJoinController
 {
-    NSLog(@"Join controller launched");
-
+    [self presentViewController:[[RegistrationViewController alloc] init] animated:YES completion:nil];
 }
 
 - (void) launchExploreController
 {
-    NSLog(@"Explore controller launched");
-
+    [self presentViewController:[[ExploreViewController alloc] init] animated:YES completion:nil];
 }
 
 - (void)viewDidLoad
