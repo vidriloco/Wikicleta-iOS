@@ -12,7 +12,7 @@
 #import "UIButtonWS.h"
 
 #import "FirstAccessViewController.h"
-#import "ExploreViewController.h"
+#import "MapViewController.h"
 
 #define Kblue    @"0x3F71F5"
 

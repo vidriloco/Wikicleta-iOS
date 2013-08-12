@@ -1,5 +1,5 @@
 //
-//  ExploreViewController.h
+//  MapViewController.h
 //  Wikicleta
 //
 //  Created by Alejandro Cruz Paz on 11/30/12.
@@ -12,6 +12,6 @@
 #import "IIViewDeckController.h"
 #import "MenuViewController.h"
 
-@interface ExploreViewController : UIViewController
+@interface MapViewController : UIViewController
 
 @end

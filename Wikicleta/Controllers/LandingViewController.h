@@ -11,7 +11,7 @@
 #import "App.h"
 #import "LandingAccessView.h"
 #import "UIButtonWithLabel.h"
-#import "ExploreViewController.h"
+#import "MapViewController.h"
 #import "RegistrationViewController.h"
 #import "LoginViewController.h"
 #import "IIViewDeckController.h"

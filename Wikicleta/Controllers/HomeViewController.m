@@ -56,7 +56,7 @@
 
 - (void) presentExploreController
 {
-    ExploreViewController *exploreController = [[ExploreViewController alloc] init];
+    MapViewController *exploreController = [[MapViewController alloc] init];
     [self presentViewController:exploreController animated:YES completion:nil];
 }
 

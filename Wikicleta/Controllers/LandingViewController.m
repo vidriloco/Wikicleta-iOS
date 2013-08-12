@@ -88,7 +88,7 @@
 
 - (void) launchExploreController
 {
-    [self.viewDeckController setCenterController:[[ExploreViewController alloc] init]];
+    [self.viewDeckController setCenterController:[[MapViewController alloc] init]];
     //[self presentViewController:deckController animated:YES completion:nil];
 }
 

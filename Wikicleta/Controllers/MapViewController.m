@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Wikicleta. All rights reserved.
 //
 
-#import "ExploreViewController.h"
+#import "MapViewController.h"
 
 #define marginUnit 20
 
-@interface ExploreViewController () {
+@interface MapViewController () {
     BOOL drawerOpenning;
     MenuViewController *menu;
 }
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation ExploreViewController
+@implementation MapViewController
 
 GMSMapView *mapView;
 

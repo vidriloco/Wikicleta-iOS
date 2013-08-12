@@ -201,7 +201,7 @@
 		3AE39CC81668460C002DE754 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE39CC61668460C002DE754 /* LoginViewController.m */; };
 		3AE39CC91668460C002DE754 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE39CC71668460C002DE754 /* LoginViewController.xib */; };
 		3AE7A44616692E99006F251D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44416692E8D006F251D /* QuartzCore.framework */; };
-		3AE7A44A16693BFA006F251D /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7A44916693BFA006F251D /* ExploreViewController.m */; };
+		3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7A44916693BFA006F251D /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -559,8 +559,8 @@
 		3AE39CC71668460C002DE754 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ../LoginViewController.xib; sourceTree = "<group>"; };
 		3AE7A44216692E7C006F251D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3AE7A44416692E8D006F251D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3AE7A44816693BFA006F251D /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
-		3AE7A44916693BFA006F251D /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
+		3AE7A44816693BFA006F251D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		3AE7A44916693BFA006F251D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -968,8 +968,8 @@
 				3A5C3BD21669B2F1009DDA1C /* FirstAccessControllers */,
 				3A01B4CD164A2FDA00F78822 /* HomeViewController.h */,
 				3A01B4CE164A2FDA00F78822 /* HomeViewController.m */,
-				3AE7A44816693BFA006F251D /* ExploreViewController.h */,
-				3AE7A44916693BFA006F251D /* ExploreViewController.m */,
+				3AE7A44816693BFA006F251D /* MapViewController.h */,
+				3AE7A44916693BFA006F251D /* MapViewController.m */,
 				3A5C3BCE1669A9CF009DDA1C /* FirstAccessViewController.h */,
 				3A5C3BCF1669A9CF009DDA1C /* FirstAccessViewController.m */,
 				1863D50617B046B6007E7460 /* LandingViewController.h */,
@@ -1440,7 +1440,7 @@
 				3A698284164B739B004F1E01 /* UIButtonWS.m in Sources */,
 				3AC7B2B5164CD96B008A3B58 /* Authenticator.m in Sources */,
 				3AE39CC81668460C002DE754 /* LoginViewController.m in Sources */,
-				3AE7A44A16693BFA006F251D /* ExploreViewController.m in Sources */,
+				3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */,
 				3A5C3BD01669A9CF009DDA1C /* FirstAccessViewController.m in Sources */,
 				3A5C3BD61669B310009DDA1C /* RegistrationViewController.m in Sources */,
 				3ADA306F166C479500839DD9 /* User.m in Sources */,
