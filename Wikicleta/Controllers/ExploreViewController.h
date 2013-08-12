@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "App.h"
 #import "IIViewDeckController.h"
+#import "MenuViewController.h"
 
 @interface ExploreViewController : UIViewController
 

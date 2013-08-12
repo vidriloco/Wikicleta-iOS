@@ -88,16 +88,8 @@
 
 - (void) launchExploreController
 {
-    IIViewDeckController* deckController =  [[IIViewDeckController alloc]
-                                             initWithCenterViewController: [[ExploreViewController alloc] init]
-                                             leftViewController:[[MenuViewController alloc] init]
-                                             rightViewController:nil];
-    [deckController setPanningMode:IIViewDeckPanningViewPanning];
-    [deckController setLeftSize:100];
-    
-    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose];
-    [deckController setPanningMode:IIViewDeckFullViewPanning];
-    [self presentViewController:deckController animated:YES completion:nil];
+    [self.viewDeckController setCenterController:[[ExploreViewController alloc] init]];
+    //[self presentViewController:deckController animated:YES completion:nil];
 }
 
 - (void)viewDidLoad

@@ -30,12 +30,6 @@
 
 - (void) loadView
 {
-
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
     self.view = [[UIView alloc] initWithFrame:[App viewBounds]];
     
     UIImage *imageNamedLogo = [UIImage imageNamed:@"logo_menu.png"];
@@ -53,7 +47,7 @@
                             CGRectMake(25, [App viewBounds].size.height-gears.size.height-bottomMargin, gears.size.width, gears.size.height)];
     [gearButton setBackgroundImage:gears forState:UIControlStateNormal];
     [gearButton setBackgroundImage:gearsSelected forState:UIControlStateHighlighted];
-    
+
     [self.view addSubview:gearButton];
     
     UIImage *user = [UIImage imageNamed:@"user_menu.png"];
@@ -71,6 +65,11 @@
     [messagesButton setBackgroundImage:messages forState:UIControlStateNormal];
     [messagesButton setBackgroundImage:messagesSelected forState:UIControlStateHighlighted];
     [self.view addSubview:messagesButton];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 

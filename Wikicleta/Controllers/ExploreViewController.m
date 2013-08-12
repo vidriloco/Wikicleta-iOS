@@ -12,6 +12,7 @@
 
 @interface ExploreViewController () {
     BOOL drawerOpenning;
+    MenuViewController *menu;
 }
 
 -(void) showMenu;
@@ -22,11 +23,11 @@
 
 GMSMapView *mapView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     }
     return self;
 }
@@ -67,9 +68,17 @@ GMSMapView *mapView;
 
     [menuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchDragOutside];
     [menuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
+
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
 }
 
 - (void) showMenu {
+    if ([self.viewDeckController leftController] == nil) {
+        [self.viewDeckController setLeftController:[[MenuViewController alloc] init]];
+    }
     if (!drawerOpenning) {
         drawerOpenning = YES;
         [self.viewDeckController toggleLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
@@ -81,6 +90,7 @@ GMSMapView *mapView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 	// Do any additional setup after loading the view.
 }
 

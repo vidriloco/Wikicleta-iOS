@@ -11,6 +11,7 @@
 #import "CoreData+MagicalRecord.h"
 #import "App.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "IIViewDeckController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

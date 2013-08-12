@@ -27,7 +27,18 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self.window setRootViewController:[[LandingViewController alloc] init]];
+    
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc]
+                                             initWithCenterViewController: [[LandingViewController alloc] init]
+                                             leftViewController:nil
+                                             rightViewController:nil];
+    [deckController setPanningMode:IIViewDeckPanningViewPanning];
+    [deckController setLeftSize:100];
+    
+    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose];
+    [deckController setPanningMode:IIViewDeckFullViewPanning];
+    
+    [self.window setRootViewController:deckController];
     
     return YES;
 }
