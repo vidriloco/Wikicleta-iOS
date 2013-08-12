@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "App.h"
+#import "IIViewDeckController.h"
 
 @interface ExploreViewController : UIViewController
 

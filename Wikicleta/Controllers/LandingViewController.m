@@ -27,11 +27,11 @@
         self.view = [[UIView alloc] initWithFrame:[App viewBounds]];
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"blue_gradient_iphone.png"]]];
         
-        UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wikicleta"]];
-        [logo setCenter:CGPointMake(160, 150)];
+        UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+        [logo setCenter:CGPointMake(160, 130)];
         
         UIImageView *pin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin"]];
-        [pin setCenter:CGPointMake(pin.frame.size.width/2, 250)];
+        [pin setCenter:CGPointMake(pin.frame.size.width/2, 280)];
         
         
         [self.view addSubview:logo];
@@ -41,13 +41,19 @@
         
         // Buttons load
         
-        UIButtonWithLabel *explore = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(35, 15, 45, 60) withImageNamed:@"explore.png" withTextLabel:@"Explora"];
+        UIButtonWithLabel *explore = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(35, 15, 45, 60)
+                                                               withImageNamed:@"explore.png"
+                                                                withTextLabel:NSLocalizedString(@"explore", @"")];
         [accessButtons addSubview:explore];
         
-        UIButtonWithLabel *login = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(135, 15, 45, 60) withImageNamed:@"login.png" withTextLabel:@"Entra"];
+        UIButtonWithLabel *login = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(135, 15, 45, 60)
+                                                             withImageNamed:@"login.png"
+                                                              withTextLabel:NSLocalizedString(@"login", @"")];
         [accessButtons addSubview:login];
         
-        UIButtonWithLabel *join = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(235, 15, 45, 60) withImageNamed:@"unite.png" withTextLabel:@"Únete"];
+        UIButtonWithLabel *join = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(235, 15, 45, 60)
+                                                            withImageNamed:@"unite.png"
+                                                             withTextLabel:NSLocalizedString(@"join", @"")];
         [accessButtons addSubview:join];
         
         [explore addTarget:self action:@selector(launchExploreController) forControlEvents:UIControlEventTouchUpInside];
@@ -82,7 +88,16 @@
 
 - (void) launchExploreController
 {
-    [self presentViewController:[[ExploreViewController alloc] init] animated:YES completion:nil];
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc]
+                                             initWithCenterViewController: [[ExploreViewController alloc] init]
+                                             leftViewController:[[MenuViewController alloc] init]
+                                             rightViewController:nil];
+    [deckController setPanningMode:IIViewDeckPanningViewPanning];
+    [deckController setLeftSize:100];
+    
+    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose];
+    [deckController setPanningMode:IIViewDeckFullViewPanning];
+    [self presentViewController:deckController animated:YES completion:nil];
 }
 
 - (void)viewDidLoad

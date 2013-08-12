@@ -14,6 +14,8 @@
 #import "ExploreViewController.h"
 #import "RegistrationViewController.h"
 #import "LoginViewController.h"
+#import "IIViewDeckController.h"
+#import "MenuViewController.h"
 
 @interface LandingViewController : UIViewController {
 }

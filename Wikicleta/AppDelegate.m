@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [GMSServices provideAPIKey:@"AIzaSyBE4uLhgLNO3q1Fqc-EnYk1P7NOpUoy5Pc"];
+    [GMSServices provideAPIKey:@"AIzaSyAfaGmuc-6FezuJaXu3qWVs8jW78SnhR84"];
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Wikicleta.sqlite"];
     
     [App initializeWithEnv:kDev];

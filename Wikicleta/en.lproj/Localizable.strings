@@ -1,0 +1,15 @@
+/* Localized versions of Info.plist keys */
+
+// Landing page
+"explore" = "Explore";
+"login" = "Enter";
+"join" = "Register";
+
+// Menu
+"map" = "map";
+"activity" = "activity";
+"routes" = "routes";
+"messages" = "messages";
+"workshops" = "workshops";
+"parkings" = "parkings";
+"section_title" = "recently used by you";
