@@ -60,7 +60,7 @@ GMSMapView *mapView;
     [shareButton setBackgroundImage:shareImage forState:UIControlStateNormal];
     [self.view addSubview:shareButton];
     
-    UIImage *nearbyImage = [UIImage imageNamed:@"nearby_button.png"];
+    UIImage *nearbyImage = [UIImage imageNamed:@"layer_button.png"];
 
     UIButton *nearbyButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-nearbyImage.size.width-marginUnit-shareButton.frame.size.width-10, [App viewBounds].size.height-nearbyImage.size.height-marginUnit*2, nearbyImage.size.width, nearbyImage.size.height)];
     [nearbyButton setBackgroundImage:nearbyImage forState:UIControlStateNormal];
