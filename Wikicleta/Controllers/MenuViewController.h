@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "App.h"
 #import "MenuListViewController.h"
+#import "LayersChooserViewController.h"
 
 @interface MenuViewController : UIViewController
 

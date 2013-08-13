@@ -34,6 +34,7 @@
                                              rightViewController:nil];
     [deckController setPanningMode:IIViewDeckPanningViewPanning];
     [deckController setLeftSize:100];
+    [deckController setBottomSize:[App viewBounds].size.height-150];
     
     [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose];
     [deckController setPanningMode:IIViewDeckFullViewPanning];

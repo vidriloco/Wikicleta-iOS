@@ -15,8 +15,8 @@
     MenuViewController *menu;
 }
 
--(void) showMenu;
-
+- (void) showMenu;
+- (void) showLayersMenu;
 @end
 
 @implementation MapViewController
@@ -62,17 +62,23 @@ GMSMapView *mapView;
     
     UIImage *nearbyImage = [UIImage imageNamed:@"layer_button.png"];
 
-    UIButton *nearbyButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-nearbyImage.size.width-marginUnit-shareButton.frame.size.width-10, [App viewBounds].size.height-nearbyImage.size.height-marginUnit*2, nearbyImage.size.width, nearbyImage.size.height)];
-    [nearbyButton setBackgroundImage:nearbyImage forState:UIControlStateNormal];
-    [self.view addSubview:nearbyButton];
+    UIButton *layersButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-nearbyImage.size.width-marginUnit-shareButton.frame.size.width-10, [App viewBounds].size.height-nearbyImage.size.height-marginUnit*2, nearbyImage.size.width, nearbyImage.size.height)];
+    [layersButton setBackgroundImage:nearbyImage forState:UIControlStateNormal];
+    [self.view addSubview:layersButton];
 
     [menuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchDragOutside];
     [menuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
 
+    [layersButton addTarget:self action:@selector(showLayersMenu) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
-- (void) viewDidAppear:(BOOL)animated
+- (void) showLayersMenu
 {
+    if ([self.viewDeckController bottomController] == nil) {
+        [self.viewDeckController setBottomController:[[LayersChooserViewController alloc] init]];
+    }
+    [self.viewDeckController toggleBottomViewAnimated:YES];
 }
 
 - (void) showMenu {
