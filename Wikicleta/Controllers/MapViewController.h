@@ -12,6 +12,6 @@
 #import "IIViewDeckController.h"
 #import "MenuViewController.h"
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UITabBarController
 
 @end

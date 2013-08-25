@@ -33,6 +33,7 @@
         [self.mainLabel setTextColor:[UIColor colorWithHexString:@"1f3a50"]];
         [self.mainLabel setFont:[UIFont fontWithName:@"Gotham Rounded" size:20]];
         [self.mainLabel setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+        [self.mainLabel setBackgroundColor:[UIColor clearColor]];
         // Add Main Label to Content View
         [self.contentView addSubview:self.mainLabel];
         

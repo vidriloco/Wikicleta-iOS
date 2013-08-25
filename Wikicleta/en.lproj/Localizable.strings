@@ -13,3 +13,10 @@
 "workshops" = "workshops";
 "parkings" = "parkings";
 "section_title" = "recently used by you";
+
+// Layers Menu
+"routes_layers" = "routes";
+"parkings_layers" = "bike parkings";
+"workshops_layers" = "workshops and stores";
+"bike_sharings_layers" = "bike sharing";
+"tips_layers" = "tips";

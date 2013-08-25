@@ -14,11 +14,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //[self setAlpha:0];
         [self.layer setBackgroundColor:[UIColor whiteColor].CGColor];
-        [self.layer setShadowOffset:CGSizeMake(1, 1)];
-        [self.layer setShadowOpacity:0.3];
-        [self.layer setShadowColor:[UIColor blackColor].CGColor];
+        [self.layer setBorderColor:[UIColor colorWithHexString:@"d5e6f3"].CGColor];
+        [self.layer setBorderWidth:0.3];
     }
     return self;
 }

@@ -18,3 +18,10 @@
 "workshops" = "talleres";
 "parkings" = "estacionamientos";
 "section_title" = "más recientes";
+
+//Layers Menu
+"routes_layers" = "rutas";
+"parkings_layers" = "estacionamientos";
+"workshops_layers" = "talleres y tiendas";
+"bike_sharings_layers" = "bicicletas compartidas";
+"tips_layers" = "tips";

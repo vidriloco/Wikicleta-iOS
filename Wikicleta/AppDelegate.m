@@ -21,26 +21,7 @@
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Wikicleta.sqlite"];
     
     [App initializeWithEnv:kDev];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    
-    IIViewDeckController* deckController =  [[IIViewDeckController alloc]
-                                             initWithCenterViewController: [[LandingViewController alloc] init]
-                                             leftViewController:nil
-                                             rightViewController:nil];
-    [deckController setPanningMode:IIViewDeckPanningViewPanning];
-    [deckController setLeftSize:100];
-    [deckController setBottomSize:[App viewBounds].size.height-150];
-    
-    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose];
-    [deckController setPanningMode:IIViewDeckFullViewPanning];
-    
-    [self.window setRootViewController:deckController];
-    
+        
     return YES;
 }
 

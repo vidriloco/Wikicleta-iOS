@@ -20,6 +20,16 @@
 		1807476817B6262B00A04D61 /* logo_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1807476617B6262B00A04D61 /* logo_menu@2x.png */; };
 		1807476B17B62A1F00A04D61 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1807476917B62A1E00A04D61 /* logo.png */; };
 		1807476C17B62A1F00A04D61 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1807476A17B62A1E00A04D61 /* logo@2x.png */; };
+		180BD03E17BAA6290080296E /* bike_sharings_layers.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03417BAA6290080296E /* bike_sharings_layers.png */; };
+		180BD03F17BAA6290080296E /* bike_sharings_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03517BAA6290080296E /* bike_sharings_layers@2x.png */; };
+		180BD04017BAA6290080296E /* parkings_layers.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03617BAA6290080296E /* parkings_layers.png */; };
+		180BD04117BAA6290080296E /* parkings_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03717BAA6290080296E /* parkings_layers@2x.png */; };
+		180BD04217BAA6290080296E /* routes_layers.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03817BAA6290080296E /* routes_layers.png */; };
+		180BD04317BAA6290080296E /* routes_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03917BAA6290080296E /* routes_layers@2x.png */; };
+		180BD04417BAA6290080296E /* tips_layers.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03A17BAA6290080296E /* tips_layers.png */; };
+		180BD04517BAA6290080296E /* tips_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03B17BAA6290080296E /* tips_layers@2x.png */; };
+		180BD04617BAA6290080296E /* workshops_layers.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03C17BAA6290080296E /* workshops_layers.png */; };
+		180BD04717BAA6290080296E /* workshops_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180BD03D17BAA6290080296E /* workshops_layers@2x.png */; };
 		180E327517B92E9000322194 /* activity_menu_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 180E326D17B92E9000322194 /* activity_menu_selected.png */; };
 		180E327617B92E9000322194 /* activity_menu_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180E326E17B92E9000322194 /* activity_menu_selected@2x.png */; };
 		180E327717B92E9000322194 /* map_menu_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 180E326F17B92E9000322194 /* map_menu_selected.png */; };
@@ -47,8 +57,7 @@
 		181534CE17B1645F009FE8CB /* blue_gradient_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 181534C817B1645F009FE8CB /* blue_gradient_iphone@2x.png */; };
 		181534CF17B1645F009FE8CB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 181534C917B1645F009FE8CB /* pin.png */; };
 		181534D017B1645F009FE8CB /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 181534CA17B1645F009FE8CB /* pin@2x.png */; };
-		181534D117B1645F009FE8CB /* wikicleta.png in Resources */ = {isa = PBXBuildFile; fileRef = 181534CB17B1645F009FE8CB /* wikicleta.png */; };
-		181534D217B1645F009FE8CB /* wikicleta@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 181534CC17B1645F009FE8CB /* wikicleta@2x.png */; };
+		183C9D0617C7D73B002A1A70 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183C9D0517C7D721002A1A70 /* MainStoryboard.storyboard */; };
 		185AF39B17B87C8100D6C3EC /* now_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 185AF39717B87C8100D6C3EC /* now_menu.png */; };
 		185AF39C17B87C8100D6C3EC /* now_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185AF39817B87C8100D6C3EC /* now_menu@2x.png */; };
 		185AF39D17B87C8100D6C3EC /* tour_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 185AF39917B87C8100D6C3EC /* tour_menu.png */; };
@@ -234,6 +243,16 @@
 		1807476617B6262B00A04D61 /* logo_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_menu@2x.png"; sourceTree = "<group>"; };
 		1807476917B62A1E00A04D61 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		1807476A17B62A1E00A04D61 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		180BD03417BAA6290080296E /* bike_sharings_layers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike_sharings_layers.png; sourceTree = "<group>"; };
+		180BD03517BAA6290080296E /* bike_sharings_layers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bike_sharings_layers@2x.png"; sourceTree = "<group>"; };
+		180BD03617BAA6290080296E /* parkings_layers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parkings_layers.png; sourceTree = "<group>"; };
+		180BD03717BAA6290080296E /* parkings_layers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parkings_layers@2x.png"; sourceTree = "<group>"; };
+		180BD03817BAA6290080296E /* routes_layers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = routes_layers.png; sourceTree = "<group>"; };
+		180BD03917BAA6290080296E /* routes_layers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "routes_layers@2x.png"; sourceTree = "<group>"; };
+		180BD03A17BAA6290080296E /* tips_layers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tips_layers.png; sourceTree = "<group>"; };
+		180BD03B17BAA6290080296E /* tips_layers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_layers@2x.png"; sourceTree = "<group>"; };
+		180BD03C17BAA6290080296E /* workshops_layers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workshops_layers.png; sourceTree = "<group>"; };
+		180BD03D17BAA6290080296E /* workshops_layers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workshops_layers@2x.png"; sourceTree = "<group>"; };
 		180E326D17B92E9000322194 /* activity_menu_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_menu_selected.png; sourceTree = "<group>"; };
 		180E326E17B92E9000322194 /* activity_menu_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity_menu_selected@2x.png"; sourceTree = "<group>"; };
 		180E326F17B92E9000322194 /* map_menu_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_menu_selected.png; sourceTree = "<group>"; };
@@ -261,8 +280,7 @@
 		181534C817B1645F009FE8CB /* blue_gradient_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_gradient_iphone@2x.png"; sourceTree = "<group>"; };
 		181534C917B1645F009FE8CB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		181534CA17B1645F009FE8CB /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
-		181534CB17B1645F009FE8CB /* wikicleta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wikicleta.png; sourceTree = "<group>"; };
-		181534CC17B1645F009FE8CB /* wikicleta@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wikicleta@2x.png"; sourceTree = "<group>"; };
+		183C9D0517C7D721002A1A70 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		185AF39717B87C8100D6C3EC /* now_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = now_menu.png; sourceTree = "<group>"; };
 		185AF39817B87C8100D6C3EC /* now_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "now_menu@2x.png"; sourceTree = "<group>"; };
 		185AF39917B87C8100D6C3EC /* tour_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tour_menu.png; sourceTree = "<group>"; };
@@ -324,23 +342,23 @@
 		1863D57F17B14E8B007E7460 /* UIButtonWithLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonWithLabel.m; sourceTree = "<group>"; };
 		3A01314D17B76D6900AED4A8 /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
 		3A01314E17B76D6900AED4A8 /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
-		3A01B48A164A2F6E00F78822 /* Cyclo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cyclo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A01B48A164A2F6E00F78822 /* Wikicleta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikicleta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01B48E164A2F6E00F78822 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3A01B490164A2F6E00F78822 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A01B492164A2F6E00F78822 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A01B494164A2F6E00F78822 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3A01B498164A2F6E00F78822 /* Cyclo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cyclo-Info.plist"; sourceTree = "<group>"; };
+		3A01B498164A2F6E00F78822 /* Wikicleta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wikicleta-Info.plist"; sourceTree = "<group>"; };
 		3A01B49C164A2F6E00F78822 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3A01B49E164A2F6E00F78822 /* Cyclo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cyclo-Prefix.pch"; sourceTree = "<group>"; };
+		3A01B49E164A2F6E00F78822 /* Wikicleta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wikicleta-Prefix.pch"; sourceTree = "<group>"; };
 		3A01B49F164A2F6E00F78822 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A01B4A0164A2F6E00F78822 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3A01B4A2164A2F6E00F78822 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A01B4A4164A2F6E00F78822 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3A01B4A6164A2F6E00F78822 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A01B4A9164A2F6E00F78822 /* Wikicleta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wikicleta.xcdatamodel; sourceTree = "<group>"; };
-		3A01B4B0164A2F6E00F78822 /* CycloTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CycloTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A01B4B0164A2F6E00F78822 /* WikicletaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikicletaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01B4B1164A2F6E00F78822 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		3A01B4BA164A2F6E00F78822 /* CycloTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CycloTests-Info.plist"; sourceTree = "<group>"; };
+		3A01B4BA164A2F6E00F78822 /* WikicletaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WikicletaTests-Info.plist"; sourceTree = "<group>"; };
 		3A01B4BC164A2F6E00F78822 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A01B4BE164A2F6E00F78822 /* WikicletaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WikicletaTests.h; sourceTree = "<group>"; };
 		3A01B4BF164A2F6E00F78822 /* WikicletaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikicletaTests.m; sourceTree = "<group>"; };
@@ -672,6 +690,23 @@
 			path = MenuView;
 			sourceTree = "<group>";
 		};
+		180BD01517BA8EF40080296E /* LayersView */ = {
+			isa = PBXGroup;
+			children = (
+				180BD03417BAA6290080296E /* bike_sharings_layers.png */,
+				180BD03517BAA6290080296E /* bike_sharings_layers@2x.png */,
+				180BD03617BAA6290080296E /* parkings_layers.png */,
+				180BD03717BAA6290080296E /* parkings_layers@2x.png */,
+				180BD03817BAA6290080296E /* routes_layers.png */,
+				180BD03917BAA6290080296E /* routes_layers@2x.png */,
+				180BD03A17BAA6290080296E /* tips_layers.png */,
+				180BD03B17BAA6290080296E /* tips_layers@2x.png */,
+				180BD03C17BAA6290080296E /* workshops_layers.png */,
+				180BD03D17BAA6290080296E /* workshops_layers@2x.png */,
+			);
+			path = LayersView;
+			sourceTree = "<group>";
+		};
 		181534BF17B1644A009FE8CB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,6 +720,7 @@
 		181534C617B1645F009FE8CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				180BD01517BA8EF40080296E /* LayersView */,
 				1807476917B62A1E00A04D61 /* logo.png */,
 				1807476A17B62A1E00A04D61 /* logo@2x.png */,
 				1807476417B622BD00A04D61 /* MenuView */,
@@ -694,8 +730,6 @@
 				181534C817B1645F009FE8CB /* blue_gradient_iphone@2x.png */,
 				181534C917B1645F009FE8CB /* pin.png */,
 				181534CA17B1645F009FE8CB /* pin@2x.png */,
-				181534CB17B1645F009FE8CB /* wikicleta.png */,
-				181534CC17B1645F009FE8CB /* wikicleta@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -756,7 +790,7 @@
 		3A01B47F164A2F6E00F78822 = {
 			isa = PBXGroup;
 			children = (
-				3A01B496164A2F6E00F78822 /* Cyclo */,
+				3A01B496164A2F6E00F78822 /* Wikicleta */,
 				3A01B4B8164A2F6E00F78822 /* WikicletaTests */,
 				3A01B48D164A2F6E00F78822 /* Frameworks */,
 				3A01B48B164A2F6E00F78822 /* Products */,
@@ -766,8 +800,8 @@
 		3A01B48B164A2F6E00F78822 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A01B48A164A2F6E00F78822 /* Cyclo.app */,
-				3A01B4B0164A2F6E00F78822 /* CycloTests.octest */,
+				3A01B48A164A2F6E00F78822 /* Wikicleta.app */,
+				3A01B4B0164A2F6E00F78822 /* WikicletaTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -802,7 +836,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3A01B496164A2F6E00F78822 /* Cyclo */ = {
+		3A01B496164A2F6E00F78822 /* Wikicleta */ = {
 			isa = PBXGroup;
 			children = (
 				3AC7B2B2164CD92E008A3B58 /* Helpers */,
@@ -817,8 +851,8 @@
 				3A01B584164A329D00F78822 /* urls.plist */,
 				3A01B4A8164A2F6E00F78822 /* Wikicleta.xcdatamodeld */,
 				3A01B497164A2F6E00F78822 /* Supporting Files */,
+				183C9D0517C7D721002A1A70 /* MainStoryboard.storyboard */,
 			);
-			name = Cyclo;
 			path = Wikicleta;
 			sourceTree = "<group>";
 		};
@@ -826,9 +860,9 @@
 			isa = PBXGroup;
 			children = (
 				3A14D97717B6BCF2007E16FA /* Localizable.strings */,
-				3A01B498164A2F6E00F78822 /* Cyclo-Info.plist */,
+				3A01B498164A2F6E00F78822 /* Wikicleta-Info.plist */,
 				3A01B49C164A2F6E00F78822 /* main.m */,
-				3A01B49E164A2F6E00F78822 /* Cyclo-Prefix.pch */,
+				3A01B49E164A2F6E00F78822 /* Wikicleta-Prefix.pch */,
 				3A01B4A2164A2F6E00F78822 /* Default.png */,
 				3A01B4A4164A2F6E00F78822 /* Default@2x.png */,
 				3A01B4A6164A2F6E00F78822 /* Default-568h@2x.png */,
@@ -849,7 +883,7 @@
 		3A01B4B9164A2F6E00F78822 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3A01B4BA164A2F6E00F78822 /* CycloTests-Info.plist */,
+				3A01B4BA164A2F6E00F78822 /* WikicletaTests-Info.plist */,
 				3A01B4BB164A2F6E00F78822 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -1238,9 +1272,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A01B489164A2F6E00F78822 /* Cyclo */ = {
+		3A01B489164A2F6E00F78822 /* Wikicleta */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A01B4C3164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "Cyclo" */;
+			buildConfigurationList = 3A01B4C3164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "Wikicleta" */;
 			buildPhases = (
 				3A01B486164A2F6E00F78822 /* Sources */,
 				3A01B487164A2F6E00F78822 /* Frameworks */,
@@ -1250,14 +1284,14 @@
 			);
 			dependencies = (
 			);
-			name = Cyclo;
+			name = Wikicleta;
 			productName = Wikicleta;
-			productReference = 3A01B48A164A2F6E00F78822 /* Cyclo.app */;
+			productReference = 3A01B48A164A2F6E00F78822 /* Wikicleta.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3A01B4AF164A2F6E00F78822 /* CycloTests */ = {
+		3A01B4AF164A2F6E00F78822 /* WikicletaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A01B4C6164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "CycloTests" */;
+			buildConfigurationList = 3A01B4C6164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "WikicletaTests" */;
 			buildPhases = (
 				3A01B4AB164A2F6E00F78822 /* Sources */,
 				3A01B4AC164A2F6E00F78822 /* Frameworks */,
@@ -1269,9 +1303,9 @@
 			dependencies = (
 				3A01B4B7164A2F6E00F78822 /* PBXTargetDependency */,
 			);
-			name = CycloTests;
+			name = WikicletaTests;
 			productName = WikicletaTests;
-			productReference = 3A01B4B0164A2F6E00F78822 /* CycloTests.octest */;
+			productReference = 3A01B4B0164A2F6E00F78822 /* WikicletaTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -1283,7 +1317,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Wikicleta;
 			};
-			buildConfigurationList = 3A01B484164A2F6E00F78822 /* Build configuration list for PBXProject "Cyclo" */;
+			buildConfigurationList = 3A01B484164A2F6E00F78822 /* Build configuration list for PBXProject "Wikicleta" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1296,8 +1330,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A01B489164A2F6E00F78822 /* Cyclo */,
-				3A01B4AF164A2F6E00F78822 /* CycloTests */,
+				3A01B489164A2F6E00F78822 /* Wikicleta */,
+				3A01B4AF164A2F6E00F78822 /* WikicletaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1312,6 +1346,7 @@
 				3A01B4A7164A2F6E00F78822 /* Default-568h@2x.png in Resources */,
 				3A01B585164A329D00F78822 /* urls.plist in Resources */,
 				3AE39CC91668460C002DE754 /* LoginViewController.xib in Resources */,
+				183C9D0617C7D73B002A1A70 /* MainStoryboard.storyboard in Resources */,
 				3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */,
 				181534C317B1644A009FE8CB /* gothamrndbold.ttf in Resources */,
 				181534C417B1644A009FE8CB /* gothamrndbook.ttf in Resources */,
@@ -1320,8 +1355,6 @@
 				181534CE17B1645F009FE8CB /* blue_gradient_iphone@2x.png in Resources */,
 				181534CF17B1645F009FE8CB /* pin.png in Resources */,
 				181534D017B1645F009FE8CB /* pin@2x.png in Resources */,
-				181534D117B1645F009FE8CB /* wikicleta.png in Resources */,
-				181534D217B1645F009FE8CB /* wikicleta@2x.png in Resources */,
 				3A73F54A17B3513E00FA7A71 /* explore.png in Resources */,
 				3A73F54B17B3513E00FA7A71 /* explore@2x.png in Resources */,
 				3A73F54C17B3513E00FA7A71 /* login.png in Resources */,
@@ -1368,6 +1401,16 @@
 				180E329017B93FE300322194 /* user_menu_selected@2x.png in Resources */,
 				180E329317B99AA600322194 /* layer_button.png in Resources */,
 				180E329417B99AA600322194 /* layer_button@2x.png in Resources */,
+				180BD03E17BAA6290080296E /* bike_sharings_layers.png in Resources */,
+				180BD03F17BAA6290080296E /* bike_sharings_layers@2x.png in Resources */,
+				180BD04017BAA6290080296E /* parkings_layers.png in Resources */,
+				180BD04117BAA6290080296E /* parkings_layers@2x.png in Resources */,
+				180BD04217BAA6290080296E /* routes_layers.png in Resources */,
+				180BD04317BAA6290080296E /* routes_layers@2x.png in Resources */,
+				180BD04417BAA6290080296E /* tips_layers.png in Resources */,
+				180BD04517BAA6290080296E /* tips_layers@2x.png in Resources */,
+				180BD04617BAA6290080296E /* workshops_layers.png in Resources */,
+				180BD04717BAA6290080296E /* workshops_layers@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1526,7 +1569,7 @@
 /* Begin PBXTargetDependency section */
 		3A01B4B7164A2F6E00F78822 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A01B489164A2F6E00F78822 /* Cyclo */;
+			target = 3A01B489164A2F6E00F78822 /* Wikicleta */;
 			targetProxy = 3A01B4B6164A2F6E00F78822 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1613,8 +1656,8 @@
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Wikicleta/Cyclo-Prefix.pch";
-				INFOPLIST_FILE = "Wikicleta/Cyclo-Info.plist";
+				GCC_PREFIX_HEADER = "Wikicleta/Wikicleta-Prefix.pch";
+				INFOPLIST_FILE = "Wikicleta/Wikicleta-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1623,7 +1666,7 @@
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks/OCMockLibrary\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Cyclo;
+				PRODUCT_NAME = Wikicleta;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1639,8 +1682,8 @@
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Wikicleta/Cyclo-Prefix.pch";
-				INFOPLIST_FILE = "Wikicleta/Cyclo-Info.plist";
+				GCC_PREFIX_HEADER = "Wikicleta/Wikicleta-Prefix.pch";
+				INFOPLIST_FILE = "Wikicleta/Wikicleta-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1648,7 +1691,7 @@
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks/OCMockLibrary\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Cyclo;
+				PRODUCT_NAME = Wikicleta;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1663,8 +1706,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wikicleta/Wikicleta-Prefix.pch";
-				INFOPLIST_FILE = "WikicletaTests/CycloTests-Info.plist";
-				PRODUCT_NAME = CycloTests;
+				INFOPLIST_FILE = "WikicletaTests/WikicletaTests-Info.plist";
+				PRODUCT_NAME = WikicletaTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1680,8 +1723,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wikicleta/Wikicleta-Prefix.pch";
-				INFOPLIST_FILE = "WikicletaTests/CycloTests-Info.plist";
-				PRODUCT_NAME = CycloTests;
+				INFOPLIST_FILE = "WikicletaTests/WikicletaTests-Info.plist";
+				PRODUCT_NAME = WikicletaTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1690,7 +1733,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A01B484164A2F6E00F78822 /* Build configuration list for PBXProject "Cyclo" */ = {
+		3A01B484164A2F6E00F78822 /* Build configuration list for PBXProject "Wikicleta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A01B4C1164A2F6E00F78822 /* Debug */,
@@ -1699,7 +1742,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A01B4C3164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "Cyclo" */ = {
+		3A01B4C3164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "Wikicleta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A01B4C4164A2F6E00F78822 /* Debug */,
@@ -1708,7 +1751,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A01B4C6164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "CycloTests" */ = {
+		3A01B4C6164A2F6E00F78822 /* Build configuration list for PBXNativeTarget "WikicletaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A01B4C7164A2F6E00F78822 /* Debug */,

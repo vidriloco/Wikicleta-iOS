@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Cyclo.xcodeproj">
+      location = "self:Wikicleta.xcodeproj">
    </FileRef>
 </Workspace>

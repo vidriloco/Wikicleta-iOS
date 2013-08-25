@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "App.h"
+#import "UIColor-Expanded.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface LayersChooserViewController : UIViewController
+@interface LayersChooserViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

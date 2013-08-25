@@ -32,6 +32,7 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
         table.dataSource = self;
         table.delegate = self;
         self.view = table;
+        
     }
     return self;
 }
