@@ -20,8 +20,11 @@
 "section_title" = "más recientes";
 
 //Layers Menu
+"layers_menu_title" = "Capas";
 "routes_layers" = "rutas";
 "parkings_layers" = "estacionamientos";
 "workshops_layers" = "talleres y tiendas";
 "bike_sharings_layers" = "bicicletas compartidas";
 "tips_layers" = "tips";
+
+"location" = "Tu ubicación";

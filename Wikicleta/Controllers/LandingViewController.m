@@ -18,19 +18,6 @@
 
 @implementation LandingViewController
 
-- (id) init
-{
-    self = [super init];
-    
-    if (self) {
-        
-        self.view = [[UIView alloc] initWithFrame:[App viewBounds]];
- 
-    }
-    
-    return self;
-}
-
 - (void) launchLoginController
 {
     NSLog(@"Login controller launched");
@@ -44,37 +31,37 @@
 
 - (void) launchExploreController
 {
-    [self performSegueWithIdentifier:@"explore" sender:self];
+    [self.viewDeckController setCenterController:[[MapViewController alloc] init]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    LandingAccessView *accessButtons = [[LandingAccessView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+4, 100)];
+    LandingAccessView *accessButtons = [[LandingAccessView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
     
     // Buttons load
     
     UIButtonWithLabel *explore = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(35, 15, 45, 60)
-                                                           withImageNamed:@"explore.png"
-                                                            withTextLabel:NSLocalizedString(@"explore", @"")];
+                                                           withName:@"explore"
+                                                       withTextSeparation:45];
     [accessButtons addSubview:explore];
     
     UIButtonWithLabel *login = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(135, 15, 45, 60)
-                                                         withImageNamed:@"login.png"
-                                                          withTextLabel:NSLocalizedString(@"login", @"")];
+                                                         withName:@"login"
+                                                     withTextSeparation:45];
     [accessButtons addSubview:login];
     
     UIButtonWithLabel *join = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(235, 15, 45, 60)
-                                                        withImageNamed:@"unite.png"
-                                                         withTextLabel:NSLocalizedString(@"join", @"")];
+                                                        withName:@"join"
+                                                    withTextSeparation:45];
     [accessButtons addSubview:join];
     
-    [explore addTarget:self action:@selector(launchExploreController) forControlEvents:UIControlEventTouchUpInside];
+    [explore.button addTarget:self action:@selector(launchExploreController) forControlEvents:UIControlEventTouchUpInside];
     
-    [join addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
+    [join.button addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
     
-    [login addTarget:self action:@selector(launchLoginController) forControlEvents:UIControlEventTouchUpInside];
+    [login.button addTarget:self action:@selector(launchLoginController) forControlEvents:UIControlEventTouchUpInside];
     
     
     [self.view addSubview:accessButtons];
@@ -82,7 +69,7 @@
     
     [UIView animateWithDuration:1 animations:^{
         [accessButtons setAlpha:1];
-        [accessButtons setTransform:CGAffineTransformMakeTranslation(0, -100)];
+        [accessButtons setTransform:CGAffineTransformMakeTranslation(0, [App viewBounds].size.height-accessButtons.center.y-100)];
     }];
 
 	// Do any additional setup after loading the view.

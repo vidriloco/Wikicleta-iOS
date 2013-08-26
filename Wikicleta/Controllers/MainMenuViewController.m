@@ -1,45 +1,38 @@
 //
-//  MenuViewController.m
+//  MainMenuViewController.m
 //  Wikicleta
 //
-//  Created by Spalatinje on 8/9/13.
+//  Created by Alejandro Cruz Paz on 8/26/13.
 //  Copyright (c) 2013 Wikicleta. All rights reserved.
 //
 
-#import "MenuViewController.h"
+#import "MainMenuViewController.h"
 
 #define bottomMargin 40
 
-@interface MenuViewController () {
+@interface MainMenuViewController () {
     MenuListViewController *firstList;
-    MenuListViewController *frequentUsedList;
 }
 
 @end
 
-@implementation MenuViewController
+@implementation MainMenuViewController
 
-- (id) init
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super init];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        // Custom initialization
     }
     return self;
 }
 
-- (void) loadView
+- (void)viewDidLoad
 {
-    self.view = [[UIView alloc] initWithFrame:[App viewBounds]];
-    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"blue_gradient_iphone.png"]]];
-    
-    UIImage *imageNamedLogo = [UIImage imageNamed:@"logo_menu.png"];
-    UIImageView *pinLogo = [[UIImageView alloc] initWithImage:imageNamedLogo];
-    [pinLogo setCenter:CGPointMake(imageNamedLogo.size.width/2+20, 60)];
-    [self.view addSubview:pinLogo];
+    [super viewDidLoad];
     
     NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"activity", @"now", nil];
-    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, pinLogo.center.y+60, 190, 180) withOptions:mainSections];
+    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 150, 190, 180) withOptions:mainSections];
     [self.view addSubview:firstList.view];
     
     UIImage *user = [UIImage imageNamed:@"user_menu.png"];
@@ -57,14 +50,6 @@
     [messagesButton setBackgroundImage:messages forState:UIControlStateNormal];
     [messagesButton setBackgroundImage:messagesSelected forState:UIControlStateHighlighted];
     [self.view addSubview:messagesButton];
-    
-
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

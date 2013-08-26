@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0450"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3A01B489164A2F6E00F78822"
-               BuildableName = "Cyclo.app"
-               BlueprintName = "Cyclo"
-               ReferencedContainer = "container:Cyclo.xcodeproj">
+               BuildableName = "Wikicleta.app"
+               BlueprintName = "Wikicleta"
+               ReferencedContainer = "container:Wikicleta.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3A01B4AF164A2F6E00F78822"
-               BuildableName = "CycloTests.octest"
-               BlueprintName = "CycloTests"
-               ReferencedContainer = "container:Cyclo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A01B489164A2F6E00F78822"
-            BuildableName = "Cyclo.app"
-            BlueprintName = "Cyclo"
-            ReferencedContainer = "container:Cyclo.xcodeproj">
+            BuildableName = "Wikicleta.app"
+            BlueprintName = "Wikicleta"
+            ReferencedContainer = "container:Wikicleta.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A01B489164A2F6E00F78822"
-            BuildableName = "Cyclo.app"
-            BlueprintName = "Cyclo"
-            ReferencedContainer = "container:Cyclo.xcodeproj">
+            BuildableName = "Wikicleta.app"
+            BlueprintName = "Wikicleta"
+            ReferencedContainer = "container:Wikicleta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A01B489164A2F6E00F78822"
-            BuildableName = "Cyclo.app"
-            BlueprintName = "Cyclo"
-            ReferencedContainer = "container:Cyclo.xcodeproj">
+            BuildableName = "Wikicleta.app"
+            BlueprintName = "Wikicleta"
+            ReferencedContainer = "container:Wikicleta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

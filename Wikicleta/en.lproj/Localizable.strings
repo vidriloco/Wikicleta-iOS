@@ -15,8 +15,11 @@
 "section_title" = "recently used by you";
 
 // Layers Menu
+"layers_menu_title" = "Layers";
 "routes_layers" = "routes";
-"parkings_layers" = "bike parkings";
-"workshops_layers" = "workshops and stores";
-"bike_sharings_layers" = "bike sharing";
+"parkings_layers" = "parkings";
+"workshops_layers" = "fix & buy";
+"bike_sharings_layers" = "city bikes";
 "tips_layers" = "tips";
+
+"location" = "Your location";

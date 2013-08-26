@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "App.h"
+#import <QuartzCore/QuartzCore.h>
+#import "LayersChooserViewController.h"
+#import "DRNRealTimeBlurView.h"
 #import "IIViewDeckController.h"
-#import "MenuViewController.h"
+#import "MainMenuViewController.h"
 
-@interface MapViewController : UITabBarController
+@interface MapViewController : UIViewController<GMSMapViewDelegate>
 
 @end

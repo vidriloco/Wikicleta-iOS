@@ -10,7 +10,8 @@
 #import "App.h"
 #import "UIColor-Expanded.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIButtonWithLabel.h"
 
-@interface LayersChooserViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface LayersChooserViewController : UIViewController
 
 @end

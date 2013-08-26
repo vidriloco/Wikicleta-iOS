@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "UIColor-Expanded.h"
 
-@interface UIButtonWithLabel : UIButton
+@interface UIButtonWithLabel : UIView {
+    UIButton *button;
+    UILabel *label;
+    NSString *name;
+}
 
-- (id) initWithFrame:(CGRect)frame withImageNamed:(NSString*)image withTextLabel:(NSString*)label;
+@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) NSString *name;
+
+- (id) initWithFrame:(CGRect)frame withName:(NSString*)name withTextSeparation:(int)separation;
+- (void) setSelected:(BOOL)selected;
 
 @end

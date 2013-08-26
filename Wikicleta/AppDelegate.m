@@ -17,11 +17,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [GMSServices provideAPIKey:@"AIzaSyAfaGmuc-6FezuJaXu3qWVs8jW78SnhR84"];
+    [GMSServices provideAPIKey:@"AIzaSyDMKDw8oVSqOMBMat2P4O2_g1OqZzYbl9Q"];
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Wikicleta.sqlite"];
     
     [App initializeWithEnv:kDev];
-        
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc]
+                                             initWithCenterViewController: [[LandingViewController alloc] initWithNibName:@"LandingViewController" bundle:nil]
+                                             leftViewController:nil
+                                             rightViewController:nil];
+    [deckController setPanningMode:IIViewDeckPanningViewPanning];
+    [deckController setLeftSize:200];
+    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose];
+    [deckController setPanningMode:IIViewDeckFullViewPanning];
+    
+    [self.window setRootViewController:deckController];
+    
     return YES;
 }
 
