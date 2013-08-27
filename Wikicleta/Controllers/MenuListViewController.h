@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuViewCell.h"
+#import "IIViewDeckController.h"
+#import "MapViewController.h"
 
 @interface MenuListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
 }
 
-- (id) initWithFrame:(CGRect)frame withOptions:(NSArray*)options;
+- (id) initWithFrame:(CGRect)frame withOptions:(NSArray*)options withViewDeckController:(IIViewDeckController*)deckController;
 
 
 @end

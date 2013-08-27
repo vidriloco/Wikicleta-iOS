@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MenuListViewController.h"
 #import "App.h"
+#import "IIViewDeckController.h"
 
 @interface MainMenuViewController : UIViewController
 

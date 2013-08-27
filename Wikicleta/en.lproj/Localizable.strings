@@ -8,11 +8,8 @@
 // Menu
 "map" = "map";
 "activity" = "activity";
+"tour" = "tour around";
 "routes" = "routes";
-"messages" = "messages";
-"workshops" = "workshops";
-"parkings" = "parkings";
-"section_title" = "recently used by you";
 
 // Layers Menu
 "layers_menu_title" = "Layers";

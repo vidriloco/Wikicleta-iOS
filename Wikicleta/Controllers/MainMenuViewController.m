@@ -31,8 +31,8 @@
 {
     [super viewDidLoad];
     
-    NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"activity", @"now", nil];
-    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 150, 190, 180) withOptions:mainSections];
+    NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"tour", @"activity", nil];
+    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withViewDeckController:self.viewDeckController];
     [self.view addSubview:firstList.view];
     
     UIImage *user = [UIImage imageNamed:@"user_menu.png"];

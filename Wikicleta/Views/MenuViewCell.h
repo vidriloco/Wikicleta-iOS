@@ -15,10 +15,9 @@
     UIImageView *iconCell;
 }
 
-@property (strong, nonatomic) UILabel *mainLabel;
-@property (strong, nonatomic) UIImageView *iconCell;
+@property (nonatomic, strong) IBOutlet UILabel *mainLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *iconCell;
 
-- (id)initWithStyle:(UITableViewCellStyle)style
-    reuseIdentifier:(NSString *)reuseIdentifier
-    withSectionName:(NSString*)name;
+- (void) setIconAndTextByName:(NSString*)name;
+- (void) setDefaultLookAndFeel;
 @end
