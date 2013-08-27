@@ -14,7 +14,9 @@
 #import "DRNRealTimeBlurView.h"
 #import "IIViewDeckController.h"
 #import "MainMenuViewController.h"
+#import "ASIHTTPRequestDelegate.h"
+#import "ASIHTTPRequest.h"
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate>
+@interface MapViewController : UIViewController<GMSMapViewDelegate, ASIHTTPRequestDelegate>
 
 @end

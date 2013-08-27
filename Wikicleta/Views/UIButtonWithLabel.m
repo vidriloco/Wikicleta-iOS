@@ -22,7 +22,6 @@
         
         label = [[UILabel alloc]
                           initWithFrame:CGRectMake(self.frame.size.width/2-labelWidth/2, separation, labelWidth, kLabelHeight)];
-        
         self.name = name_;
         [label setText:NSLocalizedString(name, nil)];
         [label setFont:[UIFont fontWithName:@"Gotham Rounded" size:13]];
@@ -35,7 +34,7 @@
         [self addSubview:label];
         
         UIImage *imageForButton = [UIImage imageNamed:[name stringByAppendingString:@".png"]];
-        button = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width/2-imageForButton.size.width/2, 0, 45, 45)];
+        button = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width/2-imageForButton.size.width/2, 0, imageForButton.size.width, imageForButton.size.height)];
         [button setBackgroundImage:imageForButton forState:UIControlStateNormal];
         [self addSubview:button];
     }
@@ -45,10 +44,8 @@
 - (void) setSelected:(BOOL)selected
 {
     if (selected) {
-        [UIView animateWithDuration:0.5f animations:^{
-            [label setTextColor:[UIColor colorWithHexString:@"fb4e15"]];
-            [button setAlpha:1];
-        }];
+        [label setTextColor:[UIColor colorWithHexString:@"fb4e15"]];
+        [button setAlpha:1];
     } else {
         [UIView animateWithDuration:0.5f animations:^{
             [label setTextColor:[UIColor colorWithHexString:@"1f3a50"]];

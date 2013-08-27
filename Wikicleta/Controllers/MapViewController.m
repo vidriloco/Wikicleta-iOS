@@ -10,16 +10,23 @@
 #define marginUnit 20
 
 @interface MapViewController () {
-    UIView *layersMenu;
+    UIScrollView *layersMenu;
     NSString *selectedLayer;
     NSDictionary *layersMenuList;
     BOOL firstLocationUpdateReceived;
     BOOL drawerOpenning;
+    
+    CLLocation *mapLastCenteredAt;
 }
 
 - (void) selectedLayer:(id)layer;
-- (void) showLayersMenu;
 - (void) showMainMenu;
+
+- (void) toggleLayersMenu;
+- (void) hideLayersMenu;
+- (void) showLayersMenu;
+- (void) fetchAndDisplayLayer:(NSString *)displayLayer;
+
 @end
 
 @implementation MapViewController
@@ -60,41 +67,31 @@ GMSMapView *mapView;
     [layersButton setBackgroundImage:nearbyImage forState:UIControlStateNormal];
     [self.view addSubview:layersButton];
     
-    [layersButton addTarget:self action:@selector(showLayersMenu) forControlEvents:UIControlEventTouchUpInside];
+    [layersButton addTarget:self action:@selector(toggleLayersMenu) forControlEvents:UIControlEventTouchUpInside];
     [menuButton addTarget:self action:@selector(showMainMenu) forControlEvents:UIControlEventTouchDragOutside];
     [menuButton addTarget:self action:@selector(showMainMenu) forControlEvents:UIControlEventTouchUpInside];
     
-    layersMenu = [[UIView alloc] initWithFrame:CGRectMake(20, 40, [App viewBounds].size.width-40, 250)];
+    layersMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
     [layersMenu setBackgroundColor:[UIColor whiteColor]];
     [layersMenu.layer setCornerRadius:5];
     [layersMenu.layer setBorderColor:[UIColor colorWithHexString:@"d5e6f3"].CGColor];
     [layersMenu.layer setBorderWidth:0.5];
     
-    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, layersMenu.frame.size.width-20, 30)];
+    /*UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, layersMenu.frame.size.width-20, 30)];
     [title setFont:[UIFont fontWithName:@"Gotham Rounded" size:18]];
     [title setTextAlignment:NSTextAlignmentCenter];
     [title setBackgroundColor:[UIColor clearColor]];
     [title setTextColor:[UIColor colorWithHexString:@"1f3a50"]];
     [title setText:NSLocalizedString(@"layers_menu_title", nil)];
-    [layersMenu addSubview:title];
+    [layersMenu addSubview:title];*/
     
-    NSArray *layers = [NSArray arrayWithObjects:@"parkings", @"bike_sharings", @"tips", @"workshops", @"routes", nil];
+    NSArray *layers = [NSArray arrayWithObjects:layersParkings, layersRoutes, layersBicycleLanes, layersWorkshops, layersBicycleSharings, layersTips, nil];
     
-    int j = 0;
     int i = 0;
-    
     NSMutableDictionary *layersDict = [[NSMutableDictionary alloc] init];
     for (NSString *layer in layers) {
-        if (i * 95 > layersMenu.frame.size.width) {
-            i = 0;
-            j += 1;
-        }
         
-        CGFloat xOrigin = i * 95;
-        CGFloat yOrigin = j * 100;
-
-        
-        UIButtonWithLabel *buttonLabel = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(xOrigin+20, yOrigin+60, 50, 50)
+        UIButtonWithLabel *buttonLabel = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(i*100, 8, 100, 50)
                                                                    withName:[layer stringByAppendingString:@"_layers"]
                                                                withTextSeparation:50];
         [layersMenu addSubview:buttonLabel];
@@ -102,11 +99,13 @@ GMSMapView *mapView;
 
         [buttonLabel.button addTarget:self action:@selector(selectedLayer:) forControlEvents:UIControlEventTouchUpInside];
         [layersDict setValue:buttonLabel forKey:buttonLabel.name];
-        
         i += 1;
     }
     layersMenuList = [NSDictionary dictionaryWithDictionary:layersDict];
-
+    layersMenu.contentSize = CGSizeMake(100 * layers.count, layersMenu.frame.size.height);
+    [layersMenu setContentInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+    [layersMenu setContentOffset:CGPointMake(-10, 0)];
+    //[layersMenu setPagingEnabled:YES];
     [self.view addSubview:layersMenu];
     [layersMenu setHidden:YES];
 }
@@ -138,9 +137,12 @@ GMSMapView *mapView;
     [previouslySelected setSelected:!(previouslySelected != NULL)];
     [buttonSelected setSelected:YES];
     selectedLayer = buttonSelected.name;
-    [UIView animateWithDuration:0.5 delay:2 options:UIViewAnimationCurveLinear animations:^{
-        [self showLayersMenu];
-    } completion:nil];
+
+    dispatch_after(1, dispatch_get_main_queue(), ^{
+        [self hideLayersMenu];
+    });
+    
+    [self fetchAndDisplayLayer:selectedLayer];
 }
 
 - (void) showMainMenu {
@@ -159,32 +161,35 @@ GMSMapView *mapView;
 
 - (void) showLayersMenu
 {
+    [layersMenu setHidden:NO];
+    [UIView animateWithDuration:0.5 animations:^{
+        [layersMenu setTransform:CGAffineTransformMakeTranslation(0, -100)];
+    }];
+
+}
+
+- (void) toggleLayersMenu
+{
     if ([layersMenu isHidden]) {
-        [layersMenu setAlpha:0];
-        [layersMenu setHidden:NO];
-        [UIView animateWithDuration:0.5 animations:^{
-            [layersMenu setAlpha:1];
-        }];
+        [self showLayersMenu];
     } else {
-        [UIView animateWithDuration:0.3 animations:^{
-            [layersMenu setAlpha:0];
-        } completion:^(BOOL finished) {
-            [layersMenu setHidden:YES];
-        }];
+        [self hideLayersMenu];
     }
+}
+
+- (void) hideLayersMenu
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        [layersMenu setTransform:CGAffineTransformMakeTranslation(0, 100)];
+    } completion:^(BOOL finished) {
+        [layersMenu setHidden:YES];
+    }];
 }
 
 - (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
     if (![layersMenu isHidden]) {
-        [layersMenu setHidden:YES];
-    }
-}
-
-- (void) mapView:(GMSMapView *)mapView willMove:(BOOL)gesture
-{
-    if (![layersMenu isHidden]) {
-        [layersMenu setHidden:YES];
+        [self hideLayersMenu];
     }
 }
 
@@ -201,6 +206,51 @@ GMSMapView *mapView;
         mapView.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
                                                          zoom:14];
     }
+}
+
+- (void) fetchAndDisplayLayer:(NSString *)displayLayer
+{
+    if ([[layersParkings stringByAppendingString:@"_layers"] isEqualToString:displayLayer]) {
+        NSString *parkingsURL = [App urlForResource:@"parkings" withSubresource:@"get"];
+
+        NSURL *url = [NSURL URLWithString:parkingsURL];
+        
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setDelegate:self];
+        [request setTag:1];
+        [request startAsynchronous];
+    }
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+    // Parkings
+    if ([request tag] == 1) {
+        
+    } else if([request tag] == 2) {
+        
+    }
+
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+}
+
+- (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    CLLocation *newCoord = [[CLLocation alloc] initWithLatitude:[position targetAsCoordinate].latitude longitude:[position targetAsCoordinate].longitude];
+
+    if (mapLastCenteredAt != NULL) {
+        CLLocationDistance dist = [mapLastCenteredAt distanceFromLocation:newCoord];
+        if (dist > 200) {
+            [self fetchAndDisplayLayer:selectedLayer];
+            NSLog(@"Fetching");
+        } else {
+            NSLog(@"Not fetching");
+        }
+    }
+    mapLastCenteredAt = newCoord;
 }
 
 @end

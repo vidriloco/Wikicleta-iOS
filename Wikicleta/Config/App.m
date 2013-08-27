@@ -43,6 +43,12 @@ static int environment;
     return [[self backendURL] stringByAppendingString:[urls objectForKey:resource]];
 }
 
++ (NSString*) urlForResource:(NSString *)resource withSubresource:(NSString *)subresource
+{
+    [self loadURLSet];
+    return [[self backendURL] stringByAppendingString:[[urls objectForKey:resource] objectForKey:subresource]];
+}
+
 + (void) loadURLSet
 {
     if(urls == NULL) {
