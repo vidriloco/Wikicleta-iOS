@@ -1,0 +1,10 @@
+PODS:
+  - iActiveRecord (1.3.0)
+
+DEPENDENCIES:
+  - iActiveRecord (= 1.3.0)
+
+SPEC CHECKSUMS:
+  iActiveRecord: 5dd0ababe9b7ea1764da0d21d9f3fe61c73172ce
+
+COCOAPODS: 0.23.0

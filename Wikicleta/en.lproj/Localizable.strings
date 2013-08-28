@@ -20,3 +20,8 @@
 "tips_layers" = "tips";
 "bicycle_lanes_layers" = "lanes";
 "location" = "Your location";
+
+// Parkings Category
+"government_provided" = "Government provided";
+"urban_mobiliary" = "Urban mobiliary";
+"venue_provided" = "Venue provided";

@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [GMSServices provideAPIKey:@"AIzaSyDMKDw8oVSqOMBMat2P4O2_g1OqZzYbl9Q"];
-    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Wikicleta.sqlite"];
+    [ActiveRecord registerDatabaseName:@"Wikicleta.sqlite" useDirectory:ARStorageDocuments];
     
     [App initializeWithEnv:kProd];
     
@@ -66,7 +66,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [MagicalRecord cleanUp];
     // Saves changes in the application's managed object context before the application terminates.
     //[self saveContext];
 }

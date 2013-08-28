@@ -40,16 +40,17 @@ andPasswordConfirmation:(NSString *)confirmation
 - (BOOL) save
 {
     // Get the local context
-    NSManagedObjectContext *localContext    = [NSManagedObjectContext contextForCurrentThread];
+    //NSManagedObjectContext *localContext    = [NSManagedObjectContext contextForCurrentThread];
     
-    UserEntity *userEntity = [UserEntity createInContext:localContext];
+    /*UserEntity *userEntity = [UserEntity createInContext:localContext];
     userEntity.name = name;
     userEntity.email = email;
     userEntity.token = token;
     
     // Save the modification in the local context
     // With MagicalRecords 2.0.8 or newer you should use the MR_saveNestedContexts
-    return [localContext save:nil];
+    return [localContext save:nil];*/
+    return NO;
 }
 
 - (BOOL) isValidForSave

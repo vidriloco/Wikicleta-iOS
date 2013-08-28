@@ -16,6 +16,10 @@
 #import "MainMenuViewController.h"
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIHTTPRequest.h"
+#import "SBJson.h"
+
+#import "Parking.h"
+
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, ASIHTTPRequestDelegate>
 

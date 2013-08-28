@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LandingViewController.h"
-#import "CoreData+MagicalRecord.h"
 #import "App.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "IIViewDeckController.h"
+#import "ActiveRecord.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

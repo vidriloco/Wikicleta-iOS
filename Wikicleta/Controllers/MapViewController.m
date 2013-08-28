@@ -15,7 +15,7 @@
     NSDictionary *layersMenuList;
     BOOL firstLocationUpdateReceived;
     BOOL drawerOpenning;
-    
+    BOOL requestOngoing;
     CLLocation *mapLastCenteredAt;
 }
 
@@ -26,7 +26,7 @@
 - (void) hideLayersMenu;
 - (void) showLayersMenu;
 - (void) fetchAndDisplayLayer:(NSString *)displayLayer;
-
+- (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate;
 @end
 
 @implementation MapViewController
@@ -210,10 +210,17 @@ GMSMapView *mapView;
 
 - (void) fetchAndDisplayLayer:(NSString *)displayLayer
 {
-    if ([[layersParkings stringByAppendingString:@"_layers"] isEqualToString:displayLayer]) {
-        NSString *parkingsURL = [App urlForResource:@"parkings" withSubresource:@"get"];
+    // bottom == near
+    CLLocationCoordinate2D sw = mapView.projection.visibleRegion.nearLeft;
+    NSString *swString = [NSString stringWithFormat:@"%f,%f", sw.latitude, sw.longitude];
+    // top == far
+    CLLocationCoordinate2D ne = mapView.projection.visibleRegion.farRight;
+    NSString *neString = [NSString stringWithFormat:@"%f,%f", ne.latitude, ne.longitude];
 
-        NSURL *url = [NSURL URLWithString:parkingsURL];
+    if ([[layersParkings stringByAppendingString:@"_layers"] isEqualToString:displayLayer]) {
+        NSString *parkingsURL = [App urlForResource:layersParkings withSubresource:@"get"];
+        parkingsURL = [parkingsURL stringByAppendingString:@"viewport[sw]=%@&viewport[ne]=%@"];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:parkingsURL, swString, neString]];
         
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
         [request setDelegate:self];
@@ -224,30 +231,55 @@ GMSMapView *mapView;
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
-    // Parkings
-    if ([request tag] == 1) {
-        
-    } else if([request tag] == 2) {
-        
-    }
+    requestOngoing = NO;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        NSDictionary *responseObject = [jsonParser objectWithString:[request responseString] error:nil];
+        if ([[responseObject objectForKey:@"success"] boolValue]) {
+            NSArray *jsonObjects = [responseObject objectForKey:layersParkings];
+            // Parkings
+            if ([request tag] == 1) {
+                [Parking buildFrom:jsonObjects];
+                for (Parking *parking in [[Parking parkingsLoaded] allValues]) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if ([mapView.projection containsCoordinate:parking.coordinate]) {
+
+                            if (parking.marker.map == nil) {
+                                parking.marker.map = mapView;
+                            }
+                        } else {
+                            parking.marker.map = nil;
+                        }
+                    });
+                }
+            } else if([request tag] == 2) {
+                
+            }
+        }
+
+    });
 
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
+    
 }
 
 - (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
-    CLLocation *newCoord = [[CLLocation alloc] initWithLatitude:[position targetAsCoordinate].latitude longitude:[position targetAsCoordinate].longitude];
+    [self triggerControlledFetch:[position targetAsCoordinate]];
+}
 
+- (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate
+{
+    CLLocation *newCoord = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    
     if (mapLastCenteredAt != NULL) {
         CLLocationDistance dist = [mapLastCenteredAt distanceFromLocation:newCoord];
-        if (dist > 200) {
+        if (dist > 200 && !requestOngoing) {
+            requestOngoing = YES;
             [self fetchAndDisplayLayer:selectedLayer];
-            NSLog(@"Fetching");
         } else {
-            NSLog(@"Not fetching");
         }
     }
     mapLastCenteredAt = newCoord;
