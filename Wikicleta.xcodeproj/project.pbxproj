@@ -189,6 +189,9 @@
 		3ADA3072166C484100839DD9 /* UserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA3071166C484100839DD9 /* UserEntity.m */; };
 		3AE39CC81668460C002DE754 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE39CC61668460C002DE754 /* LoginViewController.m */; };
 		3AE39CC91668460C002DE754 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE39CC71668460C002DE754 /* LoginViewController.xib */; };
+		3AE6B4B917CDD11900923D15 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6B4B617CDD11900923D15 /* icon57.png */; };
+		3AE6B4BA17CDD11900923D15 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6B4B717CDD11900923D15 /* icon114.png */; };
+		3AE6B4BB17CDD11900923D15 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6B4B817CDD11900923D15 /* icon120.png */; };
 		3AE7A44616692E99006F251D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44416692E8D006F251D /* QuartzCore.framework */; };
 		3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7A44916693BFA006F251D /* MapViewController.m */; };
 		6981D13EDC7742E088CEFBD7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A0F461E5540259685105B /* libPods.a */; };
@@ -512,6 +515,9 @@
 		3AE39CC51668460C002DE754 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		3AE39CC61668460C002DE754 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		3AE39CC71668460C002DE754 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ../LoginViewController.xib; sourceTree = "<group>"; };
+		3AE6B4B617CDD11900923D15 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
+		3AE6B4B717CDD11900923D15 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		3AE6B4B817CDD11900923D15 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
 		3AE7A44216692E7C006F251D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3AE7A44416692E8D006F251D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3AE7A44816693BFA006F251D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -650,6 +656,9 @@
 		181534C617B1645F009FE8CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3AE6B4B617CDD11900923D15 /* icon57.png */,
+				3AE6B4B717CDD11900923D15 /* icon114.png */,
+				3AE6B4B817CDD11900923D15 /* icon120.png */,
 				3A8E009617CDC0E6003003CE /* Markers */,
 				180BD01517BA8EF40080296E /* LayersView */,
 				1807476917B62A1E00A04D61 /* logo.png */,
@@ -1216,6 +1225,7 @@
 				3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */,
 				181534C317B1644A009FE8CB /* gothamrndbold.ttf in Resources */,
 				181534C417B1644A009FE8CB /* gothamrndbook.ttf in Resources */,
+				3AE6B4B917CDD11900923D15 /* icon57.png in Resources */,
 				181534C517B1644A009FE8CB /* gothamrndlight.ttf in Resources */,
 				181534CD17B1645F009FE8CB /* blue_gradient_iphone.png in Resources */,
 				181534CE17B1645F009FE8CB /* blue_gradient_iphone@2x.png in Resources */,
@@ -1236,6 +1246,7 @@
 				183F0C3417CC1576006B4F54 /* MenuViewCell.xib in Resources */,
 				1807476B17B62A1F00A04D61 /* logo.png in Resources */,
 				1807476C17B62A1F00A04D61 /* logo@2x.png in Resources */,
+				3AE6B4BA17CDD11900923D15 /* icon114.png in Resources */,
 				3A14D97917B6BCF2007E16FA /* Localizable.strings in Resources */,
 				3ACEA0EC17B7FD8600EE1B92 /* map_menu.png in Resources */,
 				3ACEA0ED17B7FD8600EE1B92 /* map_menu@2x.png in Resources */,
@@ -1260,6 +1271,7 @@
 				180E328E17B93FE300322194 /* messages_menu_selected@2x.png in Resources */,
 				180E328F17B93FE300322194 /* user_menu_selected.png in Resources */,
 				180E329017B93FE300322194 /* user_menu_selected@2x.png in Resources */,
+				3AE6B4BB17CDD11900923D15 /* icon120.png in Resources */,
 				3A8E00A517CDC413003003CE /* urban_mobiliary_marker.png in Resources */,
 				183F0C4017CD0F55006B4F54 /* activity_menu@2x.png in Resources */,
 				180E329317B99AA600322194 /* layer_button.png in Resources */,
