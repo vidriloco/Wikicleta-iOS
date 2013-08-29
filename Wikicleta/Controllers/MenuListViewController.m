@@ -92,7 +92,7 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
             localDeckController.centerController = [[MapViewController alloc] init];
         }
         [localDeckController closeLeftViewAnimated:YES];
-    } else if ([selectedMenuItem isEqualToString:@"tour"]) {
+    } else if ([selectedMenuItem isEqualToString:@"discover"]) {
         
     } else if ([selectedMenuItem isEqualToString:@"activity"]) {
         

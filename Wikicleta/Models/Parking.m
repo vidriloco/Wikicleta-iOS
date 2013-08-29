@@ -10,7 +10,6 @@
 
 @interface Parking(){
     NSDateFormatter *dateFormatter;
-    NSDictionary *categories;
 }
 
 - (void) setCategories;
@@ -21,7 +20,7 @@
 
 static NSMutableDictionary* parkingsLoaded;
 
-@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,kind,username,remoteId,likesCount,updatedAt,userId,userPicURL, coordinate, marker;
+@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username,remoteId,likesCount,updatedAt,userId,userPicURL, coordinate;
 
 ignore_fields_do(
     ignore_field(username);
@@ -71,9 +70,10 @@ ignore_fields_do(
         self.userPicURL = [[dictionary objectForKey:@"owner"] objectForKey:@"pic"];
         self.username = [[dictionary objectForKey:@"owner"] objectForKey:@"username"];
         
-        marker = [GMSMarker markerWithPosition:self.coordinate];
+        marker = [WikiMarker markerWithPosition:self.coordinate];
         marker.title = self.localizedKindString;
-        marker.icon = [UIImage imageNamed:[self.kindString stringByAppendingString:@"_marker"]];
+        marker.icon = [self image];
+        marker.model = self;
     }
     
     return self;
@@ -88,16 +88,6 @@ ignore_fields_do(
     }
 }
 
-- (NSString*) localizedKindString
-{
-    return NSLocalizedString([self kindString], nil);
-}
-
-- (NSString*) kindString
-{
-    return [categories objectForKey:kind];
-}
-
 - (void) setCategories
 {
     if (categories == NULL) {
@@ -108,6 +98,26 @@ ignore_fields_do(
 
         categories = [NSDictionary dictionaryWithDictionary:dict];
     }
+}
+
+- (NSString*) title
+{
+    return NSLocalizedString(@"parkings_title", nil);
+}
+
+- (NSString*) subtitle
+{
+    return NSLocalizedString([self kindString], nil);
+}
+
+- (UIImage*) image
+{
+    return [UIImage imageNamed:[self.kindString stringByAppendingString:@"_marker.png"]];
+}
+
+- (int) identifier
+{
+    return self.remoteId;
 }
 
 @end

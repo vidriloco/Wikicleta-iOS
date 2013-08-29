@@ -17,6 +17,9 @@
     BOOL drawerOpenning;
     BOOL requestOngoing;
     CLLocation *mapLastCenteredAt;
+    MarkerDetailsView *detailsView;
+    
+    BaseModel *currentlySelectedModel;
 }
 
 - (void) selectedLayer:(id)layer;
@@ -27,6 +30,11 @@
 - (void) showLayersMenu;
 - (void) fetchAndDisplayLayer:(NSString *)displayLayer;
 - (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate;
+- (void) updateMapWithItems:(NSArray*)items;
+- (void) buildViewForMarker:(GMSMarker*)marker;
+
+- (void) showMoreInfo;
+- (void) hideViewForMarker;
 @end
 
 @implementation MapViewController
@@ -71,11 +79,22 @@ GMSMapView *mapView;
     [menuButton addTarget:self action:@selector(showMainMenu) forControlEvents:UIControlEventTouchDragOutside];
     [menuButton addTarget:self action:@selector(showMainMenu) forControlEvents:UIControlEventTouchUpInside];
     
+    detailsView = [[[NSBundle mainBundle] loadNibNamed:@"MarkerDetailsView" owner:self options:nil] objectAtIndex:0];
+    [self.view addSubview:detailsView];
+    [detailsView setFrame:CGRectMake(detailsView.frame.origin.x,
+                                     self.view.frame.size.height, detailsView.frame.size.width, detailsView.frame.size.height)];
+    [detailsView setHidden:YES];
+    
+    [detailsView.moreInfoButton addTarget:self
+                                   action:@selector(showMoreInfo)
+                         forControlEvents:UIControlEventTouchUpInside];
+    
+    [detailsView.hideButton addTarget:self
+                               action:@selector(hideViewForMarker)
+                     forControlEvents:UIControlEventTouchUpInside];
+    
     layersMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
     [layersMenu setBackgroundColor:[UIColor whiteColor]];
-    [layersMenu.layer setCornerRadius:5];
-    [layersMenu.layer setBorderColor:[UIColor colorWithHexString:@"d5e6f3"].CGColor];
-    [layersMenu.layer setBorderWidth:0.5];
     
     /*UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, layersMenu.frame.size.width-20, 30)];
     [title setFont:[UIFont fontWithName:@"Gotham Rounded" size:18]];
@@ -101,11 +120,11 @@ GMSMapView *mapView;
         [layersDict setValue:buttonLabel forKey:buttonLabel.name];
         i += 1;
     }
+    
     layersMenuList = [NSDictionary dictionaryWithDictionary:layersDict];
     layersMenu.contentSize = CGSizeMake(100 * layers.count, layersMenu.frame.size.height);
     [layersMenu setContentInset:UIEdgeInsetsMake(0, 10, 0, 10)];
     [layersMenu setContentOffset:CGPointMake(-10, 0)];
-    //[layersMenu setPagingEnabled:YES];
     [self.view addSubview:layersMenu];
     [layersMenu setHidden:YES];
 }
@@ -186,14 +205,6 @@ GMSMapView *mapView;
     }];
 }
 
-- (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
-{
-    if (![layersMenu isHidden]) {
-        [self hideLayersMenu];
-    }
-}
-
-
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
@@ -240,18 +251,7 @@ GMSMapView *mapView;
             // Parkings
             if ([request tag] == 1) {
                 [Parking buildFrom:jsonObjects];
-                for (Parking *parking in [[Parking parkingsLoaded] allValues]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if ([mapView.projection containsCoordinate:parking.coordinate]) {
-
-                            if (parking.marker.map == nil) {
-                                parking.marker.map = mapView;
-                            }
-                        } else {
-                            parking.marker.map = nil;
-                        }
-                    });
-                }
+                [self updateMapWithItems:[[Parking parkingsLoaded] allValues]];
             } else if([request tag] == 2) {
                 
             }
@@ -266,10 +266,86 @@ GMSMapView *mapView;
     
 }
 
+- (void) updateMapWithItems:(NSArray*)items {
+    for (BaseModel *model in items) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([mapView.projection containsCoordinate:model.coordinate]) {
+                if (model.marker.map == nil) {
+                    model.marker.map = mapView;
+                }
+            } else {
+                model.marker.map = nil;
+            }
+        });
+
+    }
+}
+
+- (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    if (![layersMenu isHidden]) {
+        [self hideLayersMenu];
+    }
+}
+
+- (BOOL) mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
+{
+    [self buildViewForMarker:marker];
+    return YES;
+}
+
+- (void) showMoreInfo {
+    [self presentModalViewController:[[MarkerDetailsExtendedViewController alloc]
+                                      initWithNibName:@"MarkerDetailsExtendedViewController"
+                                      bundle:nil] animated:YES];
+}
+
+- (void) hideViewForMarker {
+    currentlySelectedModel = NULL;
+    [UIView animateWithDuration:0.3 animations:^{
+        [detailsView setTransform:CGAffineTransformMakeTranslation(0, detailsView.frame.size.height)];
+    } completion:^(BOOL finished) {
+        [detailsView setHidden:YES];
+    }];
+    [mapView animateToZoom:11];
+}
+
 - (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
     [self triggerControlledFetch:[position targetAsCoordinate]];
 }
 
+/**
+ *  Builds the view for a selected map marker
+ */
+- (void) buildViewForMarker:(GMSMarker*)marker
+{
+    BaseModel *newModel = ((WikiMarker*) marker).model;
+    
+    // Update is the model is different from the current one
+    if (currentlySelectedModel == NULL || [newModel identifier] != [currentlySelectedModel identifier]) {
+        currentlySelectedModel = newModel;
+
+        [detailsView.title setText:newModel.title];
+        [detailsView.subtitle setText:[newModel.subtitle uppercaseString]];
+        [detailsView.iconLabel setImage:[newModel image]];
+        
+        [detailsView loadDefaults];
+        [mapView animateToLocation:newModel.coordinate];
+        [mapView animateToZoom:16];
+        
+        [detailsView setHidden:NO];
+        [self.view bringSubviewToFront:detailsView];
+        [UIView animateWithDuration:0.5 animations:^{
+            [detailsView setTransform:CGAffineTransformMakeTranslation(0, -detailsView.frame.size.height)];
+        }];
+    }
+    
+}
+
+
+/**
+ *  Triggers a controlled fetch only if the map camera has moved more than x meters from the last position
+ */
 - (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate
 {
     CLLocation *newCoord = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];

@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ActiveRecord.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "BaseModel.h"
 
-@interface Parking : ActiveRecord
+@interface Parking : BaseModel
 
 @property (nonatomic, strong) NSNumber *remoteId;
 @property (nonatomic, strong) NSString *details;
-@property (nonatomic, strong) NSNumber *kind;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 
@@ -28,15 +28,8 @@
 @property (nonatomic, strong) NSNumber *likesCount;
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *userPicURL;
-@property (nonatomic) CLLocationCoordinate2D coordinate;
-
-@property (nonatomic, strong) GMSMarker *marker;
-
-+ (void) buildFrom:(NSArray*)array;
 
 - (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)remoteId_;
-- (NSString*) localizedKindString;
-- (NSString*) kindString;
 + (NSDictionary*) parkingsLoaded;
 
 @end

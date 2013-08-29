@@ -17,9 +17,9 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIHTTPRequest.h"
 #import "SBJson.h"
-
+#import "MarkerDetailsView.h"
 #import "Parking.h"
-
+#import "MarkerDetailsExtendedViewController.h"
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, ASIHTTPRequestDelegate>
 

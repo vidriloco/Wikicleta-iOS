@@ -26,5 +26,14 @@
 "workshops_layers" = "talleres y tiendas";
 "bike_sharings_layers" = "bicicletas compartidas";
 "tips_layers" = "tips";
-
 "location" = "Tu ubicación";
+
+// Parkings Category
+"government_provided" = "Del gobierno";
+"urban_mobiliary" = "Mobiliario urbano";
+"venue_provided" = "Del establecimiento";
+
+"parkings_title" = "Bici-estacionamiento";
+"ranking" = "%f opinión";
+"rankings" = "%f opiniones";
+

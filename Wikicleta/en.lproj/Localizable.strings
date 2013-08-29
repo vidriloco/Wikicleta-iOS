@@ -8,7 +8,7 @@
 // Menu
 "map" = "map";
 "activity" = "activity";
-"tour" = "tour around";
+"discover" = "discover";
 "routes" = "routes";
 
 // Layers Menu
@@ -25,3 +25,9 @@
 "government_provided" = "Government provided";
 "urban_mobiliary" = "Urban mobiliary";
 "venue_provided" = "Venue provided";
+
+// Parking View
+"parkings_title" = "Bicycle Parking";
+"ranking" = "%f ranking";
+"rankings" = "%f rankings";
+

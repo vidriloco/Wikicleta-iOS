@@ -24,12 +24,12 @@
                           initWithFrame:CGRectMake(self.frame.size.width/2-labelWidth/2, separation, labelWidth, kLabelHeight)];
         self.name = name_;
         [label setText:NSLocalizedString(name, nil)];
-        [label setFont:[UIFont fontWithName:@"Gotham Rounded" size:13]];
+        [label setFont:[LookAndFeel defaultFontLightWithSize:13]];
         [label setTextAlignment:NSTextAlignmentCenter];
         [label setLineBreakMode:NSLineBreakByWordWrapping];
         [label setNumberOfLines:2];
         [label setBackgroundColor:[UIColor clearColor]];
-        [label setTextColor:[UIColor colorWithHexString:@"fb4e15"]];
+        [label setTextColor:[LookAndFeel blueColor]];
 
         [self addSubview:label];
         
@@ -44,11 +44,11 @@
 - (void) setSelected:(BOOL)selected
 {
     if (selected) {
-        [label setTextColor:[UIColor colorWithHexString:@"fb4e15"]];
+        [label setTextColor:[LookAndFeel orangeColor]];
         [button setAlpha:1];
     } else {
         [UIView animateWithDuration:0.5f animations:^{
-            [label setTextColor:[UIColor colorWithHexString:@"1f3a50"]];
+            [label setTextColor:[LookAndFeel blueColor]];
             [button setAlpha:0.3];
         }];
     }

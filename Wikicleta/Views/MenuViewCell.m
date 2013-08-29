@@ -17,15 +17,15 @@
     [self.mainLabel setText:NSLocalizedString(name, nil)];
     [self.mainLabel setTextAlignment:NSTextAlignmentCenter];
     [self.iconCell setImage:[UIImage imageNamed:[name stringByAppendingString:@"_menu.png"]]];
-    [self.mainLabel setFont:[UIFont fontWithName:@"Gotham Rounded" size:18]];
+    [self.mainLabel setFont:[LookAndFeel defaultFontLightWithSize:18]];
 }
 
 - (void) setDefaultLookAndFeel
 {
     UIView *selectedBackground = [[UIView alloc] initWithFrame:self.contentView.frame];
     [selectedBackground.layer setCornerRadius:7];
-    UIColor *color = [UIColor colorWithHexString:@"fb4e15"];
-    [selectedBackground.layer setBackgroundColor:[color colorWithAlphaComponent:0.1].CGColor];
+    [selectedBackground.layer setBackgroundColor:[[LookAndFeel orangeColor]
+                         colorWithAlphaComponent:0.1].CGColor];
     [selectedBackground.layer setOpacity:0.4];
     [self setSelectedBackgroundView:selectedBackground];
 }

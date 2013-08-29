@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"tour", @"activity", nil];
+    NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"discover", @"activity", nil];
     firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withViewDeckController:self.viewDeckController];
     [self.view addSubview:firstList.view];
     
