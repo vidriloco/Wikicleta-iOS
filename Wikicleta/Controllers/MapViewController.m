@@ -10,24 +10,20 @@
 #define marginUnit 20
 
 @interface MapViewController () {
-    UIScrollView *layersMenu;
-    NSString *selectedLayer;
-    NSDictionary *layersMenuList;
     BOOL firstLocationUpdateReceived;
-    BOOL drawerOpenning;
+    BOOL leftDrawerOpenning;
+    BOOL rightDrawerOpenning;
     BOOL requestOngoing;
     CLLocation *mapLastCenteredAt;
     MarkerDetailsView *detailsView;
-    
     BaseModel *currentlySelectedModel;
+    
+    NSString *activeLayers;
 }
 
-- (void) selectedLayer:(id)layer;
-- (void) showMainMenu;
+- (void) openLeftDock;
+- (void) openRightDock;
 
-- (void) toggleLayersMenu;
-- (void) hideLayersMenu;
-- (void) showLayersMenu;
 - (void) fetchAndDisplayLayer:(NSString *)displayLayer;
 - (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate;
 - (void) updateMapWithItems:(NSArray*)items;
@@ -63,21 +59,24 @@ GMSMapView *mapView;
     [self.view addSubview:menuButton];
     
     UIImage *shareImage = [UIImage imageNamed:@"share_button.png"];
-    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-shareImage.size.width-marginUnit,
+    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-shareImage.size.width-marginUnit*2,
                                                                        [App viewBounds].size.height-shareImage.size.height-marginUnit*2,
                                                                        shareImage.size.width, shareImage.size.height)];
     [shareButton setBackgroundImage:shareImage forState:UIControlStateNormal];
-    [self.view addSubview:shareButton];
+    //[self.view addSubview:shareButton];
     
-    UIImage *nearbyImage = [UIImage imageNamed:@"layer_button.png"];
+    UIImage *layerImage = [UIImage imageNamed:@"layer_button.png"];
     
-    UIButton *layersButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-nearbyImage.size.width-marginUnit-shareButton.frame.size.width-10, [App viewBounds].size.height-nearbyImage.size.height-marginUnit*2, nearbyImage.size.width, nearbyImage.size.height)];
-    [layersButton setBackgroundImage:nearbyImage forState:UIControlStateNormal];
+    UIButton *layersButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-layerImage.size.width+5, [App viewBounds].size.height-layerImage.size.height-marginUnit*2, layerImage.size.width, layerImage.size.height)];
+    [layersButton setBackgroundImage:layerImage forState:UIControlStateNormal];
     [self.view addSubview:layersButton];
     
-    [layersButton addTarget:self action:@selector(toggleLayersMenu) forControlEvents:UIControlEventTouchUpInside];
-    [menuButton addTarget:self action:@selector(showMainMenu) forControlEvents:UIControlEventTouchDragOutside];
-    [menuButton addTarget:self action:@selector(showMainMenu) forControlEvents:UIControlEventTouchUpInside];
+    [layersButton addTarget:self action:@selector(openRightDock) forControlEvents:UIControlEventTouchDragOutside];
+    [layersButton addTarget:self action:@selector(openRightDock) forControlEvents:UIControlEventTouchUpInside];
+    
+    [menuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchDragOutside];
+    [menuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchUpInside];
+    
     
     detailsView = [[[NSBundle mainBundle] loadNibNamed:@"MarkerDetailsView" owner:self options:nil] objectAtIndex:0];
     [self.view addSubview:detailsView];
@@ -91,42 +90,7 @@ GMSMapView *mapView;
     
     [detailsView.hideButton addTarget:self
                                action:@selector(hideViewForMarker)
-                     forControlEvents:UIControlEventTouchUpInside];
-    
-    layersMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
-    [layersMenu setBackgroundColor:[UIColor whiteColor]];
-    
-    /*UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, layersMenu.frame.size.width-20, 30)];
-    [title setFont:[UIFont fontWithName:@"Gotham Rounded" size:18]];
-    [title setTextAlignment:NSTextAlignmentCenter];
-    [title setBackgroundColor:[UIColor clearColor]];
-    [title setTextColor:[UIColor colorWithHexString:@"1f3a50"]];
-    [title setText:NSLocalizedString(@"layers_menu_title", nil)];
-    [layersMenu addSubview:title];*/
-    
-    NSArray *layers = [NSArray arrayWithObjects:layersParkings, layersRoutes, layersBicycleLanes, layersWorkshops, layersBicycleSharings, layersTips, nil];
-    
-    int i = 0;
-    NSMutableDictionary *layersDict = [[NSMutableDictionary alloc] init];
-    for (NSString *layer in layers) {
-        
-        UIButtonWithLabel *buttonLabel = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(i*100, 8, 100, 50)
-                                                                   withName:[layer stringByAppendingString:@"_layers"]
-                                                               withTextSeparation:50];
-        [layersMenu addSubview:buttonLabel];
-        [buttonLabel setSelected:NO];
-
-        [buttonLabel.button addTarget:self action:@selector(selectedLayer:) forControlEvents:UIControlEventTouchUpInside];
-        [layersDict setValue:buttonLabel forKey:buttonLabel.name];
-        i += 1;
-    }
-    
-    layersMenuList = [NSDictionary dictionaryWithDictionary:layersDict];
-    layersMenu.contentSize = CGSizeMake(100 * layers.count, layersMenu.frame.size.height);
-    [layersMenu setContentInset:UIEdgeInsetsMake(0, 10, 0, 10)];
-    [layersMenu setContentOffset:CGPointMake(-10, 0)];
-    [self.view addSubview:layersMenu];
-    [layersMenu setHidden:YES];
+                     forControlEvents:UIControlEventTouchUpInside];    
 }
 
 - (void)viewDidLoad
@@ -148,61 +112,34 @@ GMSMapView *mapView;
     // Dispose of any resources that can be recreated.
 }
 
-- (void) selectedLayer:(id)layer
-{
-    UIButtonWithLabel *buttonSelected = ((UIButtonWithLabel*) [layer superview]);
-    UIButtonWithLabel *previouslySelected = [layersMenuList objectForKey:selectedLayer];
-
-    [previouslySelected setSelected:!(previouslySelected != NULL)];
-    [buttonSelected setSelected:YES];
-    selectedLayer = buttonSelected.name;
-
-    dispatch_after(1, dispatch_get_main_queue(), ^{
-        [self hideLayersMenu];
-    });
-    
-    [self fetchAndDisplayLayer:selectedLayer];
-}
-
-- (void) showMainMenu {
+- (void) openLeftDock {
     
     if ([self.viewDeckController leftController] == nil) {
         [self.viewDeckController setLeftController:[[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil]];
     }
 
-    if (!drawerOpenning) {
-        drawerOpenning = YES;
+    if (!leftDrawerOpenning) {
+        leftDrawerOpenning = YES;
         [self.viewDeckController toggleLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
-            drawerOpenning = NO;
+            leftDrawerOpenning = NO;
         }];
     }
 }
 
-- (void) showLayersMenu
+- (void) openRightDock
 {
-    [layersMenu setHidden:NO];
-    [UIView animateWithDuration:0.5 animations:^{
-        [layersMenu setTransform:CGAffineTransformMakeTranslation(0, -100)];
-    }];
-
-}
-
-- (void) toggleLayersMenu
-{
-    if ([layersMenu isHidden]) {
-        [self showLayersMenu];
-    } else {
-        [self hideLayersMenu];
+    if ([self.viewDeckController rightController] == nil) {
+        LayersChooserViewController *layersViewController = [[LayersChooserViewController alloc] init];
+        layersViewController.delegate = self;
+        [self.viewDeckController setRightController:layersViewController];
     }
-}
-
-- (void) hideLayersMenu
-{
-    [UIView animateWithDuration:0.3 animations:^{
-        [layersMenu setTransform:CGAffineTransformMakeTranslation(0, 100)];
-    } completion:^(BOOL finished) {
-        [layersMenu setHidden:YES];
-    }];
+    
+    if (!rightDrawerOpenning) {
+        rightDrawerOpenning = YES;
+        [self.viewDeckController toggleRightViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
+            rightDrawerOpenning = NO;
+        }];
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -283,9 +220,9 @@ GMSMapView *mapView;
 
 - (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    if (![layersMenu isHidden]) {
+    /*if (![layersMenu isHidden]) {
         [self hideLayersMenu];
-    }
+    }*/
 }
 
 - (BOOL) mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
@@ -354,11 +291,21 @@ GMSMapView *mapView;
         CLLocationDistance dist = [mapLastCenteredAt distanceFromLocation:newCoord];
         if (dist > 200 && !requestOngoing) {
             requestOngoing = YES;
-            [self fetchAndDisplayLayer:selectedLayer];
+            [self fetchAndDisplayLayer:activeLayers];
         } else {
         }
     }
     mapLastCenteredAt = newCoord;
+}
+
+- (void) updateMapWithLayersSelected:(NSArray*)layersSelected {
+    if ([layersSelected count] > 1) {
+        // Concat string and fetch at diferent URL
+    } else {
+        activeLayers = [layersSelected objectAtIndex:0];
+    }
+    
+    [self fetchAndDisplayLayer:activeLayers];
 }
 
 @end

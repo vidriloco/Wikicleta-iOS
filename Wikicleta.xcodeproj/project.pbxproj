@@ -201,6 +201,7 @@
 		3AE6B4BB17CDD11900923D15 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6B4B817CDD11900923D15 /* icon120.png */; };
 		3AE7A44616692E99006F251D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44416692E8D006F251D /* QuartzCore.framework */; };
 		3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7A44916693BFA006F251D /* MapViewController.m */; };
+		3AEEABCA17D05AD000741B17 /* LayersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEABC917D05AD000741B17 /* LayersScrollView.m */; };
 		6981D13EDC7742E088CEFBD7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A0F461E5540259685105B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -541,6 +542,9 @@
 		3AE7A44416692E8D006F251D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3AE7A44816693BFA006F251D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3AE7A44916693BFA006F251D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		3AEEABC817D05AD000741B17 /* LayersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayersScrollView.h; sourceTree = "<group>"; };
+		3AEEABC917D05AD000741B17 /* LayersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayersScrollView.m; sourceTree = "<group>"; };
+		3AEEABCE17D06E1E00741B17 /* LayersDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayersDelegate.h; sourceTree = "<group>"; };
 		4B8A0F461E5540259685105B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7749400903248DF8FE7620E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -809,6 +813,7 @@
 		3A01B496164A2F6E00F78822 /* Wikicleta */ = {
 			isa = PBXGroup;
 			children = (
+				3AEEABCD17D06E1100741B17 /* Delegates */,
 				3AC7B2B2164CD92E008A3B58 /* Helpers */,
 				3A01B57E164A320300F78822 /* Config */,
 				3A01B4D8164A313900F78822 /* Libraries */,
@@ -931,6 +936,8 @@
 				18F76ECE17CE5F12008D9B3E /* MarkerDetailsView.xib */,
 				18F76ECF17CE62E3008D9B3E /* MarkerDetailsView.h */,
 				18F76ED017CE62E3008D9B3E /* MarkerDetailsView.m */,
+				3AEEABC817D05AD000741B17 /* LayersScrollView.h */,
+				3AEEABC917D05AD000741B17 /* LayersScrollView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1178,6 +1185,15 @@
 				3AC7B2BE164CE521008A3B58 /* AuthenticatorDelegate.h */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3AEEABCD17D06E1100741B17 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3AEEABCE17D06E1E00741B17 /* LayersDelegate.h */,
+			);
+			name = Delegates;
+			path = "../../wikicleta-ios-old/Wikicleta/Delegates";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1456,6 +1472,7 @@
 				1863D53B17B04B3A007E7460 /* AKCornerRadiusImageEffect.m in Sources */,
 				1863D53C17B04B3A007E7460 /* AKDrawingUtilities.m in Sources */,
 				1863D53D17B04B3A007E7460 /* AKFileManager.m in Sources */,
+				3AEEABCA17D05AD000741B17 /* LayersScrollView.m in Sources */,
 				1863D53E17B04B3A007E7460 /* AKGradientImageEffect.m in Sources */,
 				1863D53F17B04B3A007E7460 /* AKImageCoordinator.m in Sources */,
 				1863D54017B04B3A007E7460 /* AKImageEffect.m in Sources */,

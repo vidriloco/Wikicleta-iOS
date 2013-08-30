@@ -11,7 +11,18 @@
 #import "UIColor-Expanded.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIButtonWithLabel.h"
+#import "LayersScrollView.h"
+#import "LayersDelegate.h"
+#import "IIViewDeckController.h"
 
-@interface LayersChooserViewController : UIViewController
+@interface LayersChooserViewController : UIViewController {
+    NSDictionary *layersMenuList;
+    id<LayersDelegate> delegate;
+}
+
+@property (nonatomic, strong) NSDictionary *layersMenuList;
+@property (nonatomic, strong) id<LayersDelegate> delegate;
+
+- (void) selectedLayer:(id)layer;
 
 @end

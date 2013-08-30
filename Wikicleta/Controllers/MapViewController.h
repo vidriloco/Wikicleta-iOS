@@ -20,7 +20,8 @@
 #import "MarkerDetailsView.h"
 #import "Parking.h"
 #import "MarkerDetailsExtendedViewController.h"
+#import "LayersDelegate.h"
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, ASIHTTPRequestDelegate>
+@interface MapViewController : UIViewController<GMSMapViewDelegate, ASIHTTPRequestDelegate, LayersDelegate>
 
 @end
