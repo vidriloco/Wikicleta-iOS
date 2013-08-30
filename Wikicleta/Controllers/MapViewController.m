@@ -174,6 +174,8 @@ GMSMapView *mapView;
         [request setDelegate:self];
         [request setTag:1];
         [request startAsynchronous];
+    } else {
+        [mapView clear];
     }
 }
 
@@ -299,13 +301,15 @@ GMSMapView *mapView;
 }
 
 - (void) updateMapWithLayersSelected:(NSArray*)layersSelected {
-    if ([layersSelected count] > 1) {
-        // Concat string and fetch at diferent URL
+    if ([layersSelected count] == 0) {
+        [mapView clear];
     } else {
-        activeLayers = [layersSelected objectAtIndex:0];
+        if ([layersSelected count] == 1) {
+            activeLayers = [layersSelected objectAtIndex:0];
+        }
+        
+        [self fetchAndDisplayLayer:activeLayers];
     }
-    
-    [self fetchAndDisplayLayer:activeLayers];
 }
 
 @end

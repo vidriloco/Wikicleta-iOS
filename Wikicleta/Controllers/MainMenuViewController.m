@@ -31,25 +31,17 @@
 {
     [super viewDidLoad];
     
-    NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"discover", @"activity", nil];
+    NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"discover", @"profile", nil];
     firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withViewDeckController:self.viewDeckController];
     [self.view addSubview:firstList.view];
     
-    UIImage *user = [UIImage imageNamed:@"user_menu.png"];
-    UIImage *userSelected = [UIImage imageNamed:@"user_menu_selected.png"];
-    UIButton *userButton = [[UIButton alloc] initWithFrame:
-                            CGRectMake(20, [App viewBounds].size.height-user.size.height-bottomMargin, user.size.width, user.size.height)];
-    [userButton setBackgroundImage:user forState:UIControlStateNormal];
-    [userButton setBackgroundImage:userSelected forState:UIControlStateHighlighted];
-    [self.view addSubview:userButton];
-    
-    UIImage *messages = [UIImage imageNamed:@"messages_menu.png"];
-    UIImage *messagesSelected = [UIImage imageNamed:@"messages_menu_selected.png"];
-    UIButton *messagesButton = [[UIButton alloc] initWithFrame:
-                                CGRectMake(messages.size.width+35, [App viewBounds].size.height-messages.size.height-bottomMargin, messages.size.width, messages.size.height)];
-    [messagesButton setBackgroundImage:messages forState:UIControlStateNormal];
-    [messagesButton setBackgroundImage:messagesSelected forState:UIControlStateHighlighted];
-    [self.view addSubview:messagesButton];
+    UIImage *config = [UIImage imageNamed:@"gear_menu.png"];
+    UIImage *configSelected = [UIImage imageNamed:@"gear_menu_selected.png"];
+    UIButton *configButton = [[UIButton alloc] initWithFrame:
+                            CGRectMake([App viewBounds].size.width/4-config.size.width/2-2, [App viewBounds].size.height-config.size.height-bottomMargin, config.size.width, config.size.height)];
+    [configButton setBackgroundImage:config forState:UIControlStateNormal];
+    [configButton setBackgroundImage:configSelected forState:UIControlStateHighlighted];
+    [self.view addSubview:configButton];
 }
 
 - (void)didReceiveMemoryWarning

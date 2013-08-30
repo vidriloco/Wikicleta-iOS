@@ -24,13 +24,15 @@
 {
     self = [super init];
     if (self) {
-        
+        layersMenuList = [NSMutableDictionary dictionary];
+
         self.view = [[UIView alloc] initWithFrame:CGRectMake(20, 40, [App viewBounds].size.width-40, 300)];
         
         NSArray *layers = [NSArray arrayWithObjects:layersParkings, layersRoutes, layersBicycleLanes, layersWorkshops, layersBicycleSharings, layersTips, nil];
         
         layersMenu = [[LayersScrollView alloc] initWithLayers:layers withLayersController:self];
         [self.view addSubview:layersMenu];
+        
     }
     return self;
 }
@@ -41,10 +43,19 @@
     UIButtonWithLabel *buttonSelected = ((UIButtonWithLabel*) [layer superview]);
     UIButtonWithLabel *previouslySelected = [layersMenuList objectForKey:selectedLayer];
     
-    [previouslySelected setSelected:!(previouslySelected != NULL)];
-    [buttonSelected setSelected:YES];
-    NSArray *selected = [NSArray arrayWithObject:buttonSelected.name];
-    [delegate updateMapWithLayersSelected:selected];
+    [previouslySelected setSelected:NO];
+    NSArray *array;
+    if (buttonSelected.name == previouslySelected.name) {
+        selectedLayer = @"";
+        array = [NSArray array];
+    } else {
+        selectedLayer = buttonSelected.name;
+        array = [NSArray arrayWithObject:selectedLayer];
+        [buttonSelected setSelected:YES];
+    }
+    
+    [delegate updateMapWithLayersSelected:array];
+    
 }
 
 - (void) loadView

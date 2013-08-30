@@ -16,7 +16,7 @@
 #import "IIViewDeckController.h"
 
 @interface LayersChooserViewController : UIViewController {
-    NSDictionary *layersMenuList;
+    NSMutableDictionary *layersMenuList;
     id<LayersDelegate> delegate;
 }
 
