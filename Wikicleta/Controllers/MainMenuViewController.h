@@ -13,4 +13,6 @@
 
 @interface MainMenuViewController : UIViewController
 
+- (void) deselectAll;
+
 @end

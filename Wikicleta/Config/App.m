@@ -13,9 +13,20 @@ static int environment;
 
 @implementation App
 
-+ (CGRect) viewBounds
++ (CGRect) windowSize
 {
     return [[UIScreen mainScreen] bounds];
+}
+
++ (CGRect) viewBounds
+{
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        return CGRectMake(0,20,rect.size.width,rect.size.height-20);
+    } else {
+        return [[UIScreen mainScreen] bounds];
+    }
+
 }
 
 + (CLLocationCoordinate2D) mexicoCityCoordinates
@@ -60,6 +71,15 @@ static int environment;
 
 + (void) initializeWithEnv:(int)env {
     environment = env;
+}
+
++ (NSString*) postfixView
+{
+    if (isIphone5) {
+        return @"I5";
+    } else {
+        return @"";
+    }
 }
 
 @end

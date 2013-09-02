@@ -17,17 +17,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     [GMSServices provideAPIKey:@"AIzaSyDMKDw8oVSqOMBMat2P4O2_g1OqZzYbl9Q"];
     [ActiveRecord registerDatabaseName:@"Wikicleta.sqlite" useDirectory:ARStorageDocuments];
     
     [App initializeWithEnv:kProd];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc] initWithFrame:[App windowSize]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    
+
     IIViewDeckController* deckController =  [[IIViewDeckController alloc]
                                              initWithCenterViewController: [[LandingViewController alloc] initWithNibName:@"LandingViewController" bundle:nil]
                                              leftViewController:nil
@@ -39,6 +38,7 @@
     [deckController setRightSize:200];
     
     [self.window setRootViewController:deckController];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

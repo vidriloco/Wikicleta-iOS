@@ -31,3 +31,14 @@
 "ranking" = "%f ranking";
 "rankings" = "%f rankings";
 
+// Settings View
+"map_settings_title" = "Map Tweaks";
+"map_layers_settings_title" = "Layers";
+
+"settings_map" = "map";
+"settings_gadgets" = "gadgets";
+"settings_social" = "social";
+"settings_location" = "location";
+"drag_to_back_label" = "swipe to return";
+"settings_section_name_label" = "preferences";
+

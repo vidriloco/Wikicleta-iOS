@@ -15,5 +15,7 @@
 + (UIColor*) orangeColor;
 + (UIColor*) lightBlueColor;
 + (UIFont*) defaultFontLightWithSize:(int) size;
++ (UIFont*) defaultFontBoldWithSize:(int) size;
++ (UIFont*) defaultFontBookWithSize:(int) size;
 
 @end

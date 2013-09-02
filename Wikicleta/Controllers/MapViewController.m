@@ -31,6 +31,7 @@
 
 - (void) showMoreInfo;
 - (void) hideViewForMarker;
+- (void) showMapSettings;
 @end
 
 @implementation MapViewController
@@ -50,6 +51,7 @@ GMSMapView *mapView;
     
     [mapView setDelegate:self];
     
+
     
     UIImage *menuImage = [UIImage imageNamed:@"menu_button.png"];
     
@@ -73,6 +75,9 @@ GMSMapView *mapView;
     
     [layersButton addTarget:self action:@selector(openRightDock) forControlEvents:UIControlEventTouchDragOutside];
     [layersButton addTarget:self action:@selector(openRightDock) forControlEvents:UIControlEventTouchUpInside];
+    UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showMapSettings)];
+    [longTap setNumberOfTouchesRequired:1];
+    [layersButton addGestureRecognizer:longTap];
     
     [menuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchDragOutside];
     [menuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchUpInside];
@@ -93,17 +98,35 @@ GMSMapView *mapView;
                      forControlEvents:UIControlEventTouchUpInside];    
 }
 
-- (void)viewDidLoad
+- (void) showMapSettings
 {
-    [super viewDidLoad];
-	[mapView addObserver:self
-               forKeyPath:@"myLocation"
-                  options:NSKeyValueObservingOptionNew
-                  context:NULL];
+    MapSettingsViewController *mapViewController = [[MapSettingsViewController alloc] initWithNibName:@"MapSettingsViewController" bundle:nil];
+    [self presentModalViewController:mapViewController animated:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [mapView removeObserver:self forKeyPath:@"myLocation"];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [mapView addObserver:self
+              forKeyPath:@"myLocation"
+                 options:NSKeyValueObservingOptionNew
+                 context:NULL];
     // Ask for My Location data after the map has already been added to the UI.
     dispatch_async(dispatch_get_main_queue(), ^{
         mapView.myLocationEnabled = YES;
     });
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
 }
 
 - (void)didReceiveMemoryWarning

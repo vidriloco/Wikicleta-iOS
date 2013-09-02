@@ -42,8 +42,6 @@
 		<string>gothamrndbook.ttf</string>
 		<string>gothamrndbold.ttf</string>
 	</array>
-	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

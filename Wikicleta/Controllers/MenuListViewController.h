@@ -11,10 +11,12 @@
 #import "IIViewDeckController.h"
 #import "MapViewController.h"
 
+@class MainMenuViewController;
+
 @interface MenuListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
 }
 
-- (id) initWithFrame:(CGRect)frame withOptions:(NSArray*)options withViewDeckController:(IIViewDeckController*)deckController;
-
+- (id) initWithFrame:(CGRect)frame withOptions:(NSArray*)options withController:(MainMenuViewController*)menuController;
+- (void) deselectAllRows;
 
 @end

@@ -30,4 +30,14 @@
     return [UIFont fontWithName:@"Gotham Rounded" size:size];
 }
 
++ (UIFont*) defaultFontBoldWithSize:(int)size
+{
+    return [UIFont fontWithName:@"GothamRounded-Bold" size:size];
+}
+
++ (UIFont*) defaultFontBookWithSize:(int)size
+{
+    return [UIFont fontWithName:@"GothamRounded-Book" size:size];
+}
+
 @end

@@ -37,3 +37,13 @@
 "ranking" = "%f opinión";
 "rankings" = "%f opiniones";
 
+// Settings View
+"map_settings_title" = "Ajustes al Mapa";
+"map_layers_settings_title" = "Capas";
+
+"settings_map" = "mapa";
+"settings_gadgets" = "gadgets";
+"settings_social" = "social";
+"settings_location" = "ubicación";
+"drag_to_back_label" = "desliza para volver";
+"settings_section_name_label" = "preferencias";

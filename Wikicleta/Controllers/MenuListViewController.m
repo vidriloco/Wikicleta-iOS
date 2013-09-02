@@ -7,11 +7,12 @@
 //
 
 #import "MenuListViewController.h"
+#import "MainMenuViewController.h"
 
 @interface MenuListViewController () {
     NSArray *menuSections;
     UITableView *tableView;
-    IIViewDeckController *localDeckController;
+    MainMenuViewController *associatedController;
 }
 
 @end
@@ -22,8 +23,7 @@ static NSString *reuseIdentifier = @"menu-cell-reuse";
 
 static NSString *simpleTableIdentifier = @"mainMenuItem";
 
-- (id) initWithFrame:(CGRect)frame withOptions:(NSArray *)options withViewDeckController:(IIViewDeckController *)deckController
-{
+- (id) initWithFrame:(CGRect)frame withOptions:(NSArray *)options withController:(MainMenuViewController *)menuController {
     self = [super init];
     if (self) {
         menuSections = options;
@@ -40,7 +40,7 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
         [tableView registerNib:[UINib nibWithNibName:@"MenuViewCell"
                                               bundle:[NSBundle mainBundle]]
         forCellReuseIdentifier:reuseIdentifier];
-        localDeckController = deckController;
+        associatedController = menuController;
         
     }
     return self;
@@ -84,19 +84,29 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
     return 120;
 }
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) tableView:(UITableView *)tableView_ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [associatedController deselectAll];
+    [tableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:nil];
+
     NSString *selectedMenuItem = [menuSections objectAtIndex:[indexPath row]];
+
     if ([selectedMenuItem isEqualToString:@"map"]) {
-        if (![localDeckController.centerController isKindOfClass:[MapViewController class]]) {
-            localDeckController.centerController = [[MapViewController alloc] init];
+        if (![associatedController.viewDeckController.centerController isKindOfClass:[MapViewController class]]) {
+            associatedController.viewDeckController.centerController = [[MapViewController alloc] init];
         }
-        [localDeckController closeLeftViewAnimated:YES];
+        [associatedController.viewDeckController closeLeftViewAnimated:YES];
     } else if ([selectedMenuItem isEqualToString:@"discover"]) {
         
     } else if ([selectedMenuItem isEqualToString:@"activity"]) {
         
     }
+}
+
+
+- (void) deselectAllRows
+{
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 
 @end
