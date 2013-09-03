@@ -86,11 +86,12 @@
     [[jumpGroupsController titleLabel] setTextColor:[UIColor whiteColor]];
     
     [jumpGroupsController addTarget:self action:@selector(selectYourLayers) forControlEvents:UIControlEventTouchUpInside];
+    [self propagatePageChanges];
 }
 
 - (void)selectYourLayers
 {
-    LayersGroupsViewController *layers = [[LayersGroupsViewController alloc] initWithNibName:@"LayersGroupsViewController" bundle:Nil];
+    LayersGroupsViewController *layers = [[LayersGroupsViewController alloc] initWithNibName:[@"LayersGroupsViewController" stringByAppendingString:[App postfixView]] bundle:Nil];
     [CATransaction begin];
     
     CATransition *transition = [CATransition animation];
@@ -111,7 +112,6 @@
     [self presentModalViewController:layers animated:NO];
     
     [CATransaction commit];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,5 +154,6 @@
         }];
     }
 }
+
 
 @end

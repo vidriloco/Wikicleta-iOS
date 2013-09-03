@@ -100,7 +100,7 @@ GMSMapView *mapView;
 
 - (void) showMapSettings
 {
-    MapSettingsViewController *mapViewController = [[MapSettingsViewController alloc] initWithNibName:@"MapSettingsViewController" bundle:nil];
+    MapSettingsViewController *mapViewController = [[MapSettingsViewController alloc] initWithNibName:[@"MapSettingsViewController" stringByAppendingString:[App postfixView]] bundle:nil];
     [self presentModalViewController:mapViewController animated:YES];
 }
 

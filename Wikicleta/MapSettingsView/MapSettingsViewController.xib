@@ -7,14 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapSettingsViewController">
             <connections>
-                <outlet property="closeButton" destination="Ff8-SS-Fc0" id="6oA-nv-6a9"/>
-                <outlet property="jumpGroupsController" destination="lxs-dp-L5N" id="IOB-Od-48q"/>
-                <outlet property="navBarTitle" destination="ilj-WT-N9P" id="0j5-Ux-GD6"/>
-                <outlet property="navigationBar" destination="vYW-M0-som" id="tIO-Ts-tsK"/>
-                <outlet property="pageControl" destination="K8G-bv-4IA" id="c3I-It-oB3"/>
-                <outlet property="scrollView" destination="h8x-gy-RBc" id="Et9-bP-fnM"/>
-                <outlet property="settingsText" destination="0WQ-05-bZk" id="qaL-5P-kqg"/>
-                <outlet property="view" destination="1" id="BEn-E9-Mla"/>
+                <outlet property="closeButton" destination="NN4-UE-59T" id="trH-Cy-F4V"/>
+                <outlet property="jumpGroupsController" destination="Hvq-bJ-SxZ" id="H2b-WM-fwJ"/>
+                <outlet property="navBarTitle" destination="vX4-ma-MFB" id="LUn-fc-vBG"/>
+                <outlet property="navigationBar" destination="Fhq-e0-Ul3" id="KiU-x4-wIu"/>
+                <outlet property="pageControl" destination="q1w-B4-ebP" id="L5a-Jc-JwU"/>
+                <outlet property="scrollView" destination="1Bf-uU-02S" id="8kZ-Iy-flb"/>
+                <outlet property="settingsText" destination="D2R-XF-NUA" id="fNL-eI-E16"/>
+                <outlet property="view" destination="1" id="9ZM-xd-mGa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,67 +22,61 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_gradient_iphone.png" id="Mft-tW-t4T">
-                    <rect key="frame" x="0.0" y="183" width="320" height="297"/>
+                <navigationBar contentMode="scaleToFill" id="Fhq-e0-Ul3">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                </navigationBar>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vX4-ma-MFB">
+                    <rect key="frame" x="95" y="16" width="130" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NN4-UE-59T">
+                    <rect key="frame" x="16" y="8" width="67" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Close" backgroundImage="left_button.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hvq-bJ-SxZ">
+                    <rect key="frame" x="243" y="10" width="67" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="4" maxY="0.0"/>
+                    <state key="normal" title="Layers" backgroundImage="orange_button_triangular.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_gradient_iphone.png" id="r5R-G5-74f">
+                    <rect key="frame" x="1" y="102" width="320" height="385"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to set your preferred behavior for your Wikicleta map" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0WQ-05-bZk">
-                    <rect key="frame" x="16" y="58" width="288" height="72"/>
+                <imageView userInteractionEnabled="NO" alpha="0.34999999999999964" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section_map_icon.png" id="qP4-9f-Wul">
+                    <rect key="frame" x="-20" y="341" width="201" height="185"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="1Bf-uU-02S">
+                    <rect key="frame" x="1" y="102" width="320" height="303"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </scrollView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to change the map behavior" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D2R-XF-NUA">
+                    <rect key="frame" x="16" y="68" width="288" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="K8G-bv-4IA">
-                    <rect key="frame" x="141" y="406" width="39" height="37"/>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="q1w-B4-ebP">
+                    <rect key="frame" x="141" y="392" width="39" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="currentPageIndicatorTintColor" red="0.13801034249999999" green="0.20595718369999999" blue="0.29137652850000001" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
-                <imageView userInteractionEnabled="NO" alpha="0.19999999999999968" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section_map_icon.png" id="TlC-T7-1aK">
-                    <rect key="frame" x="-47" y="343" width="205" height="174"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
-                <navigationBar contentMode="scaleToFill" backIndicatorImage="navbar_back.png" id="vYW-M0-som">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </navigationBar>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="h8x-gy-RBc">
-                    <rect key="frame" x="0.0" y="110" width="320" height="310"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </scrollView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ilj-WT-N9P">
-                    <rect key="frame" x="90" y="6" width="143" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <attributedString key="attributedText">
-                        <fragment content="Label">
-                            <attributes>
-                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <font key="NSFont" size="18" name="Gotham-Bold"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ff8-SS-Fc0">
-                    <rect key="frame" x="13" y="6" width="69" height="38"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Close" backgroundImage="left_button.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lxs-dp-L5N">
-                    <rect key="frame" x="241" y="8" width="70" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <inset key="contentEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="-2"/>
-                    <state key="normal" title="Layers" backgroundImage="orange_button_triangular.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -92,7 +86,6 @@
     <resources>
         <image name="blue_gradient_iphone.png" width="9" height="470"/>
         <image name="left_button.png" width="65" height="35"/>
-        <image name="navbar_back.png" width="13" height="50"/>
         <image name="orange_button_triangular.png" width="50" height="30"/>
         <image name="section_map_icon.png" width="200" height="200"/>
     </resources>

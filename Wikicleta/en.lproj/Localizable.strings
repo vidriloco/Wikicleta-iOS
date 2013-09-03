@@ -34,6 +34,8 @@
 // Settings View
 "map_settings_title" = "Map Tweaks";
 "map_layers_settings_title" = "Layers";
+"layer_settings_blue_group" = "Layers on Blue group";
+"layer_settings_orange_group" = "Layers on Orange group";
 
 "settings_map" = "map";
 "settings_gadgets" = "gadgets";

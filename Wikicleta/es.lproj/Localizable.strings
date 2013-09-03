@@ -40,6 +40,8 @@
 // Settings View
 "map_settings_title" = "Ajustes al Mapa";
 "map_layers_settings_title" = "Capas";
+"layers_settings_blue_group" = "Layers on Blue group";
+"layers_settings_orange_group" = "Layers on Orange group";
 
 "settings_map" = "mapa";
 "settings_gadgets" = "gadgets";
