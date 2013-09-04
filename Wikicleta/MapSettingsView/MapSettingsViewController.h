@@ -10,6 +10,7 @@
 #import "LookAndFeel.h"
 #import "App.h"
 #import "LayersGroupsViewController.h"
+#import "GlobalSettings.h"
 
 #define kPagesLevelOne  2
 

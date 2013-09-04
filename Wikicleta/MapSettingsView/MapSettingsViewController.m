@@ -14,6 +14,7 @@
 - (void) selectYourLayers;
 - (void) pageChanged;
 - (void) propagatePageChanges;
+- (void) loadChoosenLayerMod;
 
 @end
 
@@ -86,7 +87,7 @@
     [[jumpGroupsController titleLabel] setTextColor:[UIColor whiteColor]];
     
     [jumpGroupsController addTarget:self action:@selector(selectYourLayers) forControlEvents:UIControlEventTouchUpInside];
-    [self propagatePageChanges];
+    [self loadChoosenLayerMod];
 }
 
 - (void)selectYourLayers
@@ -144,6 +145,7 @@
             [jumpGroupsController setAlpha:0];
         } completion:^(BOOL finished) {
             [jumpGroupsController setHidden:YES];
+            [GlobalSettings setMapLayeringMod:LayersAtRight];
         }];
     } else {
         [jumpGroupsController setHidden:NO];
@@ -151,9 +153,19 @@
             [jumpGroupsController setAlpha:1];
         } completion:^(BOOL finished) {
             [jumpGroupsController setHidden:NO];
+            [GlobalSettings setMapLayeringMod:LayersOnSets];
         }];
     }
 }
 
+- (void) loadChoosenLayerMod
+{
+    if ([GlobalSettings mapLayeringMod] == LayersAtRight) {
+        [pageControl setCurrentPage:0];
+    } else if([GlobalSettings mapLayeringMod] == LayersOnSets) {
+        [pageControl setCurrentPage:1];
+    }
+    [self pageChanged];
+}
 
 @end

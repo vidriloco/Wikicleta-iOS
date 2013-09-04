@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
+        <deployment defaultVersion="1280" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
     </dependencies>
     <objects>
@@ -12,6 +13,7 @@
                 <outlet property="navigationBar" destination="x8Y-3u-IGz" id="n7L-pa-rpC"/>
                 <outlet property="scrollView" destination="QrC-5o-Wya" id="f74-XI-fxA"/>
                 <outlet property="segmentedControl" destination="XQc-H6-ekQ" id="MQ8-wC-DU1"/>
+                <outlet property="selectedSetImage" destination="0sE-rx-XUb" id="3Qr-9o-olW"/>
                 <outlet property="view" destination="1" id="Fy9-Tk-E6x"/>
             </connections>
         </placeholder>
@@ -45,8 +47,8 @@
                     <rect key="frame" x="0.0" y="183" width="320" height="385"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section_map_icon.png" id="dBk-hT-RU2">
-                    <rect key="frame" x="-21" y="341" width="201" height="185"/>
+                <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange_set.png" id="0sE-rx-XUb">
+                    <rect key="frame" x="6" y="429" width="150" height="150"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="QrC-5o-Wya">
@@ -69,7 +71,7 @@
                         <segment title="Orange Set"/>
                         <segment title="Blue Set"/>
                     </segments>
-                    <color key="tintColor" red="0.13801034249999999" green="0.20595718369999999" blue="0.29137652850000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.31164411050000002" green="0.46833890379999998" blue="0.66898777170000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -80,6 +82,6 @@
     <resources>
         <image name="blue_button_triangular.png" width="50" height="30"/>
         <image name="blue_gradient_iphone.png" width="9" height="470"/>
-        <image name="section_map_icon.png" width="200" height="200"/>
+        <image name="orange_set.png" width="200" height="200"/>
     </resources>
 </document>

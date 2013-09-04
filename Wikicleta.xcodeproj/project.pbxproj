@@ -75,6 +75,11 @@
 		1863D58017B14E8B007E7460 /* UIButtonWithLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1863D57F17B14E8B007E7460 /* UIButtonWithLabel.m */; };
 		188D5BBC17CFA65D00931454 /* MarkerDetailsExtendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D5BBA17CFA65D00931454 /* MarkerDetailsExtendedViewController.m */; };
 		188D5BBD17CFA65D00931454 /* MarkerDetailsExtendedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188D5BBB17CFA65D00931454 /* MarkerDetailsExtendedViewController.xib */; };
+		189C523F17D6803A00C2CBAB /* GlobalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C523E17D6803A00C2CBAB /* GlobalSettings.m */; };
+		189C524417D6CA9E00C2CBAB /* blue_set_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C524017D6CA9E00C2CBAB /* blue_set_button.png */; };
+		189C524517D6CA9E00C2CBAB /* blue_set_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C524117D6CA9E00C2CBAB /* blue_set_button@2x.png */; };
+		189C524617D6CA9E00C2CBAB /* orange_set_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C524217D6CA9E00C2CBAB /* orange_set_button.png */; };
+		189C524717D6CA9E00C2CBAB /* orange_set_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C524317D6CA9E00C2CBAB /* orange_set_button@2x.png */; };
 		18EE966217D4EDE300923EC6 /* LayerBasedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE966117D4EDE300923EC6 /* LayerBasedView.xib */; };
 		18EE966617D4EEC100923EC6 /* MapSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE966517D4EEC100923EC6 /* MapSettingsViewController.xib */; };
 		18EE966817D4EFB200923EC6 /* LayersGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE966717D4EFB200923EC6 /* LayersGroupsViewController.xib */; };
@@ -358,6 +363,12 @@
 		188D5BB917CFA65D00931454 /* MarkerDetailsExtendedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerDetailsExtendedViewController.h; sourceTree = "<group>"; };
 		188D5BBA17CFA65D00931454 /* MarkerDetailsExtendedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerDetailsExtendedViewController.m; sourceTree = "<group>"; };
 		188D5BBB17CFA65D00931454 /* MarkerDetailsExtendedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerDetailsExtendedViewController.xib; sourceTree = "<group>"; };
+		189C523D17D6803A00C2CBAB /* GlobalSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalSettings.h; sourceTree = "<group>"; };
+		189C523E17D6803A00C2CBAB /* GlobalSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSettings.m; sourceTree = "<group>"; };
+		189C524017D6CA9E00C2CBAB /* blue_set_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_set_button.png; sourceTree = "<group>"; };
+		189C524117D6CA9E00C2CBAB /* blue_set_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_set_button@2x.png"; sourceTree = "<group>"; };
+		189C524217D6CA9E00C2CBAB /* orange_set_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_set_button.png; sourceTree = "<group>"; };
+		189C524317D6CA9E00C2CBAB /* orange_set_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_set_button@2x.png"; sourceTree = "<group>"; };
 		18EE966117D4EDE300923EC6 /* LayerBasedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LayerBasedView.xib; sourceTree = "<group>"; };
 		18EE966517D4EEC100923EC6 /* MapSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapSettingsViewController.xib; sourceTree = "<group>"; };
 		18EE966717D4EFB200923EC6 /* LayersGroupsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LayersGroupsViewController.xib; sourceTree = "<group>"; };
@@ -698,6 +709,10 @@
 		1807475417B4525E00A04D61 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				189C524017D6CA9E00C2CBAB /* blue_set_button.png */,
+				189C524117D6CA9E00C2CBAB /* blue_set_button@2x.png */,
+				189C524217D6CA9E00C2CBAB /* orange_set_button.png */,
+				189C524317D6CA9E00C2CBAB /* orange_set_button@2x.png */,
 				180E329117B99AA600322194 /* layer_button.png */,
 				180E329217B99AA600322194 /* layer_button@2x.png */,
 				1807475517B4525E00A04D61 /* menu_button.png */,
@@ -1201,6 +1216,8 @@
 				3A01B580164A321500F78822 /* App.m */,
 				18F76ED317CE6851008D9B3E /* LookAndFeel.h */,
 				18F76ED417CE6851008D9B3E /* LookAndFeel.m */,
+				189C523D17D6803A00C2CBAB /* GlobalSettings.h */,
+				189C523E17D6803A00C2CBAB /* GlobalSettings.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1452,6 +1469,7 @@
 				3A8E00A317CDC413003003CE /* government_provided_marker.png in Resources */,
 				3AF73E9917D44C9D00ABE6D1 /* MapSettingsViewControllerI5.xib in Resources */,
 				3A045C3017D3B7E400E15944 /* layer_mode.png in Resources */,
+				189C524717D6CA9E00C2CBAB /* orange_set_button@2x.png in Resources */,
 				18F76EDD17CEB603008D9B3E /* empty_star.png in Resources */,
 				3A01B4A5164A2F6E00F78822 /* Default@2x.png in Resources */,
 				3A060C8117D2BE3200E006C0 /* settings_gadgets_icon@2x.png in Resources */,
@@ -1486,6 +1504,7 @@
 				3A045C3117D3B7E400E15944 /* layer_mode@2x.png in Resources */,
 				3A73F54A17B3513E00FA7A71 /* explore.png in Resources */,
 				3AF73E9117D44C9D00ABE6D1 /* GroupsBasedView.xib in Resources */,
+				189C524617D6CA9E00C2CBAB /* orange_set_button.png in Resources */,
 				3A73F54B17B3513E00FA7A71 /* explore@2x.png in Resources */,
 				3A73F54C17B3513E00FA7A71 /* login.png in Resources */,
 				3A73F54D17B3513E00FA7A71 /* login@2x.png in Resources */,
@@ -1526,6 +1545,7 @@
 				180E328417B93C5400322194 /* gear_menu@2x.png in Resources */,
 				180E328B17B93FE300322194 /* gear_menu_selected.png in Resources */,
 				183F0C3717CD0646006B4F54 /* discover_menu.png in Resources */,
+				189C524517D6CA9E00C2CBAB /* blue_set_button@2x.png in Resources */,
 				180E328C17B93FE300322194 /* gear_menu_selected@2x.png in Resources */,
 				3A8E00A717CDC413003003CE /* venue_provided_marker.png in Resources */,
 				3A785A2717D476FF00D1B6F6 /* blue_button_triangular@2x.png in Resources */,
@@ -1543,6 +1563,7 @@
 				180BD04117BAA6290080296E /* parkings_layers@2x.png in Resources */,
 				180BD04217BAA6290080296E /* routes_layers.png in Resources */,
 				3A060C8F17D2DC2C00E006C0 /* drag_to_back.png in Resources */,
+				189C524417D6CA9E00C2CBAB /* blue_set_button.png in Resources */,
 				180BD04317BAA6290080296E /* routes_layers@2x.png in Resources */,
 				3A8E00A617CDC413003003CE /* urban_mobiliary_marker@2x.png in Resources */,
 				180BD04417BAA6290080296E /* tips_layers.png in Resources */,
@@ -1702,6 +1723,7 @@
 				1863D54917B04B3A007E7460 /* UIColor+AKColorStrings.m in Sources */,
 				1863D54A17B04B3A007E7460 /* UIImage+AKCryptography.m in Sources */,
 				1863D54B17B04B3A007E7460 /* UIImage+AKMasking.m in Sources */,
+				189C523F17D6803A00C2CBAB /* GlobalSettings.m in Sources */,
 				1863D54C17B04B3A007E7460 /* UIImage+AKPixelData.m in Sources */,
 				1863D54D17B04B3A007E7460 /* UIView+AKScaleInfo.m in Sources */,
 				1863D55017B04B83007E7460 /* GradientView.m in Sources */,

@@ -11,18 +11,18 @@
 
 @interface LayersGroupsViewController () {
     NSArray *layers;
-    ChoosingLayerMode mode;
+    LayerGroup activeGroup;
 }
 
 - (void) backToPreviousController;
-- (void) switchSegmentedView:(id)sender;
-- (void) readAndUpdateDataForMode:(ChoosingLayerMode)mode;
+- (void) switchSegmentedView;
+- (void) updateTableViewWithSelectedLayer;
 
 @end
 
 @implementation LayersGroupsViewController
 
-@synthesize backButton, navBarTitle, navigationBar, layerTableView, scrollView, segmentedControl;
+@synthesize backButton, navBarTitle, navigationBar, layerTableView, scrollView, segmentedControl, selectedSetImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,26 +58,51 @@
     [layerTableView setAllowsMultipleSelection:YES];
     [scrollView setContentSize:CGSizeMake(layerTableView.frame.size.width, layerTableView.frame.size.height)];
     [segmentedControl addTarget:self
-                         action:@selector(switchSegmentedView:)
+                         action:@selector(switchSegmentedView)
                forControlEvents:UIControlEventValueChanged];
+    [segmentedControl setMomentary:NO];
+    
+    [self switchSegmentedView];
 }
 
-- (void) switchSegmentedView:(id)sender
+- (void) switchSegmentedView;
 {
-    UISegmentedControl *sControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = sControl.selectedSegmentIndex;
-    
-    if (selectedSegment == 0) {
-        [self readAndUpdateDataForMode:SelectingBlue];
-    } else{
-        [self readAndUpdateDataForMode:SelectingOrange];
+    [selectedSetImage setAlpha:0];
+
+    if (segmentedControl.selectedSegmentIndex == 1) {
+        [selectedSetImage setImage:[UIImage imageNamed:@"blue_set.png"]];
+        activeGroup = BlueSet;
+    } else {
+        [selectedSetImage setImage:[UIImage imageNamed:@"orange_set.png"]];
+        activeGroup = OrangeSet;
     }
-    [layerTableView reloadData];
+    
+    [self updateTableViewWithSelectedLayer];
+    
+    [UIView animateWithDuration:1 animations:^{
+        [selectedSetImage setAlpha:0.5];
+        [selectedSetImage setTransform:CGAffineTransformMakeScale(1.8, 1.8)];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [selectedSetImage setAlpha:0.1];
+            [selectedSetImage setTransform:CGAffineTransformMakeScale(0.9, 0.9)];
+        }];
+    }];
+    
 }
 
-- (void) readAndUpdateDataForMode:(ChoosingLayerMode)mode
+- (void) updateTableViewWithSelectedLayer
 {
-    
+    [layerTableView reloadData];
+    for (NSString *layerSelected in [GlobalSettings layersOnGroup:activeGroup]) {
+        int i = 0;
+        for (NSString *layer in layers) {
+            if ([layer isEqualToString:layerSelected]) {
+                [layerTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+            }
+            i = i+1;
+        }
+    }
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -110,7 +135,6 @@
     }];
     
     [self dismissModalViewControllerAnimated:NO];
-    
     [CATransaction commit];
 }
 
@@ -140,7 +164,29 @@
     [tableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:nil];
     CheckableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:reuseIdentifierK];
     [cell setSelected:YES animated:YES];
+    
+    NSString *selected = [layers objectAtIndex:indexPath.row];
+    
+    NSMutableArray *storedLayers = [NSMutableArray
+                                    arrayWithArray:[GlobalSettings layersOnGroup:activeGroup]];
+    if (![storedLayers containsObject:selected]) {
+        [storedLayers addObject:selected];
+    }
 
+    [GlobalSettings setSelectedLayers:[NSArray arrayWithArray:storedLayers] forGroup:activeGroup];
+}
+
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *selected = [layers objectAtIndex:indexPath.row];
+    
+    NSMutableArray *storedLayers = [NSMutableArray
+                                    arrayWithArray:[GlobalSettings layersOnGroup:activeGroup]];
+    if ([storedLayers containsObject:selected]) {
+        [storedLayers removeObject:selected];
+    }
+    
+    [GlobalSettings setSelectedLayers:[NSArray arrayWithArray:storedLayers] forGroup:activeGroup];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

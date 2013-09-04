@@ -19,6 +19,10 @@
     BaseModel *currentlySelectedModel;
     
     NSString *activeLayers;
+    
+    LayerGroup selectedLayerSet;
+    
+    UIButton *layersButton;
 }
 
 - (void) openLeftDock;
@@ -32,6 +36,9 @@
 - (void) showMoreInfo;
 - (void) hideViewForMarker;
 - (void) showMapSettings;
+- (void) rightMapButtonActivated;
+- (void) loadMapMenuButtonImage;
+
 @end
 
 @implementation MapViewController
@@ -51,8 +58,6 @@ GMSMapView *mapView;
     
     [mapView setDelegate:self];
     
-
-    
     UIImage *menuImage = [UIImage imageNamed:@"menu_button.png"];
     
     UIButton *menuButton = [[UIButton alloc] initWithFrame:CGRectMake(-20, [App viewBounds].size.height-menuImage.size.height-marginUnit*2,
@@ -67,21 +72,10 @@ GMSMapView *mapView;
     [shareButton setBackgroundImage:shareImage forState:UIControlStateNormal];
     //[self.view addSubview:shareButton];
     
-    UIImage *layerImage = [UIImage imageNamed:@"layer_button.png"];
-    
-    UIButton *layersButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-layerImage.size.width+5, [App viewBounds].size.height-layerImage.size.height-marginUnit*2, layerImage.size.width, layerImage.size.height)];
-    [layersButton setBackgroundImage:layerImage forState:UIControlStateNormal];
-    [self.view addSubview:layersButton];
-    
-    [layersButton addTarget:self action:@selector(openRightDock) forControlEvents:UIControlEventTouchDragOutside];
-    [layersButton addTarget:self action:@selector(openRightDock) forControlEvents:UIControlEventTouchUpInside];
-    UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showMapSettings)];
-    [longTap setNumberOfTouchesRequired:1];
-    [layersButton addGestureRecognizer:longTap];
-    
     [menuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchDragOutside];
     [menuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchUpInside];
     
+    [self loadMapMenuButtonImage];
     
     detailsView = [[[NSBundle mainBundle] loadNibNamed:@"MarkerDetailsView" owner:self options:nil] objectAtIndex:0];
     [self.view addSubview:detailsView];
@@ -95,7 +89,7 @@ GMSMapView *mapView;
     
     [detailsView.hideButton addTarget:self
                                action:@selector(hideViewForMarker)
-                     forControlEvents:UIControlEventTouchUpInside];    
+                     forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) showMapSettings
@@ -121,11 +115,7 @@ GMSMapView *mapView;
     dispatch_async(dispatch_get_main_queue(), ^{
         mapView.myLocationEnabled = YES;
     });
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+    [self loadMapMenuButtonImage];
 
 }
 
@@ -133,6 +123,45 @@ GMSMapView *mapView;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) loadMapMenuButtonImage
+{
+    
+    UIImage *layerImage;
+    if ([GlobalSettings isLayeringModEnabled:LayersAtRight]) {
+        layerImage  = [UIImage imageNamed:@"layer_button.png"];
+    } else if([GlobalSettings isLayeringModEnabled:LayersOnSets]) {
+        if (selectedLayerSet == BlueSet) {
+            layerImage  = [UIImage imageNamed:@"orange_set_button.png"];
+            selectedLayerSet = OrangeSet;
+        } else if (selectedLayerSet == OrangeSet) {
+            layerImage  = [UIImage imageNamed:@"blue_set_button.png"];
+            selectedLayerSet = BlueSet;
+        }
+    }
+
+    if (layersButton == nil) {
+        layersButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-layerImage.size.width+5, [App viewBounds].size.height-layerImage.size.height-marginUnit*2, layerImage.size.width, layerImage.size.height)];
+        [self.view addSubview:layersButton];
+        
+        [layersButton addTarget:self action:@selector(rightMapButtonActivated) forControlEvents:UIControlEventTouchDragOutside];
+        [layersButton addTarget:self action:@selector(rightMapButtonActivated) forControlEvents:UIControlEventTouchUpInside];
+        UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showMapSettings)];
+        [longTap setNumberOfTouchesRequired:1];
+        [layersButton addGestureRecognizer:longTap];
+    }
+    
+    [layersButton setBackgroundImage:layerImage forState:UIControlStateNormal];
+}
+
+- (void) rightMapButtonActivated
+{
+    [self loadMapMenuButtonImage];
+    
+    if ([GlobalSettings isLayeringModEnabled:LayersAtRight]) {
+        [self openRightDock];
+    }
 }
 
 - (void) openLeftDock {
@@ -151,6 +180,7 @@ GMSMapView *mapView;
 
 - (void) openRightDock
 {
+
     if ([self.viewDeckController rightController] == nil) {
         LayersChooserViewController *layersViewController = [[LayersChooserViewController alloc] init];
         layersViewController.delegate = self;

@@ -13,6 +13,7 @@
                 <outlet property="navigationBar" destination="x8Y-3u-IGz" id="n7L-pa-rpC"/>
                 <outlet property="scrollView" destination="QrC-5o-Wya" id="f74-XI-fxA"/>
                 <outlet property="segmentedControl" destination="dP0-l3-fdG" id="K46-UI-7WY"/>
+                <outlet property="selectedSetImage" destination="KLo-3f-E4l" id="Cow-B7-VJF"/>
                 <outlet property="view" destination="1" id="Fy9-Tk-E6x"/>
             </connections>
         </placeholder>
@@ -46,16 +47,12 @@
                     <rect key="frame" x="0.0" y="183" width="320" height="297"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section_map_icon.png" id="dBk-hT-RU2">
-                    <rect key="frame" x="-21" y="341" width="201" height="185"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="QrC-5o-Wya">
-                    <rect key="frame" x="20" y="150" width="280" height="301"/>
+                    <rect key="frame" x="20" y="139" width="280" height="319"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HhH-QO-fDZ">
-                            <rect key="frame" x="0.0" y="-30" width="280" height="362"/>
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="362"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -63,15 +60,19 @@
                         </tableView>
                     </subviews>
                 </scrollView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" id="dP0-l3-fdG">
-                    <rect key="frame" x="41" y="84" width="239" height="29"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" id="dP0-l3-fdG">
+                    <rect key="frame" x="41" y="72" width="239" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Orange Set"/>
                         <segment title="Blue Set"/>
                     </segments>
-                    <color key="tintColor" red="0.13801034249999999" green="0.20595718369999999" blue="0.29137652850000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.31164411045559953" green="0.46833890376208043" blue="0.66898777173913038" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
+                <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange_set.png" id="KLo-3f-E4l">
+                    <rect key="frame" x="7" y="360" width="150" height="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -81,6 +82,6 @@
     <resources>
         <image name="blue_button_triangular.png" width="50" height="30"/>
         <image name="blue_gradient_iphone.png" width="9" height="470"/>
-        <image name="section_map_icon.png" width="200" height="200"/>
+        <image name="orange_set.png" width="200" height="200"/>
     </resources>
 </document>

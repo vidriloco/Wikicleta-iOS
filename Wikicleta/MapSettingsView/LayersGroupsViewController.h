@@ -10,10 +10,9 @@
 #import "LookAndFeel.h"
 #import "App.h"
 #import "CheckableViewCell.h"
+#import "GlobalSettings.h"
 
 #define rowHeight 63
-
-typedef enum {SelectingBlue, SelectingOrange} ChoosingLayerMode;
 
 @interface LayersGroupsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
@@ -23,6 +22,7 @@ typedef enum {SelectingBlue, SelectingOrange} ChoosingLayerMode;
 @property (nonatomic, strong) IBOutlet UIButton *backButton;
 @property (nonatomic, strong) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) IBOutlet UIImageView *selectedSetImage;
 
 @property (assign, nonatomic) NSInteger index;
 

@@ -22,6 +22,7 @@
 #import "MarkerDetailsExtendedViewController.h"
 #import "LayersDelegate.h"
 #import "MapSettingsViewController.h"
+#import "GlobalSettings.h"
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, ASIHTTPRequestDelegate, LayersDelegate>
 
