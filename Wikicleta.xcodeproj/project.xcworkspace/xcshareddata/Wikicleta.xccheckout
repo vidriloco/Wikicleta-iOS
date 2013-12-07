@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F5848396-3F68-4AA7-80A9-C2C522D44C4C</string>
+	<string>E4A823D5-9C55-473A-8FE1-89747E3ED497</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Wikicleta</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D6E39764-A1D0-4155-BFF7-54E7E5C28DD0</key>
-		<string>ssh://bitbucket.org/vidriloco/wikicleta-ios.git</string>
+		<key>08A78EF7-8135-4EA9-9F40-55F7484AFE97</key>
+		<string>ssh://github.com/vidriloco/Wikicleta-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Wikicleta.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D6E39764-A1D0-4155-BFF7-54E7E5C28DD0</key>
+		<key>08A78EF7-8135-4EA9-9F40-55F7484AFE97</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://bitbucket.org/vidriloco/wikicleta-ios.git</string>
+	<string>ssh://github.com/vidriloco/Wikicleta-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D6E39764-A1D0-4155-BFF7-54E7E5C28DD0</string>
+	<string>08A78EF7-8135-4EA9-9F40-55F7484AFE97</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D6E39764-A1D0-4155-BFF7-54E7E5C28DD0</string>
+			<string>08A78EF7-8135-4EA9-9F40-55F7484AFE97</string>
 			<key>IDESourceControlWCCName</key>
-			<string>wikicleta-ios</string>
+			<string>Wikicleta-iOS</string>
 		</dict>
 	</array>
 </dict>

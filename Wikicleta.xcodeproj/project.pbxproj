@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C7E0B1E18516E110017CBCF /* CTARequestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E0B1D18516E110017CBCF /* CTARequestData.m */; };
+		0C7E0B2118516EF60017CBCF /* CTARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E0B2018516EF60017CBCF /* CTARequest.m */; };
+		0C7E0B2418516F770017CBCF /* CTANetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E0B2318516F770017CBCF /* CTANetWorking.m */; };
 		1807474E17B447FD00A04D61 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807474917B447FD00A04D61 /* IISideController.m */; };
 		1807474F17B447FD00A04D61 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807474B17B447FD00A04D61 /* IIViewDeckController.m */; };
 		1807475017B447FD00A04D61 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807474D17B447FD00A04D61 /* IIWrapController.m */; };
@@ -261,6 +264,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C7E0B1C18516E110017CBCF /* CTARequestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTARequestData.h; sourceTree = "<group>"; };
+		0C7E0B1D18516E110017CBCF /* CTARequestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTARequestData.m; sourceTree = "<group>"; };
+		0C7E0B1F18516EF60017CBCF /* CTARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTARequest.h; sourceTree = "<group>"; };
+		0C7E0B2018516EF60017CBCF /* CTARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTARequest.m; sourceTree = "<group>"; };
+		0C7E0B2218516F770017CBCF /* CTANetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTANetWorking.h; sourceTree = "<group>"; };
+		0C7E0B2318516F770017CBCF /* CTANetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTANetWorking.m; sourceTree = "<group>"; };
 		1807474817B447FD00A04D61 /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
 		1807474917B447FD00A04D61 /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
 		1807474A17B447FD00A04D61 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
@@ -693,6 +702,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C7E0B1B18516A480017CBCF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0C7E0B1C18516E110017CBCF /* CTARequestData.h */,
+				0C7E0B1D18516E110017CBCF /* CTARequestData.m */,
+				0C7E0B1F18516EF60017CBCF /* CTARequest.h */,
+				0C7E0B2018516EF60017CBCF /* CTARequest.m */,
+				0C7E0B2218516F770017CBCF /* CTANetWorking.h */,
+				0C7E0B2318516F770017CBCF /* CTANetWorking.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		1807474717B447FD00A04D61 /* ViewDeck */ = {
 			isa = PBXGroup;
 			children = (
@@ -914,6 +936,7 @@
 		3A01B496164A2F6E00F78822 /* Wikicleta */ = {
 			isa = PBXGroup;
 			children = (
+				0C7E0B1B18516A480017CBCF /* Networking */,
 				3AF73E8517D44C9D00ABE6D1 /* MapSettingsView */,
 				3A47594D17D0EC1100A524C5 /* Delegates */,
 				3AC7B2B2164CD92E008A3B58 /* Helpers */,
@@ -1646,6 +1669,7 @@
 				3A01B4CF164A2FDA00F78822 /* HomeViewController.m in Sources */,
 				3AF73E9717D44C9D00ABE6D1 /* MapSettingsViewController.m in Sources */,
 				3A060C7417D2AE5200E006C0 /* UzysSMMenuItem.m in Sources */,
+				0C7E0B1E18516E110017CBCF /* CTARequestData.m in Sources */,
 				3A01B548164A315300F78822 /* ASIAuthenticationDialog.m in Sources */,
 				3AF73E9517D44C9D00ABE6D1 /* LayersGroupsViewController.m in Sources */,
 				3A01B549164A315300F78822 /* ASIDataCompressor.m in Sources */,
@@ -1655,6 +1679,7 @@
 				3A01B54D164A315300F78822 /* ASIHTTPRequest.m in Sources */,
 				3A01B54E164A315300F78822 /* ASIInputStream.m in Sources */,
 				3A01B54F164A315300F78822 /* ASINetworkQueue.m in Sources */,
+				0C7E0B2118516EF60017CBCF /* CTARequest.m in Sources */,
 				3A01B550164A315300F78822 /* ASICloudFilesCDNRequest.m in Sources */,
 				3A01B551164A315300F78822 /* ASICloudFilesContainer.m in Sources */,
 				3AC2291D17CB2BF800E76E96 /* MenuListViewController.m in Sources */,
@@ -1692,6 +1717,7 @@
 				3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */,
 				18EE966B17D4FD5700923EC6 /* CheckableViewCell.m in Sources */,
 				3A5C3BD01669A9CF009DDA1C /* FirstAccessViewController.m in Sources */,
+				0C7E0B2418516F770017CBCF /* CTANetWorking.m in Sources */,
 				3A5C3BD61669B310009DDA1C /* RegistrationViewController.m in Sources */,
 				3ADA306F166C479500839DD9 /* User.m in Sources */,
 				3A060C7517D2AE5200E006C0 /* UzysSMMenuItemView.m in Sources */,
@@ -1845,7 +1871,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wikicleta/Wikicleta-Prefix.pch";
 				INFOPLIST_FILE = "Wikicleta/Wikicleta-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
@@ -1875,7 +1901,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wikicleta/Wikicleta-Prefix.pch";
 				INFOPLIST_FILE = "Wikicleta/Wikicleta-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/iOS App Unit Tests/Frameworks/OCMockLibrary\"",

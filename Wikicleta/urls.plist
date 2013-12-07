@@ -18,7 +18,7 @@
 	<key>backendURLDev</key>
 	<string>http://127.0.0.1:3000</string>
 	<key>createUsers</key>
-	<string>/users.json</string>
+	<string>/api/users.json</string>
 	<key>backendURL</key>
 	<string>http://wikicleta.com</string>
 </dict>

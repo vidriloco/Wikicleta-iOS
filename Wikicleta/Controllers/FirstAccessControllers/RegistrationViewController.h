@@ -12,21 +12,18 @@
 #import "App.h"
 #import "User.h"
 
-@interface RegistrationViewController : UIViewController {
-    UITextField* name;
-    UITextField* password;
-    UITextField* passwordConfirmation;
-    UITextField* email;
+@interface RegistrationViewController : UIViewController <UITextFieldDelegate> {
+  
+  
 }
 
-@property (nonatomic, strong) IBOutlet UITextField* name;
-@property (nonatomic, strong) IBOutlet UITextField* password;
-@property (nonatomic, strong) IBOutlet UITextField* passwordConfirmation;
-@property (nonatomic, strong) IBOutlet UITextField* email;
-
+@property (nonatomic, weak) IBOutlet UITextField* name;
+@property (nonatomic, weak) IBOutlet UITextField* password;
+@property (nonatomic, weak) IBOutlet UITextField* passwordConfirmation;
+@property (nonatomic, weak) IBOutlet UITextField* email;
+@property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
 
 - (void) dismiss;
-
 - (IBAction)commitRegistrationData:(id)sender;
 
 @end
