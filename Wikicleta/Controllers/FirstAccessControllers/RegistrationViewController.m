@@ -106,8 +106,8 @@
   [userDictionary setValue:registerDictionary forKey:@"registration"];
   
   [registerDictionary setValue:name.text forKey:@"full_name"];
-  [registerDictionary setValue:@"dummy" forKey:@"name"];
-  [registerDictionary setValue:@"misaelpcCool" forKey:@"username"];
+  [registerDictionary setValue:name.text forKey:@"name"];
+  [registerDictionary setValue:name.text forKey:@"username"];
   [registerDictionary setValue:email.text forKey:@"email"];
   [registerDictionary setValue:password.text forKey:@"password"];
   [registerDictionary setValue:passwordConfirmation.text forKey:@"password_confirmation"];
@@ -153,7 +153,7 @@
   {
     filled = NO;
   }
-  else if (self.passwordConfirmation.text == 0)
+  else if (self.passwordConfirmation.text.length == 0)
   {
     filled = NO;
   }
