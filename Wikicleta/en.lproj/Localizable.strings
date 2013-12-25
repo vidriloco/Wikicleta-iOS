@@ -1,9 +1,51 @@
 /* Localized versions of Info.plist keys */
 
+"back" = "Back";
+"notice_message" = "Ups!";
+"accept" = "OK";
+"all_fields_required" = "All fields are required";
+"wait_please" = "Hold on, please";
+
+// Global errors
+"no_backend_response_error" = "No response from remote server, perhaps your internet connection is down";
+
 // Landing page
 "explore" = "Explore";
-"login" = "Enter";
-"join" = "Register";
+"login" = "Log-in";
+"join" = "Sign-up";
+
+// Login page
+"login_title" = "Enter Wikicleta";
+"login_view_title" = "Hey there!";
+"login_view_subtitle" = "Already have an account on Wikicleta?";
+"login_button" = "Log-in";
+
+"login_username_placeholder" = "Username or Email";
+"login_password_placeholder" = "Password";
+"could_not_log_in_explanation" = "Check your username and password combination please";
+"could_not_log_in" = "Could not log you on";
+
+
+// Registration page
+"registration_title" = "Join Wikicleta";
+"registration_button" = "Sign-up";
+"registration_view_title" = "Become a member of the biggest online cycling community on your city!";
+
+"registration_username_placeholder" = "Username";
+"registration_email_placeholder" = "E-mail";
+"registration_password_placeholder" = "Password";
+"registration_password_confirmation_placeholder" = "Password confirmation";
+
+"sign_in_error_message" = "We were unable to create your account, try again later please";
+"password_dont_match_error_message" = "Both passwords doesn't match";
+
+"email_format_error_message" = "The email you provided is not a valid one";
+"username_format_error_message" = "The username you've provided is not valid, check it does not have white spaces";
+
+"username_taken_error" = "Sorry, the username you provided is already taken :(";
+"email_taken_error" = "The email you provided is already registered on Wikicleta";
+
+"could_not_sign_in" = "Could not sign you on";
 
 // Menu
 "map" = "map";

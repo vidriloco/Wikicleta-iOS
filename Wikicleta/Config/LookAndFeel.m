@@ -22,7 +22,12 @@
 
 + (UIColor*) lightBlueColor
 {
-    return [UIColor colorWithHexString:@""];
+    return [UIColor colorWithHexString:@"E0EAF4"];
+}
+
++ (UIColor*) middleBlueColor
+{
+    return [UIColor colorWithHexString:@"357CB7"];
 }
 
 + (UIFont*) defaultFontLightWithSize:(int)size

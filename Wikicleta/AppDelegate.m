@@ -22,14 +22,17 @@
     [GMSServices provideAPIKey:@"AIzaSyDMKDw8oVSqOMBMat2P4O2_g1OqZzYbl9Q"];
     [ActiveRecord registerDatabaseName:@"Wikicleta.sqlite" useDirectory:ARStorageDocuments];
     
-    [App initializeWithEnv:kProd];
+    [App initializeWithEnv:kDev];
     
-    self.window = [[UIWindow alloc] initWithFrame:[App windowSize]];
+    self.window = [[UIWindow alloc] initWithFrame:[App viewBounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 
+    UINavigationController *centerController = [[UINavigationController alloc]
+                                                initWithRootViewController:[[LandingViewController alloc]
+                                                           initWithNibName:@"LandingViewController" bundle:nil]];
     IIViewDeckController* deckController =  [[IIViewDeckController alloc]
-                                             initWithCenterViewController: [[LandingViewController alloc] initWithNibName:@"LandingViewController" bundle:nil]
+                                             initWithCenterViewController:centerController
                                              leftViewController:nil
                                              rightViewController:nil];
     [deckController setPanningMode:IIViewDeckPanningViewPanning];

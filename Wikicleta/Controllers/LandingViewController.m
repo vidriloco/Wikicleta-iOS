@@ -10,9 +10,9 @@
 
 @interface LandingViewController ()
 
-- (void) launchExploreController;
 - (void) launchJoinController;
 - (void) launchLoginController;
+- (void) launchDiscoveryController;
 
 @end
 
@@ -20,59 +20,90 @@
 
 - (void) launchLoginController
 {
-    NSLog(@"Login controller launched");
-    [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
+    [[self navigationController] pushViewController:[[LoginViewController alloc] init] animated:YES];
 }
 
 - (void) launchJoinController
 {
-    [self presentViewController:[[RegistrationViewController alloc] init] animated:YES completion:nil];
+    [[self navigationController] pushViewController:[[RegistrationViewController alloc] init] animated:YES];
 }
 
-- (void) launchExploreController
+- (void) launchDiscoveryController
 {
-    [self.viewDeckController setCenterController:[[MapViewController alloc] init]];
+    [[self navigationController] setNavigationBarHidden:YES];
+    [[self navigationController] pushViewController:[[MapViewController alloc] init] animated:YES];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    LandingAccessView *accessButtons = [[LandingAccessView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
-    
-    // Buttons load
-    
-    UIButtonWithLabel *explore = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(35, 15, 45, 60)
-                                                           withName:@"explore"
-                                                       withTextSeparation:45];
-    [accessButtons addSubview:explore];
-    
-    UIButtonWithLabel *login = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(135, 15, 45, 60)
-                                                         withName:@"login"
-                                                     withTextSeparation:45];
-    [accessButtons addSubview:login];
-    
-    UIButtonWithLabel *join = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(235, 15, 45, 60)
-                                                        withName:@"join"
-                                                    withTextSeparation:45];
-    [accessButtons addSubview:join];
-    
-    [explore.button addTarget:self action:@selector(launchExploreController) forControlEvents:UIControlEventTouchUpInside];
-    
-    [join.button addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
-    
-    [login.button addTarget:self action:@selector(launchLoginController) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [self.view addSubview:accessButtons];
-    
-    
-    [UIView animateWithDuration:1 animations:^{
-        [accessButtons setAlpha:1];
-        [accessButtons setTransform:CGAffineTransformMakeTranslation(0, [App viewBounds].size.height-accessButtons.center.y-100)];
-    }];
+    if ([User userLoggedIn]) {
+        [self launchDiscoveryController];
+    } else {
+        LandingAccessView *accessButtons = [[LandingAccessView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
+        
+        // Buttons load
+        
+        UIButtonWithLabel *explore = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(35, 15, 45, 60)
+                                                                     withName:@"explore"
+                                                           withTextSeparation:45];
+        [accessButtons addSubview:explore];
+        
+        UIButtonWithLabel *login = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(135, 15, 45, 60)
+                                                                   withName:@"login"
+                                                         withTextSeparation:45];
+        [accessButtons addSubview:login];
+        
+        UIButtonWithLabel *join = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(235, 15, 45, 60)
+                                                                  withName:@"join"
+                                                        withTextSeparation:45];
+        [accessButtons addSubview:join];
+        
+        [explore.button addTarget:self action:@selector(launchExploreController) forControlEvents:UIControlEventTouchUpInside];
+        
+        [join.button addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
+        
+        [login.button addTarget:self action:@selector(launchLoginController) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        [self.view addSubview:accessButtons];
+        
+        
+        [UIView animateWithDuration:1 animations:^{
+            [accessButtons setAlpha:1];
+            [accessButtons setTransform:CGAffineTransformMakeTranslation(0, [App viewBounds].size.height-accessButtons.center.y-100)];
+        }];
+    }
+}
 
-	// Do any additional setup after loading the view.
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [super viewWillAppear:animated];
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
+                                                               style:UIBarButtonItemStyleBordered
+                                                              target:nil
+                                                              action:nil];
+    
+    if (!IS_OS_7_OR_LATER) {
+        [backButton setTitleTextAttributes:@{ UITextAttributeTextColor: [UIColor whiteColor],
+                                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                          UITextAttributeFont: [LookAndFeel defaultFontBookWithSize:14],
+                                          } forState:UIControlStateNormal];
+    }
+
+    // For iOS 6 and below
+    [backButton setTintColor:[LookAndFeel middleBlueColor]];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning

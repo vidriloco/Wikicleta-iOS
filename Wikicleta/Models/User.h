@@ -8,31 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
-#import "UserEntity.h"
 #import "SBJson.h"
 
 #define kName                 @"name"
 #define kUsername             @"username"
-#define kPassword             @"password"
-#define kPasswordConfirmation @"password_confirmation"
+#define kToken                @"token"
 #define kEmail                @"email"
 
 @interface User : NSObject
 
-@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * username;
 @property (nonatomic, strong) NSString * email;
+@property (nonatomic, strong) NSString * bio;
 @property (nonatomic, strong) NSString * token;
 
-@property (nonatomic, strong) NSString * password;
-@property (nonatomic, strong) NSString * passwordConfirmation;
 
-
-+ (id) initWithName:(NSString*)name withEmail:(NSString*)email withPassword:(NSString*)password andPasswordConfirmation:(NSString*)confirmation;
-
-- (BOOL) save;
-- (BOOL) isValidForSave;
-- (NSString*) toJSON;
-- (NSString*) errorMsj;
-
++ (id) saveUserWithToken:(NSString*)token withUsername:(NSString*)username withFullName:(NSString*)fullname withEmail:(NSString*)email andBio:(NSString*)bio;
++ (void) saveUserFromDictionary:(NSDictionary*)dictionary;
++ (BOOL) userLoggedIn;
 @end

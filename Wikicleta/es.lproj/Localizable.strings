@@ -5,10 +5,52 @@
   Copyright (c) 2013 Wikicleta. All rights reserved.
 */
 
+"back" = "Atrás";
+"notice_message" = "Hey!";
+"accept" = "Va";
+"all_fields_required" = "Se requieren todos los campos";
+"wait_please" = "Espera por favor";
+
+// Global errors
+"no_backend_response_error" = "Sin respuesta del servidor remoto, quizás perdiste la conexión a internet";
+
 // Landing page
 "explore" = "Explora";
 "login" = "Entra";
-"join" = "Registrate";
+"join" = "Registro";
+
+// Registration page
+"registration_title" = "Únete a Wikicleta";
+"registration_button" = "Finalizar";
+"registration_view_title" = "¡Se parte de la comunidad ciclista en linea más grande en tu ciudad!";
+
+"registration_username_placeholder" = "Nombre de usuario";
+"registration_email_placeholder" = "E-mail";
+"registration_password_placeholder" = "Contraseña";
+"registration_password_confirmation_placeholder" = "Confirmación de Contraseña";
+
+"sign_in_error_message" = "Tu cuenta no pudo ser creada, intenta de nuevo más tarde";
+"password_dont_match_error_message" = "Las contraseñas no coinciden";
+
+"email_format_error_message" = "El e-mail que proporcionaste no es válido";
+"username_format_error_message" = "El nombre de usuario que proporcionaste no es válido; revisa que no tenga espacios.";
+
+"username_taken_error" = "Lo sentimos, este nombre de usuario ya ha sido tomado :(";
+"email_taken_error" = "Este e-mail ya lo tenemos registrado";
+
+"could_not_sign_in" = "No fué posible registrarte";
+
+// Login page
+"login_title" = "Entra a Wikicleta";
+"login_view_title" = "¡Hey, Hola!";
+"login_view_subtitle" = "¿Ya tienes cuenta en Wikicleta?";
+"login_button" = "Iniciar";
+
+"login_username_placeholder" = "Nombre de usuario o email";
+"login_password_placeholder" = "Contraseña";
+
+"could_not_log_in_explanation" = "Verifica tu nombre de usuario y contraseña";
+"could_not_log_in" = "No fué posible iniciar sesión";
 
 // Menu
 "map" = "mapa vivo";

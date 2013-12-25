@@ -7,23 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ASIHTTPRequest.h"
-
 #import "App.h"
 #import "User.h"
+#import "UIViewController+Helpers.h"
+#import "UITextField+UIPlus.h"
+#import "NSObject+FieldValidators.h"
+#import "MapViewController.h"
+#import "FormBaseViewController.h"
+#import "LandingViewController.h"
+#import "AFHTTPRequestOperationManager.h"
 
-@interface RegistrationViewController : UIViewController <UITextFieldDelegate> {
-  
-  
+@interface RegistrationViewController : FormBaseViewController {
+
 }
 
-@property (nonatomic, weak) IBOutlet UITextField* name;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+
+@property (nonatomic, weak) IBOutlet UITextField* username;
 @property (nonatomic, weak) IBOutlet UITextField* password;
 @property (nonatomic, weak) IBOutlet UITextField* passwordConfirmation;
 @property (nonatomic, weak) IBOutlet UITextField* email;
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
-
-- (void) dismiss;
-- (IBAction)commitRegistrationData:(id)sender;
 
 @end

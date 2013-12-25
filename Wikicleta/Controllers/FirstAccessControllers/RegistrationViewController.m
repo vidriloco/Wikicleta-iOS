@@ -8,75 +8,110 @@
 //
 
 #import "RegistrationViewController.h"
-#import "AFHTTPRequestOperationManager.h"
 
-@interface RegistrationViewController ()
+@interface RegistrationViewController () {
+    MBProgressHUD *hud;
+}
+
+- (void) commitRegistration;
+- (void) dismissToMapViewController;
+- (void) dismiss;
+- (void) attemptSignup;
 
 @end
 
 @implementation RegistrationViewController
 
-@synthesize name, password, passwordConfirmation, email;
+@synthesize username, password, passwordConfirmation, email, contentScrollView, titleLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Registro";
+        self.title = NSLocalizedString(@"registration_title", nil);
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDAnimationFade;
+        [hud setHidden:YES];
+        hud.labelText = NSLocalizedString(@"wait_please", nil);
     }
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void) attemptSignup
 {
-    [super viewDidAppear:animated];
+    if ([self requiredFieldsFilled]) {
+        if (![self passwordFieldsMatch]) {
+            [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                           andContent:NSLocalizedString(@"password_dont_match_error_message", nil)
+                        andTextButton:NSLocalizedString(@"accept", nil)];
+        } else if(![self validateStringAsUsername:[username text]]) {
+            [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                           andContent:NSLocalizedString(@"username_format_error_message", nil)
+                        andTextButton:NSLocalizedString(@"accept", nil)];
+        } else if(![self validateStringAsEmail:[email text]]) {
+            [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                           andContent:NSLocalizedString(@"email_format_error_message", nil)
+                        andTextButton:NSLocalizedString(@"accept", nil)];
+        } else {
+            [self commitRegistration];
+        }
+    } else {
+        [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                       andContent:NSLocalizedString(@"all_fields_required", nil)
+                    andTextButton:NSLocalizedString(@"accept", nil)];
+    }
 }
 
-- (IBAction)commitRegistrationData:(id)sender
+- (void) commitRegistration
 {
-  if ([self requiredFieldsFilled]) {
+    [self.view endEditing:YES];
+    [hud setHidden:NO];
+    NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *registerDictionary = [[NSMutableDictionary alloc] init];
     
-    if ([self passwordFieldsMatch]) {
-      
-      AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-      [manager POST:[App urlForResource:@"createUsers"] parameters:[self registrationDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alerta"
-                                                        message:@"Ocurrio un problema al realizar el registro"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Aceptar"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
-      }];
-      
-    }
-    else
-    {
-      
-      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alerta"
-                                                      message:@"Los passwords no coinciden"
-                                                     delegate:nil
-                                            cancelButtonTitle:@"Aceptar"
-                                            otherButtonTitles:nil];
-      [alert show];
+    [userDictionary setValue:registerDictionary forKey:@"registration"];
+    
+    [registerDictionary setValue:username.text forKey:@"username"];
+    [registerDictionary setValue:email.text forKey:@"email"];
+    [registerDictionary setValue:password.text forKey:@"password"];
+    [registerDictionary setValue:passwordConfirmation.text forKey:@"password_confirmation"];
+    
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
 
-    }
-    
-  }
-  else
-  {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alerta"
-                                                    message:@"Todos los campos son requeridos"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Aceptar"
-                                          otherButtonTitles:nil];
-    [alert show];
-  }
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:[App urlForResource:@"createUsers"] parameters:userDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *successObject = [jsonParser objectWithString:[operation responseString] error:nil];
+        [User saveUserFromDictionary:successObject];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        [self dismissToMapViewController];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [hud setHidden:YES];
+
+        if ([operation.responseString length] == 0) {
+            [self showAlertDialogWith:NSLocalizedString(@"could_not_sign_in", nil)
+                           andContent:NSLocalizedString(@"no_backend_response_error", nil)
+                        andTextButton:NSLocalizedString(@"accept", nil)];
+        } else {
+            NSDictionary *errorObject = [jsonParser objectWithString:[operation responseString] error:nil];
+            if ([errorObject objectForKey:@"errors"]) {
+                if ([[errorObject objectForKey:@"errors"] objectForKey:@"username"]) {
+                    [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                                   andContent:NSLocalizedString(@"username_taken_error", nil)
+                                andTextButton:NSLocalizedString(@"accept", nil)];
+                } else if([[errorObject objectForKey:@"errors"] objectForKey:@"email"]) {
+                    [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                                   andContent:NSLocalizedString(@"email_taken_error", nil)
+                                andTextButton:NSLocalizedString(@"accept", nil)];
+                } else {
+                    [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                                   andContent:NSLocalizedString(@"sign_in_error_message", nil)
+                                andTextButton:NSLocalizedString(@"accept", nil)];
+                }
+            }
+        }
+        
+    }];
 }
 
 - (void)dismiss
@@ -84,11 +119,34 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void) dismissToMapViewController
+{
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController pushViewController:[[MapViewController alloc] init] animated:NO];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  [self setupUIControls];
-      // Do any additional setup after loading the view from its nib.
+    [self loadImageBackgroundNamed:@"cyclers.png"];
+    [self loadNavigationBarDefaultStyle];
+    [self loadRightButtonWithString:NSLocalizedString(@"registration_button", nil) andStringSelector:@"attemptSignup"];
+
+    [titleLabel setFont:[LookAndFeel defaultFontBookWithSize:13]];
+    [titleLabel setTextColor:[LookAndFeel orangeColor]];
+    [titleLabel setText:NSLocalizedString(@"registration_view_title", nil)];
+    
+    [username setPlaceholder:NSLocalizedString(@"registration_username_placeholder", nil)];
+    [username fixUI];
+    
+    [password setPlaceholder:NSLocalizedString(@"registration_password_placeholder", nil)];
+    [password fixUI];
+    
+    [passwordConfirmation setPlaceholder:NSLocalizedString(@"registration_password_confirmation_placeholder", nil)];
+    [passwordConfirmation fixUI];
+    
+    [email setPlaceholder:NSLocalizedString(@"registration_email_placeholder", nil)];
+    [email fixUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,85 +155,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSDictionary *) registrationDictionary
-{
-  
-  NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] init];
-  NSMutableDictionary *registerDictionary = [[NSMutableDictionary alloc] init];
-  
-  [userDictionary setValue:registerDictionary forKey:@"registration"];
-  
-  [registerDictionary setValue:name.text forKey:@"full_name"];
-  [registerDictionary setValue:name.text forKey:@"name"];
-  [registerDictionary setValue:name.text forKey:@"username"];
-  [registerDictionary setValue:email.text forKey:@"email"];
-  [registerDictionary setValue:password.text forKey:@"password"];
-  [registerDictionary setValue:passwordConfirmation.text forKey:@"password_confirmation"];
-  
-  return userDictionary;
-  
-}
-
-- (void)setupUIControls
-{
-  
-  UITapGestureRecognizer *dismissKeyBoardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissTap:)];
-  [self.view addGestureRecognizer:dismissKeyBoardTap];
-
-}
-
 - (void)dismissTap:(id)sender
 {
   [self.email resignFirstResponder];
-  [self.name resignFirstResponder];
+  [self.username resignFirstResponder];
   [self.password resignFirstResponder];
   [self.passwordConfirmation resignFirstResponder];
-  [UIView animateWithDuration:1.0 animations:^{
-    [self.contentScrollView setFrame:CGRectMake(0, 90, 320, 300)];
-  } completion:^(BOOL finished) {
-    
-  }];
-  
 }
 
 - (BOOL) requiredFieldsFilled
 {
-  BOOL filled = YES;
-  
-  if (self.name.text.length == 0) {
-    filled = NO;
-  }
-  else if (self.email.text.length == 0)
-  {
-    filled = NO;
-  }
-  else if (self.password.text.length == 0)
-  {
-    filled = NO;
-  }
-  else if (self.passwordConfirmation.text.length == 0)
-  {
-    filled = NO;
-  }
-  return filled;
+    return [self validateFieldIsNotEmpty:username] ||
+    [self validateFieldIsNotEmpty:email] ||
+    [self validateFieldIsNotEmpty:password] ||
+    [self validateFieldIsNotEmpty:passwordConfirmation];
 }
 
 - (BOOL) passwordFieldsMatch
 {
-  if ([self.password.text isEqualToString:self.passwordConfirmation.text]) {
-    return YES;
-  }
-  else
-  {
-    return NO;
-  }
+    return [self validateStringEqual:self.password.text toString:self.passwordConfirmation.text] && [self validateFieldIsNotEmpty:password];
 }
 
 #pragma - mark UITextFieldDelegate
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-  if (textField == self.name) {
+  if (textField == self.username) {
     [self.email becomeFirstResponder];
   }
   else if (textField == self.email){
@@ -187,20 +192,13 @@
   }
   else if (textField == passwordConfirmation)
   {
-    [self commitRegistrationData:nil];
+    [self attemptSignup];
   }
   return YES;
 }
 
-- (void) textFieldDidBeginEditing:(UITextField *)textField
-{
-  [self.contentScrollView setContentSize:CGSizeMake(320, 250)];
-
-  [UIView animateWithDuration:1.0 animations:^{
-    [self.contentScrollView setFrame:CGRectMake(0, 20, 320, 300)];
-  } completion:^(BOOL finished) {
-    
-  }];
+- (UIScrollView*) scrollableView {
+    return contentScrollView;
 }
 
 @end

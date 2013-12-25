@@ -48,12 +48,7 @@
     
     int i = 0;
     for (NSString *viewType in @[@"layers", @"groups"]) {
-        UIView *modMapView;
-        if ([viewType isEqualToString:@"layers"]) {
-            modMapView = [[[NSBundle mainBundle] loadNibNamed:[@"LayerBasedView" stringByAppendingString:[App postfixView]] owner:self options:nil] objectAtIndex:0];
-        } else {
-            modMapView = [[[NSBundle mainBundle] loadNibNamed:[@"GroupsBasedView" stringByAppendingString:[App postfixView]] owner:self options:nil] objectAtIndex:0];
-        }
+        UIView *modMapView = [[[NSBundle mainBundle] loadNibNamed:@"LayerBasedView" owner:self options:nil] objectAtIndex:0];
         
         UILabel *label = (UILabel*) [modMapView viewWithTag:1];
         [label setFont:[LookAndFeel defaultFontLightWithSize:16]];
@@ -92,27 +87,7 @@
 
 - (void)selectYourLayers
 {
-    LayersGroupsViewController *layers = [[LayersGroupsViewController alloc] initWithNibName:[@"LayersGroupsViewController" stringByAppendingString:[App postfixView]] bundle:Nil];
-    [CATransaction begin];
-    
-    CATransition *transition = [CATransition animation];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromRight;
-    transition.duration = 0.25f;
-    transition.fillMode = kCAFillModeForwards;
-    transition.removedOnCompletion = YES;
-    
-    [[UIApplication sharedApplication].keyWindow.layer addAnimation:transition forKey:@"transition"];
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    [CATransaction setCompletionBlock: ^ {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(transition.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^ {
-            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-        });
-    }];
-    
-    [self presentModalViewController:layers animated:NO];
-    
-    [CATransaction commit];
+
 }
 
 - (void)didReceiveMemoryWarning
