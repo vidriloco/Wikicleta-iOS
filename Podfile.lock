@@ -17,18 +17,37 @@ PODS:
   - AFNetworking/Serialization (2.0.3)
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
+  - FormatterKit (1.4.0):
+    - FormatterKit/AddressFormatter
+    - FormatterKit/ArrayFormatter
+    - FormatterKit/ColorFormatter
+    - FormatterKit/LocationFormatter
+    - FormatterKit/OrdinalNumberFormatter
+    - FormatterKit/TimeIntervalFormatter
+    - FormatterKit/UnitOfInformationFormatter
+    - FormatterKit/URLRequestFormatter
+  - FormatterKit/AddressFormatter (1.4.0)
+  - FormatterKit/ArrayFormatter (1.4.0)
+  - FormatterKit/ColorFormatter (1.4.0)
+  - FormatterKit/LocationFormatter (1.4.0)
+  - FormatterKit/OrdinalNumberFormatter (1.4.0)
+  - FormatterKit/TimeIntervalFormatter (1.4.0)
+  - FormatterKit/UnitOfInformationFormatter (1.4.0)
+  - FormatterKit/URLRequestFormatter (1.4.0)
   - iActiveRecord (1.3.0)
   - MBProgressHUD (0.8)
   - SVSegmentedControl (0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - FormatterKit
   - iActiveRecord (= 1.3.0)
   - MBProgressHUD (~> 0.8)
   - SVSegmentedControl
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
+  FormatterKit: 475c602b6098d69c3255c65cfe6cb6a27c175f57
   iActiveRecord: 5dd0ababe9b7ea1764da0d21d9f3fe61c73172ce
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   SVSegmentedControl: e874fc56c2a1efb9f597ddf0908101393f53fe96

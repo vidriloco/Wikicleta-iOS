@@ -10,8 +10,9 @@
 
 @implementation UIViewController (Helpers)
 
-- (void) loadImageBackgroundNamed:(NSString*)imageName {
-    UIImageView *backPicture = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+- (void) setImageAsBackground:(UIImage *)image
+{
+    UIImageView *backPicture = [[UIImageView alloc] initWithImage:image];
     
     int translateY = IS_OS_7_OR_LATER ? 30 : -30;
     
@@ -21,6 +22,11 @@
     [UIView animateWithDuration:1 animations:^{
         [backPicture setAlpha:0.5];
     } completion:nil];
+
+}
+
+- (void) loadImageBackgroundNamed:(NSString*)imageName {
+    [self setImageAsBackground:[UIImage imageNamed:imageName]];
 }
 
 - (void) loadNavigationBarDefaultStyle

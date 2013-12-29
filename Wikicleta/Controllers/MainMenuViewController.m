@@ -33,8 +33,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSMutableArray* mainSections = [NSMutableArray arrayWithObjects: @"discover", @"events", nil];
+
+    if ([User userLoggedIn]) {
+        [mainSections addObject:@"profile"];
+    } else {
+        [mainSections addObject:@"join"];
+    }
     
-    NSArray* mainSections = [NSArray arrayWithObjects:@"map", @"discover", @"profile", nil];
     firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withController:self];
     [self.view addSubview:firstList.view];
     

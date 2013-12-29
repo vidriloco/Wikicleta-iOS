@@ -10,7 +10,11 @@
 "accept" = "Va";
 "all_fields_required" = "Se requieren todos los campos";
 "wait_please" = "Espera por favor";
+"map" = "Mapa";
 
+"created_by" = "creado por ";
+"updated_at" = "actualizado ";
+"distance_at" = "a ";
 // Global errors
 "no_backend_response_error" = "Sin respuesta del servidor remoto, quizás perdiste la conexión a internet";
 
@@ -53,31 +57,60 @@
 "could_not_log_in" = "No fué posible iniciar sesión";
 
 // Menu
-"map" = "mapa vivo";
-"activity" = "actividad";
-"routes" = "rutas";
-"messages" = "mensajes";
-"workshops" = "talleres";
-"parkings" = "estacionamientos";
-"section_title" = "más recientes";
+"discover_menu" = "descubre";
+"events_menu" = "eventos";
+"join_menu" = "únete";
+"profile_menu" = "tu";
+"messages_menu" = "mensajes";
+
+// Details view for POIs
+"poi_details_title" = "Detalles";
+"community_title_label" = "¿Qué dice la comunidad?";
 
 //Layers Menu
 "layers_menu_title" = "Capas";
 "routes_layers" = "rutas";
-"parkings_layers" = "estacionamientos";
+"parkings_layers" = "estacionamientos de bicis";
+"bicycle_lanes_layers" = "ciclovias";
 "workshops_layers" = "talleres y tiendas";
-"bike_sharings_layers" = "bicicletas compartidas";
+"cycle_stations_layers" = "bicicletas compartidas";
 "tips_layers" = "tips";
 "location" = "Tu ubicación";
 
 // Parkings Category
 "government_provided" = "Del gobierno";
 "urban_mobiliary" = "Mobiliario urbano";
-"venue_provided" = "Del establecimiento";
+"venue_provided" = "De un establecimiento";
 
 "parkings_title" = "Bici-estacionamiento";
 "ranking" = "%f opinión";
 "rankings" = "%f opiniones";
+
+"has_roof" = "Con techo";
+"lacks_roof" = "Sin techo";
+
+// Tip View
+"tips_title" = "Tip";
+
+"sightseeing" = "Para visitar en bici";
+"danger" = "Punto de Riesgo";
+"alert" = "Recomendación";
+
+// Workshop View
+"workshop_and_store_title" = "Taller y Tienda de Bicis";
+"workshop_title" = "Taller de bicis";
+"contact_title_label" = "Info de Contacto";
+
+// Cyclestations View
+"slots_available" = "Espacios disponibles";
+"bikes_available" = "Bicis disponibles";
+
+// Route View
+"route" = "Ruta";
+"route_to_start" = "Ir al inicio";
+"route_to_end" = "Ir al final";
+"route_attach_view" = "Fijar";
+"route_detach_view" = "Soltar";
 
 // Settings View
 "map_settings_title" = "Ajustes al Mapa";

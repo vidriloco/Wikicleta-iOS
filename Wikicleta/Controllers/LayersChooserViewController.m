@@ -1,6 +1,9 @@
 //
 //  LayersChooserViewController.m
-//  Cyclo
+//  Wikicleta
+//
+//  This class implements the right menu chooser from which
+//  users can select up to one layer of POIs to view on the map
 //
 //  Created by Alejandro Cruz Paz on 8/13/13.
 //  Copyright (c) 2013 Wikicleta. All rights reserved.
@@ -28,7 +31,7 @@
 
         self.view = [[UIView alloc] initWithFrame:CGRectMake(20, 40, [App viewBounds].size.width-40, 300)];
         
-        NSArray *layers = [NSArray arrayWithObjects:layersParkings, layersRoutes, layersBicycleLanes, layersWorkshops, layersBicycleSharings, layersTips, nil];
+        NSArray *layers = [NSArray arrayWithObjects:layersParkings, layersRoutes, layersWorkshops, layersBicycleSharings, layersTips, nil];
         
         layersMenu = [[LayersScrollView alloc] initWithLayers:layers withLayersController:self];
         [self.view addSubview:layersMenu];
@@ -40,22 +43,20 @@
 - (void) selectedLayer:(id)layer
 {
     [self.viewDeckController closeRightView];
-    UIButtonWithLabel *buttonSelected = ((UIButtonWithLabel*) [layer superview]);
-    UIButtonWithLabel *previouslySelected = [layersMenuList objectForKey:selectedLayer];
+    LayerItemView *buttonSelected = (LayerItemView*) layer;
+    LayerItemView *previouslySelected = [layersMenuList objectForKey:selectedLayer];
     
-    [previouslySelected setSelected:NO];
-    NSArray *array;
-    if (buttonSelected.name == previouslySelected.name) {
-        selectedLayer = @"";
-        array = [NSArray array];
-    } else {
+    if (selectedLayer != buttonSelected.name) {
         selectedLayer = buttonSelected.name;
-        array = [NSArray arrayWithObject:selectedLayer];
+        [previouslySelected setSelected:NO];
         [buttonSelected setSelected:YES];
+    } else {
+        [previouslySelected setSelected:NO];
+        selectedLayer = nil;
     }
-    
-    [delegate updateMapWithLayersSelected:array];
-    
+
+
+    [delegate updateMapWithLayersSelected:selectedLayer];
 }
 
 - (void) loadView

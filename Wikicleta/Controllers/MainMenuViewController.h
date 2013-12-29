@@ -10,6 +10,7 @@
 #import "MenuListViewController.h"
 #import "App.h"
 #import "IIViewDeckController.h"
+#import "User.h"
 
 @interface MainMenuViewController : UIViewController
 

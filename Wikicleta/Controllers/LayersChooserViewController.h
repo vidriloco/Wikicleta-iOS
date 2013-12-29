@@ -14,6 +14,7 @@
 #import "LayersScrollView.h"
 #import "LayersDelegate.h"
 #import "IIViewDeckController.h"
+#import "LayerItemView.h"
 
 @interface LayersChooserViewController : UIViewController {
     NSMutableDictionary *layersMenuList;

@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "App.h"
 #import "UIButtonWithLabel.h"
+#import "LayerItemView.h"
 
 @class LayersChooserViewController;
 
-@interface LayersScrollView : UIScrollView
+@interface LayersScrollView : UIScrollView {
+    LayersChooserViewController *layersController;
+}
+
+@property (nonatomic, strong) LayersChooserViewController *layersController;
 
 - (id) initWithLayers:(NSArray*)layers withLayersController:(LayersChooserViewController*)layersController;
-
 @end

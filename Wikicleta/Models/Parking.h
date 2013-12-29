@@ -10,10 +10,10 @@
 #import "ActiveRecord.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "BaseModel.h"
+#import "ModelHumanizer.h"
 
-@interface Parking : BaseModel
+@interface Parking : BaseModel <ModelHumanizer>
 
-@property (nonatomic, strong) NSNumber *remoteId;
 @property (nonatomic, strong) NSString *details;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSNumber *userId;
 
 @property (nonatomic, strong) NSNumber *likesCount;
+@property (nonatomic, strong) NSNumber *dislikesCount;
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *userPicURL;
 

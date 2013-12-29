@@ -11,19 +11,34 @@
 #import "App.h"
 #import <QuartzCore/QuartzCore.h>
 #import "LayersChooserViewController.h"
-#import "DRNRealTimeBlurView.h"
 #import "IIViewDeckController.h"
 #import "MainMenuViewController.h"
-#import "ASIHTTPRequestDelegate.h"
-#import "ASIHTTPRequest.h"
 #import "SBJson.h"
-#import "MarkerDetailsView.h"
-#import "Parking.h"
-#import "MarkerDetailsExtendedViewController.h"
 #import "LayersDelegate.h"
-#import "MapSettingsViewController.h"
 #import "GlobalSettings.h"
+#import "MarkerInfoUIView.h"
+#import "MarkerDetailsViewController.h"
+#import "ModelHumanizer.h"
+#import <FormatterKit/TTTLocationFormatter.h>
+#import "Parking.h"
+#import "Tip.h"
+#import "Workshop.h"
+#import "Cyclestation.h"
+#import "CyclestationUIView.h"
+#import "Route.h"
+#import "RouteUIView.h"
+#import "POIViewController.h"
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, ASIHTTPRequestDelegate, LayersDelegate>
+#define poiDetailedZoom 17
+#define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
+#define minZoom 15
+
+typedef enum {Share, Find} MapMode;
+
+@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate> {
+    UIViewController *rightHelperController;
+}
+
+@property (nonatomic, strong) UIViewController *rightHelperController;
 
 @end

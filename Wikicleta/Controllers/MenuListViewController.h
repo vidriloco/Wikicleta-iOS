@@ -10,6 +10,8 @@
 #import "MenuViewCell.h"
 #import "IIViewDeckController.h"
 #import "MapViewController.h"
+#import "User.h"
+#import "LandingViewController.h"
 
 @class MainMenuViewController;
 

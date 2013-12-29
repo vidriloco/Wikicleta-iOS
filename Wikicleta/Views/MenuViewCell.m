@@ -14,7 +14,7 @@
 
 - (void) setIconAndTextByName:(NSString *)name
 {
-    [self.mainLabel setText:NSLocalizedString(name, nil)];
+    [self.mainLabel setText:NSLocalizedString([name stringByAppendingString:@"_menu"], nil)];
     [self.mainLabel setTextAlignment:NSTextAlignmentCenter];
     [self.iconCell setImage:[UIImage imageNamed:[name stringByAppendingString:@"_menu.png"]]];
     [self.mainLabel setFont:[LookAndFeel defaultFontLightWithSize:18]];

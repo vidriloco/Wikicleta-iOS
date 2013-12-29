@@ -16,7 +16,7 @@
 #define kClientSecret   @"78314708ad7342e8d6d0883589d82bab"
 
 #define layersParkings @"parkings"
-#define layersBicycleSharings @"bike_sharings"
+#define layersBicycleSharings @"cycle_stations"
 #define layersRoutes @"routes"
 #define layersBicycleLanes @"bicycle_lanes"
 #define layersWorkshops @"workshops"

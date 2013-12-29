@@ -13,18 +13,20 @@
 @interface BaseModel : ActiveRecord {
     WikiMarker* marker;
     NSDictionary *categories;
+    NSDateFormatter *dateFormatter;
 }
 
+@property (nonatomic, strong) NSObject *remoteId;
 @property (nonatomic, strong) WikiMarker* marker;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) NSNumber *kind;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
 
 + (void) buildFrom:(NSArray*)array;
 - (NSString*) localizedKindString;
 - (NSString*) kindString;
-- (NSString*) title;
-- (NSString*) subtitle;
-- (UIImage*) image;
-- (int) identifier;
+- (NSObject*) identifier;
+- (void) loadDateFormatter;
 
 @end

@@ -9,7 +9,6 @@
 #import "Parking.h"
 
 @interface Parking(){
-    NSDateFormatter *dateFormatter;
 }
 
 - (void) setCategories;
@@ -20,7 +19,7 @@
 
 static NSMutableDictionary* parkingsLoaded;
 
-@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username,remoteId,likesCount,updatedAt,userId,userPicURL, coordinate;
+@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,updatedAt,userId,userPicURL, coordinate;
 
 ignore_fields_do(
     ignore_field(username);
@@ -28,6 +27,7 @@ ignore_fields_do(
     ignore_field(likesCount);
     ignore_field(userId);
     ignore_field(coordinate);
+    ignore_field(dislikesCount);
 )
 
 + (NSDictionary*) parkingsLoaded
@@ -60,6 +60,8 @@ ignore_fields_do(
         self.longitude = [NSNumber numberWithDouble:[[dictionary objectForKey:@"lon"] doubleValue]];
         self.coordinate = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
         self.likesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"likes_count"] integerValue]];
+        self.dislikesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"dislikes_count"] integerValue]];
+
         self.anyoneCanEdit = [[dictionary objectForKey:@"others_can_edit"] boolValue];
         
         [self loadDateFormatter];
@@ -72,20 +74,11 @@ ignore_fields_do(
         
         marker = [WikiMarker markerWithPosition:self.coordinate];
         marker.title = self.localizedKindString;
-        marker.icon = [self image];
+        marker.icon = [self markerIcon];
         marker.model = self;
     }
     
     return self;
-}
-
-- (void) loadDateFormatter
-{
-    if (dateFormatter == NULL) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setLocale:[NSLocale currentLocale]];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    }
 }
 
 - (void) setCategories
@@ -110,14 +103,49 @@ ignore_fields_do(
     return NSLocalizedString([self kindString], nil);
 }
 
-- (UIImage*) image
+- (NSString*) details
+{
+    return details;
+}
+
+- (UIImage*) markerIcon
 {
     return [UIImage imageNamed:[self.kindString stringByAppendingString:@"_marker.png"]];
 }
 
-- (int) identifier
+- (UIImage*) bigIcon
 {
-    return self.remoteId;
+    return [UIImage imageNamed:[self.kindString stringByAppendingString:@"_icon.png"]];
+}
+
+- (NSString*) likes
+{
+    return [NSString stringWithFormat:@"%d", [likesCount intValue]];
+}
+
+- (NSString*) dislikes
+{
+    return [NSString stringWithFormat:@"%d", [dislikesCount intValue]];
+}
+
+- (NSDate*) updatedAt
+{
+    return updatedAt;
+}
+
+- (NSString*) createdBy
+{
+    return [NSLocalizedString(@"created_by", nil) stringByAppendingString:[self username]];
+}
+
+- (NSString*) extraAnnotation
+{
+    return [self hasRoof] ? NSLocalizedString(@"has_roof", nil) : NSLocalizedString(@"lacks_roof", nil);
+}
+
+- (NSString*) userPicURL
+{
+    return userPicURL;
 }
 
 @end

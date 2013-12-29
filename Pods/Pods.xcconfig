@@ -1,4 +1,4 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 $(inherited) SQLITE_CORE SQLITE_ENABLE_UNICODE
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/SVSegmentedControl" "${PODS_ROOT}/Headers/iActiveRecord"
-OTHER_LDFLAGS = -ObjC -lsqlite3 -framework CoreGraphics -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/FormatterKit" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/SVSegmentedControl" "${PODS_ROOT}/Headers/iActiveRecord"
+OTHER_LDFLAGS = -ObjC -lsqlite3 -framework AddressBook -framework CoreGraphics -framework CoreLocation -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration
 PODS_ROOT = ${SRCROOT}/Pods

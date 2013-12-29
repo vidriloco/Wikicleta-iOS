@@ -12,7 +12,7 @@
 
 - (void) launchJoinController;
 - (void) launchLoginController;
-- (void) launchDiscoveryController;
+- (void) launchDiscoverController;
 
 @end
 
@@ -28,10 +28,9 @@
     [[self navigationController] pushViewController:[[RegistrationViewController alloc] init] animated:YES];
 }
 
-- (void) launchDiscoveryController
+- (void) launchDiscoverController
 {
-    [[self navigationController] setNavigationBarHidden:YES];
-    [[self navigationController] pushViewController:[[MapViewController alloc] init] animated:YES];
+    [[self navigationController] pushViewController:[[MapViewController alloc] init] animated:NO];
 }
 
 - (void)viewDidLoad
@@ -39,7 +38,7 @@
     [super viewDidLoad];
     
     if ([User userLoggedIn]) {
-        [self launchDiscoveryController];
+        [self launchDiscoverController];
     } else {
         LandingAccessView *accessButtons = [[LandingAccessView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
         
@@ -60,7 +59,7 @@
                                                         withTextSeparation:45];
         [accessButtons addSubview:join];
         
-        [explore.button addTarget:self action:@selector(launchExploreController) forControlEvents:UIControlEventTouchUpInside];
+        [explore.button addTarget:self action:@selector(launchDiscoverController) forControlEvents:UIControlEventTouchUpInside];
         
         [join.button addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
         

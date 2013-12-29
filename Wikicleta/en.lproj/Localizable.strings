@@ -5,7 +5,11 @@
 "accept" = "OK";
 "all_fields_required" = "All fields are required";
 "wait_please" = "Hold on, please";
+"map" = "Map";
 
+"created_by" = "created by ";
+"updated_at" = "updated ";
+"distance_at" = "at ";
 // Global errors
 "no_backend_response_error" = "No response from remote server, perhaps your internet connection is down";
 
@@ -47,18 +51,23 @@
 
 "could_not_sign_in" = "Could not sign you on";
 
+// Details view for POIs
+"poi_details_title" = "Details";
+"community_title_label" = "What the community says?";
+
 // Menu
-"map" = "map";
-"activity" = "activity";
-"discover" = "discover";
-"routes" = "routes";
+"discover_menu" = "discover";
+"events_menu" = "events";
+"join_menu" = "join";
+"profile_menu" = "you";
+"messages_menu" = "communication";
 
 // Layers Menu
 "layers_menu_title" = "Layers";
 "routes_layers" = "routes";
 "parkings_layers" = "parkings";
 "workshops_layers" = "fix & buy";
-"bike_sharings_layers" = "city bikes";
+"cycle_stations_layers" = "city bikes";
 "tips_layers" = "tips";
 "bicycle_lanes_layers" = "lanes";
 "location" = "Your location";
@@ -72,6 +81,31 @@
 "parkings_title" = "Bicycle Parking";
 "ranking" = "%f ranking";
 "rankings" = "%f rankings";
+"has_roof" = "Has roof";
+"lacks_roof" = "Has no roof";
+
+// Workshop View
+
+"workshop_and_store_title" = "Bikeshop";
+"workshop_title" = "Bicycle Repair";
+"contact_title_label" = "Contact Info";
+
+// Tip View
+"tips_title" = "Tip";
+"sightseeing" = "Place to visit on bike";
+"danger" = "Dangerous place";
+"alert" = "Recommendation";
+
+// Cyclestations View
+"slots_available" = "Available slots";
+"bikes_available" = "Available bicycles";
+
+// Route View
+"route" = "Route";
+"route_to_start" = "Go to start";
+"route_to_end" = "Go to end";
+"route_attach_view" = "Attach";
+"route_detach_view" = "Detach";
 
 // Settings View
 "map_settings_title" = "Map Tweaks";

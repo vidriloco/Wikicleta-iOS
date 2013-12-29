@@ -66,7 +66,7 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
 - (UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *sectionId = [menuSections objectAtIndex:indexPath.row];
-
+    
     MenuViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil) {
         cell = [[MenuViewCell alloc] initWithStyle:UITableViewCellStyleDefault
@@ -92,14 +92,17 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
     NSString *selectedMenuItem = [menuSections objectAtIndex:[indexPath row]];
 
     if ([selectedMenuItem isEqualToString:@"map"]) {
-        if (![associatedController.viewDeckController.centerController isKindOfClass:[MapViewController class]]) {
-            associatedController.viewDeckController.centerController = [[MapViewController alloc] init];
+        
+    } else if ([selectedMenuItem isEqualToString:@"discover"]) {
+        if (![[(UINavigationController*) [[associatedController viewDeckController] centerController] topViewController] isKindOfClass:[MapViewController class]]) {
+            [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[MapViewController alloc]init] animated:YES];
         }
         [associatedController.viewDeckController closeLeftViewAnimated:YES];
-    } else if ([selectedMenuItem isEqualToString:@"discover"]) {
-        
     } else if ([selectedMenuItem isEqualToString:@"activity"]) {
         
+    } else if ([selectedMenuItem isEqualToString:@"join"]) {
+        [(UINavigationController*) [[associatedController viewDeckController] centerController] popToRootViewControllerAnimated:YES];
+        [associatedController.viewDeckController closeLeftViewAnimated:YES];
     }
 }
 

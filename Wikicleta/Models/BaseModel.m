@@ -9,7 +9,8 @@
 #import "BaseModel.h"
 
 @implementation BaseModel
-@synthesize marker, kind;
+
+@synthesize marker, kind, dateFormatter, remoteId;
 
 + (void) buildFrom:(NSArray*)array {}
 
@@ -24,24 +25,18 @@
     return [categories objectForKey:kind];
 }
 
-- (NSString*) title
+- (NSObject*) identifier
 {
-    return nil;
+    return self.remoteId;
 }
 
-- (NSString*) subtitle
+- (void) loadDateFormatter
 {
-    return nil;
-}
-
-- (NSString*) image
-{
-    return nil;
-}
-
-- (int) identifier
-{
-    return  -1;
+    if (dateFormatter == NULL) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[NSLocale currentLocale]];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    }
 }
 
 @end
