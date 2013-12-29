@@ -12,7 +12,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1">
+        <view alpha="0.29999999999999999" contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -20,7 +20,6 @@
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem image="return_icon.png" id="lPu-il-Dw2"/>
                         <barButtonItem title="Taller" id="TIk-mP-4Y1"/>
                         <barButtonItem title="Bici-estacionamiento" id="2Hp-c7-Mtt"/>
                         <barButtonItem title="Tip" id="mdB-l1-NsR"/>
@@ -33,7 +32,4 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
-    <resources>
-        <image name="return_icon.png" width="25" height="25"/>
-    </resources>
 </document>

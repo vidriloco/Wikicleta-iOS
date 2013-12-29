@@ -35,6 +35,7 @@
     
     MapMode currentMode;
     UIImageView * sharePin;
+    POIChooserOverlayView *poiView;
 }
 
 - (void) openLeftDock;
@@ -58,7 +59,9 @@
 - (void) toggleAttachView:(id)selector;
 
 - (void) toggleShareControls;
-- (void) presentSaveFormController;
+- (void) presentShareSelectorView;
+- (void) hideChooserMenu;
+- (void) presentControllerForPOI:(id)selector;
 @end
 
 @implementation MapViewController
@@ -153,7 +156,7 @@ GMSMapView *mapView;
                                                              [App viewBounds].size.height-saveImage.size.height-marginUnit*2.5,
                                                              saveImage.size.width, saveImage.size.height)];
     [saveButton setBackgroundImage:saveImage forState:UIControlStateNormal];
-    [saveButton addTarget:self action:@selector(presentSaveFormController) forControlEvents:UIControlEventTouchUpInside];
+    [saveButton addTarget:self action:@selector(presentShareSelectorView) forControlEvents:UIControlEventTouchUpInside];
     [saveButton setHidden:YES];
     [self.view addSubview:saveButton];
     
@@ -623,10 +626,43 @@ GMSMapView *mapView;
     self.navigationItem.backBarButtonItem = backButton;
 }
 
-- (void) presentSaveFormController
+- (void) presentShareSelectorView
 {
-    POIViewController *poi = [[POIViewController alloc] initWithNibName:nil bundle:nil];
-    [self presentViewController:poi animated:YES completion:nil];
+    poiView = [[[NSBundle mainBundle] loadNibNamed:@"POIChooserOverlayView" owner:self options:nil] objectAtIndex:0];
+    [self.view addSubview:poiView];
+    [poiView stylizeUI];
+    [poiView setUserInteractionEnabled:YES];
+    
+    [[poiView workshopButton] addTarget:self action:@selector(presentControllerForPOI:) forControlEvents:UIControlEventTouchUpInside];
+    [[poiView parkingButton] addTarget:self action:@selector(presentControllerForPOI:) forControlEvents:UIControlEventTouchUpInside];
+    [[poiView tipButton] addTarget:self action:@selector(presentControllerForPOI:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [[poiView closeButton] addTarget:self action:@selector(hideChooserMenu) forControlEvents:UIControlEventTouchUpInside];
+    
+    [saveButton setHidden:YES];
+    [returnButton setHidden:YES];
+    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideChooserMenu)];
+    [recognizer setNumberOfTapsRequired:1];
+    [poiView addGestureRecognizer:recognizer];
+}
+
+- (void) hideChooserMenu
+{
+    [saveButton setHidden:NO];
+    [returnButton setHidden:NO];
+    [poiView removeFromSuperview];
+}
+
+- (void) presentControllerForPOI:(id)selector
+{
+    if ([selector tag] == 0) {
+        NSLog(@"Workshops");
+    } else if ([selector tag] == 1) {
+        NSLog(@"Parkings");
+    } else if ([selector tag] == 2) {
+        NSLog(@"Tips");
+    }
 }
 
 /**

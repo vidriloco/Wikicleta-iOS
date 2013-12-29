@@ -107,16 +107,11 @@
 "route_attach_view" = "Attach";
 "route_detach_view" = "Detach";
 
-// Settings View
-"map_settings_title" = "Map Tweaks";
-"map_layers_settings_title" = "Layers";
-"layer_settings_blue_group" = "Layers on Blue group";
-"layer_settings_orange_group" = "Layers on Orange group";
+// Share View
+"share_title" = "Share";
+"share_close_text" = "Hide";
 
-"settings_map" = "map";
-"settings_gadgets" = "gadgets";
-"settings_social" = "social";
-"settings_location" = "location";
-"drag_to_back_label" = "swipe to return";
-"settings_section_name_label" = "preferences";
-
+// Categories
+"tip" = "Tip";
+"workshop" = "Bike store";
+"parking" = "Bike parking";

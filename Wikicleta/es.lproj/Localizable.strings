@@ -112,15 +112,11 @@
 "route_attach_view" = "Fijar";
 "route_detach_view" = "Soltar";
 
-// Settings View
-"map_settings_title" = "Ajustes al Mapa";
-"map_layers_settings_title" = "Capas";
-"layers_settings_blue_group" = "Layers on Blue group";
-"layers_settings_orange_group" = "Layers on Orange group";
+// Share View
+"share_title" = "Compartir";
+"share_close_text" = "Ocultar";
 
-"settings_map" = "mapa";
-"settings_gadgets" = "gadgets";
-"settings_social" = "social";
-"settings_location" = "ubicación";
-"drag_to_back_label" = "desliza para volver";
-"settings_section_name_label" = "preferencias";
+// Categories
+"tip" = "Recomendación";
+"workshop" = "Taller/Tienda";
+"parking" = "Bici-estacionamiento";

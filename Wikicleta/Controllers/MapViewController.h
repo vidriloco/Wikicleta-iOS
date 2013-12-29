@@ -28,6 +28,7 @@
 #import "Route.h"
 #import "RouteUIView.h"
 #import "POIViewController.h"
+#import "POIChooserOverlayView.h"
 
 #define poiDetailedZoom 17
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"

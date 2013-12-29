@@ -319,6 +319,10 @@
 		3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7A44916693BFA006F251D /* MapViewController.m */; };
 		3AEAF1B918708F3E00003668 /* return_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1B718708F3E00003668 /* return_icon.png */; };
 		3AEAF1BA18708F3E00003668 /* return_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1B818708F3E00003668 /* return_icon@2x.png */; };
+		3AEAF1BC1870948E00003668 /* POIChooserOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1BB1870948E00003668 /* POIChooserOverlayView.xib */; };
+		3AEAF1BF1870972900003668 /* POIChooserOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAF1BE1870972900003668 /* POIChooserOverlayView.m */; };
+		3AEAF1C31870B0C300003668 /* close_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1C11870B0C300003668 /* close_icon.png */; };
+		3AEAF1C41870B0C300003668 /* close_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1C21870B0C300003668 /* close_icon@2x.png */; };
 		6981D13EDC7742E088CEFBD7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A0F461E5540259685105B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -800,6 +804,11 @@
 		3AE7A44916693BFA006F251D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		3AEAF1B718708F3E00003668 /* return_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return_icon.png; sourceTree = "<group>"; };
 		3AEAF1B818708F3E00003668 /* return_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return_icon@2x.png"; sourceTree = "<group>"; };
+		3AEAF1BB1870948E00003668 /* POIChooserOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POIChooserOverlayView.xib; sourceTree = "<group>"; };
+		3AEAF1BD1870972900003668 /* POIChooserOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIChooserOverlayView.h; sourceTree = "<group>"; };
+		3AEAF1BE1870972900003668 /* POIChooserOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIChooserOverlayView.m; sourceTree = "<group>"; };
+		3AEAF1C11870B0C300003668 /* close_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_icon.png; sourceTree = "<group>"; };
+		3AEAF1C21870B0C300003668 /* close_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_icon@2x.png"; sourceTree = "<group>"; };
 		4B8A0F461E5540259685105B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7749400903248DF8FE7620E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -1264,6 +1273,9 @@
 				3A4E5F2F186E20F400D818ED /* RouteUIView.h */,
 				3A4E5F30186E20F400D818ED /* RouteUIView.m */,
 				3A4E5F32186E210300D818ED /* RouteUIView.xib */,
+				3AEAF1BB1870948E00003668 /* POIChooserOverlayView.xib */,
+				3AEAF1BD1870972900003668 /* POIChooserOverlayView.h */,
+				3AEAF1BE1870972900003668 /* POIChooserOverlayView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1579,6 +1591,7 @@
 		3A9547C3186D44EF00428DF7 /* POIs */ = {
 			isa = PBXGroup;
 			children = (
+				3AEAF1C01870B0C300003668 /* ShareView */,
 				3AEAF1B618708F3E00003668 /* ModifyingPOIView */,
 				3A9547C4186D44EF00428DF7 /* Icons */,
 				3A9547CB186D44EF00428DF7 /* Markers */,
@@ -1691,6 +1704,15 @@
 			path = ModifyingPOIView;
 			sourceTree = "<group>";
 		};
+		3AEAF1C01870B0C300003668 /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				3AEAF1C11870B0C300003668 /* close_icon.png */,
+				3AEAF1C21870B0C300003668 /* close_icon@2x.png */,
+			);
+			path = ShareView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1769,6 +1791,7 @@
 				3A01B4A3164A2F6E00F78822 /* Default.png in Resources */,
 				3A785A1517D46D0B00D1B6F6 /* section_map_icon.png in Resources */,
 				3A4BA32F186E7A7D00F7531E /* end_route_marker.png in Resources */,
+				3AEAF1C41870B0C300003668 /* close_icon@2x.png in Resources */,
 				3A9547AD186CBE1000428DF7 /* like_icon@2x.png in Resources */,
 				3A045C3017D3B7E400E15944 /* layer_mode.png in Resources */,
 				3A01B4A5164A2F6E00F78822 /* Default@2x.png in Resources */,
@@ -1815,6 +1838,7 @@
 				3A73F54D17B3513E00FA7A71 /* login@2x.png in Resources */,
 				3A73F54E17B3513E00FA7A71 /* join.png in Resources */,
 				3A73F54F17B3513E00FA7A71 /* join@2x.png in Resources */,
+				3AEAF1BC1870948E00003668 /* POIChooserOverlayView.xib in Resources */,
 				3AD1C3DA186B8B24005BEA3C /* bottom_triangle.png in Resources */,
 				3A73F55517B3600400FA7A71 /* GoogleMaps.bundle in Resources */,
 				3A954810186D6C3400428DF7 /* telephone_icon@2x.png in Resources */,
@@ -1939,6 +1963,7 @@
 				3A9547E9186D47D700428DF7 /* sightseeing_marker@2x.png in Resources */,
 				3AA7E4A917CD74B800B059B3 /* Podfile in Resources */,
 				3A5382F718700D6E006346AE /* share_button.png in Resources */,
+				3AEAF1C31870B0C300003668 /* close_icon.png in Resources */,
 				3A9547D5186D44EF00428DF7 /* urban_mobiliary_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2060,6 +2085,7 @@
 				3A01B581164A321500F78822 /* App.m in Sources */,
 				3A698284164B739B004F1E01 /* UIButtonWS.m in Sources */,
 				3AC7B2B5164CD96B008A3B58 /* Authenticator.m in Sources */,
+				3AEAF1BF1870972900003668 /* POIChooserOverlayView.m in Sources */,
 				3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */,
 				3A5C3BD01669A9CF009DDA1C /* FirstAccessViewController.m in Sources */,
 				0C7E0B2418516F770017CBCF /* CTANetWorking.m in Sources */,

@@ -21,7 +21,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_menu.png" id="tQQ-0X-8oy">
-                        <rect key="frame" x="35" y="20" width="71" height="71"/>
+                        <rect key="frame" x="35" y="20" width="71.000000000000014" height="71"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
                 </subviews>
