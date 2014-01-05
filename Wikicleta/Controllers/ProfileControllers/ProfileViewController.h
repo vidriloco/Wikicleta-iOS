@@ -16,6 +16,7 @@
 #import "OnProfileSectionView.h"
 #import "MainMenuViewController.h"
 #import "ActivityViewController.h"
+#import "FavoritesViewController.h"
 
 @interface ProfileViewController : UIViewController<IIViewDeckControllerDelegate>
 

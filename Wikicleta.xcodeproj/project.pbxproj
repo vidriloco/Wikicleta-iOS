@@ -189,6 +189,8 @@
 		3A1A2AA9187A1F2B00AF298C /* activity_icon_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2AA5187A1F2B00AF298C /* activity_icon_big@2x.png */; };
 		3A1A2AAA187A1F2B00AF298C /* favorites_icon_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2AA6187A1F2B00AF298C /* favorites_icon_big.png */; };
 		3A1A2AAB187A1F2B00AF298C /* favorites_icon_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2AA7187A1F2B00AF298C /* favorites_icon_big@2x.png */; };
+		3A1A2AAF187A229D00AF298C /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A2AAD187A229D00AF298C /* FavoritesViewController.m */; };
+		3A1A2AB0187A229D00AF298C /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2AAE187A229D00AF298C /* FavoritesViewController.xib */; };
 		3A2A2025186C1B1900FF7C59 /* favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2021186C1B1900FF7C59 /* favorited_icon.png */; };
 		3A2A2026186C1B1900FF7C59 /* favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */; };
 		3A2A2027186C1B1900FF7C59 /* non_favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */; };
@@ -671,6 +673,9 @@
 		3A1A2AA5187A1F2B00AF298C /* activity_icon_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity_icon_big@2x.png"; sourceTree = "<group>"; };
 		3A1A2AA6187A1F2B00AF298C /* favorites_icon_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_icon_big.png; sourceTree = "<group>"; };
 		3A1A2AA7187A1F2B00AF298C /* favorites_icon_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites_icon_big@2x.png"; sourceTree = "<group>"; };
+		3A1A2AAC187A229D00AF298C /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		3A1A2AAD187A229D00AF298C /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		3A1A2AAE187A229D00AF298C /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		3A2A2021186C1B1900FF7C59 /* favorited_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorited_icon.png; sourceTree = "<group>"; };
 		3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorited_icon@2x.png"; sourceTree = "<group>"; };
 		3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = non_favorited_icon.png; sourceTree = "<group>"; };
@@ -1594,6 +1599,9 @@
 				3A1A2A9F187A0D3F00AF298C /* ActivityViewController.h */,
 				3A1A2AA0187A0D3F00AF298C /* ActivityViewController.m */,
 				3A1A2AA1187A0D3F00AF298C /* ActivityViewController.xib */,
+				3A1A2AAC187A229D00AF298C /* FavoritesViewController.h */,
+				3A1A2AAD187A229D00AF298C /* FavoritesViewController.m */,
+				3A1A2AAE187A229D00AF298C /* FavoritesViewController.xib */,
 			);
 			path = ProfileControllers;
 			sourceTree = "<group>";
@@ -2005,6 +2013,7 @@
 				3A9547F0186D47E600428DF7 /* aler_icon.png in Resources */,
 				3A5382FE18701068006346AE /* return_button@2x.png in Resources */,
 				1807475F17B4525E00A04D61 /* share_button.png in Resources */,
+				3A1A2AB0187A229D00AF298C /* FavoritesViewController.xib in Resources */,
 				3AD1C3DB186B8B24005BEA3C /* bottom_triangle@2x.png in Resources */,
 				3A4E5F2B186DED9100D818ED /* cycle_stations_layers@2x.png in Resources */,
 				3AD40E19186ADA88000F84E3 /* join_menu@2x.png in Resources */,
@@ -2272,6 +2281,7 @@
 				3AC2291117CACC7E00E76E96 /* DRNRealTimeBlurView.m in Sources */,
 				3ACF4F5718715A2600A46E33 /* EditParkingViewController.m in Sources */,
 				18F76ECD17CE4EE9008D9B3E /* BaseModel.m in Sources */,
+				3A1A2AAF187A229D00AF298C /* FavoritesViewController.m in Sources */,
 				1863D50817B046B6007E7460 /* LandingViewController.m in Sources */,
 				3A9DE7FF186F8FA300C95812 /* LayersScrollView.m in Sources */,
 				1863D53817B04B3A007E7460 /* AKButtonBevelImageEffect.m in Sources */,

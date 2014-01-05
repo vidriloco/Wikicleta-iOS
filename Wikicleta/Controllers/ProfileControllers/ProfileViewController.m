@@ -131,7 +131,20 @@
 
 - (void) presentFavoritesViewController
 {
-    
+    [favoriteButton animateSelectionExecutingBlockOnComplete:^{
+        UINavigationController *nav = (UINavigationController*) [[self viewDeckController] centerController];
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.4f;
+        transition.type = kCATransitionMoveIn;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition
+                                                    forKey:kCATransition];
+        
+        FavoritesViewController *favoritesViewController = [[FavoritesViewController alloc] initWithNibName:nil bundle:nil];
+        [nav
+         pushViewController:favoritesViewController
+         animated:NO];
+    }];
 }
 
 @end
