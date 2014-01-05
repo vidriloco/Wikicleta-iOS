@@ -678,8 +678,10 @@ GMSMapView *mapView;
          pushViewController:tipController
          animated:NO];
     } else if ([selector tag] == 1) {
+        EditParkingViewController *parkingController = [[EditParkingViewController alloc] initWithNibName:nil bundle:nil];
+        [parkingController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
         [nav
-         pushViewController:[[EditParkingViewController alloc] initWithNibName:nil bundle:nil]
+         pushViewController:parkingController
          animated:NO];
     } else if ([selector tag] == 2) {
         EditTipViewController *tipController = [[EditTipViewController alloc] initWithNibName:nil bundle:nil];

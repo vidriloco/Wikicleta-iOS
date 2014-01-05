@@ -20,6 +20,5 @@
 @property (nonatomic, weak) IBOutlet UILabel *parkingHasRoofLabel;
 @property (nonatomic, weak) IBOutlet UISwitch *parkingHasRoofSwitch;
 @property (nonatomic, weak) IBOutlet UITextView *parkingDescriptionTextView;
-//@property (nonatomic, weak) IBOutlet UIButton *
 
 @end

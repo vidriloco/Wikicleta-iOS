@@ -20,6 +20,11 @@
 "no_backend_response_error" = "No response from remote server, perhaps your internet connection is down";
 "could_not_upload_error" = "We are sorry, we were unable to save this now";
 
+// Global messages
+"description_cannot_be_empty" = "Description cannot be empty";
+"description_length_out_of_bounds" = "Description should be more juicy";
+
+
 // Landing page
 "explore" = "Explore";
 "login" = "Log-in";
@@ -121,14 +126,12 @@
 // Share Parking View
 "edit_parking_subtitle" = "Select a type and leave a brief description";
 "parking_has_roof" = "Has roof?";
+"uploading_parking" = "Uploading parking ...";
 
 // Share Tip View
 "edit_tip_subtitle" = "Select a type and leave a brief description";
 "description_placeholder" = "Leave a brief description here";
 "uploading_tip" = "Uploading tip ...";
-
-"description_cannot_be_empty" = "Description cannot be empty";
-"description_length_out_of_bounds" = "Description should be more juicy";
 
 // Workshop View
 "workshop_horary" = "Do you know this bikeshop service schedule? Share it!";

@@ -56,7 +56,7 @@
 
 - (NSArray*) selectableCategories
 {
-    return @[@"urban_mobiliary", @"venue_provided", @"government_provided"];
+    return @[@"government_provided", @"urban_mobiliary", @"venue_provided"];
 }
 
 - (UIScrollView*) scrollableView {
@@ -92,11 +92,14 @@
     [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
     NSDate *currentDate = [NSDate date];
     
+    NSString *roof = [parkingHasRoofSwitch isOn] ? @"1" : @"0";
+    
     return @{
              @"extras": @{@"auth_token": @"jpsJmEZyWyT8PsSZq1pG"},
-             @"tip": @{
-                     @"content": parkingDescriptionTextView.text,
-                     @"category": [NSNumber numberWithInt:[collectionView currentlySelectedIndex]],
+             @"parking": @{
+                     @"details": parkingDescriptionTextView.text,
+                     @"kind": [NSNumber numberWithInt:[collectionView currentlySelectedIndex]],
+                     @"has_roof":roof,
                      @"created_at": [df stringFromDate:currentDate],
                      @"updated_at": [df stringFromDate:currentDate]
                      },
@@ -126,7 +129,7 @@
     [hud setHidden:NO];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:[App urlForResource:@"tips" withSubresource:@"post"] parameters:[self generateParams] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:[App urlForResource:@"parkings" withSubresource:@"post"] parameters:[self generateParams] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
