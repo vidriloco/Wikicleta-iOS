@@ -16,6 +16,8 @@
 	</dict>
 	<key>workshops</key>
 	<dict>
+		<key>post</key>
+		<string>/api/workshops</string>
 		<key>get</key>
 		<string>/api/workshops?</string>
 	</dict>

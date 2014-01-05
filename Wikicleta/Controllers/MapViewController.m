@@ -668,11 +668,11 @@ GMSMapView *mapView;
     [self.navigationController.view.layer addAnimation:transition
                                                 forKey:kCATransition];
     
-    CGPoint center = CGPointMake(sharePin.frame.origin.x+sharePin.frame.size.width/2, sharePin.frame.origin.y+sharePin.frame.size.height);
+    CGPoint center = CGPointMake(sharePin.frame.origin.x+(sharePin.frame.size.width)/2, sharePin.frame.origin.y+sharePin.frame.size.height);
     
     if ([selector tag] == 0) {
         EditWorkshopViewController *tipController = [[EditWorkshopViewController alloc] initWithNibName:nil bundle:nil];
-        //[tipController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
+        [tipController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
         
          [nav
          pushViewController:tipController

@@ -26,6 +26,12 @@
 "no_backend_response_error" = "Sin respuesta del servidor remoto, quizás perdiste la conexión a internet";
 "could_not_upload_error" = "Lo sentimos, no fué posible subir esto ahora";
 
+// Global messages
+"description_cannot_be_empty" = "La descripción no puede ir vacía";
+"description_length_out_of_bounds" = "La descripción debe estar más detallada";
+"name_cannot_be_empty" = "El nombre no puede ir vacío";
+
+
 // Landing page
 "explore" = "Explora";
 "login" = "Entra";
@@ -132,8 +138,7 @@
 "edit_tip_subtitle" = "Selecciona su tipo y deja una breve reseña";
 "description_placeholder" = "Deja una breve descripción";
 "uploading_tip" = "Subiendo tip ...";
-"description_cannot_be_empty" = "La descripción no puede ir vacía";
-"description_length_out_of_bounds" = "La descripción debe estar más detallada";
+
 
 // Workshop View
 "workshop_horary" = "¿Conoces el horario de servicio? ¡Compártelo!";

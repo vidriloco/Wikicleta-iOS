@@ -51,11 +51,29 @@ static NSMutableDictionary *workshopsLoaded;
             self.phone = [NSNumber numberWithInt:[[dictionary objectForKey:@"phone"] integerValue]];
         }
         
-        self.webPage = [dictionary objectForKey:@"webpage"];
-        self.twitter = [dictionary objectForKey:@"twitter"];
-        self.horary = [dictionary objectForKey:@"horary"];
-
-        self.isStore = [[dictionary objectForKey:@"store"] boolValue];
+        if ([dictionary objectForKey:@"webpage"] == [NSNull null]) {
+            self.webPage = @"";
+        } else {
+            self.webPage = [dictionary objectForKey:@"webpage"];
+        }
+        
+        if ([dictionary objectForKey:@"twitter"] == [NSNull null]) {
+            self.twitter = @"";
+        } else {
+            self.twitter = [dictionary objectForKey:@"twitter"];
+        }
+        
+        if ([dictionary objectForKey:@"horary"] == [NSNull null]) {
+            self.horary = @"";
+        } else {
+            self.horary = [dictionary objectForKey:@"horary"];
+        }
+        
+        if ([dictionary objectForKey:@"store"] == [NSNull null]) {
+            self.isStore = @"";
+        } else {
+            self.isStore = [[dictionary objectForKey:@"store"] boolValue];
+        }
 
         self.likesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"likes_count"] integerValue]];
         self.dislikesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"dislikes_count"] integerValue]];

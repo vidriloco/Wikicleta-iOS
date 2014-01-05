@@ -23,7 +23,7 @@
 // Global messages
 "description_cannot_be_empty" = "Description cannot be empty";
 "description_length_out_of_bounds" = "Description should be more juicy";
-
+"name_cannot_be_empty" = "A name should be given";
 
 // Landing page
 "explore" = "Explore";

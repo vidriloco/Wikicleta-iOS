@@ -8,7 +8,11 @@
 
 #import "EditWorkshopViewController.h"
 
-@interface EditWorkshopViewController ()
+@interface EditWorkshopViewController () {
+    MBProgressHUD *hud;
+}
+
+- (NSDictionary*) generateParams;
 
 @end
 
@@ -89,6 +93,78 @@
         [nameTextField becomeFirstResponder];
     }
     return YES;
+}
+
+- (NSDictionary*) generateParams
+{
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+    NSDate *currentDate = [NSDate date];
+    
+    NSString *isStore = [workshopIsStoreSwitch isOn] ? @"1" : @"0";
+    
+    NSString *schedule = [workshopHoraryTextView.text isEqualToString:NSLocalizedString(@"workshop_horary", nil)] ?  @"" : workshopHoraryTextView.text;
+    
+    return @{
+             @"extras": @{@"auth_token": @"jpsJmEZyWyT8PsSZq1pG"},
+             @"workshop": @{
+                     @"name": nameTextField.text,
+                     @"details": workshopDescriptionTextView.text,
+                     @"store": isStore,
+                     @"horary": schedule,
+                     @"created_at": [df stringFromDate:currentDate],
+                     @"updated_at": [df stringFromDate:currentDate]
+                     },
+             @"coordinates": @{
+                     @"lat": [NSString stringWithFormat:@"%f", selectedCoordinate.latitude],
+                     @"lon": [NSString stringWithFormat:@"%f", selectedCoordinate.longitude]}
+             };
+}
+
+- (void) attemptSave
+{
+    if ([nameTextField.text length] == 0) {
+        [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                       andContent:NSLocalizedString(@"name_cannot_be_empty", nil)
+                    andTextButton:NSLocalizedString(@"accept", nil)];
+        return;
+    }
+
+    if ([workshopDescriptionTextView.text isEqualToString:NSLocalizedString(@"description_placeholder", nil)]) {
+        [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                       andContent:NSLocalizedString(@"description_cannot_be_empty", nil)
+                    andTextButton:NSLocalizedString(@"accept", nil)];
+        return;
+    }
+    
+    if (![self validateString:workshopDescriptionTextView.text lengthIsLargerThan:minDescriptionSizeChars andShorterThan:maxDescriptionSizeChars]) {
+        [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
+                       andContent:NSLocalizedString(@"description_length_out_of_bounds", nil)
+                    andTextButton:NSLocalizedString(@"accept", nil)];
+        return;
+    }
+    
+    
+    [self.view endEditing:YES];
+    [hud setHidden:NO];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:[App urlForResource:@"workshops" withSubresource:@"post"] parameters:[self generateParams] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice_message", nil)
+                                                        message:NSLocalizedString(@"could_not_upload_error", nil)
+                                                       delegate:self cancelButtonTitle:NSLocalizedString(@"accept", nil) otherButtonTitles:NSLocalizedString(@"save_as_draft", nil), nil];
+        [alert show];
+    }];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"ToDrafts");
 }
 
 
