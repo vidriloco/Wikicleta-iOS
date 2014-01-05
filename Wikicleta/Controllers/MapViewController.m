@@ -46,7 +46,7 @@
 
 @implementation MapViewController
 
-@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing;
+@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,7 +60,7 @@
         
         companionObject = [[MapViewCompanionManager alloc] initWithMapViewController:self];
         [companionObject loadSharePinView];
-        
+        [companionObject loadMapMessageView];
     }
     return self;
 }
@@ -429,6 +429,9 @@
         [returnButton setHidden:NO];
         [self.viewDeckController setRightController:nil];
         [self.viewDeckController setLeftController:nil];
+        
+        [mapMessageView loadViewWithTitle:NSLocalizedString(@"select_location_title", nil) andSubtitle:NSLocalizedString(@"select_location_subtitle", nil)];
+        [mapView addSubview:mapMessageView];
     } else if (mode == Explore) {
         [sharePin removeFromSuperview];
         [leftButton setHidden:NO];
@@ -443,6 +446,7 @@
         }
         [self.viewDeckController setRightController:defaultRightViewController];
         [self.viewDeckController setLeftController:defaultLeftViewController];
+        [mapMessageView removeFromSuperview];
     } else if (mode == Detail) {
         [sharePin removeFromSuperview];
         [leftButton setHidden:YES];

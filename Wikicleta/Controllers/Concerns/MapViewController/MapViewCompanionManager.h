@@ -20,6 +20,7 @@
 
 - (void) loadSharePinView;
 - (void) loadMapButtons;
+- (void) loadMapMessageView;
 
 - (UIView*) generateMarkerDetailsOverlayViewForRoute:(Route*)route;
 - (UIView*) generateMarkerDetailsOverlayViewForCyclestation:(Cyclestation *)cycleStation withMarker:(GMSMarker*)marker;

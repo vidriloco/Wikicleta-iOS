@@ -40,7 +40,7 @@ static User *user;
         [user setToken:[dictionary objectForKey:kToken]];
     }
     
-    if ([dictionary objectForKey:kBio]) {
+    if ([dictionary objectForKey:kBio] && [dictionary objectForKey:kBio] != [NSNull null]) {
         [user setBio:[dictionary objectForKey:kBio]];
     }
     
@@ -85,8 +85,11 @@ static User *user;
     [dict setObject:self.username forKey:kUsername];
     [dict setObject:self.email forKey:kEmail];
     [dict setObject:self.token forKey:kToken];
-    [dict setObject:self.bio forKey:kBio];
     [dict setObject:self.identifier forKey:kIdentifier];
+    
+    if (self.bio != NULL) {
+        [dict setObject:self.bio forKey:kBio];
+    }
     
     if (self.picURL != NULL) {
         [dict setObject:self.picURL forKey:kUserPic];

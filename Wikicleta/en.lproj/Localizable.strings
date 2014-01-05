@@ -146,3 +146,7 @@
 "tip" = "Tip";
 "workshop" = "Bike store";
 "parking" = "Bike parking";
+
+// Select location
+"select_location_title" = "Drag the map";
+"select_location_subtitle" = "Set the final location for the pin";

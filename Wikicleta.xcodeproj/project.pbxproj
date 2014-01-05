@@ -176,6 +176,8 @@
 		3A08AD331872832000E79AA5 /* EditWorkshopInfoContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08AD311872832000E79AA5 /* EditWorkshopInfoContactViewController.m */; };
 		3A08AD341872832000E79AA5 /* EditWorkshopInfoContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A08AD321872832000E79AA5 /* EditWorkshopInfoContactViewController.xib */; };
 		3A14D97917B6BCF2007E16FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A14D97717B6BCF2007E16FA /* Localizable.strings */; };
+		3A1A2A8E1879DA5B00AF298C /* OverlayMapMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2A8D1879DA5B00AF298C /* OverlayMapMessageView.xib */; };
+		3A1A2A911879DA7A00AF298C /* OverlayMapMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A2A901879DA7A00AF298C /* OverlayMapMessageView.m */; };
 		3A2A2025186C1B1900FF7C59 /* favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2021186C1B1900FF7C59 /* favorited_icon.png */; };
 		3A2A2026186C1B1900FF7C59 /* favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */; };
 		3A2A2027186C1B1900FF7C59 /* non_favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */; };
@@ -642,6 +644,9 @@
 		3A08AD321872832000E79AA5 /* EditWorkshopInfoContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditWorkshopInfoContactViewController.xib; sourceTree = "<group>"; };
 		3A14D97817B6BCF2007E16FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3A14D97A17B6BD23007E16FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3A1A2A8D1879DA5B00AF298C /* OverlayMapMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayMapMessageView.xib; path = ../OverlayMapMessageView.xib; sourceTree = "<group>"; };
+		3A1A2A8F1879DA7A00AF298C /* OverlayMapMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayMapMessageView.h; path = ../OverlayMapMessageView.h; sourceTree = "<group>"; };
+		3A1A2A901879DA7A00AF298C /* OverlayMapMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayMapMessageView.m; path = ../OverlayMapMessageView.m; sourceTree = "<group>"; };
 		3A2A2021186C1B1900FF7C59 /* favorited_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorited_icon.png; sourceTree = "<group>"; };
 		3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorited_icon@2x.png"; sourceTree = "<group>"; };
 		3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = non_favorited_icon.png; sourceTree = "<group>"; };
@@ -1729,6 +1734,9 @@
 		3ACF4F301871138600A46E33 /* OnMapView */ = {
 			isa = PBXGroup;
 			children = (
+				3A1A2A8D1879DA5B00AF298C /* OverlayMapMessageView.xib */,
+				3A1A2A8F1879DA7A00AF298C /* OverlayMapMessageView.h */,
+				3A1A2A901879DA7A00AF298C /* OverlayMapMessageView.m */,
 				3ACF4F45187135C500A46E33 /* WikiMarker.h */,
 				3ACF4F46187135C500A46E33 /* WikiMarker.m */,
 				3ACF4F311871138600A46E33 /* CyclestationUIView.h */,
@@ -2024,6 +2032,7 @@
 				3AE6B4BB17CDD11900923D15 /* icon120.png in Resources */,
 				3A08AD2F18725B7400E79AA5 /* website_icon@2x.png in Resources */,
 				3A954808186D6B3F00428DF7 /* website_icon@2x.png in Resources */,
+				3A1A2A8E1879DA5B00AF298C /* OverlayMapMessageView.xib in Resources */,
 				3A9547F2186D47E600428DF7 /* danger_icon.png in Resources */,
 				3A954807186D6B3F00428DF7 /* website_icon.png in Resources */,
 				3A9547E5186D47D700428DF7 /* alert_marker@2x.png in Resources */,
@@ -2225,6 +2234,7 @@
 				1863D54617B04B3A007E7460 /* AKNoiseImageEffect.m in Sources */,
 				1863D54717B04B3A007E7460 /* AKPatternImageEffect.m in Sources */,
 				1863D54817B04B3A007E7460 /* NSString+AKCryptography.m in Sources */,
+				3A1A2A911879DA7A00AF298C /* OverlayMapMessageView.m in Sources */,
 				1863D54917B04B3A007E7460 /* UIColor+AKColorStrings.m in Sources */,
 				1863D54A17B04B3A007E7460 /* UIImage+AKCryptography.m in Sources */,
 				1863D54B17B04B3A007E7460 /* UIImage+AKMasking.m in Sources */,

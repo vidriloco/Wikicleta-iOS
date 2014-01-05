@@ -33,6 +33,8 @@
 #import "EditWorkshopViewController.h"
 #import "EditWorkshopInfoContactViewController.h"
 
+#import "OverlayMapMessageView.h"
+
 #define poiDetailedZoom 17
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
 #define minZoom 14
@@ -54,7 +56,8 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
     GMSPolyline *selectedRoutePath;
     id detailsView;
     BOOL requestOngoing;
-
+    
+    OverlayMapMessageView *mapMessageView;
 }
 
 @property (nonatomic, strong) NSString *activeLayer;
@@ -69,6 +72,8 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 
 @property (nonatomic, strong) GMSMapView *mapView;
 @property (nonatomic, strong) GMSPolyline *selectedRoutePath;
+
+@property (nonatomic, strong) OverlayMapMessageView *mapMessageView;
 
 @property (nonatomic) id detailsView;
 @property (nonatomic) BOOL requestOngoing;

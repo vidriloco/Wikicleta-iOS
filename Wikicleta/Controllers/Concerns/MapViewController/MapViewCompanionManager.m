@@ -25,6 +25,12 @@
     return self;
 }
 
+- (void) loadMapMessageView
+{
+    controller.mapMessageView = [[[NSBundle mainBundle] loadNibNamed:@"OverlayMapMessageView" owner:controller options:nil] objectAtIndex:0];
+    [controller.mapMessageView setFrame:CGRectMake(0, 30, controller.mapMessageView.frame.size.width, controller.mapMessageView.frame.size.height)];
+}
+
 - (void) loadSharePinView
 {
     controller.sharePin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wikicleta_pin.png"]];
