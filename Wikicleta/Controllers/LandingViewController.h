@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GradientView.h"
 #import "App.h"
-#import "LandingAccessView.h"
-#import "UIButtonWithLabel.h"
 #import "MapViewController.h"
 #import "RegistrationViewController.h"
 #import "LoginViewController.h"
@@ -18,5 +15,15 @@
 
 @interface LandingViewController : UIViewController {
 }
+
+@property (nonatomic, weak) IBOutlet UIView *decoratorView;
+
+@property (nonatomic, weak) IBOutlet UIButton *exploreButton;
+@property (nonatomic, weak) IBOutlet UIButton *loginButton;
+@property (nonatomic, weak) IBOutlet UIButton *registerButton;
+
+@property (nonatomic, weak) IBOutlet UILabel *exploreLabel;
+@property (nonatomic, weak) IBOutlet UILabel *loginLabel;
+@property (nonatomic, weak) IBOutlet UILabel *registerLabel;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "App.h"
 
-@interface FormBaseViewController : UIViewController  <UITextFieldDelegate>
+@interface FormBaseViewController : UIViewController  <UITextFieldDelegate, UITextViewDelegate>
 
 - (UIScrollView*) scrollableView;
 - (void)keyboardWasShown:(NSNotification*)aNotification;

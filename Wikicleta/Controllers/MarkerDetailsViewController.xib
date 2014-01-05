@@ -43,7 +43,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qy5-1M-tto">
-                    <rect key="frame" x="0.0" y="25" width="320" height="649"/>
+                    <rect key="frame" x="0.0" y="25" width="320" height="543"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Placemark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrI-Re-rZ7">
@@ -263,11 +263,11 @@
     </objects>
     <resources>
         <image name="blue_gradient_iphone.png" width="9" height="470"/>
-        <image name="cell_phone_icon.png" width="20" height="20"/>
+        <image name="cell_phone_icon.png" width="30" height="30"/>
         <image name="dislike_icon.png" width="57" height="57"/>
         <image name="like_icon.png" width="57" height="57"/>
         <image name="non_favorited_icon.png" width="60" height="60"/>
-        <image name="telephone_icon.png" width="20" height="20"/>
+        <image name="telephone_icon.png" width="30" height="30"/>
         <image name="twitter_icon.png" width="25" height="25"/>
         <image name="website_icon.png" width="25" height="25"/>
     </resources>

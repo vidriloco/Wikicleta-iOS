@@ -1,6 +1,11 @@
 /* Localized versions of Info.plist keys */
 
 "back" = "Back";
+"close" = "Dismiss";
+"new" = "New";
+"save" = "Save";
+"save_as_draft" = "Save as draft";
+
 "notice_message" = "Ups!";
 "accept" = "OK";
 "all_fields_required" = "All fields are required";
@@ -10,8 +15,10 @@
 "created_by" = "created by ";
 "updated_at" = "updated ";
 "distance_at" = "at ";
+
 // Global errors
 "no_backend_response_error" = "No response from remote server, perhaps your internet connection is down";
+"could_not_upload_error" = "We are sorry, we were unable to save this now";
 
 // Landing page
 "explore" = "Explore";
@@ -92,7 +99,7 @@
 
 // Tip View
 "tips_title" = "Tip";
-"sightseeing" = "Place to visit on bike";
+"sightseeing" = "Sightseeing spot";
 "danger" = "Dangerous place";
 "alert" = "Recommendation";
 
@@ -111,6 +118,27 @@
 "share_title" = "Share";
 "share_close_text" = "Hide";
 
+// Share Parking View
+"edit_parking_subtitle" = "Select a type and leave a brief description";
+"parking_has_roof" = "Has roof?";
+
+// Share Tip View
+"edit_tip_subtitle" = "Select a type and leave a brief description";
+"description_placeholder" = "Leave a brief description here";
+"uploading_tip" = "Uploading tip ...";
+
+"description_cannot_be_empty" = "Description cannot be empty";
+"description_length_out_of_bounds" = "Description should be more juicy";
+
+// Workshop View
+"workshop_horary" = "Do you know this bikeshop service schedule? Share it!";
+"workshop_website" = "Website";
+"workshop_name" = "Name";
+"workshop_twitter" = "Twitter";
+"workshop_cellphone" = "Cellphone";
+"workshop_telephone" = "Phone";
+"workshop_is_store" = "Is Store?";
+"workshop_info_contact" = "Contact Info";
 // Categories
 "tip" = "Tip";
 "workshop" = "Bike store";

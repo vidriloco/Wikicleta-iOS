@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-
 @implementation AppDelegate
 
 /*@synthesize managedObjectContext = _managedObjectContext;
@@ -29,8 +28,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
     UINavigationController *centerController = [[UINavigationController alloc]
-                                                initWithRootViewController:[[LandingViewController alloc]
-                                                           initWithNibName:@"LandingViewController" bundle:nil]];
+                                                initWithRootViewController:[[MapViewController alloc] initWithNibName:nil bundle:nil]];
     IIViewDeckController* deckController =  [[IIViewDeckController alloc]
                                              initWithCenterViewController:centerController
                                              leftViewController:nil
@@ -40,6 +38,8 @@
     [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose];
     [deckController setPanningMode:IIViewDeckFullViewPanning];
     [deckController setRightSize:200];
+    
+    
     
     [self.window setRootViewController:deckController];
     [self.window makeKeyAndVisible];

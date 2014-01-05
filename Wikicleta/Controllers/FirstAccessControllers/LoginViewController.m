@@ -34,7 +34,7 @@
 
 - (void) attemptLogin
 {
-    if ([self validateFieldIsNotEmpty:usernameField] && [self validateFieldIsNotEmpty:passwordField]) {
+    if ([self validateStringIsNotEmpty:usernameField.text] && [self validateStringIsNotEmpty:passwordField.text]) {
         [self.view endEditing:YES];
         [hud setHidden:NO];
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
@@ -81,18 +81,15 @@
     [self loadImageBackgroundNamed:@"hand.png"];
     [self loadNavigationBarDefaultStyle];
     
-    [usernameField setPlaceholder:NSLocalizedString(@"login_username_placeholder", nil)];
+    [LookAndFeel decorateUILabelAsMainViewTitle:titleLabel withLocalizedString:@"login_view_title"];
+    [LookAndFeel decorateUILabelAsMainViewSubtitle:subtitleLabel withLocalizedString:@"login_view_subtitle"];
+
+    [LookAndFeel decorateUITextField:usernameField withLocalizedPlaceholder:@"login_username_placeholder"];
     [usernameField fixUI];
-    [passwordField setPlaceholder:NSLocalizedString(@"login_password_placeholder", nil)];
+ 
+    [LookAndFeel decorateUITextField:passwordField withLocalizedPlaceholder:@"login_password_placeholder"];
     [passwordField fixUI];
     
-    [titleLabel setFont:[LookAndFeel defaultFontBookWithSize:25]];
-    [titleLabel setTextColor:[LookAndFeel orangeColor]];
-    [titleLabel setText:NSLocalizedString(@"login_view_title", nil)];
-   
-    [subtitleLabel setFont:[LookAndFeel defaultFontBoldWithSize:13]];
-    [subtitleLabel setTextColor:[LookAndFeel blueColor]];
-    [subtitleLabel setText:NSLocalizedString(@"login_view_subtitle", nil)];
     [self loadRightButtonWithString:NSLocalizedString(@"login_button", nil) andStringSelector:@"attemptLogin"];
 }
 

@@ -14,7 +14,6 @@
 #import "TTTTimeIntervalFormatter.h"
 #import "ModelHumanizer.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
-
 #import "Workshop.h"
 
 @interface MarkerDetailsViewController : UIViewController {

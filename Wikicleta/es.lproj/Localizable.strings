@@ -6,6 +6,11 @@
 */
 
 "back" = "Atrás";
+"close" = "Cerrar";
+"new" = "Nuevo";
+"save" = "Guardar";
+"save_as_draft" = "Guardar como borrador";
+
 "notice_message" = "Hey!";
 "accept" = "Va";
 "all_fields_required" = "Se requieren todos los campos";
@@ -15,8 +20,11 @@
 "created_by" = "creado por ";
 "updated_at" = "actualizado ";
 "distance_at" = "a ";
+
+
 // Global errors
 "no_backend_response_error" = "Sin respuesta del servidor remoto, quizás perdiste la conexión a internet";
+"could_not_upload_error" = "Lo sentimos, no fué posible subir esto ahora";
 
 // Landing page
 "explore" = "Explora";
@@ -78,7 +86,7 @@
 "location" = "Tu ubicación";
 
 // Parkings Category
-"government_provided" = "Del gobierno";
+"government_provided" = "Oficial";
 "urban_mobiliary" = "Mobiliario urbano";
 "venue_provided" = "De un establecimiento";
 
@@ -116,7 +124,28 @@
 "share_title" = "Compartir";
 "share_close_text" = "Ocultar";
 
+// Share Parking View
+"edit_parking_subtitle" = "Selecciona su tipo y deja una breve reseña";
+"parking_has_roof" = "¿Tiene techo?";
+
+// Share Tip View
+"edit_tip_subtitle" = "Selecciona su tipo y deja una breve reseña";
+"description_placeholder" = "Deja una breve descripción";
+"uploading_tip" = "Subiendo tip ...";
+"description_cannot_be_empty" = "La descripción no puede ir vacía";
+"description_length_out_of_bounds" = "La descripción debe estar más detallada";
+
+// Workshop View
+"workshop_horary" = "¿Conoces el horario de servicio? ¡Compártelo!";
+"workshop_website" = "Sitio web";
+"workshop_name" = "Nombre";
+"workshop_twitter" = "Twitter";
+"workshop_cellphone" = "Celular";
+"workshop_telephone" = "Teléfono";
+"workshop_is_store" = "¿Es tienda?";
+"workshop_info_contact" = "Información de contacto";
+
 // Categories
-"tip" = "Recomendación";
+"tip" = "Tip";
 "workshop" = "Taller/Tienda";
 "parking" = "Bici-estacionamiento";

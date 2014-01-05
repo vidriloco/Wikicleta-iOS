@@ -93,8 +93,10 @@ GMSMapView *mapView;
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
     [mapView removeObserver:self forKeyPath:@"myLocation"];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewDidDisappear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -262,6 +264,9 @@ GMSMapView *mapView;
     }
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
+    [requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+    [manager setRequestSerializer:requestSerializer];
     [manager GET:[NSString stringWithFormat:resourceURL, swString, neString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
         NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
@@ -458,7 +463,7 @@ GMSMapView *mapView;
 
 - (void) mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    [self toggleShareControls];
+    //[self toggleShareControls];
 }
 
 /**
@@ -649,19 +654,39 @@ GMSMapView *mapView;
 
 - (void) hideChooserMenu
 {
-    [saveButton setHidden:NO];
-    [returnButton setHidden:NO];
+    [self toggleShareControls];
     [poiView removeFromSuperview];
 }
 
 - (void) presentControllerForPOI:(id)selector
 {
+    UINavigationController *nav = (UINavigationController*) [[self viewDeckController] centerController];
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.4f;
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromTop;
+    [self.navigationController.view.layer addAnimation:transition
+                                                forKey:kCATransition];
+    
+    CGPoint center = CGPointMake(sharePin.frame.origin.x+sharePin.frame.size.width/2, sharePin.frame.origin.y+sharePin.frame.size.height);
+    
     if ([selector tag] == 0) {
-        NSLog(@"Workshops");
+        EditWorkshopViewController *tipController = [[EditWorkshopViewController alloc] initWithNibName:nil bundle:nil];
+        //[tipController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
+        
+         [nav
+         pushViewController:tipController
+         animated:NO];
     } else if ([selector tag] == 1) {
-        NSLog(@"Parkings");
+        [nav
+         pushViewController:[[EditParkingViewController alloc] initWithNibName:nil bundle:nil]
+         animated:NO];
     } else if ([selector tag] == 2) {
-        NSLog(@"Tips");
+        EditTipViewController *tipController = [[EditTipViewController alloc] initWithNibName:nil bundle:nil];
+        [tipController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
+        [nav
+         pushViewController:tipController
+         animated:NO];
     }
 }
 

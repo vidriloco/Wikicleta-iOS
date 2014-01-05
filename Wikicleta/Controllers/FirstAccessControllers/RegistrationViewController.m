@@ -136,17 +136,18 @@
     [titleLabel setTextColor:[LookAndFeel orangeColor]];
     [titleLabel setText:NSLocalizedString(@"registration_view_title", nil)];
     
-    [username setPlaceholder:NSLocalizedString(@"registration_username_placeholder", nil)];
+    [LookAndFeel decorateUITextField:username withLocalizedPlaceholder:@"registration_username_placeholder"];
     [username fixUI];
     
-    [password setPlaceholder:NSLocalizedString(@"registration_password_placeholder", nil)];
+    [LookAndFeel decorateUITextField:password withLocalizedPlaceholder:@"registration_password_placeholder"];
     [password fixUI];
     
-    [passwordConfirmation setPlaceholder:NSLocalizedString(@"registration_password_confirmation_placeholder", nil)];
+    [LookAndFeel decorateUITextField:passwordConfirmation withLocalizedPlaceholder:@"registration_password_confirmation_placeholder"];
     [passwordConfirmation fixUI];
     
-    [email setPlaceholder:NSLocalizedString(@"registration_email_placeholder", nil)];
+    [LookAndFeel decorateUITextField:email withLocalizedPlaceholder:@"registration_email_placeholder"];
     [email fixUI];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,15 +166,15 @@
 
 - (BOOL) requiredFieldsFilled
 {
-    return [self validateFieldIsNotEmpty:username] ||
-    [self validateFieldIsNotEmpty:email] ||
-    [self validateFieldIsNotEmpty:password] ||
-    [self validateFieldIsNotEmpty:passwordConfirmation];
+    return [self validateStringIsNotEmpty:username.text] ||
+    [self validateStringIsNotEmpty:email.text] ||
+    [self validateStringIsNotEmpty:password.text] ||
+    [self validateStringIsNotEmpty:passwordConfirmation.text];
 }
 
 - (BOOL) passwordFieldsMatch
 {
-    return [self validateStringEqual:self.password.text toString:self.passwordConfirmation.text] && [self validateFieldIsNotEmpty:password];
+    return [self validateStringEqual:self.password.text toString:self.passwordConfirmation.text] && [self validateStringIsNotEmpty:password.text];
 }
 
 #pragma - mark UITextFieldDelegate

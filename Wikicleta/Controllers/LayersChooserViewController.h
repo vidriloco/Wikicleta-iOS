@@ -10,7 +10,6 @@
 #import "App.h"
 #import "UIColor-Expanded.h"
 #import <QuartzCore/QuartzCore.h>
-#import "UIButtonWithLabel.h"
 #import "LayersScrollView.h"
 #import "LayersDelegate.h"
 #import "IIViewDeckController.h"

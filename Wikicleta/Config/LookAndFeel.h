@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "UIColor-Expanded.h"
 
+#define titleFontSize       25
+#define subtitleFontSize    17
+#define formFontSize        16
+#define normalFontSize      14
+
 @interface LookAndFeel : NSObject
 
 + (UIColor*) blueColor;
@@ -18,5 +23,11 @@
 + (UIFont*) defaultFontLightWithSize:(int) size;
 + (UIFont*) defaultFontBoldWithSize:(int) size;
 + (UIFont*) defaultFontBookWithSize:(int) size;
+
++ (void) decorateUILabelAsMainViewTitle:(UILabel*) titleLabel withLocalizedString:(NSString*)localizedString;
++ (void) decorateUILabelAsMainViewSubtitle:(UILabel*) subtitleLabel withLocalizedString:(NSString*)localizedString;
++ (void) decorateUILabelAsCommon:(UILabel*) label withLocalizedString:(NSString*)localizedString;
++ (void) decorateUITextField:(UITextField*)textField withLocalizedPlaceholder:(NSString*)localizedPlaceholder;
++ (void) decorateUITextView:(UITextView*)textView withLocalizedPlaceholder:(NSString*)localizedPlaceholder;
 
 @end

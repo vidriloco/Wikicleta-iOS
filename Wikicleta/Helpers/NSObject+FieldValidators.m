@@ -15,9 +15,9 @@
     return [stringOne isEqualToString:stringTwo];
 }
 
-- (BOOL) validateFieldIsNotEmpty:(UITextField *)field
+- (BOOL) validateStringIsNotEmpty:(NSString*)string
 {
-    return [field text].length != 0;
+    return string.length != 0;
 }
 
 - (BOOL) validateStringAsEmail:(NSString *)string
@@ -30,6 +30,11 @@
 {
     NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", usernameRegexp];
     return [test evaluateWithObject:string];
+}
+
+- (BOOL) validateString:(NSString*)string lengthIsLargerThan:(int)minLength andShorterThan:(int)maxLength
+{
+    return string.length > minLength && string.length < maxLength;
 }
 
 @end

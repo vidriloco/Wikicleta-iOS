@@ -66,6 +66,26 @@
     self.navigationItem.rightBarButtonItem = button;
 }
 
+- (void) loadLeftButtonWithString:(NSString *)string andStringSelector:(NSString *)selector
+{
+    SEL propSelector = NSSelectorFromString(selector);
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(string, nil)
+                                                               style:UIBarButtonItemStyleBordered
+                                                              target:self
+                                                              action:propSelector];
+    if (!IS_OS_7_OR_LATER) {
+        [button setTitleTextAttributes:@{ UITextAttributeTextColor: [UIColor whiteColor],
+                                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                          UITextAttributeFont: [LookAndFeel defaultFontBookWithSize:14],
+                                          } forState:UIControlStateNormal];
+        [button setTitlePositionAdjustment:UIOffsetMake(0, 2) forBarMetrics:UIBarMetricsDefault];
+    }
+    self.navigationItem.leftBarButtonItem = button;
+    [self.navigationItem setLeftItemsSupplementBackButton:YES];
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+    
+}
+
 - (void) showAlertDialogWith:(NSString *)title andContent:(NSString *)content andTextButton:(NSString*) textButton
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
@@ -74,6 +94,18 @@
                                           cancelButtonTitle:textButton
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (void) resizeContentScrollToFit:(UIScrollView*)scrollView
+{
+    float contentScrollHeight = 35;
+
+    for (UIView *subView in [scrollView subviews]) {
+        contentScrollHeight += [subView frame].size.height;
+    }
+    [scrollView setContentSize:CGSizeMake(scrollView.frame.size.width, contentScrollHeight)];
+    [scrollView setFrame:CGRectMake(scrollView.frame.origin.x, scrollView.frame.origin.y, scrollView.frame.size.width, [App viewBounds].size.height)];
+
 }
 
 @end

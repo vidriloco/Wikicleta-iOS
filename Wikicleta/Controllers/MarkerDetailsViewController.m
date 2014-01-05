@@ -14,7 +14,6 @@
 
 - (void) completeLoadView;
 - (void) stylizeViewContainerBlock:(UIView*)viewBlock;
-- (void) resizeContentScrollToFit;
 @end
 
 @implementation MarkerDetailsViewController
@@ -36,7 +35,7 @@
     [(UINavigationController*) [[self viewDeckController] centerController] setNavigationBarHidden:NO];
     
     if ([selectedModel isKindOfClass:[Workshop class]]) {
-        [self resizeContentScrollToFit];
+        [self resizeContentScrollToFit:self.contentScrollView];
     }
 }
 
@@ -175,18 +174,6 @@
     [self stylizeViewContainerBlock:attributionView];
     
     [self.view bringSubviewToFront:self.contentScrollView];
-}
-
-- (void) resizeContentScrollToFit
-{
-    float contentScrollHeight = 35;
-    
-    for (UIView *subView in [self.contentScrollView subviews]) {
-        contentScrollHeight += [subView frame].size.height;
-    }
-    
-    [self.contentScrollView setContentSize:CGSizeMake(self.contentScrollView.frame.size.width, contentScrollHeight)];
-    [self.contentScrollView setFrame:CGRectMake(self.contentScrollView.frame.origin.x, self.contentScrollView.frame.origin.y, self.contentScrollView.frame.size.width, [App viewBounds].size.height)];
 }
 
 - (void) stylizeViewContainerBlock:(UIView*)viewBlock

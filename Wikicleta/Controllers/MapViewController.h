@@ -27,14 +27,19 @@
 #import "CyclestationUIView.h"
 #import "Route.h"
 #import "RouteUIView.h"
-#import "POIViewController.h"
+
+#import "EditParkingViewController.h"
+#import "EditTipViewController.h"
+#import "EditWorkshopViewController.h"
+#import "EditWorkshopInfoContactViewController.h"
+
 #import "POIChooserOverlayView.h"
 
 #define poiDetailedZoom 17
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
-#define minZoom 15
+#define minZoom 14
 
-typedef enum {Share, Find} MapMode;
+typedef enum {Share, Find, Select} MapMode;
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate> {
     UIViewController *rightHelperController;

@@ -9,7 +9,7 @@
 #import "FormBaseViewController.h"
 
 @interface FormBaseViewController () {
-    UITextField *activeTextView;
+    id activeTextView;
     CGPoint originalScrollOffset;
     CGSize kbSize;
 }
@@ -45,7 +45,7 @@
     [self.view addGestureRecognizer:dismissKeyBoardTap];
 }
 
-- (void)didReceiveMemoryWarning
+- (void) didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -53,11 +53,22 @@
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
-    activeTextView = textField;
+    activeTextView = (id) textField;
     [self positionKeyBoardUnderActiveField];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField
+{
+    activeTextView = nil;
+}
+
+- (void) textViewDidBeginEditing:(UITextView *)textView
+{
+    activeTextView = (id) textView;
+    [self positionKeyBoardUnderActiveField];
+}
+
+- (void) textViewDidEndEditing:(UITextView *)textView
 {
     activeTextView = nil;
 }
@@ -98,14 +109,13 @@
 - (void) positionKeyBoardUnderActiveField {
     // get the keyboard height
     double keyboardHeight = kbSize.height;
-    
     // save the position of the scroll view, so that we can scroll it to its original position when keyboard disappears.
     if(CGPointEqualToPoint(originalScrollOffset, CGPointZero)) {
         originalScrollOffset = [self scrollableView].contentOffset;
     }
     
-    CGPoint cp = [activeTextView convertPoint:activeTextView.bounds.origin toView:self.view];
-    cp.y += activeTextView.frame.size.height;
+    CGPoint cp = [activeTextView convertPoint:[activeTextView bounds].origin toView:self.view];
+    cp.y += [activeTextView frame].size.height;
     
     if (!IS_OS_7_OR_LATER) {
         cp.y += 60;
@@ -121,7 +131,6 @@
         offset.y += sofset;
         [[self scrollableView] setContentOffset:offset animated:YES];
     }
-    
 }
 
 - (UIScrollView*) scrollableView {

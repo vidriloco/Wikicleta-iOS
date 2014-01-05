@@ -34,11 +34,13 @@
 	</dict>
 	<key>tips</key>
 	<dict>
+		<key>post</key>
+		<string>/api/tips</string>
 		<key>get</key>
 		<string>/api/tips?</string>
 	</dict>
 	<key>backendURLDev</key>
-	<string>http://192.168.1.71:3000</string>
+	<string>http://192.168.1.64:3000</string>
 	<key>createUsers</key>
 	<string>/api/users.json</string>
 	<key>backendURL</key>

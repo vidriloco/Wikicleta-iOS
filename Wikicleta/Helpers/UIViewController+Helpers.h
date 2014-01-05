@@ -17,6 +17,9 @@
 - (void) setImageAsBackground:(UIImage*)image;
 - (void) loadNavigationBarDefaultStyle;
 - (void) loadRightButtonWithString:(NSString*)string andStringSelector:(NSString*)selector;
+- (void) loadLeftButtonWithString:(NSString*)string andStringSelector:(NSString*)selector;
+
+- (void) resizeContentScrollToFit:(UIScrollView*)scrollView;
 
 // Validators
 

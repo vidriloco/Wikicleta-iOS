@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "App.h"
-#import "UIButtonWithLabel.h"
 #import "LayerItemView.h"
 
 @class LayersChooserViewController;

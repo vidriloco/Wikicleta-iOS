@@ -18,6 +18,8 @@
 
 @implementation LandingViewController
 
+@synthesize decoratorView, exploreButton, loginButton, registerButton, exploreLabel, loginLabel, registerLabel;
+
 - (void) launchLoginController
 {
     [[self navigationController] pushViewController:[[LoginViewController alloc] init] animated:YES];
@@ -40,38 +42,30 @@
     if ([User userLoggedIn]) {
         [self launchDiscoverController];
     } else {
-        LandingAccessView *accessButtons = [[LandingAccessView alloc] initWithFrame:CGRectMake(-2, [App viewBounds].size.height, [App viewBounds].size.width+2, 100)];
-        
+        [decoratorView.layer setBorderColor:[UIColor colorWithHexString:@"d5e6f3"].CGColor];
+        [decoratorView.layer setBorderWidth:0.3];
+        [decoratorView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.4]];
+        [decoratorView setFrame:CGRectMake(decoratorView.frame.origin.x-2, decoratorView.frame.origin.x+2, [App viewBounds].size.width+4, decoratorView.frame.size.height)];
         // Buttons load
         
-        UIButtonWithLabel *explore = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(35, 15, 45, 60)
-                                                                     withName:@"explore"
-                                                           withTextSeparation:45];
-        [accessButtons addSubview:explore];
+        [exploreButton addTarget:self action:@selector(launchDiscoverController) forControlEvents:UIControlEventTouchUpInside];
+        [exploreLabel setText:NSLocalizedString(@"explore", nil)];
+        [exploreLabel setFont:[LookAndFeel defaultFontBookWithSize:16]];
+        [exploreLabel setTextColor:[LookAndFeel orangeColor]];
         
-        UIButtonWithLabel *login = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(135, 15, 45, 60)
-                                                                   withName:@"login"
-                                                         withTextSeparation:45];
-        [accessButtons addSubview:login];
+        [registerButton addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
+        [registerLabel setText:NSLocalizedString(@"join", nil)];
+        [registerLabel setFont:[LookAndFeel defaultFontBookWithSize:16]];
+        [registerLabel setTextColor:[LookAndFeel orangeColor]];
         
-        UIButtonWithLabel *join = [[UIButtonWithLabel alloc] initWithFrame:CGRectMake(235, 15, 45, 60)
-                                                                  withName:@"join"
-                                                        withTextSeparation:45];
-        [accessButtons addSubview:join];
-        
-        [explore.button addTarget:self action:@selector(launchDiscoverController) forControlEvents:UIControlEventTouchUpInside];
-        
-        [join.button addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
-        
-        [login.button addTarget:self action:@selector(launchLoginController) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        [self.view addSubview:accessButtons];
-        
+        [loginButton addTarget:self action:@selector(launchLoginController) forControlEvents:UIControlEventTouchUpInside];
+        [loginLabel setText:NSLocalizedString(@"login", nil)];
+        [loginLabel setFont:[LookAndFeel defaultFontBookWithSize:16]];
+        [loginLabel setTextColor:[LookAndFeel orangeColor]];
         
         [UIView animateWithDuration:1 animations:^{
-            [accessButtons setAlpha:1];
-            [accessButtons setTransform:CGAffineTransformMakeTranslation(0, [App viewBounds].size.height-accessButtons.center.y-100)];
+            [decoratorView setAlpha:1];
+            [decoratorView setTransform:CGAffineTransformMakeTranslation(0, [App viewBounds].size.height-decoratorView.center.y-100)];
         }];
     }
 }
