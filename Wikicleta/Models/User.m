@@ -48,7 +48,7 @@ static User *user;
         [user setIdentifier:[dictionary objectForKey:kIdentifier]];
     }
     
-    if ([dictionary objectForKey:kUserPic]) {
+    if ([dictionary objectForKey:kUserPic] && [dictionary objectForKey:kUserPic] != [NSNull null]) {
         [user setPicURL:[dictionary objectForKey:kUserPic]];
     }
 

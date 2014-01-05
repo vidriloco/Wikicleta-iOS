@@ -150,3 +150,7 @@
 // Select location
 "select_location_title" = "Drag the map";
 "select_location_subtitle" = "Set the final location for the pin";
+
+// Profile view
+"profile_your_activity" = "Your activity";
+"profile_your_favorites" = "Your favorites";

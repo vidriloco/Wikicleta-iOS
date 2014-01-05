@@ -178,6 +178,11 @@
 		3A14D97917B6BCF2007E16FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A14D97717B6BCF2007E16FA /* Localizable.strings */; };
 		3A1A2A8E1879DA5B00AF298C /* OverlayMapMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2A8D1879DA5B00AF298C /* OverlayMapMessageView.xib */; };
 		3A1A2A911879DA7A00AF298C /* OverlayMapMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A2A901879DA7A00AF298C /* OverlayMapMessageView.m */; };
+		3A1A2A951879F3B100AF298C /* OnProfileSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A2A941879F3B100AF298C /* OnProfileSectionView.m */; };
+		3A1A2A9B1879F4F500AF298C /* activity_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2A971879F4F500AF298C /* activity_icon.png */; };
+		3A1A2A9C1879F4F500AF298C /* activity_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2A981879F4F500AF298C /* activity_icon@2x.png */; };
+		3A1A2A9D1879F4F500AF298C /* favorites_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2A991879F4F500AF298C /* favorites_icon.png */; };
+		3A1A2A9E1879F4F500AF298C /* favorites_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2A9A1879F4F500AF298C /* favorites_icon@2x.png */; };
 		3A2A2025186C1B1900FF7C59 /* favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2021186C1B1900FF7C59 /* favorited_icon.png */; };
 		3A2A2026186C1B1900FF7C59 /* favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */; };
 		3A2A2027186C1B1900FF7C59 /* non_favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */; };
@@ -647,6 +652,12 @@
 		3A1A2A8D1879DA5B00AF298C /* OverlayMapMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayMapMessageView.xib; path = ../OverlayMapMessageView.xib; sourceTree = "<group>"; };
 		3A1A2A8F1879DA7A00AF298C /* OverlayMapMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayMapMessageView.h; path = ../OverlayMapMessageView.h; sourceTree = "<group>"; };
 		3A1A2A901879DA7A00AF298C /* OverlayMapMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayMapMessageView.m; path = ../OverlayMapMessageView.m; sourceTree = "<group>"; };
+		3A1A2A931879F3B100AF298C /* OnProfileSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnProfileSectionView.h; sourceTree = "<group>"; };
+		3A1A2A941879F3B100AF298C /* OnProfileSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnProfileSectionView.m; sourceTree = "<group>"; };
+		3A1A2A971879F4F500AF298C /* activity_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_icon.png; sourceTree = "<group>"; };
+		3A1A2A981879F4F500AF298C /* activity_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity_icon@2x.png"; sourceTree = "<group>"; };
+		3A1A2A991879F4F500AF298C /* favorites_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_icon.png; sourceTree = "<group>"; };
+		3A1A2A9A1879F4F500AF298C /* favorites_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites_icon@2x.png"; sourceTree = "<group>"; };
 		3A2A2021186C1B1900FF7C59 /* favorited_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorited_icon.png; sourceTree = "<group>"; };
 		3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorited_icon@2x.png"; sourceTree = "<group>"; };
 		3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = non_favorited_icon.png; sourceTree = "<group>"; };
@@ -1001,6 +1012,7 @@
 		181534C617B1645F009FE8CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A1A2A961879F4F500AF298C /* ProfileView */,
 				3A9547C3186D44EF00428DF7 /* POIs */,
 				3A4DD93218680917009506F0 /* navbar_back.png */,
 				3A4DD93318680917009506F0 /* navbar_back@2x.png */,
@@ -1280,6 +1292,7 @@
 		3A01B4CC164A2FAA00F78822 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A1A2A921879F38800AF298C /* OnProfileView */,
 				3ACF4F481871363200A46E33 /* OnModifyingViews */,
 				3ACF4F301871138600A46E33 /* OnMapView */,
 				3A9DE800186F901C00C95812 /* LayerItemView.xib */,
@@ -1524,6 +1537,26 @@
 				3A06B8A51866C4A4001C927F /* cyclers@2x.png */,
 			);
 			path = RegistrationView;
+			sourceTree = "<group>";
+		};
+		3A1A2A921879F38800AF298C /* OnProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				3A1A2A931879F3B100AF298C /* OnProfileSectionView.h */,
+				3A1A2A941879F3B100AF298C /* OnProfileSectionView.m */,
+			);
+			path = OnProfileView;
+			sourceTree = "<group>";
+		};
+		3A1A2A961879F4F500AF298C /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				3A1A2A971879F4F500AF298C /* activity_icon.png */,
+				3A1A2A981879F4F500AF298C /* activity_icon@2x.png */,
+				3A1A2A991879F4F500AF298C /* favorites_icon.png */,
+				3A1A2A9A1879F4F500AF298C /* favorites_icon@2x.png */,
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		3A417AD41669A53000E6DF0B /* Singly */ = {
@@ -1965,6 +1998,7 @@
 				3A4BA336186EC72D00F7531E /* attach_icon@2x.png in Resources */,
 				3A4E5F24186DEC0100D818ED /* bike_sharing_red_marker.png in Resources */,
 				183F0C3417CC1576006B4F54 /* MenuViewCell.xib in Resources */,
+				3A1A2A9E1879F4F500AF298C /* favorites_icon@2x.png in Resources */,
 				3A785A1617D46D0B00D1B6F6 /* section_map_icon@2x.png in Resources */,
 				3A08AD341872832000E79AA5 /* EditWorkshopInfoContactViewController.xib in Resources */,
 				3A4DD93718680917009506F0 /* navbar_back@2x.png in Resources */,
@@ -2042,8 +2076,10 @@
 				180E329317B99AA600322194 /* layer_button.png in Resources */,
 				180E329417B99AA600322194 /* layer_button@2x.png in Resources */,
 				3A9547AC186CBE1000428DF7 /* like_icon.png in Resources */,
+				3A1A2A9D1879F4F500AF298C /* favorites_icon.png in Resources */,
 				3A5382FF18701068006346AE /* save_button.png in Resources */,
 				3A9DE7F3186F490700C95812 /* attach_icon_h@2x.png in Resources */,
+				3A1A2A9C1879F4F500AF298C /* activity_icon@2x.png in Resources */,
 				3AC3AD3F18716AA40054732A /* upload_icon@2x.png in Resources */,
 				3A4E5F27186DEC0100D818ED /* bike_sharing_yellow_marker@2x.png in Resources */,
 				3A9DE7F2186F490700C95812 /* attach_icon_h.png in Resources */,
@@ -2066,6 +2102,7 @@
 				180BD04517BAA6290080296E /* tips_layers@2x.png in Resources */,
 				3ACF4F4D187136C700A46E33 /* SelectOnTapView.xib in Resources */,
 				3A954800186D5EBD00428DF7 /* workshop_icon@2x.png in Resources */,
+				3A1A2A9B1879F4F500AF298C /* activity_icon.png in Resources */,
 				3A060C8417D2BE3200E006C0 /* settings_map_icon.png in Resources */,
 				3A4DD93618680917009506F0 /* navbar_back.png in Resources */,
 				180BD04617BAA6290080296E /* workshops_layers.png in Resources */,
@@ -2179,6 +2216,7 @@
 				3A01B55B164A315300F78822 /* ASIS3ObjectRequest.m in Sources */,
 				3A01B55C164A315300F78822 /* ASIS3Request.m in Sources */,
 				3A4DD93C18681E77009506F0 /* UITextField+UIPlus.m in Sources */,
+				3A1A2A951879F3B100AF298C /* OnProfileSectionView.m in Sources */,
 				3A01B55D164A315300F78822 /* ASIS3ServiceRequest.m in Sources */,
 				3A01B56D164A315300F78822 /* NSObject+SBJson.m in Sources */,
 				3A01B56E164A315300F78822 /* SBJsonParser.m in Sources */,

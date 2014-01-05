@@ -14,24 +14,20 @@
 
 @implementation ProfileViewController
 
-@synthesize usernameLabel, userPictureImage, userBioLabel;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize usernameLabel, userPictureImage, userBioLabel, activityButton, favoriteButton, leftborderView, leftButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self loadUserInfo];
+    [leftborderView setBackgroundColor:[LookAndFeel orangeColor]];
+    [leftButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchDragOutside];
+    [leftButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchUpInside];
     
-    [usernameLabel setText:[User currentUser].username];
-    [userBioLabel setText:[User currentUser].bio];
-    
+    [activityButton stylizeViewWithString:@"profile_your_activity"];
+    [favoriteButton stylizeViewWithString:@"profile_your_favorites"];
+
     NSString *url = [App urlForResource:@"profiles" withSubresource:@"get" andReplacementSymbol:@":id" withReplacementValue:[NSString stringWithFormat:@"%d", [[User currentUser].identifier intValue]]];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -42,12 +38,24 @@
         if ([[response objectForKey:@"success"] boolValue]) {
             [User buildOrUpdateUserFromDictionary:[response objectForKey:@"user"]];
             [self loadPictureImage];
+            [self loadUserInfo];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self loadPictureImage];
     }];
     
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void) loadUserInfo
+{
+    [usernameLabel setText:[User currentUser].username];
+    [userBioLabel setText:[User currentUser].bio];
+    [LookAndFeel decorateUILabelAsMainViewTitle:usernameLabel withLocalizedString:nil];
+    [LookAndFeel decorateUILabelAsMainViewSubtitle:userBioLabel withLocalizedString:nil];
+    [usernameLabel setFont:[LookAndFeel defaultFontBoldWithSize:25]];
+    [userBioLabel setFont:[LookAndFeel defaultFontLightWithSize:14]];
+
 }
 
 - (void) loadPictureImage
@@ -67,6 +75,13 @@
     }];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self.navigationController viewDeckController] setDelegate:self];
+    [[self.navigationController viewDeckController] setRightController:nil];
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -78,5 +93,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+ *  Sets a Left Dock UIViewController if not set, and then opens the leftview
+ */
+- (void) openLeftDock {
+    
+    if ([self.viewDeckController leftController] == nil) {
+        [self.viewDeckController setLeftController:[[MainMenuViewController alloc] initWithNibName:nil bundle:nil]];
+    }
+    [self.viewDeckController openLeftViewAnimated:YES];
+}
+
+
 
 @end

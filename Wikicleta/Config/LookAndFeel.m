@@ -47,35 +47,45 @@
 
 + (void) decorateUILabelAsMainViewTitle:(UILabel*) titleLabel withLocalizedString:(NSString *)localizedString
 {
-    [titleLabel setText:NSLocalizedString(localizedString, nil)];
+    if (localizedString != nil) {
+        [titleLabel setText:NSLocalizedString(localizedString, nil)];
+    }
     [titleLabel setFont:[LookAndFeel defaultFontBookWithSize:titleFontSize]];
     [titleLabel setTextColor:[LookAndFeel orangeColor]];
 }
 
 + (void) decorateUILabelAsMainViewSubtitle:(UILabel*) subtitleLabel withLocalizedString:(NSString *)localizedString
 {
-    [subtitleLabel setText:NSLocalizedString(localizedString, nil)];
+    if (localizedString != nil) {
+        [subtitleLabel setText:NSLocalizedString(localizedString, nil)];
+    }
     [subtitleLabel setFont:[LookAndFeel defaultFontLightWithSize:subtitleFontSize]];
     [subtitleLabel setTextColor:[LookAndFeel blueColor]];
 }
 
 + (void) decorateUILabelAsCommon:(UILabel*) label withLocalizedString:(NSString*)localizedString
 {
-    [label setText:NSLocalizedString(localizedString, nil)];
+    if (localizedString != nil) {
+        [label setText:NSLocalizedString(localizedString, nil)];
+    }
     [label setFont:[LookAndFeel defaultFontBookWithSize:normalFontSize]];
     [label setTextColor:[LookAndFeel blueColor]];
 }
 
 + (void) decorateUITextField:(UITextField*)textField withLocalizedPlaceholder:(NSString *)localizedPlaceholder
 {
+    if (localizedPlaceholder != nil) {
+        [textField setPlaceholder:NSLocalizedString(localizedPlaceholder, nil)];
+    }
     [textField setFont:[LookAndFeel defaultFontLightWithSize:formFontSize]];
-    [textField setPlaceholder:NSLocalizedString(localizedPlaceholder, nil)];
 }
 
 + (void) decorateUITextView:(UITextView*)textView withLocalizedPlaceholder:(NSString *)localizedPlaceholder
 {
+    if (localizedPlaceholder != nil) {
+        [textView setText:NSLocalizedString(localizedPlaceholder, nil)];
+    }
     [textView setFont:[LookAndFeel defaultFontLightWithSize:formFontSize]];
-    [textView setText:NSLocalizedString(localizedPlaceholder, nil)];
 }
 
 
