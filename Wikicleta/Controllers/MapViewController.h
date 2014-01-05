@@ -33,18 +33,44 @@
 #import "EditWorkshopViewController.h"
 #import "EditWorkshopInfoContactViewController.h"
 
-#import "POIChooserOverlayView.h"
-
 #define poiDetailedZoom 17
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
 #define minZoom 14
+#define marginUnit 20
 
-typedef enum {Share, Find, Select} MapMode;
+typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate> {
-    UIViewController *rightHelperController;
+@class MapViewCompanionManager;
+
+@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate> {
+    NSString *activeLayer;
+    UIButton *rightButton;
+    UIButton *leftButton;
+    UIButton *saveButton;
+    UIButton *returnButton;
+    UIButton *shareButton;
+    UIImageView * sharePin;
+    GMSMapView *mapView;
+    GMSPolyline *selectedRoutePath;
+    id detailsView;
+    BOOL requestOngoing;
+
 }
 
-@property (nonatomic, strong) UIViewController *rightHelperController;
+@property (nonatomic, strong) NSString *activeLayer;
+@property (nonatomic, strong) UIButton *rightButton;
+@property (nonatomic, strong) UIButton *leftButton;
+
+@property (nonatomic, strong) UIButton *saveButton;
+@property (nonatomic, strong) UIButton *returnButton;
+@property (nonatomic, strong) UIButton *shareButton;
+
+@property (nonatomic, strong) UIImageView * sharePin;
+
+@property (nonatomic, strong) GMSMapView *mapView;
+@property (nonatomic, strong) GMSPolyline *selectedRoutePath;
+
+@property (nonatomic) id detailsView;
+@property (nonatomic) BOOL requestOngoing;
 
 @end

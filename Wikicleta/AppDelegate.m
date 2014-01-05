@@ -28,7 +28,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
     UINavigationController *centerController = [[UINavigationController alloc]
-                                                initWithRootViewController:[[MapViewController alloc] initWithNibName:nil bundle:nil]];
+                                                initWithRootViewController:[[LandingViewController alloc] initWithNibName:nil bundle:nil]];
     IIViewDeckController* deckController =  [[IIViewDeckController alloc]
                                              initWithCenterViewController:centerController
                                              leftViewController:nil

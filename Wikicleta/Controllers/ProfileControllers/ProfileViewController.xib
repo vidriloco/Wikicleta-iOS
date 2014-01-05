@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
+            <connections>
+                <outlet property="userBioLabel" destination="rMH-yF-l5N" id="iWw-ht-xxn"/>
+                <outlet property="userPictureImage" destination="eI7-xR-LG9" id="QiV-Ah-nPA"/>
+                <outlet property="usernameLabel" destination="yfr-aT-AlT" id="y7m-K4-qEL"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue_gradient_iphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="V02-b3-Msw">
+                    <rect key="frame" x="0.0" y="157" width="320" height="411"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-xR-LG9">
+                    <rect key="frame" x="115" y="40" width="90" height="90"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bicito" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfr-aT-AlT">
+                    <rect key="frame" x="20" y="148" width="280" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bicito" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rMH-yF-l5N">
+                    <rect key="frame" x="20" y="202" width="280" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="266" fixedFrame="YES" restorationIdentifier="menu-cell-reuse" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu-cell-reuse" rowHeight="102" translatesAutoresizingMaskIntoConstraints="NO" id="p6d-Js-okz" customClass="MenuViewCell">
+                    <rect key="frame" x="20" y="274" width="99" height="102"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p6d-Js-okz" id="0In-Zx-cad">
+                        <rect key="frame" x="0.0" y="0.0" width="99" height="101"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftV-XN-FkJ">
+                                <rect key="frame" x="26" y="69" width="50" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="S4I-NG-iA0">
+                                <rect key="frame" x="29" y="12" width="44.000000371932984" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="iconCell" destination="S4I-NG-iA0" id="DLZ-1H-pu0"/>
+                        <outlet property="mainLabel" destination="ftV-XN-FkJ" id="apM-AG-GDv"/>
+                    </connections>
+                </tableViewCell>
+                <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="266" fixedFrame="YES" restorationIdentifier="menu-cell-reuse" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu-cell-reuse" rowHeight="102" translatesAutoresizingMaskIntoConstraints="NO" id="cGW-HV-dNG" customClass="MenuViewCell">
+                    <rect key="frame" x="111" y="274" width="99" height="102"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cGW-HV-dNG" id="bOB-ge-EG0">
+                        <rect key="frame" x="0.0" y="0.0" width="99" height="101"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-6g-RYp">
+                                <rect key="frame" x="26" y="69" width="50" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="yYd-Us-WcN">
+                                <rect key="frame" x="29" y="12" width="44.000000371932984" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="iconCell" destination="yYd-Us-WcN" id="xgq-Oa-iye"/>
+                        <outlet property="mainLabel" destination="m6R-6g-RYp" id="Jwa-LE-1tI"/>
+                    </connections>
+                </tableViewCell>
+                <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="266" fixedFrame="YES" restorationIdentifier="menu-cell-reuse" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu-cell-reuse" rowHeight="102" translatesAutoresizingMaskIntoConstraints="NO" id="ZEu-QV-D8D" customClass="MenuViewCell">
+                    <rect key="frame" x="201" y="274" width="99" height="102"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEu-QV-D8D" id="ckB-GB-NyG">
+                        <rect key="frame" x="0.0" y="0.0" width="99" height="101"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dL-Nv-qY6">
+                                <rect key="frame" x="26" y="69" width="50" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-fc-A5K">
+                                <rect key="frame" x="29" y="12" width="44.000000371932984" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="iconCell" destination="7Wl-fc-A5K" id="hWS-ma-f5N"/>
+                        <outlet property="mainLabel" destination="3dL-Nv-qY6" id="pk4-qw-9Pr"/>
+                    </connections>
+                </tableViewCell>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="266" restorationIdentifier="menu-cell-reuse" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu-cell-reuse" rowHeight="102" id="7Sg-IU-E2B" customClass="MenuViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="99" height="102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Sg-IU-E2B" id="CFT-CH-opN">
+                <rect key="frame" x="0.0" y="0.0" width="99" height="101"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmN-DY-Rav">
+                        <rect key="frame" x="26" y="69" width="50" height="29"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="NdG-Ho-hWF">
+                        <rect key="frame" x="29" y="12" width="44" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
+                </subviews>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="iconCell" destination="NdG-Ho-hWF" id="ukr-sp-eae"/>
+                <outlet property="mainLabel" destination="XmN-DY-Rav" id="5ou-WV-pJ9"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="blue_gradient_iphone.png" width="9" height="470"/>
+        <image name="map_menu.png" width="70" height="70"/>
+    </resources>
+</document>

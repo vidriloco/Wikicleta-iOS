@@ -10,6 +10,6 @@
 
 @protocol LayersDelegate <NSObject>
 
-- (void) updateMapWithLayersSelected:(NSString*)layerSelected;
+- (void) setActiveLayer:(NSString*)layer;
 
 @end

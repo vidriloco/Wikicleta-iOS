@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>profiles</key>
+	<dict>
+		<key>get</key>
+		<string>/api/profiles/:id</string>
+	</dict>
 	<key>routes</key>
 	<dict>
 		<key>show</key>
@@ -42,7 +47,7 @@
 		<string>/api/tips?</string>
 	</dict>
 	<key>backendURLDev</key>
-	<string>http://192.168.1.64:3000</string>
+	<string>http://192.168.1.65:3000</string>
 	<key>createUsers</key>
 	<string>/api/users.json</string>
 	<key>backendURL</key>

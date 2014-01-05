@@ -88,22 +88,24 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
 {
     [associatedController deselectAll];
     [tableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:nil];
-
+    
     NSString *selectedMenuItem = [menuSections objectAtIndex:[indexPath row]];
-
+    
     if ([selectedMenuItem isEqualToString:@"map"]) {
         
     } else if ([selectedMenuItem isEqualToString:@"discover"]) {
         if (![[(UINavigationController*) [[associatedController viewDeckController] centerController] topViewController] isKindOfClass:[MapViewController class]]) {
             [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[MapViewController alloc]init] animated:YES];
         }
-        [associatedController.viewDeckController closeLeftViewAnimated:YES];
     } else if ([selectedMenuItem isEqualToString:@"activity"]) {
         
     } else if ([selectedMenuItem isEqualToString:@"join"]) {
         [(UINavigationController*) [[associatedController viewDeckController] centerController] popToRootViewControllerAnimated:YES];
-        [associatedController.viewDeckController closeLeftViewAnimated:YES];
+        
+    } else if ([selectedMenuItem isEqualToString:@"profile"]) {
+        [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[ProfileViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
     }
+    [associatedController.viewDeckController closeLeftViewAnimated:YES];
 }
 
 

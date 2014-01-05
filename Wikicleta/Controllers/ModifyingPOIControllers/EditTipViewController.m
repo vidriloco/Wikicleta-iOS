@@ -92,7 +92,7 @@
     NSDate *currentDate = [NSDate date];
     
     return @{
-             @"extras": @{@"auth_token": @"jpsJmEZyWyT8PsSZq1pG"},
+             @"extras": [self authPair],
              @"tip": @{
                      @"content": tipDescriptionTextView.text,
                      @"category": [NSNumber numberWithInt:[collectionView currentlySelectedIndex]],

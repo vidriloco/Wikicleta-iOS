@@ -12,6 +12,7 @@
 #import "MapViewController.h"
 #import "User.h"
 #import "LandingViewController.h"
+#import "ProfileViewController.h"
 
 @class MainMenuViewController;
 

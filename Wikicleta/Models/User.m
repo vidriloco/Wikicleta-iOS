@@ -15,36 +15,84 @@
 
 @implementation User
 
-@synthesize username, email, token, bio;
+static User *user;
 
-+ (id) saveUserWithToken:(NSString*)token withUsername:(NSString*)username withFullName:(NSString*)fullname withEmail:(NSString*)email andBio:(NSString*)bio
+@synthesize username, email, token, bio, identifier, picURL;
+
++ (void) save
 {
-    User *user = [[User alloc] init];
-    [user setUsername:username];
-    [user setEmail:email];
-    [user setToken:token];
-    [user setBio:bio];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
-    [[NSUserDefaults standardUserDefaults] setObject:username forKey:kUsername];
-    [[NSUserDefaults standardUserDefaults] setObject:email forKey:kEmail];
+    [[NSUserDefaults standardUserDefaults] setObject:[[User currentUser] dictionary] forKey:kUser];
+}
 
++ (User*) buildOrUpdateUserFromDictionary:(NSDictionary*)dictionary
+{
+    user = [self currentUser];
+
+    if ([dictionary objectForKey:kUsername]) {
+        [user setUsername:[dictionary objectForKey:kUsername]];
+    }
+    
+    if ([dictionary objectForKey:kEmail]) {
+        [user setEmail:[dictionary objectForKey:kEmail]];
+    }
+    
+    if ([dictionary objectForKey:kToken]) {
+        [user setToken:[dictionary objectForKey:kToken]];
+    }
+    
+    if ([dictionary objectForKey:kBio]) {
+        [user setBio:[dictionary objectForKey:kBio]];
+    }
+    
+    if ([dictionary objectForKey:kIdentifier]) {
+        [user setIdentifier:[dictionary objectForKey:kIdentifier]];
+    }
+    
+    if ([dictionary objectForKey:kUserPic]) {
+        [user setPicURL:[dictionary objectForKey:kUserPic]];
+    }
+
+    [self save];
     return user;
 }
 
-+ (void) saveUserFromDictionary:(NSDictionary*)dictionary
++ (User*) currentUser
 {
-    [User saveUserWithToken:[dictionary objectForKey:@"auth_token"]
-               withUsername:[dictionary objectForKey:kUsername]
-               withFullName:@""
-                  withEmail:[dictionary objectForKey:kEmail]
-                     andBio:@""];
+    if (user == NULL) {
+        NSDictionary* userData = [[NSUserDefaults standardUserDefaults] objectForKey:kUser];
+        user = [[User alloc] init];
+        
+        if (userData) {
+            [self buildOrUpdateUserFromDictionary:userData];
+        }
+    }
+    return user;
 }
 
 + (BOOL) userLoggedIn
 {
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:kToken] length] > 0;
+    return [[self currentUser] identifier] != NULL;
 }
 
++ (NSString*) userAuthToken
+{
+    return [[User currentUser] token];
+}
+
+- (NSDictionary*) dictionary
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:self.username forKey:kUsername];
+    [dict setObject:self.email forKey:kEmail];
+    [dict setObject:self.token forKey:kToken];
+    [dict setObject:self.bio forKey:kBio];
+    [dict setObject:self.identifier forKey:kIdentifier];
+    
+    if (self.picURL != NULL) {
+        [dict setObject:self.picURL forKey:kUserPic];
+    }
+    
+    return dict;
+}
 
 @end

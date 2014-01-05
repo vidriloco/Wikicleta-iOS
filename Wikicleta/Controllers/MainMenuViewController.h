@@ -12,8 +12,11 @@
 #import "IIViewDeckController.h"
 #import "User.h"
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController {
+}
+
+@property (nonatomic, strong) UIView *menuViewContainer;
 
 - (void) deselectAll;
-
+- (void) loadMenuView;
 @end

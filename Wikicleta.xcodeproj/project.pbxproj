@@ -181,6 +181,9 @@
 		3A2A2027186C1B1900FF7C59 /* non_favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */; };
 		3A2A2028186C1B1900FF7C59 /* non_favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2024186C1B1900FF7C59 /* non_favorited_icon@2x.png */; };
 		3A417ACF16699E9000E6DF0B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44216692E7C006F251D /* Accounts.framework */; };
+		3A44F4CA187907E4007E8AB5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A44F4C8187907E4007E8AB5 /* ProfileViewController.m */; };
+		3A44F4CB187907E4007E8AB5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */; };
+		3A44F4CE1879573D007E8AB5 /* MapViewCompanionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A44F4CD1879573D007E8AB5 /* MapViewCompanionManager.m */; };
 		3A4BA32F186E7A7D00F7531E /* end_route_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BA32B186E7A7D00F7531E /* end_route_marker.png */; };
 		3A4BA330186E7A7D00F7531E /* end_route_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BA32C186E7A7D00F7531E /* end_route_marker@2x.png */; };
 		3A4BA331186E7A7D00F7531E /* start_route_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BA32D186E7A7D00F7531E /* start_route_marker.png */; };
@@ -645,6 +648,11 @@
 		3A2A2024186C1B1900FF7C59 /* non_favorited_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "non_favorited_icon@2x.png"; sourceTree = "<group>"; };
 		3A417AD51669A53000E6DF0B /* SinglySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinglySDK.bundle; sourceTree = "<group>"; };
 		3A417AD61669A53000E6DF0B /* SinglySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinglySDK.framework; sourceTree = "<group>"; };
+		3A44F4C7187907E4007E8AB5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		3A44F4C8187907E4007E8AB5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		3A44F4CC1879573D007E8AB5 /* MapViewCompanionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewCompanionManager.h; sourceTree = "<group>"; };
+		3A44F4CD1879573D007E8AB5 /* MapViewCompanionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewCompanionManager.m; sourceTree = "<group>"; };
 		3A47594E17D0EC1100A524C5 /* LayersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayersDelegate.h; sourceTree = "<group>"; };
 		3A4BA32B186E7A7D00F7531E /* end_route_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = end_route_marker.png; sourceTree = "<group>"; };
 		3A4BA32C186E7A7D00F7531E /* end_route_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "end_route_marker@2x.png"; sourceTree = "<group>"; };
@@ -1218,6 +1226,7 @@
 		3A01B4CA164A2FAA00F78822 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A44F4C6187907E4007E8AB5 /* ProfileControllers */,
 				3AEAF1CA1870B83A00003668 /* ModifyingPOIControllers */,
 				3A9DE808186FAAD000C95812 /* Concerns */,
 				3A893CF91869305B00638217 /* Common */,
@@ -1521,6 +1530,16 @@
 			path = Singly;
 			sourceTree = "<group>";
 		};
+		3A44F4C6187907E4007E8AB5 /* ProfileControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A44F4C7187907E4007E8AB5 /* ProfileViewController.h */,
+				3A44F4C8187907E4007E8AB5 /* ProfileViewController.m */,
+				3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */,
+			);
+			path = ProfileControllers;
+			sourceTree = "<group>";
+		};
 		3A47594D17D0EC1100A524C5 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -1672,6 +1691,8 @@
 		3A9DE809186FAAD000C95812 /* MapViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3A44F4CC1879573D007E8AB5 /* MapViewCompanionManager.h */,
+				3A44F4CD1879573D007E8AB5 /* MapViewCompanionManager.m */,
 			);
 			path = MapViewController;
 			sourceTree = "<group>";
@@ -1978,6 +1999,7 @@
 				3A9DE810186FADFB00C95812 /* wikicleta_pin@2x.png in Resources */,
 				18EE967617D52AD000923EC6 /* blue_set.png in Resources */,
 				3A9547E7186D47D700428DF7 /* danger_marker@2x.png in Resources */,
+				3A44F4CB187907E4007E8AB5 /* ProfileViewController.xib in Resources */,
 				180E328417B93C5400322194 /* gear_menu@2x.png in Resources */,
 				180E328B17B93FE300322194 /* gear_menu_selected.png in Resources */,
 				3A2A2027186C1B1900FF7C59 /* non_favorited_icon.png in Resources */,
@@ -2116,6 +2138,7 @@
 				0C7E0B1E18516E110017CBCF /* CTARequestData.m in Sources */,
 				3A01B548164A315300F78822 /* ASIAuthenticationDialog.m in Sources */,
 				3A01B549164A315300F78822 /* ASIDataCompressor.m in Sources */,
+				3A44F4CA187907E4007E8AB5 /* ProfileViewController.m in Sources */,
 				3A01B54A164A315300F78822 /* ASIDataDecompressor.m in Sources */,
 				3A9547C2186D3F1900428DF7 /* Tip.m in Sources */,
 				3A01B54B164A315300F78822 /* ASIDownloadCache.m in Sources */,
@@ -2184,6 +2207,7 @@
 				3A08AD331872832000E79AA5 /* EditWorkshopInfoContactViewController.m in Sources */,
 				3A4E5F16186DDCC500D818ED /* Cyclestation.m in Sources */,
 				1863D53A17B04B3A007E7460 /* AKColorImageEffect.m in Sources */,
+				3A44F4CE1879573D007E8AB5 /* MapViewCompanionManager.m in Sources */,
 				1863D53B17B04B3A007E7460 /* AKCornerRadiusImageEffect.m in Sources */,
 				1863D53C17B04B3A007E7460 /* AKDrawingUtilities.m in Sources */,
 				3A9547F8186D50FF00428DF7 /* Workshop.m in Sources */,

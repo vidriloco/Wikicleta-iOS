@@ -95,7 +95,7 @@
     NSString *roof = [parkingHasRoofSwitch isOn] ? @"1" : @"0";
     
     return @{
-             @"extras": @{@"auth_token": @"jpsJmEZyWyT8PsSZq1pG"},
+             @"extras": [self authPair],
              @"parking": @{
                      @"details": parkingDescriptionTextView.text,
                      @"kind": [NSNumber numberWithInt:[collectionView currentlySelectedIndex]],

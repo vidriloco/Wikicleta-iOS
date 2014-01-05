@@ -106,7 +106,7 @@
     NSString *schedule = [workshopHoraryTextView.text isEqualToString:NSLocalizedString(@"workshop_horary", nil)] ?  @"" : workshopHoraryTextView.text;
     
     return @{
-             @"extras": @{@"auth_token": @"jpsJmEZyWyT8PsSZq1pG"},
+             @"extras": [self authPair],
              @"workshop": @{
                      @"name": nameTextField.text,
                      @"details": workshopDescriptionTextView.text,

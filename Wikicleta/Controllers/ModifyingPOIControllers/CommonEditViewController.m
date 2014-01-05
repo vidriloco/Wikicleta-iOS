@@ -67,6 +67,11 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+- (NSDictionary*) authPair
+{
+    return @{@"auth_token": [User userAuthToken]};
+}
+
 - (NSArray*) selectableCategories
 {
     return @[];

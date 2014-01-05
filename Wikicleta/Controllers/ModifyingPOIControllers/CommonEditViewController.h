@@ -25,4 +25,6 @@
 - (SelectOnTapCollectionView*) selectOnTapCollectionView;
 - (void) attemptSave;
 - (void) dismiss;
+- (NSDictionary*) authPair;
+
 @end

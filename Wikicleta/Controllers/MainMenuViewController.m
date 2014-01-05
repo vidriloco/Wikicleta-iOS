@@ -30,30 +30,10 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void) viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    NSMutableArray* mainSections = [NSMutableArray arrayWithObjects: @"discover", @"events", nil];
-
-    if ([User userLoggedIn]) {
-        [mainSections addObject:@"profile"];
-    } else {
-        [mainSections addObject:@"join"];
-    }
-    
-    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withController:self];
-    [self.view addSubview:firstList.view];
-    
-    UIImage *config = [UIImage imageNamed:@"gear_menu.png"];
-    UIImage *configSelected = [UIImage imageNamed:@"gear_menu_selected.png"];
-    configButton = [[UIButton alloc] initWithFrame:
-                            CGRectMake([App viewBounds].size.width/4-config.size.width/2-2, [App viewBounds].size.height-config.size.height-bottomMargin, config.size.width, config.size.height)];
-    [configButton setBackgroundImage:config forState:UIControlStateNormal];
-    [configButton setBackgroundImage:configSelected forState:UIControlStateHighlighted];
-    [configButton setBackgroundImage:configSelected forState:UIControlStateSelected];
-    [self.view addSubview:configButton];
-    
-    [configButton addTarget:self action:@selector(displaySettingsPanel) forControlEvents:UIControlEventTouchUpInside];
+    [super viewDidAppear:animated];
+    [self loadMenuView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,6 +58,36 @@
 - (void) deselectAll {
     [configButton setSelected:NO];
     [firstList deselectAllRows];
+}
+
+// Probably should REFACTOR
+- (void) loadMenuView
+{
+    if (firstList != NULL) {
+        [firstList.view removeFromSuperview];
+    }
+    
+    NSMutableArray* mainSections = [NSMutableArray arrayWithObjects: @"discover", @"events", nil];
+    
+    if ([User userLoggedIn]) {
+        [mainSections addObject:@"profile"];
+    } else {
+        [mainSections addObject:@"join"];
+    }
+    
+    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withController:self];
+    [self.view addSubview:firstList.view];
+    
+    UIImage *config = [UIImage imageNamed:@"gear_menu.png"];
+    UIImage *configSelected = [UIImage imageNamed:@"gear_menu_selected.png"];
+    configButton = [[UIButton alloc] initWithFrame:
+                    CGRectMake([App viewBounds].size.width/4-config.size.width/2-2, [App viewBounds].size.height-config.size.height-bottomMargin, config.size.width, config.size.height)];
+    [configButton setBackgroundImage:config forState:UIControlStateNormal];
+    [configButton setBackgroundImage:configSelected forState:UIControlStateHighlighted];
+    [configButton setBackgroundImage:configSelected forState:UIControlStateSelected];
+    [self.view addSubview:configButton];
+    
+    [configButton addTarget:self action:@selector(displaySettingsPanel) forControlEvents:UIControlEventTouchUpInside];
 }
 
 

@@ -12,8 +12,12 @@
 
 #define kName                 @"name"
 #define kUsername             @"username"
-#define kToken                @"token"
+#define kToken                @"auth_token"
+#define kBio                  @"bio"
 #define kEmail                @"email"
+#define kIdentifier           @"identifier"
+#define kUser                 @"user"
+#define kUserPic              @"user_pic"
 
 @interface User : NSObject
 
@@ -21,9 +25,15 @@
 @property (nonatomic, strong) NSString * email;
 @property (nonatomic, strong) NSString * bio;
 @property (nonatomic, strong) NSString * token;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * picURL;
 
++ (void) save;
++ (User*) buildOrUpdateUserFromDictionary:(NSDictionary*)dictionary;
 
-+ (id) saveUserWithToken:(NSString*)token withUsername:(NSString*)username withFullName:(NSString*)fullname withEmail:(NSString*)email andBio:(NSString*)bio;
-+ (void) saveUserFromDictionary:(NSDictionary*)dictionary;
 + (BOOL) userLoggedIn;
++ (User*) currentUser;
+- (NSDictionary*) dictionary;
++ (NSString*) userAuthToken;
+
 @end

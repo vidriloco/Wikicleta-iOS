@@ -50,6 +50,11 @@ static int environment;
     return [[self backendURL] stringByAppendingString:[[urls objectForKey:resource] objectForKey:subresource]];
 }
 
++ (NSString*) urlForResource:(NSString *)resource withSubresource:(NSString *)subresource andReplacementSymbol:(NSString *)symbol withReplacementValue:(NSString *)value
+{
+    return [[self urlForResource:resource withSubresource:subresource] stringByReplacingOccurrencesOfString:symbol withString:value];
+}
+
 + (void) loadURLSet
 {
     if(urls == NULL) {

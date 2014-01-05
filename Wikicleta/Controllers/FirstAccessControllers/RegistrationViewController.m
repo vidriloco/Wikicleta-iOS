@@ -81,7 +81,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:[App urlForResource:@"createUsers"] parameters:userDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *successObject = [jsonParser objectWithString:[operation responseString] error:nil];
-        [User saveUserFromDictionary:successObject];
+        [User buildOrUpdateUserFromDictionary:successObject];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         [self dismissToMapViewController];

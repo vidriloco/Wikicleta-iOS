@@ -56,7 +56,7 @@
     }
 
 
-    [delegate updateMapWithLayersSelected:selectedLayer];
+    [delegate setActiveLayer:selectedLayer];
 }
 
 - (void) loadView

@@ -36,6 +36,8 @@
 + (NSString*) backendURL;
 + (NSString*) urlForResource:(NSString *)resource;
 + (NSString*) urlForResource:(NSString *)resource withSubresource:(NSString *)subresource;
++ (NSString*) urlForResource:(NSString *)resource withSubresource:(NSString *)subresource andReplacementSymbol:(NSString *)symbol withReplacementValue:(NSString *)value;
+
 + (void) loadURLSet;
 
 @end
