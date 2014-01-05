@@ -10,6 +10,9 @@
 
 @interface ProfileViewController ()
 
+- (void) presentActivityViewController;
+- (void) presentFavoritesViewController;
+
 @end
 
 @implementation ProfileViewController
@@ -27,6 +30,9 @@
     
     [activityButton stylizeViewWithString:@"profile_your_activity"];
     [favoriteButton stylizeViewWithString:@"profile_your_favorites"];
+    
+    [activityButton addTarget:self action:@selector(presentActivityViewController) forControlEvents:UIControlEventTouchUpInside];
+    [favoriteButton addTarget:self action:@selector(presentFavoritesViewController) forControlEvents:UIControlEventTouchUpInside];
 
     NSString *url = [App urlForResource:@"profiles" withSubresource:@"get" andReplacementSymbol:@":id" withReplacementValue:[NSString stringWithFormat:@"%d", [[User currentUser].identifier intValue]]];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -105,6 +111,27 @@
     [self.viewDeckController openLeftViewAnimated:YES];
 }
 
+- (void) presentActivityViewController
+{
+    [activityButton animateSelectionExecutingBlockOnComplete:^{
+        UINavigationController *nav = (UINavigationController*) [[self viewDeckController] centerController];
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.4f;
+        transition.type = kCATransitionMoveIn;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition
+                                                    forKey:kCATransition];
+        
+        ActivityViewController *activityViewController = [[ActivityViewController alloc] initWithNibName:nil bundle:nil];
+        [nav
+         pushViewController:activityViewController
+         animated:NO];
+    }];
+}
 
+- (void) presentFavoritesViewController
+{
+    
+}
 
 @end

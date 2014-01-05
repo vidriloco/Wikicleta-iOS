@@ -15,6 +15,6 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pictureImageView;
 
 - (void) stylizeViewWithString:(NSString*)string;
-- (void) tapped:(id)selector;
+- (void) animateSelectionExecutingBlockOnComplete:( void ( ^ )( void ) )block;
 
 @end
