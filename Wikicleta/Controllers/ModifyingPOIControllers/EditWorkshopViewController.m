@@ -130,7 +130,7 @@
         return;
     }
 
-    if ([workshopDescriptionTextView.text isEqualToString:NSLocalizedString(@"description_placeholder", nil)]) {
+    if ([workshopDescriptionTextView.text isEqualToString:NSLocalizedString(@"description_placeholder", nil)] || [workshopDescriptionTextView.text isEqualToString:NSLocalizedString(@"description_placeholder", nil)]) {
         [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
                        andContent:NSLocalizedString(@"description_cannot_be_empty", nil)
                     andTextButton:NSLocalizedString(@"accept", nil)];

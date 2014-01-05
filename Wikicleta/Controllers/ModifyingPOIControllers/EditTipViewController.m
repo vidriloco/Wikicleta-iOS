@@ -107,7 +107,8 @@
 
 - (void) attemptSave
 {
-    if (![self validateStringIsNotEmpty:tipDescriptionTextView.text]) {
+
+    if (![self validateStringIsNotEmpty:tipDescriptionTextView.text] || [tipDescriptionTextView.text isEqualToString:NSLocalizedString(@"description_placeholder", nil)]) {
         [self showAlertDialogWith:NSLocalizedString(@"notice_message", nil)
                        andContent:NSLocalizedString(@"description_cannot_be_empty", nil)
                     andTextButton:NSLocalizedString(@"accept", nil)];
