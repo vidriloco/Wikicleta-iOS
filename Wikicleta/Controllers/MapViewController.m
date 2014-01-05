@@ -371,7 +371,7 @@
     // Prepare visual marker to aid user on location selection
     CGPoint center = CGPointMake(sharePin.frame.origin.x+(sharePin.frame.size.width)/2, sharePin.frame.origin.y+sharePin.frame.size.height);
     
-    NSString *layer = [[activeLayer componentsSeparatedByString:@"_"] objectAtIndex:0];
+    NSString *layer = [[activeLayer componentsSeparatedByString:@"_layers"] objectAtIndex:0];
     if ([layer isEqualToString:layersWorkshops]) {
         EditWorkshopViewController *tipController = [[EditWorkshopViewController alloc] initWithNibName:nil bundle:nil];
         [tipController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];

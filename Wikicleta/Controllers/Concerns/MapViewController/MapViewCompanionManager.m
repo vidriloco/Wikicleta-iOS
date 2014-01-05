@@ -188,7 +188,7 @@
     CLLocationCoordinate2D ne = controller.mapView.projection.visibleRegion.farRight;
     NSString *neString = [NSString stringWithFormat:@"%f,%f", ne.latitude, ne.longitude];
     
-    NSString *layer = [[displayLayer componentsSeparatedByString:@"_"] objectAtIndex:0];
+    NSString *layer = [[displayLayer componentsSeparatedByString:@"_layers"] objectAtIndex:0];
     
     NSString *resourceURL = NULL;
     if ([layersParkings isEqualToString:layer]) {
@@ -229,30 +229,30 @@
         NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
         if ([[response objectForKey:@"success"] boolValue]) {
             // Parkings
-            if ([displayLayer isEqualToString:[layersParkings stringByAppendingString:@"_layers"]]) {
+            if ([layer isEqualToString:layersParkings]) {
                 NSArray *jsonObjects = [response objectForKey:layersParkings];
                 [Parking buildFrom:jsonObjects];
                 drawItemsOnMap([[Parking parkingsLoaded] allValues]);
                 // Tips
-            } else if([displayLayer isEqualToString:[layersTips stringByAppendingString:@"_layers"]]) {
+            } else if([layer isEqualToString:layersTips ]) {
                 NSArray *jsonObjects = [response objectForKey:layersTips];
                 [Tip buildFrom:jsonObjects];
                 drawItemsOnMap([[Tip tipsLoaded] allValues]);
             }
             // Workshops
-            else if ([displayLayer isEqualToString:[layersWorkshops stringByAppendingString:@"_layers"]]) {
+            else if ([layer isEqualToString:layersWorkshops]) {
                 NSArray *jsonObjects = [response objectForKey:layersWorkshops];
                 [Workshop buildFrom:jsonObjects];
                 drawItemsOnMap([[Workshop workshopsLoaded] allValues]);
             }
             // Cyclestations
-            else if ([displayLayer isEqualToString:[layersBicycleSharings stringByAppendingString:@"_layers"]]) {
+            else if ([layer isEqualToString:layersBicycleSharings]) {
                 NSArray *jsonObjects = [response objectForKey:layersBicycleSharings];
                 [Cyclestation buildFrom:jsonObjects];
                 drawItemsOnMap([[Cyclestation cyclestationsLoaded] allValues]);
             }
             // Routes
-            else if ([displayLayer isEqualToString:[layersRoutes stringByAppendingString:@"_layers"]]) {
+            else if ([layer isEqualToString:layersRoutes]) {
                 NSArray *jsonObjects = [response objectForKey:layersRoutes];
                 [Route buildFrom:jsonObjects];
                 drawItemsOnMap([[Route routesLoaded] allValues]);
