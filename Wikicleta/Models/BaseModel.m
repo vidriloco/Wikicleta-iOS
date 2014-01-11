@@ -12,6 +12,14 @@
 
 @synthesize marker, kind, dateFormatter, remoteId;
 
+ignore_fields_do(
+    ignore_field(marker)
+    ignore_field(dateFormatter)
+    ignore_field(categories)
+    ignore_field(dateFormatter)
+    ignore_field(coordinate)
+)
+
 + (void) buildFrom:(NSArray*)array {}
 
 

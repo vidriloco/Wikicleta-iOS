@@ -10,6 +10,7 @@
 "new" = "Nuevo";
 "save" = "Guardar";
 "save_as_draft" = "Guardar como borrador";
+"cancel" = "Cancelar";
 
 "notice_message" = "Hey!";
 "accept" = "Va";
@@ -20,6 +21,7 @@
 "created_by" = "creado por ";
 "updated_at" = "actualizado ";
 "distance_at" = "a ";
+"km_s" = "KMs";
 
 
 // Global errors
@@ -162,3 +164,12 @@
 // Profile view
 "profile_your_activity" = "Tu Actividad";
 "profile_your_favorites" = "Tus Favoritos";
+
+// Synchronization
+"synchronization_question" = "¿Sincronizar ahora?";
+"synchronization_details" = "Puedes descargar contenido adicional (por ahora, ciclovias) dentro del área visible del mapa";
+"synchronize" = "Sincronizar";
+
+// Cyclepaths view
+"one_way_path" = "Una sola dirección";
+"two_ways_path" = "Ambas direcciones";

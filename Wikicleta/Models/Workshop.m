@@ -10,9 +10,15 @@
 
 @implementation Workshop
 
-@synthesize latitude, longitude, userPicURL, username, name, details, likesCount, dislikesCount, updatedAt, isStore;
+@synthesize latitude, longitude, userPicURL, username, name, details, likesCount, dislikesCount, isStore, marker, remoteId, coordinate;
 
 static NSMutableDictionary *workshopsLoaded;
+
+ignore_fields_do(
+ ignore_field(isStore)
+ ignore_field(marker)
+ ignore_field(coordinate)
+)
 
 + (NSDictionary*) workshopsLoaded
 {
@@ -32,10 +38,10 @@ static NSMutableDictionary *workshopsLoaded;
 }
 
 
-- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)remoteId_
+- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)identifier
 {
     if (self = [super init]) {
-        self.remoteId = remoteId_;
+        self.remoteId = identifier;
         
         self.name = [dictionary objectForKey:@"name"];
         self.details = [dictionary objectForKey:@"details"];
@@ -78,9 +84,8 @@ static NSMutableDictionary *workshopsLoaded;
         self.likesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"likes_count"] integerValue]];
         self.dislikesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"dislikes_count"] integerValue]];
         
-        [self loadDateFormatter];
-        self.createdAt = [dateFormatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
-        self.updatedAt = [dateFormatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
+        self.createdAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
+        self.updatedAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
         
         self.userId = [NSNumber numberWithInt:[[dictionary objectForKey:@"owner"] objectForKey:@"id"]];
         self.userPicURL = [[dictionary objectForKey:@"owner"] objectForKey:@"pic"];
@@ -128,11 +133,6 @@ static NSMutableDictionary *workshopsLoaded;
 - (NSString*) dislikes
 {
     return [NSString stringWithFormat:@"%d", [dislikesCount intValue]];
-}
-
-- (NSDate*) updatedAt
-{
-    return updatedAt;
 }
 
 - (NSString*) createdBy

@@ -9,22 +9,26 @@
 #import <UIKit/UIKit.h>
 #import "ActiveRecord.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import "BaseModel.h"
 #import "ModelHumanizer.h"
+#import "WikiMarker.h"
+#import "NSObject+ModelBase.h"
 
-@interface Parking : BaseModel <ModelHumanizer>
+@interface Parking : ActiveRecord <ModelHumanizer>
 
+@property (nonatomic, strong) NSDictionary *categories;
+@property (nonatomic) BOOL hasRoof;
+@property (nonatomic) BOOL anyoneCanEdit;
+@property (nonatomic, strong) WikiMarker* marker;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+
+@property (nonatomic, strong) NSNumber *remoteId;
+@property (nonatomic, strong) NSNumber *kind;
 @property (nonatomic, strong) NSString *details;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
-
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSDate *updatedAt;
-@property (nonatomic) BOOL hasRoof;
-@property (nonatomic) BOOL anyoneCanEdit;
-
 @property (nonatomic, strong) NSNumber *userId;
-
 @property (nonatomic, strong) NSNumber *likesCount;
 @property (nonatomic, strong) NSNumber *dislikesCount;
 @property (nonatomic, strong) NSString *username;

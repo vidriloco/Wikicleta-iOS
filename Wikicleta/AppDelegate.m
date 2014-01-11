@@ -19,7 +19,7 @@
 {
 
     [GMSServices provideAPIKey:@"AIzaSyDMKDw8oVSqOMBMat2P4O2_g1OqZzYbl9Q"];
-    [ActiveRecord registerDatabaseName:@"Wikicleta.sqlite" useDirectory:ARStorageDocuments];
+    [ActiveRecord registerDatabaseName:@"WikicletaDB" useDirectory:ARStorageDocuments];
     
     [App initializeWithEnv:kDev];
     

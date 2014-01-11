@@ -20,6 +20,8 @@
 + (UIColor*) orangeColor;
 + (UIColor*) lightBlueColor;
 + (UIColor*) middleBlueColor;
++ (UIColor*) greenColor;
+
 + (UIFont*) defaultFontLightWithSize:(int) size;
 + (UIFont*) defaultFontBoldWithSize:(int) size;
 + (UIFont*) defaultFontBookWithSize:(int) size;

@@ -7,13 +7,12 @@
 //
 
 #import <GoogleMaps/GoogleMaps.h>
-
-@class BaseModel;
+#import "ModelHumanizer.h"
 
 @interface WikiMarker : GMSMarker {
-    BaseModel *model;
+    id<ModelHumanizer> model;
 }
 
-@property (nonatomic, strong) BaseModel *model;
+@property (nonatomic, strong) id<ModelHumanizer> model;
 
 @end

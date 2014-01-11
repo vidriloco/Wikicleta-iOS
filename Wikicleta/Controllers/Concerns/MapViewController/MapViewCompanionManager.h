@@ -10,6 +10,7 @@
 #import "App.h"
 #import "MapViewController.h"
 #import "Route.h"
+#import "CyclePathView.h"
 
 #define marginUnit 20
 
@@ -24,11 +25,13 @@
 
 - (UIView*) generateMarkerDetailsOverlayViewForRoute:(Route*)route;
 - (UIView*) generateMarkerDetailsOverlayViewForCyclestation:(Cyclestation *)cycleStation withMarker:(GMSMarker*)marker;
+- (UIView*) generateMarkerDetailsOverlayViewForCyclepath:(CyclePath *)cyclePath withMarker:(GMSMarker*)marker;
 
-- (void) drawPolyline:(NSArray*) polyline;
-- (void) clearPolyline;
+- (GMSPolyline*) drawPolyline:(NSArray*) polyline withColor:(UIColor*)color withStroke:(float)stroke;
+- (void) deselectSelectedRoutePath;
 
 - (void) fetchLayer:(NSString *)displayLayer;
-
+- (void) clearItemsOnMap;
+//- (void) showSynchronizationView;
 
 @end

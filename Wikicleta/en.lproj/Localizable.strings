@@ -5,6 +5,7 @@
 "new" = "New";
 "save" = "Save";
 "save_as_draft" = "Save as draft";
+"cancel" = "Cancel";
 
 "notice_message" = "Ups!";
 "accept" = "OK";
@@ -15,6 +16,7 @@
 "created_by" = "created by ";
 "updated_at" = "updated ";
 "distance_at" = "at ";
+"km_s" = "KMs";
 
 // Global errors
 "no_backend_response_error" = "No response from remote server, perhaps your internet connection is down";
@@ -154,3 +156,12 @@
 // Profile view
 "profile_your_activity" = "Your activity";
 "profile_your_favorites" = "Your favorites";
+
+// Synchronization
+"synchronization_question" = "Synchronize now?";
+"synchronization_details" = "You can download additional content (bicycle lanes by now) within the visible map area";
+"synchronize" = "Synchronize";
+
+// Cyclepaths view
+"one_way_path" = "One direction only";
+"two_ways_path" = "Both directions";

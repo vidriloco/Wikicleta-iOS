@@ -10,13 +10,13 @@
 #import "WikiMarker.h"
 #import "App.h"
 
-@interface BaseModel : ActiveRecord {
+@interface BaseModel : NSObject {
     WikiMarker* marker;
     NSDictionary *categories;
     NSDateFormatter *dateFormatter;
 }
 
-@property (nonatomic, strong) NSObject *remoteId;
+@property (nonatomic, strong) NSString *remoteId;
 @property (nonatomic, strong) WikiMarker* marker;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) NSNumber *kind;

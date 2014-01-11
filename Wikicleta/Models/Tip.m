@@ -20,7 +20,13 @@
 
 static NSMutableDictionary* tipsLoaded;
 
-@synthesize latitude, longitude, details, likesCount, dislikesCount, updatedAt, username, userPicURL;
+@synthesize latitude, longitude, details, likesCount, dislikesCount, username, userPicURL, kind, marker, categories, coordinate;
+
+ignore_fields_do(
+    ignore_field(categories)
+    ignore_field(marker)
+    ignore_field(coordinate)
+)
 
 + (NSDictionary*) tipsLoaded
 {
@@ -40,11 +46,11 @@ static NSMutableDictionary* tipsLoaded;
 }
 
 
-- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)remoteId_
+- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)identifier
 {
     if (self = [super init]) {
         [self setCategories];
-        self.remoteId = remoteId_;
+        self.remoteId = identifier;
         self.details = [dictionary objectForKey:@"content"];
         self.kind = [NSNumber numberWithInt:[[dictionary objectForKey:@"category"] integerValue]];
         self.latitude = [NSNumber numberWithDouble:[[dictionary objectForKey:@"lat"] doubleValue]];
@@ -52,10 +58,9 @@ static NSMutableDictionary* tipsLoaded;
         self.coordinate = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
         self.likesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"likes_count"] integerValue]];
         self.dislikesCount = [NSNumber numberWithInt:[[dictionary objectForKey:@"dislikes_count"] integerValue]];
-                
-        [self loadDateFormatter];
-        self.createdAt = [dateFormatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
-        self.updatedAt = [dateFormatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
+        
+        self.createdAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
+        self.updatedAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
         
         self.userId = [NSNumber numberWithInt:[[dictionary objectForKey:@"owner"] objectForKey:@"id"]];
         self.userPicURL = [[dictionary objectForKey:@"owner"] objectForKey:@"pic"];
@@ -117,11 +122,6 @@ static NSMutableDictionary* tipsLoaded;
     return [NSString stringWithFormat:@"%d", [dislikesCount intValue]];
 }
 
-- (NSDate*) updatedAt
-{
-    return updatedAt;
-}
-
 - (NSString*) createdBy
 {
     return [NSLocalizedString(@"created_by", nil) stringByAppendingString:[self username]];
@@ -135,6 +135,11 @@ static NSMutableDictionary* tipsLoaded;
 - (NSString*) userPicURL
 {
     return userPicURL;
+}
+
+- (NSString*) kindString
+{
+    return [categories objectForKey:kind];
 }
 
 

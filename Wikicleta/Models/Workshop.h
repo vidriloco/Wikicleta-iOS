@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseModel.h"
+#import "ActiveRecord.h"
 #import "ModelHumanizer.h"
+#import "WikiMarker.h"
+#import "App.h"
+#import "NSObject+ModelBase.h"
 
-@interface Workshop : BaseModel <ModelHumanizer>
+@interface Workshop : ActiveRecord <ModelHumanizer>
+
+@property (nonatomic, strong) NSNumber *remoteId;
+@property (nonatomic, strong) WikiMarker* marker;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *details;
@@ -25,10 +32,6 @@
 
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
-
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSDate *updatedAt;
-
 
 @property (nonatomic, strong) NSNumber *likesCount;
 @property (nonatomic, strong) NSNumber *dislikesCount;

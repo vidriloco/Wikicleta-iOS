@@ -26,6 +26,7 @@
     MapViewCompanionManager *companionObject;
 }
 
+- (void) addCyclePathMarkersToMap;
 - (void) addViewForMarker:(GMSMarker*)marker;
 - (void) attachViewToggled:(id)selector;
 - (void) hideViewForMarker;
@@ -36,7 +37,7 @@
 
 - (void) presentMarkerDetailsViewController:(id)sender;
 - (void) presentPOIEditViewControllerForCurrentLayer;
-
+- (void) synchronize;
 - (void) toggleFavorite:(id)sender;
 - (void) toggleShareControls;
 - (void) transitionMapToMode:(MapMode)mode;
@@ -46,7 +47,7 @@
 
 @implementation MapViewController
 
-@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView;
+@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -101,7 +102,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         mapView.myLocationEnabled = YES;
     });
-
+    
+    [self addCyclePathMarkersToMap];
 }
 
 #pragma mark - IIViewDeck delegate methods
@@ -148,7 +150,12 @@
 
 - (void) mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    //[self presentShareSelectorView];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"synchronization_question", nil)
+                                                    message:NSLocalizedString(@"synchronization_details", nil)
+                                                   delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"synchronize", nil), nil];
+    [alert show];
+
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -165,7 +172,26 @@
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (1 == buttonIndex) {
+        [self synchronize];
+    }
+}
+
 #pragma mark - Custom implemented methods for this UIViewController
+
+- (void) addCyclePathMarkersToMap
+{
+    for (CyclePath *cyclePath in [[CyclePath stored] allValues]) {
+        [cyclePath loadMarker];
+        [cyclePath loadPathFromStore];
+        NSLog([cyclePath name]);
+        cyclePath.polyline = [companionObject drawPolyline:[cyclePath path] withColor:[LookAndFeel greenColor] withStroke:5.0f];
+        [cyclePath.polyline setMap:mapView];
+        [cyclePath.marker setMap:mapView];
+    }
+}
 
 /**
  *  Builds and displays the view overlay for a selected map marker
@@ -179,7 +205,7 @@
     
     [self transitionMapToMode:Detail];
     
-    currentlySelectedModel = (id <ModelHumanizer>) ((WikiMarker*) marker).model;
+    currentlySelectedModel = ((WikiMarker*) marker).model;
     
     if ([currentlySelectedModel isKindOfClass:[Cyclestation class]]) {
         // Build view from XIB file
@@ -187,6 +213,13 @@
     } else if ([currentlySelectedModel isKindOfClass:[Route class]]) {
         // Build view from XIB file
         detailsView = [companionObject generateMarkerDetailsOverlayViewForRoute:(Route*) currentlySelectedModel];
+    } else if ([currentlySelectedModel isKindOfClass:[CyclePath class]]) {
+        CyclePath *cyclePath = (CyclePath*)currentlySelectedModel;
+        detailsView = [companionObject generateMarkerDetailsOverlayViewForCyclepath:cyclePath withMarker:marker];
+        NSString *title = [cyclePath oneWay] ? NSLocalizedString(@"one_way_path", nil) : NSLocalizedString(@"two_ways_path", nil) ;
+        [[detailsView extraSubtitleLabel] setText:title];
+        [[detailsView rightBottomLabel] setText:cyclePath.createdBy];
+
     } else {
         // Build view from XIB file
         detailsView = [[[NSBundle mainBundle] loadNibNamed:@"MarkerInfoUIView" owner:self options:nil] objectAtIndex:0];
@@ -256,7 +289,7 @@
  *  Hides the view for the currently selected marker
  */
 - (void) hideViewForMarker {
-    [companionObject clearPolyline];
+    [companionObject deselectSelectedRoutePath];
     
     if ([currentlySelectedModel isKindOfClass:[Route class]]) {
         [[(Route*) currentlySelectedModel complementaryMarker] setMap:nil];
@@ -302,6 +335,43 @@
             [button setTag:0];
         }
     }
+}
+
+- (void) synchronize {
+    // bottom == near
+    CLLocationCoordinate2D sw = mapView.projection.visibleRegion.nearLeft;
+    NSString *swString = [NSString stringWithFormat:@"%f,%f", sw.latitude, sw.longitude];
+    // top == far
+    CLLocationCoordinate2D ne = mapView.projection.visibleRegion.farRight;
+    NSString *neString = [NSString stringWithFormat:@"%f,%f", ne.latitude, ne.longitude];
+    
+    NSString *resourceURL = [[App urlForResource:layersBicycleLanes withSubresource:@"get"] stringByAppendingString:viewportParams];
+        
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
+    [requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+    [manager setRequestSerializer:requestSerializer];
+    [manager GET:[NSString stringWithFormat:resourceURL, swString, neString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
+        if ([[response objectForKey:@"success"] boolValue]) {
+            
+            // Clear previous cyclepaths from the map
+            for (CyclePath *cyclePath in [[CyclePath stored] allValues]) {
+                [cyclePath.polyline setMap:nil];
+                [cyclePath.marker setMap:nil];
+            }
+            
+            // Insert just fetched cyclepaths (Will replace existant)
+            [CyclePath storeFetched:[response objectForKey:@"cycle_paths"]];
+            
+            // Add them to map
+            [self addCyclePathMarkersToMap];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+    }];
+
 }
 
 /*
@@ -471,10 +541,10 @@
     
     if (mapLastCenteredAt != nil) {
         CLLocationDistance dist = [mapLastCenteredAt distanceFromLocation:newCoord];
-        if (dist > 200 && !requestOngoing) {
+        //if (dist > 200 && !requestOngoing) {
             [companionObject fetchLayer:activeLayer];
-        } else {
-        }
+        //} else {
+        //}
     }
     mapLastCenteredAt = newCoord;
 }

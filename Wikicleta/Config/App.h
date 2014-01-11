@@ -18,7 +18,7 @@
 #define layersParkings @"parkings"
 #define layersBicycleSharings @"cycle_stations"
 #define layersRoutes @"routes"
-#define layersBicycleLanes @"bicycle_lanes"
+#define layersBicycleLanes @"cycle_paths"
 #define layersWorkshops @"workshops"
 #define layersTips @"tips"
 

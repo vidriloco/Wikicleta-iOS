@@ -19,15 +19,14 @@
 
 static NSMutableDictionary* parkingsLoaded;
 
-@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,updatedAt,userId,userPicURL, coordinate;
+@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,updatedAt,userId,userPicURL, coordinate, marker, categories, kind;
 
 ignore_fields_do(
-    ignore_field(username);
-    ignore_field(userPicURL);
-    ignore_field(likesCount);
-    ignore_field(userId);
-    ignore_field(coordinate);
-    ignore_field(dislikesCount);
+    ignore_field(categories)
+    ignore_field(hasRoof)
+    ignore_field(anyoneCanEdit)
+    ignore_field(marker)
+    ignore_field(coordinate)
 )
 
 + (NSDictionary*) parkingsLoaded
@@ -48,11 +47,11 @@ ignore_fields_do(
 }
 
 
-- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)remoteId_
+- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)identifier
 {
     if (self = [super init]) {
         [self setCategories];
-        self.remoteId = remoteId_;
+        self.remoteId = identifier;
         self.details = [dictionary objectForKey:@"details"];
         self.hasRoof = [[dictionary objectForKey:@"has_roof"] boolValue];
         self.kind = [NSNumber numberWithInt:[[dictionary objectForKey:@"kind"] integerValue]];
@@ -64,9 +63,8 @@ ignore_fields_do(
 
         self.anyoneCanEdit = [[dictionary objectForKey:@"others_can_edit"] boolValue];
         
-        [self loadDateFormatter];
-        self.createdAt = [dateFormatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
-        self.updatedAt = [dateFormatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
+        self.createdAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
+        self.updatedAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
         
         self.userId = [NSNumber numberWithInt:[[dictionary objectForKey:@"owner"] objectForKey:@"id"]];
         self.userPicURL = [[dictionary objectForKey:@"owner"] objectForKey:@"pic"];
@@ -147,5 +145,11 @@ ignore_fields_do(
 {
     return userPicURL;
 }
+
+- (NSString*) kindString
+{
+    return [categories objectForKey:kind];
+}
+
 
 @end

@@ -34,17 +34,18 @@
 #import "EditWorkshopInfoContactViewController.h"
 
 #import "OverlayMapMessageView.h"
+#import "CyclePath.h"
 
 #define poiDetailedZoom 17
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
-#define minZoom 14
+#define minZoom 2
 #define marginUnit 20
 
 typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 
 @class MapViewCompanionManager;
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate> {
+@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate> {
     NSString *activeLayer;
     UIButton *rightButton;
     UIButton *leftButton;
@@ -58,6 +59,8 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
     BOOL requestOngoing;
     
     OverlayMapMessageView *mapMessageView;
+    
+    NSArray *itemsOnMap;
 }
 
 @property (nonatomic, strong) NSString *activeLayer;
@@ -69,6 +72,8 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 @property (nonatomic, strong) UIButton *shareButton;
 
 @property (nonatomic, strong) UIImageView * sharePin;
+
+@property (nonatomic, strong) NSArray * itemsOnMap;
 
 @property (nonatomic, strong) GMSMapView *mapView;
 @property (nonatomic, strong) GMSPolyline *selectedRoutePath;

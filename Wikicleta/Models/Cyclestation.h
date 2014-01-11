@@ -10,9 +10,13 @@
 
 #import "BaseModel.h"
 #import "ModelHumanizer.h"
+#import "NSObject+ModelBase.h"
 
-@interface Cyclestation : BaseModel <ModelHumanizer>
+@interface Cyclestation : NSObject <ModelHumanizer>
 
+@property (nonatomic, strong) NSString *remoteId;
+@property (nonatomic, strong) WikiMarker* marker;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) NSString *name;
 
 @property (nonatomic, strong) NSNumber *latitude;

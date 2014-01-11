@@ -110,6 +110,14 @@
     return cyview;
 }
 
+- (UIView*) generateMarkerDetailsOverlayViewForCyclepath:(CyclePath *)cyclePath withMarker:(GMSMarker*)marker
+{
+    CyclePathView* phview = [[[NSBundle mainBundle] loadNibNamed:@"CyclePathView" owner:controller options:nil] objectAtIndex:0];
+    [[phview detailsLabel] setText:cyclePath.details];
+    
+    return phview;
+}
+
 - (UIView*) generateMarkerDetailsOverlayViewForRoute:(Route*)route
 {
     RouteUIView *routeView = [[[NSBundle mainBundle] loadNibNamed:@"RouteUIView" owner:controller options:nil] objectAtIndex:0];
@@ -142,7 +150,12 @@
         NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
         if ([[response objectForKey:@"success"] boolValue]) {
             NSArray *path = [[response objectForKey:@"route"] objectForKey:@"path"];
-            [self drawPolyline:path];
+            GMSPolyline *polyline = [self drawPolyline:path withColor:[LookAndFeel blueColor] withStroke:7.0f];
+            [self deselectSelectedRoutePath];
+            controller.selectedRoutePath = polyline;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                controller.selectedRoutePath.map = controller.mapView;
+            });
             [[route complementaryMarker] setMap:controller.mapView];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -151,7 +164,7 @@
     return routeView;
 }
 
-- (void) drawPolyline:(NSArray*) polyline
+- (GMSPolyline*) drawPolyline:(NSArray*) polyline withColor:(UIColor *)color withStroke:(float)stroke
 {
     GMSMutablePath *path = [GMSMutablePath path];
     for (NSArray *pair in polyline) {
@@ -161,18 +174,13 @@
     }
     
     GMSPolyline *newRoutePath = [GMSPolyline polylineWithPath:path];
-    newRoutePath.strokeColor = [LookAndFeel blueColor];
-    newRoutePath.strokeWidth = 7.f;
+    newRoutePath.strokeColor = color;
+    newRoutePath.strokeWidth = stroke;
     newRoutePath.geodesic = YES;
-    
-    [self clearPolyline];
-    controller.selectedRoutePath = newRoutePath;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        controller.selectedRoutePath.map = controller.mapView;
-    });
+    return newRoutePath;
 }
 
-- (void) clearPolyline
+- (void) deselectSelectedRoutePath
 {
     if (controller.selectedRoutePath != nil) {
         controller.selectedRoutePath.map = nil;
@@ -180,9 +188,19 @@
     }
 }
 
+- (void) clearItemsOnMap
+{
+    for (BaseModel *model in controller.itemsOnMap) {
+        [model.marker setMap:nil];
+    }
+}
+
 - (void) fetchLayer:(NSString *)displayLayer
 {
     if (displayLayer == nil || controller.detailsView != nil) {
+        if (displayLayer == nil) {
+            [self clearItemsOnMap];
+        }
         return;
     }
     controller.requestOngoing = YES;
@@ -211,18 +229,21 @@
     
     // Block which redraws items on the map
     void (^drawItemsOnMap)(NSArray*) = ^(NSArray* items) {
-        [controller.mapView clear];
+        [self clearItemsOnMap];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSMutableArray *newItems = [NSMutableArray array];
             for (BaseModel *model in items) {
                 if ([controller.mapView.projection containsCoordinate:model.coordinate]) {
                     if (model.marker.map == nil) {
                         model.marker.map = controller.mapView;
+                        [newItems addObject:model];
                     }
                 } else {
                     model.marker.map = nil;
                 }
             }
+            controller.itemsOnMap = newItems;
         });
     };
     
@@ -271,10 +292,10 @@
     }];
 }
 
-/*- (void) presentShareSelectorView
+/*- (void) showSynchronizationView
  {
- poiView = [[[NSBundle mainBundle] loadNibNamed:@"POIChooserOverlayView" owner:self options:nil] objectAtIndex:0];
- [self.view addSubview:poiView];
+     poiView = [[[NSBundle mainBundle] loadNibNamed:@"POIChooserOverlayView" owner:self options:nil] objectAtIndex:0];
+     [self.view addSubview:poiView];
  [poiView stylizeUI];
  [poiView setUserInteractionEnabled:YES];
  

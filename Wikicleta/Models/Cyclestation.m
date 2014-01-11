@@ -18,7 +18,7 @@
 
 @implementation Cyclestation
 
-@synthesize name, latitude, longitude, agency, availableBikes, availableSlots, updatedAt;
+@synthesize name, latitude, longitude, agency, availableBikes, availableSlots, updatedAt, coordinate, marker;
 
 static NSMutableDictionary *cyclestationsLoaded;
 
@@ -39,10 +39,10 @@ static NSMutableDictionary *cyclestationsLoaded;
     }
 }
 
-- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSString*)remoteId_
+- (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSString*)identifier
 {
     if (self = [super init]) {
-        self.remoteId = remoteId_;
+        self.remoteId = identifier;
         
         self.name = [dictionary objectForKey:@"name"];
         self.latitude = [NSNumber numberWithDouble:[[dictionary objectForKey:@"lat"] doubleValue]];
@@ -52,8 +52,7 @@ static NSMutableDictionary *cyclestationsLoaded;
         self.availableBikes = [NSNumber numberWithInt:[[dictionary objectForKey:@"bikes_available"] integerValue]];
         self.availableSlots = [NSNumber numberWithInt:[[dictionary objectForKey:@"free_slots"] integerValue]];
         
-        [self loadDateFormatter];
-        self.updatedAt = [dateFormatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
+        self.updatedAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
         
         marker = [WikiMarker markerWithPosition:self.coordinate];
         marker.title = self.localizedKindString;

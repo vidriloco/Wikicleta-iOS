@@ -30,6 +30,11 @@
     return [UIColor colorWithHexString:@"357CB7"];
 }
 
++ (UIColor*) greenColor
+{
+    return [UIColor colorWithHexString:@"22B204"];
+}
+
 + (UIFont*) defaultFontLightWithSize:(int)size
 {
     return [UIFont fontWithName:@"Gotham Rounded" size:size];
