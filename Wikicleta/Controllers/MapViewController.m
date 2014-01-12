@@ -37,6 +37,7 @@
 
 - (void) presentMarkerDetailsViewController:(id)sender;
 - (void) presentPOIEditViewControllerForCurrentLayer;
+- (void) presentCyclingGroupViewController:(id)sender;
 - (void) synchronize;
 - (void) toggleFavorite:(id)sender;
 - (void) toggleShareControls;
@@ -186,7 +187,6 @@
     for (CyclePath *cyclePath in [[CyclePath stored] allValues]) {
         [cyclePath loadMarker];
         [cyclePath loadPathFromStore];
-        NSLog([cyclePath name]);
         cyclePath.polyline = [companionObject drawPolyline:[cyclePath path] withColor:[LookAndFeel greenColor] withStroke:5.0f];
         [cyclePath.polyline setMap:mapView];
         [cyclePath.marker setMap:mapView];
@@ -219,6 +219,35 @@
         NSString *title = [cyclePath oneWay] ? NSLocalizedString(@"one_way_path", nil) : NSLocalizedString(@"two_ways_path", nil) ;
         [[detailsView extraSubtitleLabel] setText:title];
         [[detailsView rightBottomLabel] setText:cyclePath.createdBy];
+//681449F435
+    } else if ([currentlySelectedModel isKindOfClass:[CyclingGroup class]]) {
+        // Build view from XIB file
+        detailsView = [[[NSBundle mainBundle] loadNibNamed:@"CyclingGroupView" owner:self options:nil] objectAtIndex:0];
+        
+        [[detailsView rightBottomLabel] setText:[currentlySelectedModel createdBy]];
+        [[detailsView detailsLabel] setText:[currentlySelectedModel extraAnnotation]];
+        [[detailsView moreDetailsButton] addTarget:self action:@selector(presentCyclingGroupViewController:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if ([(CyclingGroup*) currentlySelectedModel picUrl] != nil) {
+            __weak UIImageView *picView = [(CyclingGroupView*) detailsView picImageView];
+
+            [UIView animateWithDuration:1.5 delay:1 options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut) animations:^{
+                [picView setAlpha:0.5];
+            } completion:nil];
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[(CyclingGroup*) currentlySelectedModel picUrl]]];
+            [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+            
+            [picView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"cycling_group_logo"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                [picView.layer removeAllAnimations];
+                [picView setAlpha:1];
+                [picView setImage:image];
+                [picView.layer setCornerRadius:18];
+                picView.layer.masksToBounds = YES;
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                [picView.layer removeAllAnimations];
+            }];
+        }
 
     } else {
         // Build view from XIB file
@@ -423,6 +452,28 @@
     self.navigationItem.backBarButtonItem = backButton;
 }
 
+- (void) presentCyclingGroupViewController:(id)sender
+{
+    CyclingGroupViewController *cyclingGroupViewController = [[CyclingGroupViewController alloc] initWithNibName:@"CyclingGroupViewController" bundle:nil];
+    [cyclingGroupViewController setSelectedModel:currentlySelectedModel];
+    
+    [(UINavigationController*) [[self viewDeckController] centerController] pushViewController:cyclingGroupViewController animated:YES];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"map", nil)
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:nil
+                                                                  action:nil];
+    
+    if (!IS_OS_7_OR_LATER) {
+        [backButton setTitleTextAttributes:@{ UITextAttributeTextColor: [UIColor whiteColor],
+                                              UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                              UITextAttributeFont: [LookAndFeel defaultFontBookWithSize:14],
+                                              } forState:UIControlStateNormal];
+    }
+    
+    // For iOS 6 and below
+    [backButton setTintColor:[LookAndFeel middleBlueColor]];
+    self.navigationItem.backBarButtonItem = backButton;
+}
 
 /*
  *  Presents the corresponding view controller appropiate for editing

@@ -19,7 +19,7 @@
 
 static NSMutableDictionary* parkingsLoaded;
 
-@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,updatedAt,userId,userPicURL, coordinate, marker, categories, kind;
+@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,userId,userPicURL, coordinate, marker, categories, kind;
 
 ignore_fields_do(
     ignore_field(categories)
@@ -124,11 +124,6 @@ ignore_fields_do(
 - (NSString*) dislikes
 {
     return [NSString stringWithFormat:@"%d", [dislikesCount intValue]];
-}
-
-- (NSDate*) updatedAt
-{
-    return updatedAt;
 }
 
 - (NSString*) createdBy

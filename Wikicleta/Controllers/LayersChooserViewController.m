@@ -31,7 +31,7 @@
 
         self.view = [[UIView alloc] initWithFrame:CGRectMake(20, 40, [App viewBounds].size.width-40, 300)];
         
-        NSArray *layers = [NSArray arrayWithObjects:layersParkings, layersRoutes, layersWorkshops, layersBicycleSharings, layersTips, nil];
+        NSArray *layers = [NSArray arrayWithObjects:layersParkings, layersRoutes, layersWorkshops, layersBicycleSharings, layersTips, layersCyclingGroups, nil];
         
         layersMenu = [[LayersScrollView alloc] initWithLayers:layers withLayersController:self];
         [self.view addSubview:layersMenu];

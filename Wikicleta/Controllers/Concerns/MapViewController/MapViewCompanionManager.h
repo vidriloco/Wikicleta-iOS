@@ -11,6 +11,7 @@
 #import "MapViewController.h"
 #import "Route.h"
 #import "CyclePathView.h"
+#import "CyclingGroup.h"
 
 #define marginUnit 20
 

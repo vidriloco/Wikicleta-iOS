@@ -213,18 +213,15 @@
     NSString *neString = [NSString stringWithFormat:@"%f,%f", ne.latitude, ne.longitude];
     
     NSString *layer = [[displayLayer componentsSeparatedByString:@"_layers"] objectAtIndex:0];
+    NSString *resourceURL = [[App urlForResource:layer withSubresource:@"get"] stringByAppendingString:viewportParams];
+
     
-    NSString *resourceURL = NULL;
-    if ([layersParkings isEqualToString:layer]) {
-        resourceURL = [[App urlForResource:layersParkings withSubresource:@"get"] stringByAppendingString:viewportParams];
-    } else if ([layersTips isEqualToString:layer]) {
-        resourceURL = [[App urlForResource:layersTips withSubresource:@"get"] stringByAppendingString:viewportParams];
-    } else if ([layersWorkshops isEqualToString:layer]) {
-        resourceURL = [[App urlForResource:layersWorkshops withSubresource:@"get"] stringByAppendingString:viewportParams];
-    } else if ([layersBicycleSharings isEqualToString:layer]) {
-        resourceURL = [[App urlForResource:layersBicycleSharings withSubresource:@"get"] stringByAppendingString:viewportParams];
-    } else if ([layersRoutes isEqualToString:layer]) {
-        resourceURL = [[App urlForResource:layersRoutes withSubresource:@"get"] stringByAppendingString:viewportParams];
+    if ([layer isEqualToString:layersCyclingGroups]) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[NSLocale currentLocale]];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        resourceURL = [[resourceURL stringByAppendingString:@"&extras[date]="]
+                       stringByAppendingString:[dateFormatter stringFromDate:[NSDate date]]];
     }
     
     // Block which redraws items on the map
@@ -247,11 +244,15 @@
         });
     };
     
+    NSString *url = [NSString stringWithFormat:resourceURL, swString, neString];
+    NSLog(url);
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
     [requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
     [manager setRequestSerializer:requestSerializer];
-    [manager GET:[NSString stringWithFormat:resourceURL, swString, neString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
         NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
         if ([[response objectForKey:@"success"] boolValue]) {
@@ -283,6 +284,12 @@
                 NSArray *jsonObjects = [response objectForKey:layersRoutes];
                 [Route buildFrom:jsonObjects];
                 drawItemsOnMap([[Route routesLoaded] allValues]);
+            }
+            // Cycling Groups
+            else if ([layer isEqualToString:layersCyclingGroups]) {
+                NSArray *jsonObjects = [response objectForKey:layersCyclingGroups];
+                [CyclingGroup buildFrom:jsonObjects];
+                drawItemsOnMap([[CyclingGroup cyclingGroupsLoaded] allValues]);
             }
         }
         

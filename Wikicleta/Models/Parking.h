@@ -26,8 +26,6 @@
 @property (nonatomic, strong) NSString *details;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic, strong) NSNumber *userId;
 @property (nonatomic, strong) NSNumber *likesCount;
 @property (nonatomic, strong) NSNumber *dislikesCount;

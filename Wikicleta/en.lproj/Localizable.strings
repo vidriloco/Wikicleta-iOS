@@ -83,6 +83,7 @@
 "workshops_layers" = "fix & buy";
 "cycle_stations_layers" = "city bikes";
 "tips_layers" = "tips";
+"cycling_groups_layers" = "cycling groups";
 "bicycle_lanes_layers" = "lanes";
 "location" = "Your location";
 
@@ -165,3 +166,13 @@
 // Cyclepaths view
 "one_way_path" = "One direction only";
 "two_ways_path" = "Both directions";
+
+"days_to_event_plural" = " days to event";
+"days_to_event_today" = "It's Today!";
+"days_to_event_tomorrow" = "Tomorrow";
+"leaving_at" = "Leaving at ";
+"arriving_at" = "Meeting at ";
+"cycling_group_title" = "Cycling Group";
+"days_to_event_unknown" = "Unknown date";
+
+"not_available" = "Not available";

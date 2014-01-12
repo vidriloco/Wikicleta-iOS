@@ -98,12 +98,17 @@
 
 - (void) resizeContentScrollToFit:(UIScrollView*)scrollView
 {
+    [self resizeContentScrollToFit:scrollView withIncrement:0];
+}
+
+- (void) resizeContentScrollToFit:(UIScrollView*)scrollView withIncrement:(int)increment
+{
     float contentScrollHeight = 35;
 
     for (UIView *subView in [scrollView subviews]) {
         contentScrollHeight += [subView frame].size.height;
     }
-    [scrollView setContentSize:CGSizeMake(scrollView.frame.size.width, contentScrollHeight)];
+    [scrollView setContentSize:CGSizeMake(scrollView.frame.size.width, contentScrollHeight+increment)];
     [scrollView setFrame:CGRectMake(scrollView.frame.origin.x, scrollView.frame.origin.y, scrollView.frame.size.width, [App viewBounds].size.height)];
 
 }

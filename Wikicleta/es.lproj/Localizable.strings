@@ -91,6 +91,7 @@
 "workshops_layers" = "talleres y tiendas";
 "cycle_stations_layers" = "bicicletas compartidas";
 "tips_layers" = "tips";
+"cycling_groups_layers" = "grupos ciclistas";
 "location" = "Tu ubicación";
 
 // Parkings Category
@@ -173,3 +174,13 @@
 // Cyclepaths view
 "one_way_path" = "Una sola dirección";
 "two_ways_path" = "Ambas direcciones";
+
+"days_to_event_plural" = " días para este evento";
+"days_to_event_today" = "¡Hoy ruedan!";
+"days_to_event_tomorrow" = "Mañana ruedan";
+"leaving_at" = "Salimos a las ";
+"arriving_at" = "Hora de reunión ";
+"cycling_group_title" = "Grupo ciclista";
+"days_to_event_unknown" = "Fecha desconocida";
+
+"not_available" = "No disponible";

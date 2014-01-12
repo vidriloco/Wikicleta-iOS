@@ -20,6 +20,7 @@
 - (void) loadLeftButtonWithString:(NSString*)string andStringSelector:(NSString*)selector;
 
 - (void) resizeContentScrollToFit:(UIScrollView*)scrollView;
+- (void) resizeContentScrollToFit:(UIScrollView*)scrollView withIncrement:(int)increment;
 
 // Validators
 
