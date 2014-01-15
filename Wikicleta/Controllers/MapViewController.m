@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "MapViewCompanionManager.h"
+#import "TripsManager.h"
 
 @interface MapViewController () {
     BOOL firstLocationUpdateReceived;
@@ -17,13 +18,13 @@
     id <ModelHumanizer> currentlySelectedModel;
         
     GMSCameraPosition *lastCamera;
-    
-    MapMode currentMode;
-    
+        
     UIViewController *defaultLeftViewController;
     UIViewController *defaultRightViewController;
-    
+    MapMode currentMode;
+
     MapViewCompanionManager *companionObject;
+    TripsManager *tripsManager;
 }
 
 - (void) addCyclePathMarkersToMap;
@@ -41,14 +42,15 @@
 - (void) synchronize;
 - (void) toggleFavorite:(id)sender;
 - (void) toggleShareControls;
-- (void) transitionMapToMode:(MapMode)mode;
+- (void) toggleListViewControls;
 - (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate;
+- (TripsManager*) tripsManager;
 
 @end
 
 @implementation MapViewController
 
-@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap;
+@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap, secondaryView;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,6 +65,7 @@
         companionObject = [[MapViewCompanionManager alloc] initWithMapViewController:self];
         [companionObject loadSharePinView];
         [companionObject loadMapMessageView];
+        
     }
     return self;
 }
@@ -127,6 +130,10 @@
 
 - (BOOL) mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
 {
+    if ([[(WikiMarker*) marker model] isKindOfClass:[TripPoi class]]) {
+        [[self tripsManager] drawViewForTripPoi:(TripPoi*) [(WikiMarker*) marker model]];
+    }
+    
     if (currentMode != DetailFixed) {
         [self addViewForMarker:marker];
     }
@@ -187,7 +194,7 @@
     for (CyclePath *cyclePath in [[CyclePath stored] allValues]) {
         [cyclePath loadMarker];
         [cyclePath loadPathFromStore];
-        cyclePath.polyline = [companionObject drawPolyline:[cyclePath path] withColor:[LookAndFeel greenColor] withStroke:5.0f];
+        cyclePath.polyline = [companionObject buildPolyline:[cyclePath path] withColor:[LookAndFeel greenColor] withStroke:5.0f];
         [cyclePath.polyline setMap:mapView];
         [cyclePath.marker setMap:mapView];
     }
@@ -200,7 +207,7 @@
 {
     if (detailsView != nil) {
         [detailsView removeFromSuperview];
-        detailsView = nil;
+        [self hideViewForMarker];
     }
     
     [self transitionMapToMode:Detail];
@@ -248,7 +255,37 @@
                 [picView.layer removeAllAnimations];
             }];
         }
+    } else if ([currentlySelectedModel isKindOfClass:[Trip class]]) {
+        // Build view from XIB file
+        detailsView = [[[NSBundle mainBundle] loadNibNamed:@"TripView" owner:self options:nil] objectAtIndex:0];
+        [[(TripView*) detailsView detailsLabel] setText:[currentlySelectedModel extraAnnotation]];
+        
+        UIImageView *picView = [(TripView*) detailsView picImageView];
+        UIButton *attachButton = [(TripView*) detailsView fixateTogglerButton];
+        [[attachButton titleLabel] setFont:[LookAndFeel defaultFontBookWithSize:12]];
+        [[attachButton titleLabel] setTextColor:[LookAndFeel orangeColor]];
+        [[attachButton titleLabel] setText:NSLocalizedString(@"route_attach_view", nil)];
+        [attachButton addTarget:self action:@selector(attachViewToggled:) forControlEvents:UIControlEventTouchUpInside];
+        [[(TripView*) detailsView hiddenTitleLabel] setText:currentlySelectedModel.title];
 
+        Trip *trip = (Trip*) currentlySelectedModel;
+        
+        [picView setImage:[UIImage imageNamed:[trip imageName]]];
+        [picView.layer setCornerRadius:10];
+        picView.layer.masksToBounds = YES;
+        
+        NSMutableArray *polylines = [NSMutableArray array];
+        for (NSArray *segment in [trip segments]) {
+            GMSPolyline *polyline = [companionObject buildPolyline:segment withColor:[UIColor blackColor] withStroke:5.0f withCoordsInversion:YES];
+            [polyline setMap:mapView];
+            [polylines addObject:polyline];
+        }
+        [trip setPolylines:polylines];
+        
+        for (TripPoi* tripPoi in [(Trip*) currentlySelectedModel pois]) {
+            [[tripPoi marker] setMap:mapView];
+        }
+        
     } else {
         // Build view from XIB file
         detailsView = [[[NSBundle mainBundle] loadNibNamed:@"MarkerInfoUIView" owner:self options:nil] objectAtIndex:0];
@@ -258,9 +295,11 @@
         [[detailsView moreDetailsButton] addTarget:self action:@selector(presentMarkerDetailsViewController:) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    TTTTimeIntervalFormatter *timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
-    NSString *updatedAtString = [timeIntervalFormatter stringForTimeInterval:[currentlySelectedModel.updatedAt timeIntervalSinceNow]];
-    [[detailsView leftBottomLabel] setText:[NSLocalizedString(@"updated_at", nil) stringByAppendingString:updatedAtString]];
+    if (![currentlySelectedModel isKindOfClass:[Trip class]]) {
+        TTTTimeIntervalFormatter *timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
+        NSString *updatedAtString = [timeIntervalFormatter stringForTimeInterval:[currentlySelectedModel.updatedAt timeIntervalSinceNow]];
+        [[detailsView leftBottomLabel] setText:[NSLocalizedString(@"updated_at", nil) stringByAppendingString:updatedAtString]];
+    }
     
     [[detailsView titleLabel] setText:currentlySelectedModel.title];
     [[detailsView subtitleLabel] setText:currentlySelectedModel.subtitle.uppercaseString];
@@ -268,7 +307,6 @@
     [self.view addSubview:detailsView];
     [detailsView setFrame:CGRectMake(0,
                                      self.view.frame.size.height, [detailsView frame].size.width, [detailsView frame].size.height)];
-    [detailsView setHidden:YES];
     [detailsView stylizeView];
     
     [detailsView setHidden:NO];
@@ -286,11 +324,10 @@
  */
 - (void) attachViewToggled:(id)selector
 {
+    UIButton *button = (UIButton*) selector;
+    UIView *viewC = (UIButton*) detailsView;
+    
     if ([currentlySelectedModel isKindOfClass:[Route class]]) {
-        UIButton *button = (UIButton*) selector;
-        UIView *viewC = (UIButton*) detailsView;
-        
-        
         if ([selector tag] == 0) {
             [button setTitle:NSLocalizedString(@"route_detach_view", nil) forState:UIControlStateNormal];
             [button setImage:[UIImage imageNamed:@"attach_icon.png"] forState:UIControlStateNormal];
@@ -311,7 +348,14 @@
             [button setTag:0];
             [self transitionMapToMode:Detail];
         }
+    } else if ([currentlySelectedModel isKindOfClass:[Trip class]]) {
+        [[self tripsManager] toggleFixateViewForButton:button];
     }
+}
+
+- (MapMode) currentMapMode
+{
+    return currentMode;
 }
 
 /*
@@ -322,16 +366,22 @@
     
     if ([currentlySelectedModel isKindOfClass:[Route class]]) {
         [[(Route*) currentlySelectedModel complementaryMarker] setMap:nil];
+    } else if([currentlySelectedModel isKindOfClass:[Trip class]]) {
+        for (GMSPolyline *polyline in [(Trip*) currentlySelectedModel polylines]) {
+            [polyline setMap:nil];
+        }
+        for (TripPoi* tripPoi in [(Trip*) currentlySelectedModel pois]) {
+            [[tripPoi marker] setMap:nil];
+        }
+        
+        [tripsManager hideCurrentTripPoiView];
     }
     
     currentlySelectedModel = nil;
     
-    [UIView animateWithDuration:0.3 animations:^{
-        [(UIView*) detailsView setTransform:CGAffineTransformMakeTranslation(0, [detailsView frame].size.height)];
-    } completion:^(BOOL finished) {
-        [detailsView removeFromSuperview];
-        detailsView = nil;
-    }];
+    [detailsView removeFromSuperview];
+    detailsView = nil;
+
     [mapView setCamera:lastCamera];
     [self transitionMapToMode:Explore];
 }
@@ -367,6 +417,7 @@
 }
 
 - (void) synchronize {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     // bottom == near
     CLLocationCoordinate2D sw = mapView.projection.visibleRegion.nearLeft;
     NSString *swString = [NSString stringWithFormat:@"%f,%f", sw.latitude, sw.longitude];
@@ -396,9 +447,10 @@
             
             // Add them to map
             [self addCyclePathMarkersToMap];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
 
 }
@@ -522,6 +574,11 @@
     NSLog(@"Favorite for");
 }
 
+- (void) toggleListViewControls
+{
+    // Display list controller
+}
+
 /*
  *  Helper method for toggling Explore/Share controls
  */
@@ -545,7 +602,7 @@
         [leftButton setHidden:YES];
         [rightButton setHidden:YES];
         [shareButton setHidden:YES];
-        
+        //[showListButton setHidden:YES];
         [saveButton setHidden:NO];
         [returnButton setHidden:NO];
         [self.viewDeckController setRightController:nil];
@@ -562,8 +619,11 @@
         [returnButton setHidden:YES];
         if ([layer isEqualToString:layersParkings] || [layer isEqualToString:layersWorkshops] || [layer isEqualToString:layersTips]) {
             [shareButton setHidden:![User userLoggedIn]];
+        } else if ([layer isEqualToString:layersTrips]) {
+            //[showListButton setHidden:NO];
         } else {
             [shareButton setHidden:YES];
+            //[showListButton setHidden:YES];
         }
         [self.viewDeckController setRightController:defaultRightViewController];
         [self.viewDeckController setLeftController:defaultLeftViewController];
@@ -573,6 +633,7 @@
         [leftButton setHidden:YES];
         [rightButton setHidden:YES];
         [shareButton setHidden:YES];
+        //[showListButton setHidden:YES];
         
         [saveButton setHidden:YES];
         [returnButton setHidden:YES];
@@ -591,13 +652,22 @@
     CLLocation *newCoord = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
     
     if (mapLastCenteredAt != nil) {
-        CLLocationDistance dist = [mapLastCenteredAt distanceFromLocation:newCoord];
+        //CLLocationDistance dist = [mapLastCenteredAt distanceFromLocation:newCoord];
         //if (dist > 200 && !requestOngoing) {
             [companionObject fetchLayer:activeLayer];
         //} else {
         //}
     }
     mapLastCenteredAt = newCoord;
+}
+
+- (TripsManager*) tripsManager
+{
+    if (tripsManager == nil) {
+        tripsManager = [[TripsManager alloc] initWithMapViewController:self];
+    }
+    
+    return tripsManager;
 }
 
 @end

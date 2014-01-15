@@ -95,28 +95,6 @@
 		3A01B4B5164A2F6E00F78822 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01B494164A2F6E00F78822 /* CoreData.framework */; };
 		3A01B4BD164A2F6E00F78822 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B4BB164A2F6E00F78822 /* InfoPlist.strings */; };
 		3A01B4C0164A2F6E00F78822 /* WikicletaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4BF164A2F6E00F78822 /* WikicletaTests.m */; };
-		3A01B548164A315300F78822 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4DB164A315300F78822 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B549164A315300F78822 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4DE164A315300F78822 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B54A164A315300F78822 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4E0164A315300F78822 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B54B164A315300F78822 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4E2164A315300F78822 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B54C164A315300F78822 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4E4164A315300F78822 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B54D164A315300F78822 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4E6164A315300F78822 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B54E164A315300F78822 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4EA164A315300F78822 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B54F164A315300F78822 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4EC164A315300F78822 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B550164A315300F78822 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4F0164A315300F78822 /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B551164A315300F78822 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4F2164A315300F78822 /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B552164A315300F78822 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4F4164A315300F78822 /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B553164A315300F78822 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4F6164A315300F78822 /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B554164A315300F78822 /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4F8164A315300F78822 /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B555164A315300F78822 /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4FA164A315300F78822 /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B556164A315300F78822 /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4FC164A315300F78822 /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B557164A315300F78822 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4FE164A315300F78822 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B558164A315300F78822 /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B502164A315300F78822 /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B559164A315300F78822 /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B504164A315300F78822 /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B55A164A315300F78822 /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B506164A315300F78822 /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B55B164A315300F78822 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B508164A315300F78822 /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B55C164A315300F78822 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B50A164A315300F78822 /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3A01B55D164A315300F78822 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B50C164A315300F78822 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3A01B56D164A315300F78822 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B52D164A315300F78822 /* NSObject+SBJson.m */; };
 		3A01B56E164A315300F78822 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B530164A315300F78822 /* SBJsonParser.m */; };
 		3A01B56F164A315300F78822 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B532164A315300F78822 /* SBJsonStreamParser.m */; };
@@ -178,6 +156,67 @@
 		3A0F9C0D187FEF19002CEC9D /* cycle_path_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A0F9C0B187FEF19002CEC9D /* cycle_path_icon.png */; };
 		3A0F9C10187FF13D002CEC9D /* CyclePathView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0F9C0F187FF13D002CEC9D /* CyclePathView.xib */; };
 		3A0F9C13187FF247002CEC9D /* CyclePathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F9C12187FF247002CEC9D /* CyclePathView.m */; };
+		3A13AF841883903800A35771 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13AF831883903800A35771 /* Trip.m */; };
+		3A13AF871883998300A35771 /* TripPoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13AF861883998300A35771 /* TripPoi.m */; };
+		3A13AF8A18839C8D00A35771 /* trip_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF8818839C8D00A35771 /* trip_marker.png */; };
+		3A13AF8B18839C8D00A35771 /* trip_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF8918839C8D00A35771 /* trip_marker@2x.png */; };
+		3A13AF8E18839E6300A35771 /* TripView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13AF8D18839E6300A35771 /* TripView.m */; };
+		3A13AF9018839E7600A35771 /* TripView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF8F18839E7600A35771 /* TripView.xib */; };
+		3A13AF941883A4BD00A35771 /* cicloton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF921883A4BD00A35771 /* cicloton.jpg */; };
+		3A13AF951883A4BD00A35771 /* paseo_dominical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF931883A4BD00A35771 /* paseo_dominical.jpg */; };
+		3A13AFC61883CEFB00A35771 /* ambulance_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF9B1883CEFB00A35771 /* ambulance_marker.png */; };
+		3A13AFC71883CEFB00A35771 /* bike_lending_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF9C1883CEFB00A35771 /* bike_lending_marker.png */; };
+		3A13AFC81883CEFB00A35771 /* cycling_learning_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF9D1883CEFB00A35771 /* cycling_learning_marker.png */; };
+		3A13AFC91883CEFB00A35771 /* free_grouped_services_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF9E1883CEFB00A35771 /* free_grouped_services_marker.png */; };
+		3A13AFCA1883CEFB00A35771 /* grouped_services_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AF9F1883CEFB00A35771 /* grouped_services_marker.png */; };
+		3A13AFCB1883CEFB00A35771 /* km_mark_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA01883CEFB00A35771 /* km_mark_marker.png */; };
+		3A13AFCC1883CEFB00A35771 /* paramedic_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA11883CEFB00A35771 /* paramedic_marker.png */; };
+		3A13AFCD1883CEFB00A35771 /* service_station_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA21883CEFB00A35771 /* service_station_marker.png */; };
+		3A13AFCE1883CEFB00A35771 /* start_flag_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA31883CEFB00A35771 /* start_flag_marker.png */; };
+		3A13AFCF1883CEFB00A35771 /* metro_aculco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA51883CEFB00A35771 /* metro_aculco.png */; };
+		3A13AFD01883CEFB00A35771 /* metro_allende.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA61883CEFB00A35771 /* metro_allende.png */; };
+		3A13AFD11883CEFB00A35771 /* metro_bellas_artes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA71883CEFB00A35771 /* metro_bellas_artes.png */; };
+		3A13AFD21883CEFB00A35771 /* metro_chapultepec.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA81883CEFB00A35771 /* metro_chapultepec.png */; };
+		3A13AFD31883CEFB00A35771 /* metro_fray_servando.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFA91883CEFB00A35771 /* metro_fray_servando.png */; };
+		3A13AFD41883CEFB00A35771 /* metro_garibaldi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFAA1883CEFB00A35771 /* metro_garibaldi.png */; };
+		3A13AFD51883CEFB00A35771 /* metro_hidalgo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFAB1883CEFB00A35771 /* metro_hidalgo.png */; };
+		3A13AFD61883CEFB00A35771 /* metro_juarez.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFAC1883CEFB00A35771 /* metro_juarez.png */; };
+		3A13AFD71883CEFB00A35771 /* metro_misterios.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFAD1883CEFB00A35771 /* metro_misterios.png */; };
+		3A13AFD81883CEFB00A35771 /* metro_mixcoac.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFAE1883CEFB00A35771 /* metro_mixcoac.png */; };
+		3A13AFD91883CEFB00A35771 /* metro_mixiuhca.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFAF1883CEFB00A35771 /* metro_mixiuhca.png */; };
+		3A13AFDA1883CEFB00A35771 /* metro_patriotismo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB01883CEFB00A35771 /* metro_patriotismo.png */; };
+		3A13AFDB1883CEFB00A35771 /* metro_pino_suarez.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB11883CEFB00A35771 /* metro_pino_suarez.png */; };
+		3A13AFDC1883CEFB00A35771 /* metro_san_antonio.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB21883CEFB00A35771 /* metro_san_antonio.png */; };
+		3A13AFDD1883CEFB00A35771 /* metro_san_juan_de_letran.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB31883CEFB00A35771 /* metro_san_juan_de_letran.png */; };
+		3A13AFDE1883CEFB00A35771 /* metro_sevilla.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB41883CEFB00A35771 /* metro_sevilla.png */; };
+		3A13AFDF1883CEFB00A35771 /* metro_velodromo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB51883CEFB00A35771 /* metro_velodromo.png */; };
+		3A13AFE01883CEFB00A35771 /* metro_villa_basilica.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB61883CEFB00A35771 /* metro_villa_basilica.png */; };
+		3A13AFE11883CEFB00A35771 /* metro_zocalo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB71883CEFB00A35771 /* metro_zocalo.png */; };
+		3A13AFE21883CEFB00A35771 /* metrobus_bellas_artes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB81883CEFB00A35771 /* metrobus_bellas_artes.png */; };
+		3A13AFE31883CEFB00A35771 /* metrobus_churubusco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFB91883CEFB00A35771 /* metrobus_churubusco.png */; };
+		3A13AFE41883CEFB00A35771 /* metrobus_eje_central.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFBA1883CEFB00A35771 /* metrobus_eje_central.png */; };
+		3A13AFE51883CEFB00A35771 /* metrobus_glorieta_de_colon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFBB1883CEFB00A35771 /* metrobus_glorieta_de_colon.png */; };
+		3A13AFE61883CEFB00A35771 /* metrobus_goma.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFBC1883CEFB00A35771 /* metrobus_goma.png */; };
+		3A13AFE71883CEFB00A35771 /* metrobus_hamburgo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFBD1883CEFB00A35771 /* metrobus_hamburgo.png */; };
+		3A13AFE81883CEFB00A35771 /* metrobus_hidalgo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFBE1883CEFB00A35771 /* metrobus_hidalgo.png */; };
+		3A13AFE91883CEFB00A35771 /* metrobus_isabel_la_catolica.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFBF1883CEFB00A35771 /* metrobus_isabel_la_catolica.png */; };
+		3A13AFEA1883CEFB00A35771 /* metrobus_las_cruces_norte.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFC01883CEFB00A35771 /* metrobus_las_cruces_norte.png */; };
+		3A13AFEB1883CEFB00A35771 /* metrobus_museo_de_la_ciudad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFC11883CEFB00A35771 /* metrobus_museo_de_la_ciudad.png */; };
+		3A13AFEC1883CEFB00A35771 /* metrobus_patriotismo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFC21883CEFB00A35771 /* metrobus_patriotismo.png */; };
+		3A13AFED1883CEFB00A35771 /* metrobus_reforma.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFC31883CEFB00A35771 /* metrobus_reforma.png */; };
+		3A13AFEE1883CEFB00A35771 /* metrobus_republica_del_salvador.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFC41883CEFB00A35771 /* metrobus_republica_del_salvador.png */; };
+		3A13AFEF1883CEFB00A35771 /* metrobus_teatro_del_pueblo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFC51883CEFB00A35771 /* metrobus_teatro_del_pueblo.png */; };
+		3A13AFF91883CF8F00A35771 /* ambulance_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF01883CF8F00A35771 /* ambulance_marker@2x.png */; };
+		3A13AFFA1883CF8F00A35771 /* bike_lending_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF11883CF8F00A35771 /* bike_lending_marker@2x.png */; };
+		3A13AFFB1883CF8F00A35771 /* cycling_learning_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF21883CF8F00A35771 /* cycling_learning_marker@2x.png */; };
+		3A13AFFC1883CF8F00A35771 /* free_grouped_services_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF31883CF8F00A35771 /* free_grouped_services_marker@2x.png */; };
+		3A13AFFD1883CF8F00A35771 /* grouped_services_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF41883CF8F00A35771 /* grouped_services_marker@2x.png */; };
+		3A13AFFE1883CF8F00A35771 /* km_mark_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF51883CF8F00A35771 /* km_mark_marker@2x.png */; };
+		3A13AFFF1883CF8F00A35771 /* paramedic_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF61883CF8F00A35771 /* paramedic_marker@2x.png */; };
+		3A13B0001883CF8F00A35771 /* service_station_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF71883CF8F00A35771 /* service_station_marker@2x.png */; };
+		3A13B0011883CF8F00A35771 /* start_flag_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13AFF81883CF8F00A35771 /* start_flag_marker@2x.png */; };
+		3A13B0041883D37400A35771 /* finish_flag_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13B0021883D37400A35771 /* finish_flag_marker.png */; };
+		3A13B0051883D37400A35771 /* finish_flag_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13B0031883D37400A35771 /* finish_flag_marker@2x.png */; };
 		3A14D97917B6BCF2007E16FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A14D97717B6BCF2007E16FA /* Localizable.strings */; };
 		3A1A2A8E1879DA5B00AF298C /* OverlayMapMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A2A8D1879DA5B00AF298C /* OverlayMapMessageView.xib */; };
 		3A1A2A911879DA7A00AF298C /* OverlayMapMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A2A901879DA7A00AF298C /* OverlayMapMessageView.m */; };
@@ -239,6 +278,10 @@
 		3A53830018701068006346AE /* save_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5382FC18701068006346AE /* save_button@2x.png */; };
 		3A5C3BD61669B310009DDA1C /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C3BD41669B310009DDA1C /* RegistrationViewController.m */; };
 		3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */; };
+		3A653E5218833728002B9AA6 /* trips_layers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5018833728002B9AA6 /* trips_layers.png */; };
+		3A653E5318833728002B9AA6 /* trips_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5118833728002B9AA6 /* trips_layers@2x.png */; };
+		3A653E5618833DB3002B9AA6 /* list_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5418833DB3002B9AA6 /* list_button.png */; };
+		3A653E5718833DB3002B9AA6 /* list_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5518833DB3002B9AA6 /* list_button@2x.png */; };
 		3A6BE526187C69F300200A87 /* CyclePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BE525187C69F300200A87 /* CyclePath.m */; };
 		3A6BE529187C8D6E00200A87 /* cycle_path_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6BE527187C8D6E00200A87 /* cycle_path_marker.png */; };
 		3A6BE52A187C8D6E00200A87 /* cycle_path_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6BE528187C8D6E00200A87 /* cycle_path_marker@2x.png */; };
@@ -262,6 +305,8 @@
 		3A785A2117D46F1200D1B6F6 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A785A1B17D46F1200D1B6F6 /* next@2x.png */; };
 		3A893CF318691BD600638217 /* NSObject+FieldValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A893CF218691BD600638217 /* NSObject+FieldValidators.m */; };
 		3A893CFC1869306500638217 /* FormBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A893CFB1869306500638217 /* FormBaseViewController.m */; };
+		3A91E0531884A712009DBD83 /* TripPoiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91E0521884A712009DBD83 /* TripPoiView.xib */; };
+		3A91E0561884A8F0009DBD83 /* TripPoiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91E0551884A8F0009DBD83 /* TripPoiView.m */; };
 		3A9547A4186CAA3A00428DF7 /* MarkerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9547A2186CAA3A00428DF7 /* MarkerDetailsViewController.m */; };
 		3A9547A5186CAA3A00428DF7 /* MarkerDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9547A3186CAA3A00428DF7 /* MarkerDetailsViewController.xib */; };
 		3A9547AA186CBE1000428DF7 /* dislike_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9547A6186CBE1000428DF7 /* dislike_icon.png */; };
@@ -319,6 +364,7 @@
 		3A9DE810186FADFB00C95812 /* wikicleta_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DE80E186FADFB00C95812 /* wikicleta_pin@2x.png */; };
 		3AA7E4A917CD74B800B059B3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3AA7E4A817CD74B800B059B3 /* Podfile */; };
 		3AA7E4AC17CD76F300B059B3 /* Parking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7E4AB17CD76F300B059B3 /* Parking.m */; };
+		3AB2448B18864F79000C09EB /* TripsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2448A18864F79000C09EB /* TripsManager.m */; };
 		3AC2291117CACC7E00E76E96 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2290E17CACC7E00E76E96 /* DRNRealTimeBlurView.m */; };
 		3AC2291217CACC7E00E76E96 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2291017CACC7E00E76E96 /* UIImage+BoxBlur.m */; };
 		3AC2291317CACD0000E76E96 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC228FD17CABB8900E76E96 /* Accelerate.framework */; };
@@ -328,7 +374,6 @@
 		3AC2292217CB2DF800E76E96 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2292017CB2DF800E76E96 /* MainMenuViewController.xib */; };
 		3AC3AD3E18716AA40054732A /* upload_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC3AD3C18716AA40054732A /* upload_icon.png */; };
 		3AC3AD3F18716AA40054732A /* upload_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC3AD3D18716AA40054732A /* upload_icon@2x.png */; };
-		3AC7B2B5164CD96B008A3B58 /* Authenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B2B4164CD96B008A3B58 /* Authenticator.m */; };
 		3AC7B2C1164CE804008A3B58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC7B2BF164CE7FA008A3B58 /* Security.framework */; };
 		3ACEA0EC17B7FD8600EE1B92 /* map_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACEA0E217B7FD8600EE1B92 /* map_menu.png */; };
 		3ACEA0ED17B7FD8600EE1B92 /* map_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACEA0E317B7FD8600EE1B92 /* map_menu@2x.png */; };
@@ -517,84 +562,6 @@
 		3A01B4BC164A2F6E00F78822 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A01B4BE164A2F6E00F78822 /* WikicletaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WikicletaTests.h; sourceTree = "<group>"; };
 		3A01B4BF164A2F6E00F78822 /* WikicletaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikicletaTests.m; sourceTree = "<group>"; };
-		3A01B4DA164A315300F78822 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
-		3A01B4DB164A315300F78822 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
-		3A01B4DC164A315300F78822 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
-		3A01B4DD164A315300F78822 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
-		3A01B4DE164A315300F78822 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
-		3A01B4DF164A315300F78822 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
-		3A01B4E0164A315300F78822 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
-		3A01B4E1164A315300F78822 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
-		3A01B4E2164A315300F78822 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
-		3A01B4E3164A315300F78822 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
-		3A01B4E4164A315300F78822 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
-		3A01B4E5164A315300F78822 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
-		3A01B4E6164A315300F78822 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
-		3A01B4E7164A315300F78822 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
-		3A01B4E8164A315300F78822 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
-		3A01B4E9164A315300F78822 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
-		3A01B4EA164A315300F78822 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
-		3A01B4EB164A315300F78822 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
-		3A01B4EC164A315300F78822 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
-		3A01B4ED164A315300F78822 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
-		3A01B4EF164A315300F78822 /* ASICloudFilesCDNRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesCDNRequest.h; sourceTree = "<group>"; };
-		3A01B4F0164A315300F78822 /* ASICloudFilesCDNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesCDNRequest.m; sourceTree = "<group>"; };
-		3A01B4F1164A315300F78822 /* ASICloudFilesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainer.h; sourceTree = "<group>"; };
-		3A01B4F2164A315300F78822 /* ASICloudFilesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainer.m; sourceTree = "<group>"; };
-		3A01B4F3164A315300F78822 /* ASICloudFilesContainerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerRequest.h; sourceTree = "<group>"; };
-		3A01B4F4164A315300F78822 /* ASICloudFilesContainerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerRequest.m; sourceTree = "<group>"; };
-		3A01B4F5164A315300F78822 /* ASICloudFilesContainerXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerXMLParserDelegate.h; sourceTree = "<group>"; };
-		3A01B4F6164A315300F78822 /* ASICloudFilesContainerXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerXMLParserDelegate.m; sourceTree = "<group>"; };
-		3A01B4F7164A315300F78822 /* ASICloudFilesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObject.h; sourceTree = "<group>"; };
-		3A01B4F8164A315300F78822 /* ASICloudFilesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObject.m; sourceTree = "<group>"; };
-		3A01B4F9164A315300F78822 /* ASICloudFilesObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObjectRequest.h; sourceTree = "<group>"; };
-		3A01B4FA164A315300F78822 /* ASICloudFilesObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObjectRequest.m; sourceTree = "<group>"; };
-		3A01B4FB164A315300F78822 /* ASICloudFilesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesRequest.h; sourceTree = "<group>"; };
-		3A01B4FC164A315300F78822 /* ASICloudFilesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesRequest.m; sourceTree = "<group>"; };
-		3A01B4FD164A315300F78822 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		3A01B4FE164A315300F78822 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		3A01B500164A315300F78822 /* ASINSXMLParserCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINSXMLParserCompat.h; sourceTree = "<group>"; };
-		3A01B501164A315300F78822 /* ASIS3Bucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Bucket.h; sourceTree = "<group>"; };
-		3A01B502164A315300F78822 /* ASIS3Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Bucket.m; sourceTree = "<group>"; };
-		3A01B503164A315300F78822 /* ASIS3BucketObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketObject.h; sourceTree = "<group>"; };
-		3A01B504164A315300F78822 /* ASIS3BucketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketObject.m; sourceTree = "<group>"; };
-		3A01B505164A315300F78822 /* ASIS3BucketRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketRequest.h; sourceTree = "<group>"; };
-		3A01B506164A315300F78822 /* ASIS3BucketRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketRequest.m; sourceTree = "<group>"; };
-		3A01B507164A315300F78822 /* ASIS3ObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ObjectRequest.h; sourceTree = "<group>"; };
-		3A01B508164A315300F78822 /* ASIS3ObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ObjectRequest.m; sourceTree = "<group>"; };
-		3A01B509164A315300F78822 /* ASIS3Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Request.h; sourceTree = "<group>"; };
-		3A01B50A164A315300F78822 /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
-		3A01B50B164A315300F78822 /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
-		3A01B50C164A315300F78822 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
-		3A01B50E164A315300F78822 /* ASICloudFilesRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesRequestTests.h; sourceTree = "<group>"; };
-		3A01B50F164A315300F78822 /* ASICloudFilesRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesRequestTests.m; sourceTree = "<group>"; };
-		3A01B510164A315300F78822 /* ASIDataCompressorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressorTests.h; sourceTree = "<group>"; };
-		3A01B511164A315300F78822 /* ASIDataCompressorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressorTests.m; sourceTree = "<group>"; };
-		3A01B512164A315300F78822 /* ASIDownloadCacheTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCacheTests.h; sourceTree = "<group>"; };
-		3A01B513164A315300F78822 /* ASIDownloadCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCacheTests.m; sourceTree = "<group>"; };
-		3A01B514164A315300F78822 /* ASIFormDataRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequestTests.h; sourceTree = "<group>"; };
-		3A01B515164A315300F78822 /* ASIFormDataRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequestTests.m; sourceTree = "<group>"; };
-		3A01B516164A315300F78822 /* ASIHTTPRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestTests.h; sourceTree = "<group>"; };
-		3A01B517164A315300F78822 /* ASIHTTPRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequestTests.m; sourceTree = "<group>"; };
-		3A01B518164A315300F78822 /* ASINetworkQueueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueueTests.h; sourceTree = "<group>"; };
-		3A01B519164A315300F78822 /* ASINetworkQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueueTests.m; sourceTree = "<group>"; };
-		3A01B51A164A315300F78822 /* ASIS3RequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3RequestTests.h; sourceTree = "<group>"; };
-		3A01B51B164A315300F78822 /* ASIS3RequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3RequestTests.m; sourceTree = "<group>"; };
-		3A01B51C164A315300F78822 /* ASITestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASITestCase.h; sourceTree = "<group>"; };
-		3A01B51D164A315300F78822 /* ASITestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASITestCase.m; sourceTree = "<group>"; };
-		3A01B51E164A315300F78822 /* ASIWebPageRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIWebPageRequestTests.h; sourceTree = "<group>"; };
-		3A01B51F164A315300F78822 /* ASIWebPageRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIWebPageRequestTests.m; sourceTree = "<group>"; };
-		3A01B520164A315300F78822 /* BlocksTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocksTests.h; sourceTree = "<group>"; };
-		3A01B521164A315300F78822 /* BlocksTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocksTests.m; sourceTree = "<group>"; };
-		3A01B522164A315300F78822 /* ClientCertificateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientCertificateTests.h; sourceTree = "<group>"; };
-		3A01B523164A315300F78822 /* ClientCertificateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientCertificateTests.m; sourceTree = "<group>"; };
-		3A01B524164A315300F78822 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
-		3A01B525164A315300F78822 /* PerformanceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceTests.h; sourceTree = "<group>"; };
-		3A01B526164A315300F78822 /* PerformanceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceTests.m; sourceTree = "<group>"; };
-		3A01B527164A315300F78822 /* ProxyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyTests.h; sourceTree = "<group>"; };
-		3A01B528164A315300F78822 /* ProxyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyTests.m; sourceTree = "<group>"; };
-		3A01B529164A315300F78822 /* StressTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StressTests.h; sourceTree = "<group>"; };
-		3A01B52A164A315300F78822 /* StressTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StressTests.m; sourceTree = "<group>"; };
 		3A01B52C164A315300F78822 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		3A01B52D164A315300F78822 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		3A01B52E164A315300F78822 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -679,6 +646,70 @@
 		3A0F9C0F187FF13D002CEC9D /* CyclePathView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CyclePathView.xib; sourceTree = "<group>"; };
 		3A0F9C11187FF247002CEC9D /* CyclePathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePathView.h; sourceTree = "<group>"; };
 		3A0F9C12187FF247002CEC9D /* CyclePathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclePathView.m; sourceTree = "<group>"; };
+		3A13AF821883903800A35771 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		3A13AF831883903800A35771 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
+		3A13AF851883998300A35771 /* TripPoi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPoi.h; sourceTree = "<group>"; };
+		3A13AF861883998300A35771 /* TripPoi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPoi.m; sourceTree = "<group>"; };
+		3A13AF8818839C8D00A35771 /* trip_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trip_marker.png; sourceTree = "<group>"; };
+		3A13AF8918839C8D00A35771 /* trip_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trip_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AF8C18839E6300A35771 /* TripView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripView.h; sourceTree = "<group>"; };
+		3A13AF8D18839E6300A35771 /* TripView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripView.m; sourceTree = "<group>"; };
+		3A13AF8F18839E7600A35771 /* TripView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripView.xib; sourceTree = "<group>"; };
+		3A13AF921883A4BD00A35771 /* cicloton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cicloton.jpg; sourceTree = "<group>"; };
+		3A13AF931883A4BD00A35771 /* paseo_dominical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paseo_dominical.jpg; sourceTree = "<group>"; };
+		3A13AF9B1883CEFB00A35771 /* ambulance_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ambulance_marker.png; sourceTree = "<group>"; };
+		3A13AF9C1883CEFB00A35771 /* bike_lending_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike_lending_marker.png; sourceTree = "<group>"; };
+		3A13AF9D1883CEFB00A35771 /* cycling_learning_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycling_learning_marker.png; sourceTree = "<group>"; };
+		3A13AF9E1883CEFB00A35771 /* free_grouped_services_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = free_grouped_services_marker.png; sourceTree = "<group>"; };
+		3A13AF9F1883CEFB00A35771 /* grouped_services_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grouped_services_marker.png; sourceTree = "<group>"; };
+		3A13AFA01883CEFB00A35771 /* km_mark_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = km_mark_marker.png; sourceTree = "<group>"; };
+		3A13AFA11883CEFB00A35771 /* paramedic_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paramedic_marker.png; sourceTree = "<group>"; };
+		3A13AFA21883CEFB00A35771 /* service_station_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = service_station_marker.png; sourceTree = "<group>"; };
+		3A13AFA31883CEFB00A35771 /* start_flag_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_flag_marker.png; sourceTree = "<group>"; };
+		3A13AFA51883CEFB00A35771 /* metro_aculco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_aculco.png; sourceTree = "<group>"; };
+		3A13AFA61883CEFB00A35771 /* metro_allende.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_allende.png; sourceTree = "<group>"; };
+		3A13AFA71883CEFB00A35771 /* metro_bellas_artes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_bellas_artes.png; sourceTree = "<group>"; };
+		3A13AFA81883CEFB00A35771 /* metro_chapultepec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_chapultepec.png; sourceTree = "<group>"; };
+		3A13AFA91883CEFB00A35771 /* metro_fray_servando.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_fray_servando.png; sourceTree = "<group>"; };
+		3A13AFAA1883CEFB00A35771 /* metro_garibaldi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_garibaldi.png; sourceTree = "<group>"; };
+		3A13AFAB1883CEFB00A35771 /* metro_hidalgo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_hidalgo.png; sourceTree = "<group>"; };
+		3A13AFAC1883CEFB00A35771 /* metro_juarez.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_juarez.png; sourceTree = "<group>"; };
+		3A13AFAD1883CEFB00A35771 /* metro_misterios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_misterios.png; sourceTree = "<group>"; };
+		3A13AFAE1883CEFB00A35771 /* metro_mixcoac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_mixcoac.png; sourceTree = "<group>"; };
+		3A13AFAF1883CEFB00A35771 /* metro_mixiuhca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_mixiuhca.png; sourceTree = "<group>"; };
+		3A13AFB01883CEFB00A35771 /* metro_patriotismo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_patriotismo.png; sourceTree = "<group>"; };
+		3A13AFB11883CEFB00A35771 /* metro_pino_suarez.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_pino_suarez.png; sourceTree = "<group>"; };
+		3A13AFB21883CEFB00A35771 /* metro_san_antonio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_san_antonio.png; sourceTree = "<group>"; };
+		3A13AFB31883CEFB00A35771 /* metro_san_juan_de_letran.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_san_juan_de_letran.png; sourceTree = "<group>"; };
+		3A13AFB41883CEFB00A35771 /* metro_sevilla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_sevilla.png; sourceTree = "<group>"; };
+		3A13AFB51883CEFB00A35771 /* metro_velodromo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_velodromo.png; sourceTree = "<group>"; };
+		3A13AFB61883CEFB00A35771 /* metro_villa_basilica.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_villa_basilica.png; sourceTree = "<group>"; };
+		3A13AFB71883CEFB00A35771 /* metro_zocalo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_zocalo.png; sourceTree = "<group>"; };
+		3A13AFB81883CEFB00A35771 /* metrobus_bellas_artes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_bellas_artes.png; sourceTree = "<group>"; };
+		3A13AFB91883CEFB00A35771 /* metrobus_churubusco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_churubusco.png; sourceTree = "<group>"; };
+		3A13AFBA1883CEFB00A35771 /* metrobus_eje_central.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_eje_central.png; sourceTree = "<group>"; };
+		3A13AFBB1883CEFB00A35771 /* metrobus_glorieta_de_colon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_glorieta_de_colon.png; sourceTree = "<group>"; };
+		3A13AFBC1883CEFB00A35771 /* metrobus_goma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_goma.png; sourceTree = "<group>"; };
+		3A13AFBD1883CEFB00A35771 /* metrobus_hamburgo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_hamburgo.png; sourceTree = "<group>"; };
+		3A13AFBE1883CEFB00A35771 /* metrobus_hidalgo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_hidalgo.png; sourceTree = "<group>"; };
+		3A13AFBF1883CEFB00A35771 /* metrobus_isabel_la_catolica.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_isabel_la_catolica.png; sourceTree = "<group>"; };
+		3A13AFC01883CEFB00A35771 /* metrobus_las_cruces_norte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_las_cruces_norte.png; sourceTree = "<group>"; };
+		3A13AFC11883CEFB00A35771 /* metrobus_museo_de_la_ciudad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_museo_de_la_ciudad.png; sourceTree = "<group>"; };
+		3A13AFC21883CEFB00A35771 /* metrobus_patriotismo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_patriotismo.png; sourceTree = "<group>"; };
+		3A13AFC31883CEFB00A35771 /* metrobus_reforma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_reforma.png; sourceTree = "<group>"; };
+		3A13AFC41883CEFB00A35771 /* metrobus_republica_del_salvador.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_republica_del_salvador.png; sourceTree = "<group>"; };
+		3A13AFC51883CEFB00A35771 /* metrobus_teatro_del_pueblo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metrobus_teatro_del_pueblo.png; sourceTree = "<group>"; };
+		3A13AFF01883CF8F00A35771 /* ambulance_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ambulance_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF11883CF8F00A35771 /* bike_lending_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bike_lending_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF21883CF8F00A35771 /* cycling_learning_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cycling_learning_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF31883CF8F00A35771 /* free_grouped_services_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "free_grouped_services_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF41883CF8F00A35771 /* grouped_services_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grouped_services_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF51883CF8F00A35771 /* km_mark_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "km_mark_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF61883CF8F00A35771 /* paramedic_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paramedic_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF71883CF8F00A35771 /* service_station_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "service_station_marker@2x.png"; sourceTree = "<group>"; };
+		3A13AFF81883CF8F00A35771 /* start_flag_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start_flag_marker@2x.png"; sourceTree = "<group>"; };
+		3A13B0021883D37400A35771 /* finish_flag_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finish_flag_marker.png; sourceTree = "<group>"; };
+		3A13B0031883D37400A35771 /* finish_flag_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finish_flag_marker@2x.png"; sourceTree = "<group>"; };
 		3A14D97817B6BCF2007E16FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3A14D97A17B6BD23007E16FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3A1A2A8D1879DA5B00AF298C /* OverlayMapMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayMapMessageView.xib; path = ../OverlayMapMessageView.xib; sourceTree = "<group>"; };
@@ -756,6 +787,10 @@
 		3A5C3BD31669B310009DDA1C /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		3A5C3BD41669B310009DDA1C /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		3A653E5018833728002B9AA6 /* trips_layers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trips_layers.png; sourceTree = "<group>"; };
+		3A653E5118833728002B9AA6 /* trips_layers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trips_layers@2x.png"; sourceTree = "<group>"; };
+		3A653E5418833DB3002B9AA6 /* list_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_button.png; sourceTree = "<group>"; };
+		3A653E5518833DB3002B9AA6 /* list_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_button@2x.png"; sourceTree = "<group>"; };
 		3A6BE524187C69F300200A87 /* CyclePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePath.h; sourceTree = "<group>"; };
 		3A6BE525187C69F300200A87 /* CyclePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclePath.m; sourceTree = "<group>"; };
 		3A6BE527187C8D6E00200A87 /* cycle_path_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_path_marker.png; sourceTree = "<group>"; };
@@ -783,6 +818,9 @@
 		3A893CF218691BD600638217 /* NSObject+FieldValidators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FieldValidators.m"; sourceTree = "<group>"; };
 		3A893CFA1869306500638217 /* FormBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormBaseViewController.h; sourceTree = "<group>"; };
 		3A893CFB1869306500638217 /* FormBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormBaseViewController.m; sourceTree = "<group>"; };
+		3A91E0521884A712009DBD83 /* TripPoiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripPoiView.xib; sourceTree = "<group>"; };
+		3A91E0541884A8F0009DBD83 /* TripPoiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPoiView.h; sourceTree = "<group>"; };
+		3A91E0551884A8F0009DBD83 /* TripPoiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPoiView.m; sourceTree = "<group>"; };
 		3A9547A1186CAA3A00428DF7 /* MarkerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerDetailsViewController.h; sourceTree = "<group>"; };
 		3A9547A2186CAA3A00428DF7 /* MarkerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerDetailsViewController.m; sourceTree = "<group>"; };
 		3A9547A3186CAA3A00428DF7 /* MarkerDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerDetailsViewController.xib; sourceTree = "<group>"; };
@@ -847,6 +885,8 @@
 		3AA7E4A817CD74B800B059B3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3AA7E4AA17CD76F300B059B3 /* Parking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parking.h; sourceTree = "<group>"; };
 		3AA7E4AB17CD76F300B059B3 /* Parking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parking.m; sourceTree = "<group>"; };
+		3AB2448918864F79000C09EB /* TripsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripsManager.h; sourceTree = "<group>"; };
+		3AB2448A18864F79000C09EB /* TripsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsManager.m; sourceTree = "<group>"; };
 		3AC228FD17CABB8900E76E96 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		3AC2290D17CACC7E00E76E96 /* DRNRealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRNRealTimeBlurView.h; sourceTree = "<group>"; };
 		3AC2290E17CACC7E00E76E96 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
@@ -860,8 +900,6 @@
 		3AC2292017CB2DF800E76E96 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
 		3AC3AD3C18716AA40054732A /* upload_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_icon.png; sourceTree = "<group>"; };
 		3AC3AD3D18716AA40054732A /* upload_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_icon@2x.png"; sourceTree = "<group>"; };
-		3AC7B2B3164CD96B008A3B58 /* Authenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authenticator.h; sourceTree = "<group>"; };
-		3AC7B2B4164CD96B008A3B58 /* Authenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authenticator.m; sourceTree = "<group>"; };
 		3AC7B2BE164CE521008A3B58 /* AuthenticatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticatorDelegate.h; sourceTree = "<group>"; };
 		3AC7B2BF164CE7FA008A3B58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3ACEA0E217B7FD8600EE1B92 /* map_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_menu.png; sourceTree = "<group>"; };
@@ -1003,6 +1041,8 @@
 		1807475417B4525E00A04D61 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				3A653E5418833DB3002B9AA6 /* list_button.png */,
+				3A653E5518833DB3002B9AA6 /* list_button@2x.png */,
 				3A5382F918701068006346AE /* return_button.png */,
 				3A5382FA18701068006346AE /* return_button@2x.png */,
 				3A5382FB18701068006346AE /* save_button.png */,
@@ -1047,6 +1087,8 @@
 		180BD01517BA8EF40080296E /* LayersView */ = {
 			isa = PBXGroup;
 			children = (
+				3A653E5018833728002B9AA6 /* trips_layers.png */,
+				3A653E5118833728002B9AA6 /* trips_layers@2x.png */,
 				3ACFA1221881B3FA008700C0 /* cycling_groups_layers.png */,
 				3ACFA1231881B3FA008700C0 /* cycling_groups_layers@2x.png */,
 				3A4E5F28186DED9100D818ED /* cycle_stations_layers.png */,
@@ -1076,6 +1118,7 @@
 		181534C617B1645F009FE8CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A13AF911883A4BD00A35771 /* Trips */,
 				3A1A2A961879F4F500AF298C /* ProfileView */,
 				3A9547C3186D44EF00428DF7 /* POIs */,
 				3A4DD93218680917009506F0 /* navbar_back.png */,
@@ -1358,6 +1401,10 @@
 				3A4FC1511880F1B100B77CF7 /* NSObject+ModelBase.m */,
 				3ACFA1291881B5E1008700C0 /* CyclingGroup.h */,
 				3ACFA12A1881B5E1008700C0 /* CyclingGroup.m */,
+				3A13AF821883903800A35771 /* Trip.h */,
+				3A13AF831883903800A35771 /* Trip.m */,
+				3A13AF851883998300A35771 /* TripPoi.h */,
+				3A13AF861883998300A35771 /* TripPoi.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1365,6 +1412,7 @@
 		3A01B4CC164A2FAA00F78822 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A4A6C39188298A300C8C3B9 /* OnActivitiesView */,
 				3A1A2A921879F38800AF298C /* OnProfileView */,
 				3ACF4F481871363200A46E33 /* OnModifyingViews */,
 				3ACF4F301871138600A46E33 /* OnMapView */,
@@ -1388,120 +1436,10 @@
 				1807474717B447FD00A04D61 /* ViewDeck */,
 				1863D50917B04B3A007E7460 /* AmazeKit */,
 				3A417AD41669A53000E6DF0B /* Singly */,
-				3A01B4D9164A315300F78822 /* ASIHTTPRequest */,
 				3A01B52B164A315300F78822 /* SBJson */,
 				3A01B545164A315300F78822 /* UIColor+Expanded */,
 			);
 			path = Libraries;
-			sourceTree = "<group>";
-		};
-		3A01B4D9164A315300F78822 /* ASIHTTPRequest */ = {
-			isa = PBXGroup;
-			children = (
-				3A01B4DA164A315300F78822 /* ASIAuthenticationDialog.h */,
-				3A01B4DB164A315300F78822 /* ASIAuthenticationDialog.m */,
-				3A01B4DC164A315300F78822 /* ASICacheDelegate.h */,
-				3A01B4DD164A315300F78822 /* ASIDataCompressor.h */,
-				3A01B4DE164A315300F78822 /* ASIDataCompressor.m */,
-				3A01B4DF164A315300F78822 /* ASIDataDecompressor.h */,
-				3A01B4E0164A315300F78822 /* ASIDataDecompressor.m */,
-				3A01B4E1164A315300F78822 /* ASIDownloadCache.h */,
-				3A01B4E2164A315300F78822 /* ASIDownloadCache.m */,
-				3A01B4E3164A315300F78822 /* ASIFormDataRequest.h */,
-				3A01B4E4164A315300F78822 /* ASIFormDataRequest.m */,
-				3A01B4E5164A315300F78822 /* ASIHTTPRequest.h */,
-				3A01B4E6164A315300F78822 /* ASIHTTPRequest.m */,
-				3A01B4E7164A315300F78822 /* ASIHTTPRequestConfig.h */,
-				3A01B4E8164A315300F78822 /* ASIHTTPRequestDelegate.h */,
-				3A01B4E9164A315300F78822 /* ASIInputStream.h */,
-				3A01B4EA164A315300F78822 /* ASIInputStream.m */,
-				3A01B4EB164A315300F78822 /* ASINetworkQueue.h */,
-				3A01B4EC164A315300F78822 /* ASINetworkQueue.m */,
-				3A01B4ED164A315300F78822 /* ASIProgressDelegate.h */,
-				3A01B4EE164A315300F78822 /* CloudFiles */,
-				3A01B4FD164A315300F78822 /* Reachability.h */,
-				3A01B4FE164A315300F78822 /* Reachability.m */,
-				3A01B4FF164A315300F78822 /* S3 */,
-				3A01B50D164A315300F78822 /* Tests */,
-			);
-			path = ASIHTTPRequest;
-			sourceTree = "<group>";
-		};
-		3A01B4EE164A315300F78822 /* CloudFiles */ = {
-			isa = PBXGroup;
-			children = (
-				3A01B4EF164A315300F78822 /* ASICloudFilesCDNRequest.h */,
-				3A01B4F0164A315300F78822 /* ASICloudFilesCDNRequest.m */,
-				3A01B4F1164A315300F78822 /* ASICloudFilesContainer.h */,
-				3A01B4F2164A315300F78822 /* ASICloudFilesContainer.m */,
-				3A01B4F3164A315300F78822 /* ASICloudFilesContainerRequest.h */,
-				3A01B4F4164A315300F78822 /* ASICloudFilesContainerRequest.m */,
-				3A01B4F5164A315300F78822 /* ASICloudFilesContainerXMLParserDelegate.h */,
-				3A01B4F6164A315300F78822 /* ASICloudFilesContainerXMLParserDelegate.m */,
-				3A01B4F7164A315300F78822 /* ASICloudFilesObject.h */,
-				3A01B4F8164A315300F78822 /* ASICloudFilesObject.m */,
-				3A01B4F9164A315300F78822 /* ASICloudFilesObjectRequest.h */,
-				3A01B4FA164A315300F78822 /* ASICloudFilesObjectRequest.m */,
-				3A01B4FB164A315300F78822 /* ASICloudFilesRequest.h */,
-				3A01B4FC164A315300F78822 /* ASICloudFilesRequest.m */,
-			);
-			path = CloudFiles;
-			sourceTree = "<group>";
-		};
-		3A01B4FF164A315300F78822 /* S3 */ = {
-			isa = PBXGroup;
-			children = (
-				3A01B500164A315300F78822 /* ASINSXMLParserCompat.h */,
-				3A01B501164A315300F78822 /* ASIS3Bucket.h */,
-				3A01B502164A315300F78822 /* ASIS3Bucket.m */,
-				3A01B503164A315300F78822 /* ASIS3BucketObject.h */,
-				3A01B504164A315300F78822 /* ASIS3BucketObject.m */,
-				3A01B505164A315300F78822 /* ASIS3BucketRequest.h */,
-				3A01B506164A315300F78822 /* ASIS3BucketRequest.m */,
-				3A01B507164A315300F78822 /* ASIS3ObjectRequest.h */,
-				3A01B508164A315300F78822 /* ASIS3ObjectRequest.m */,
-				3A01B509164A315300F78822 /* ASIS3Request.h */,
-				3A01B50A164A315300F78822 /* ASIS3Request.m */,
-				3A01B50B164A315300F78822 /* ASIS3ServiceRequest.h */,
-				3A01B50C164A315300F78822 /* ASIS3ServiceRequest.m */,
-			);
-			path = S3;
-			sourceTree = "<group>";
-		};
-		3A01B50D164A315300F78822 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				3A01B50E164A315300F78822 /* ASICloudFilesRequestTests.h */,
-				3A01B50F164A315300F78822 /* ASICloudFilesRequestTests.m */,
-				3A01B510164A315300F78822 /* ASIDataCompressorTests.h */,
-				3A01B511164A315300F78822 /* ASIDataCompressorTests.m */,
-				3A01B512164A315300F78822 /* ASIDownloadCacheTests.h */,
-				3A01B513164A315300F78822 /* ASIDownloadCacheTests.m */,
-				3A01B514164A315300F78822 /* ASIFormDataRequestTests.h */,
-				3A01B515164A315300F78822 /* ASIFormDataRequestTests.m */,
-				3A01B516164A315300F78822 /* ASIHTTPRequestTests.h */,
-				3A01B517164A315300F78822 /* ASIHTTPRequestTests.m */,
-				3A01B518164A315300F78822 /* ASINetworkQueueTests.h */,
-				3A01B519164A315300F78822 /* ASINetworkQueueTests.m */,
-				3A01B51A164A315300F78822 /* ASIS3RequestTests.h */,
-				3A01B51B164A315300F78822 /* ASIS3RequestTests.m */,
-				3A01B51C164A315300F78822 /* ASITestCase.h */,
-				3A01B51D164A315300F78822 /* ASITestCase.m */,
-				3A01B51E164A315300F78822 /* ASIWebPageRequestTests.h */,
-				3A01B51F164A315300F78822 /* ASIWebPageRequestTests.m */,
-				3A01B520164A315300F78822 /* BlocksTests.h */,
-				3A01B521164A315300F78822 /* BlocksTests.m */,
-				3A01B522164A315300F78822 /* ClientCertificateTests.h */,
-				3A01B523164A315300F78822 /* ClientCertificateTests.m */,
-				3A01B524164A315300F78822 /* GHUnitTestMain.m */,
-				3A01B525164A315300F78822 /* PerformanceTests.h */,
-				3A01B526164A315300F78822 /* PerformanceTests.m */,
-				3A01B527164A315300F78822 /* ProxyTests.h */,
-				3A01B528164A315300F78822 /* ProxyTests.m */,
-				3A01B529164A315300F78822 /* StressTests.h */,
-				3A01B52A164A315300F78822 /* StressTests.m */,
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		3A01B52B164A315300F78822 /* SBJson */ = {
@@ -1612,6 +1550,91 @@
 			path = RegistrationView;
 			sourceTree = "<group>";
 		};
+		3A13AF911883A4BD00A35771 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				3A13AF921883A4BD00A35771 /* cicloton.jpg */,
+				3A13AF931883A4BD00A35771 /* paseo_dominical.jpg */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
+		3A13AF991883CEFB00A35771 /* TripMarkers */ = {
+			isa = PBXGroup;
+			children = (
+				3A13AF9A1883CEFB00A35771 /* Markers */,
+				3A13AFA41883CEFB00A35771 /* Transports */,
+			);
+			path = TripMarkers;
+			sourceTree = "<group>";
+		};
+		3A13AF9A1883CEFB00A35771 /* Markers */ = {
+			isa = PBXGroup;
+			children = (
+				3A13B0021883D37400A35771 /* finish_flag_marker.png */,
+				3A13B0031883D37400A35771 /* finish_flag_marker@2x.png */,
+				3A13AFF01883CF8F00A35771 /* ambulance_marker@2x.png */,
+				3A13AFF11883CF8F00A35771 /* bike_lending_marker@2x.png */,
+				3A13AFF21883CF8F00A35771 /* cycling_learning_marker@2x.png */,
+				3A13AFF31883CF8F00A35771 /* free_grouped_services_marker@2x.png */,
+				3A13AFF41883CF8F00A35771 /* grouped_services_marker@2x.png */,
+				3A13AFF51883CF8F00A35771 /* km_mark_marker@2x.png */,
+				3A13AFF61883CF8F00A35771 /* paramedic_marker@2x.png */,
+				3A13AFF71883CF8F00A35771 /* service_station_marker@2x.png */,
+				3A13AFF81883CF8F00A35771 /* start_flag_marker@2x.png */,
+				3A13AF9B1883CEFB00A35771 /* ambulance_marker.png */,
+				3A13AF9C1883CEFB00A35771 /* bike_lending_marker.png */,
+				3A13AF9D1883CEFB00A35771 /* cycling_learning_marker.png */,
+				3A13AF9E1883CEFB00A35771 /* free_grouped_services_marker.png */,
+				3A13AF9F1883CEFB00A35771 /* grouped_services_marker.png */,
+				3A13AFA01883CEFB00A35771 /* km_mark_marker.png */,
+				3A13AFA11883CEFB00A35771 /* paramedic_marker.png */,
+				3A13AFA21883CEFB00A35771 /* service_station_marker.png */,
+				3A13AFA31883CEFB00A35771 /* start_flag_marker.png */,
+			);
+			path = Markers;
+			sourceTree = "<group>";
+		};
+		3A13AFA41883CEFB00A35771 /* Transports */ = {
+			isa = PBXGroup;
+			children = (
+				3A13AFA51883CEFB00A35771 /* metro_aculco.png */,
+				3A13AFA61883CEFB00A35771 /* metro_allende.png */,
+				3A13AFA71883CEFB00A35771 /* metro_bellas_artes.png */,
+				3A13AFA81883CEFB00A35771 /* metro_chapultepec.png */,
+				3A13AFA91883CEFB00A35771 /* metro_fray_servando.png */,
+				3A13AFAA1883CEFB00A35771 /* metro_garibaldi.png */,
+				3A13AFAB1883CEFB00A35771 /* metro_hidalgo.png */,
+				3A13AFAC1883CEFB00A35771 /* metro_juarez.png */,
+				3A13AFAD1883CEFB00A35771 /* metro_misterios.png */,
+				3A13AFAE1883CEFB00A35771 /* metro_mixcoac.png */,
+				3A13AFAF1883CEFB00A35771 /* metro_mixiuhca.png */,
+				3A13AFB01883CEFB00A35771 /* metro_patriotismo.png */,
+				3A13AFB11883CEFB00A35771 /* metro_pino_suarez.png */,
+				3A13AFB21883CEFB00A35771 /* metro_san_antonio.png */,
+				3A13AFB31883CEFB00A35771 /* metro_san_juan_de_letran.png */,
+				3A13AFB41883CEFB00A35771 /* metro_sevilla.png */,
+				3A13AFB51883CEFB00A35771 /* metro_velodromo.png */,
+				3A13AFB61883CEFB00A35771 /* metro_villa_basilica.png */,
+				3A13AFB71883CEFB00A35771 /* metro_zocalo.png */,
+				3A13AFB81883CEFB00A35771 /* metrobus_bellas_artes.png */,
+				3A13AFB91883CEFB00A35771 /* metrobus_churubusco.png */,
+				3A13AFBA1883CEFB00A35771 /* metrobus_eje_central.png */,
+				3A13AFBB1883CEFB00A35771 /* metrobus_glorieta_de_colon.png */,
+				3A13AFBC1883CEFB00A35771 /* metrobus_goma.png */,
+				3A13AFBD1883CEFB00A35771 /* metrobus_hamburgo.png */,
+				3A13AFBE1883CEFB00A35771 /* metrobus_hidalgo.png */,
+				3A13AFBF1883CEFB00A35771 /* metrobus_isabel_la_catolica.png */,
+				3A13AFC01883CEFB00A35771 /* metrobus_las_cruces_norte.png */,
+				3A13AFC11883CEFB00A35771 /* metrobus_museo_de_la_ciudad.png */,
+				3A13AFC21883CEFB00A35771 /* metrobus_patriotismo.png */,
+				3A13AFC31883CEFB00A35771 /* metrobus_reforma.png */,
+				3A13AFC41883CEFB00A35771 /* metrobus_republica_del_salvador.png */,
+				3A13AFC51883CEFB00A35771 /* metrobus_teatro_del_pueblo.png */,
+			);
+			path = Transports;
+			sourceTree = "<group>";
+		};
 		3A1A2A921879F38800AF298C /* OnProfileView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1667,6 +1690,13 @@
 				3A47594E17D0EC1100A524C5 /* LayersDelegate.h */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		3A4A6C39188298A300C8C3B9 /* OnActivitiesView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OnActivitiesView;
 			sourceTree = "<group>";
 		};
 		3A5C3BD21669B2F1009DDA1C /* FirstAccessControllers */ = {
@@ -1742,6 +1772,7 @@
 		3A9547C3186D44EF00428DF7 /* POIs */ = {
 			isa = PBXGroup;
 			children = (
+				3A13AF991883CEFB00A35771 /* TripMarkers */,
 				3AEAF1C01870B0C300003668 /* ShareView */,
 				3AEAF1B618708F3E00003668 /* ModifyingPOIView */,
 				3A9547C4186D44EF00428DF7 /* Icons */,
@@ -1780,6 +1811,8 @@
 		3A9547CB186D44EF00428DF7 /* Markers */ = {
 			isa = PBXGroup;
 			children = (
+				3A13AF8818839C8D00A35771 /* trip_marker.png */,
+				3A13AF8918839C8D00A35771 /* trip_marker@2x.png */,
 				3ACFA1321881BE4C008700C0 /* cycling_group_marker.png */,
 				3ACFA1331881BE4C008700C0 /* cycling_group_marker@2x.png */,
 				3A6BE527187C8D6E00200A87 /* cycle_path_marker.png */,
@@ -1825,6 +1858,8 @@
 			children = (
 				3A44F4CC1879573D007E8AB5 /* MapViewCompanionManager.h */,
 				3A44F4CD1879573D007E8AB5 /* MapViewCompanionManager.m */,
+				3AB2448918864F79000C09EB /* TripsManager.h */,
+				3AB2448A18864F79000C09EB /* TripsManager.m */,
 			);
 			path = MapViewController;
 			sourceTree = "<group>";
@@ -1843,8 +1878,6 @@
 		3AC7B2B2164CD92E008A3B58 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3AC7B2B3164CD96B008A3B58 /* Authenticator.h */,
-				3AC7B2B4164CD96B008A3B58 /* Authenticator.m */,
 				3AC7B2BE164CE521008A3B58 /* AuthenticatorDelegate.h */,
 				3A4DD92F1867E613009506F0 /* UIViewController+Helpers.h */,
 				3A4DD9301867E613009506F0 /* UIViewController+Helpers.m */,
@@ -1884,6 +1917,12 @@
 				3A52EADF1881E8B20068BD36 /* CyclingGroupView.xib */,
 				3ACFA1371881C6D6008700C0 /* CyclingGroupView.h */,
 				3ACFA1381881C6D6008700C0 /* CyclingGroupView.m */,
+				3A13AF8C18839E6300A35771 /* TripView.h */,
+				3A13AF8D18839E6300A35771 /* TripView.m */,
+				3A13AF8F18839E7600A35771 /* TripView.xib */,
+				3A91E0521884A712009DBD83 /* TripPoiView.xib */,
+				3A91E0541884A8F0009DBD83 /* TripPoiView.h */,
+				3A91E0551884A8F0009DBD83 /* TripPoiView.m */,
 			);
 			path = OnMapView;
 			sourceTree = "<group>";
@@ -2016,6 +2055,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A9547D7186D44EF00428DF7 /* venue_provided_icon@2x.png in Resources */,
+				3A13B0051883D37400A35771 /* finish_flag_marker@2x.png in Resources */,
 				3A01B4A3164A2F6E00F78822 /* Default.png in Resources */,
 				3A785A1517D46D0B00D1B6F6 /* section_map_icon.png in Resources */,
 				3A4BA32F186E7A7D00F7531E /* end_route_marker.png in Resources */,
@@ -2023,12 +2063,16 @@
 				3A9547AD186CBE1000428DF7 /* like_icon@2x.png in Resources */,
 				3A045C3017D3B7E400E15944 /* layer_mode.png in Resources */,
 				3A08AD2818725B7400E79AA5 /* cell_phone_icon.png in Resources */,
+				3A13AFE01883CEFB00A35771 /* metro_villa_basilica.png in Resources */,
+				3A653E5718833DB3002B9AA6 /* list_button@2x.png in Resources */,
 				3A01B4A5164A2F6E00F78822 /* Default@2x.png in Resources */,
 				3ACF4F421871138600A46E33 /* POIChooserOverlayView.xib in Resources */,
 				3A9547AA186CBE1000428DF7 /* dislike_icon.png in Resources */,
+				3A653E5618833DB3002B9AA6 /* list_button.png in Resources */,
 				3A060C8117D2BE3200E006C0 /* settings_gadgets_icon@2x.png in Resources */,
 				3A01B4A7164A2F6E00F78822 /* Default-568h@2x.png in Resources */,
 				3A9547DB186D44EF00428DF7 /* urban_mobiliary_marker@2x.png in Resources */,
+				3A13B0011883CF8F00A35771 /* start_flag_marker@2x.png in Resources */,
 				3A01B585164A329D00F78822 /* urls.plist in Resources */,
 				3A2A2026186C1B1900FF7C59 /* favorited_icon@2x.png in Resources */,
 				3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */,
@@ -2040,17 +2084,20 @@
 				3A4E5F26186DEC0100D818ED /* bike_sharing_yellow_marker.png in Resources */,
 				3A9DE7F7186F4EFD00C95812 /* start_route_icon@2x.png in Resources */,
 				3A1A2AAB187A1F2B00AF298C /* favorites_icon_big@2x.png in Resources */,
+				3A13AFC81883CEFB00A35771 /* cycling_learning_marker.png in Resources */,
 				181534C417B1644A009FE8CB /* gothamrndbook.ttf in Resources */,
 				3A0F9C10187FF13D002CEC9D /* CyclePathView.xib in Resources */,
 				18EE967117D5053900923EC6 /* check@2x.png in Resources */,
 				3AE6B4B917CDD11900923D15 /* icon57.png in Resources */,
 				3ACFA12F1881BE05008700C0 /* cycle_path_icon@2x.png in Resources */,
 				3A9547FC186D5EB400428DF7 /* workshop_marker@2x.png in Resources */,
+				3A91E0531884A712009DBD83 /* TripPoiView.xib in Resources */,
 				3A5382FD18701068006346AE /* return_button.png in Resources */,
 				3ACF4F3E1871138600A46E33 /* CyclestationUIView.xib in Resources */,
 				3A060C9017D2DC2C00E006C0 /* drag_to_back@2x.png in Resources */,
 				3A9547F3186D47E600428DF7 /* danger_icon@2x.png in Resources */,
 				181534C517B1644A009FE8CB /* gothamrndlight.ttf in Resources */,
+				3A13AFEC1883CEFB00A35771 /* metrobus_patriotismo.png in Resources */,
 				3A4BA330186E7A7D00F7531E /* end_route_marker@2x.png in Resources */,
 				3A9547FB186D5EB400428DF7 /* workshop_marker.png in Resources */,
 				3A1A2AA3187A0D3F00AF298C /* ActivityViewController.xib in Resources */,
@@ -2066,25 +2113,31 @@
 				3A6BE52A187C8D6E00200A87 /* cycle_path_marker@2x.png in Resources */,
 				3A045C3417D3D1AC00E15944 /* groups_mode.png in Resources */,
 				181534CE17B1645F009FE8CB /* blue_gradient_iphone@2x.png in Resources */,
+				3A13AFD51883CEFB00A35771 /* metro_hidalgo.png in Resources */,
 				3A060C8517D2BE3200E006C0 /* settings_map_icon@2x.png in Resources */,
+				3A13AFE31883CEFB00A35771 /* metrobus_churubusco.png in Resources */,
 				3A2A2028186C1B1900FF7C59 /* non_favorited_icon@2x.png in Resources */,
 				181534CF17B1645F009FE8CB /* pin.png in Resources */,
 				181534D017B1645F009FE8CB /* pin@2x.png in Resources */,
 				3A045C3117D3B7E400E15944 /* layer_mode@2x.png in Resources */,
+				3A13AFC91883CEFB00A35771 /* free_grouped_services_marker.png in Resources */,
 				3A73F54A17B3513E00FA7A71 /* explore.png in Resources */,
 				3A4DD93818680917009506F0 /* navbar_back_7.png in Resources */,
 				3A73F54B17B3513E00FA7A71 /* explore@2x.png in Resources */,
 				3A73F54C17B3513E00FA7A71 /* login.png in Resources */,
 				3ACFA1351881BE4C008700C0 /* cycling_group_marker@2x.png in Resources */,
 				3A9DE80F186FADFB00C95812 /* wikicleta_pin.png in Resources */,
+				3A13AFE71883CEFB00A35771 /* metrobus_hamburgo.png in Resources */,
 				3A73F54D17B3513E00FA7A71 /* login@2x.png in Resources */,
 				3A73F54E17B3513E00FA7A71 /* join.png in Resources */,
 				3A73F54F17B3513E00FA7A71 /* join@2x.png in Resources */,
+				3A13AF951883A4BD00A35771 /* paseo_dominical.jpg in Resources */,
 				3ACFA1251881B3FA008700C0 /* cycling_groups_layers@2x.png in Resources */,
 				3AD1C3DA186B8B24005BEA3C /* bottom_triangle.png in Resources */,
 				3A73F55517B3600400FA7A71 /* GoogleMaps.bundle in Resources */,
 				3A954810186D6C3400428DF7 /* telephone_icon@2x.png in Resources */,
 				3AC3AD3E18716AA40054732A /* upload_icon.png in Resources */,
+				3A13AFE21883CEFB00A35771 /* metrobus_bellas_artes.png in Resources */,
 				1807475B17B4525E00A04D61 /* menu_button.png in Resources */,
 				1807475C17B4525E00A04D61 /* menu_button@2x.png in Resources */,
 				3A060C8217D2BE3200E006C0 /* settings_location_icon.png in Resources */,
@@ -2092,14 +2145,18 @@
 				3A5382FE18701068006346AE /* return_button@2x.png in Resources */,
 				1807475F17B4525E00A04D61 /* share_button.png in Resources */,
 				3A1A2AB0187A229D00AF298C /* FavoritesViewController.xib in Resources */,
+				3A13AFD71883CEFB00A35771 /* metro_misterios.png in Resources */,
 				3AD1C3DB186B8B24005BEA3C /* bottom_triangle@2x.png in Resources */,
 				3A4E5F2B186DED9100D818ED /* cycle_stations_layers@2x.png in Resources */,
 				3AD40E19186ADA88000F84E3 /* join_menu@2x.png in Resources */,
 				3ACF4F5D18715A5800A46E33 /* EditTipViewController.xib in Resources */,
+				3A13AFFA1883CF8F00A35771 /* bike_lending_marker@2x.png in Resources */,
+				3A13AFCC1883CEFB00A35771 /* paramedic_marker.png in Resources */,
 				3A2A2025186C1B1900FF7C59 /* favorited_icon.png in Resources */,
 				1807476017B4525E00A04D61 /* share_button@2x.png in Resources */,
 				3A4BA331186E7A7D00F7531E /* start_route_marker.png in Resources */,
 				3A4E5F22186DEC0100D818ED /* bike_sharing_green_marker.png in Resources */,
+				3A13AFD11883CEFB00A35771 /* metro_bellas_artes.png in Resources */,
 				3A9547BF186D0C5300428DF7 /* profile_placeholder@2x.png in Resources */,
 				3A9547F4186D47E600428DF7 /* sightseeing_icon.png in Resources */,
 				3A4E5F25186DEC0100D818ED /* bike_sharing_red_marker@2x.png in Resources */,
@@ -2113,7 +2170,9 @@
 				3A785A1617D46D0B00D1B6F6 /* section_map_icon@2x.png in Resources */,
 				3A08AD341872832000E79AA5 /* EditWorkshopInfoContactViewController.xib in Resources */,
 				3A4DD93718680917009506F0 /* navbar_back@2x.png in Resources */,
+				3A13AFD61883CEFB00A35771 /* metro_juarez.png in Resources */,
 				3ACF4F5818715A2600A46E33 /* EditParkingViewController.xib in Resources */,
+				3A13AFC71883CEFB00A35771 /* bike_lending_marker.png in Resources */,
 				1807476B17B62A1F00A04D61 /* logo.png in Resources */,
 				3A9547DA186D44EF00428DF7 /* urban_mobiliary_marker.png in Resources */,
 				3A9547E6186D47D700428DF7 /* danger_marker.png in Resources */,
@@ -2124,24 +2183,34 @@
 				1807476C17B62A1F00A04D61 /* logo@2x.png in Resources */,
 				3A9547D2186D44EF00428DF7 /* government_provided_icon.png in Resources */,
 				3A9547D3186D44EF00428DF7 /* government_provided_icon@2x.png in Resources */,
+				3A13AF8B18839C8D00A35771 /* trip_marker@2x.png in Resources */,
 				3AE6B4BA17CDD11900923D15 /* icon114.png in Resources */,
+				3A13AFE51883CEFB00A35771 /* metrobus_glorieta_de_colon.png in Resources */,
 				3A14D97917B6BCF2007E16FA /* Localizable.strings in Resources */,
 				3AEAF1B918708F3E00003668 /* return_icon.png in Resources */,
 				18EE967817D52AD000923EC6 /* orange_set.png in Resources */,
+				3A13AFDF1883CEFB00A35771 /* metro_velodromo.png in Resources */,
 				3ACFA1301881BE05008700C0 /* cycling_group_icon.png in Resources */,
 				3A9547D9186D44EF00428DF7 /* government_provided_marker@2x.png in Resources */,
 				3A4DD93918680917009506F0 /* navbar_back_7@2x.png in Resources */,
 				3A9547F1186D47E600428DF7 /* alert_icon@2x.png in Resources */,
+				3A13AFDA1883CEFB00A35771 /* metro_patriotismo.png in Resources */,
 				3A785A2017D46F1200D1B6F6 /* next.png in Resources */,
 				3ACF4F441871138600A46E33 /* RouteUIView.xib in Resources */,
 				3A9DE803186F901C00C95812 /* LayerItemView.xib in Resources */,
 				3ACEA0EC17B7FD8600EE1B92 /* map_menu.png in Resources */,
+				3A13AFD01883CEFB00A35771 /* metro_allende.png in Resources */,
+				3A13AFE41883CEFB00A35771 /* metrobus_eje_central.png in Resources */,
+				3A13AFCA1883CEFB00A35771 /* grouped_services_marker.png in Resources */,
 				3ACEA0ED17B7FD8600EE1B92 /* map_menu@2x.png in Resources */,
 				3AD40E15186AD6DE000F84E3 /* events_menu@2x.png in Resources */,
 				183F0C3817CD0646006B4F54 /* discover_menu@2x.png in Resources */,
 				3AC2292217CB2DF800E76E96 /* MainMenuViewController.xib in Resources */,
+				3A13AFEB1883CEFB00A35771 /* metrobus_museo_de_la_ciudad.png in Resources */,
 				3A52EAE31881EC860068BD36 /* cycling_group_logo.png in Resources */,
+				3A13AFD81883CEFB00A35771 /* metro_mixcoac.png in Resources */,
 				3A9547DD186D44EF00428DF7 /* venue_provided_marker@2x.png in Resources */,
+				3A13AFEE1883CEFB00A35771 /* metrobus_republica_del_salvador.png in Resources */,
 				3A4E5F23186DEC0100D818ED /* bike_sharing_green_marker@2x.png in Resources */,
 				18EE967017D5053900923EC6 /* check.png in Resources */,
 				3AC2291917CB250000E76E96 /* LandingViewController.xib in Resources */,
@@ -2150,7 +2219,9 @@
 				3A785A2117D46F1200D1B6F6 /* next@2x.png in Resources */,
 				3A4E5F2A186DED9100D818ED /* cycle_stations_layers.png in Resources */,
 				180E328017B932E600322194 /* profile_menu@2x.png in Resources */,
+				3A13AFCF1883CEFB00A35771 /* metro_aculco.png in Resources */,
 				180E328317B93C5400322194 /* gear_menu.png in Resources */,
+				3A653E5318833728002B9AA6 /* trips_layers@2x.png in Resources */,
 				3ACFA1311881BE05008700C0 /* cycling_group_icon@2x.png in Resources */,
 				3A045C3517D3D1AC00E15944 /* groups_mode@2x.png in Resources */,
 				3ACFA1241881B3FA008700C0 /* cycling_groups_layers.png in Resources */,
@@ -2158,6 +2229,7 @@
 				18EE967617D52AD000923EC6 /* blue_set.png in Resources */,
 				3A9547E7186D47D700428DF7 /* danger_marker@2x.png in Resources */,
 				3A44F4CB187907E4007E8AB5 /* ProfileViewController.xib in Resources */,
+				3A13AFD21883CEFB00A35771 /* metro_chapultepec.png in Resources */,
 				180E328417B93C5400322194 /* gear_menu@2x.png in Resources */,
 				180E328B17B93FE300322194 /* gear_menu_selected.png in Resources */,
 				3A2A2027186C1B1900FF7C59 /* non_favorited_icon.png in Resources */,
@@ -2169,35 +2241,59 @@
 				180E328C17B93FE300322194 /* gear_menu_selected@2x.png in Resources */,
 				3A4A6C3818827C9700C8C3B9 /* CyclingGroupViewController.xib in Resources */,
 				3A9547E8186D47D700428DF7 /* sightseeing_marker.png in Resources */,
+				3A13AFCE1883CEFB00A35771 /* start_flag_marker.png in Resources */,
 				3A9547AB186CBE1000428DF7 /* dislike_icon@2x.png in Resources */,
+				3A13AF8A18839C8D00A35771 /* trip_marker.png in Resources */,
 				3AD40E14186AD6DE000F84E3 /* events_menu.png in Resources */,
+				3A13AFDC1883CEFB00A35771 /* metro_san_antonio.png in Resources */,
 				3A08AD2C18725B7400E79AA5 /* twitter_icon.png in Resources */,
+				3A653E5218833728002B9AA6 /* trips_layers.png in Resources */,
+				3A13AFFF1883CF8F00A35771 /* paramedic_marker@2x.png in Resources */,
 				3AEAF1BA18708F3E00003668 /* return_icon@2x.png in Resources */,
+				3A13AFD41883CEFB00A35771 /* metro_garibaldi.png in Resources */,
 				3A08AD2918725B7400E79AA5 /* cell_phone_icon@2x.png in Resources */,
+				3A13AFCB1883CEFB00A35771 /* km_mark_marker.png in Resources */,
 				3A954806186D6B3F00428DF7 /* twitter_icon@2x.png in Resources */,
 				3A9547D4186D44EF00428DF7 /* urban_mobiliary_icon.png in Resources */,
 				3A06B8A11866BE76001C927F /* hand.png in Resources */,
+				3A13B0001883CF8F00A35771 /* service_station_marker@2x.png in Resources */,
 				3A06B8A21866BE76001C927F /* hand@2x.png in Resources */,
 				3A95480E186D6C3400428DF7 /* cell_phone_icon@2x.png in Resources */,
 				3A060C8317D2BE3200E006C0 /* settings_location_icon@2x.png in Resources */,
 				3AE6B4BB17CDD11900923D15 /* icon120.png in Resources */,
 				3A08AD2F18725B7400E79AA5 /* website_icon@2x.png in Resources */,
+				3A13AFD91883CEFB00A35771 /* metro_mixiuhca.png in Resources */,
 				3A954808186D6B3F00428DF7 /* website_icon@2x.png in Resources */,
+				3A13AFE81883CEFB00A35771 /* metrobus_hidalgo.png in Resources */,
+				3A13AFFC1883CF8F00A35771 /* free_grouped_services_marker@2x.png in Resources */,
 				3A1A2A8E1879DA5B00AF298C /* OverlayMapMessageView.xib in Resources */,
 				3A9547F2186D47E600428DF7 /* danger_icon.png in Resources */,
+				3A13AF9018839E7600A35771 /* TripView.xib in Resources */,
 				3A954807186D6B3F00428DF7 /* website_icon.png in Resources */,
+				3A13AFF91883CF8F00A35771 /* ambulance_marker@2x.png in Resources */,
 				3A9547E5186D47D700428DF7 /* alert_marker@2x.png in Resources */,
 				3A52EAEB18820CD00068BD36 /* facebook_icon.png in Resources */,
 				3A4BA335186EC72D00F7531E /* attach_icon.png in Resources */,
 				3A060C7617D2AE5200E006C0 /* UzysSMMenuItemView.xib in Resources */,
+				3A13AF941883A4BD00A35771 /* cicloton.jpg in Resources */,
 				3A9547BE186D0C5300428DF7 /* profile_placeholder.png in Resources */,
+				3A13AFEF1883CEFB00A35771 /* metrobus_teatro_del_pueblo.png in Resources */,
+				3A13AFDD1883CEFB00A35771 /* metro_san_juan_de_letran.png in Resources */,
+				3A13AFCD1883CEFB00A35771 /* service_station_marker.png in Resources */,
+				3A13AFE61883CEFB00A35771 /* metrobus_goma.png in Resources */,
+				3A13AFDE1883CEFB00A35771 /* metro_sevilla.png in Resources */,
 				180E329317B99AA600322194 /* layer_button.png in Resources */,
 				180E329417B99AA600322194 /* layer_button@2x.png in Resources */,
 				3A9547AC186CBE1000428DF7 /* like_icon.png in Resources */,
+				3A13AFEA1883CEFB00A35771 /* metrobus_las_cruces_norte.png in Resources */,
 				3A1A2A9D1879F4F500AF298C /* favorites_icon.png in Resources */,
+				3A13AFED1883CEFB00A35771 /* metrobus_reforma.png in Resources */,
+				3A13AFFB1883CF8F00A35771 /* cycling_learning_marker@2x.png in Resources */,
 				3A5382FF18701068006346AE /* save_button.png in Resources */,
 				3A0F9C0D187FEF19002CEC9D /* cycle_path_icon.png in Resources */,
 				3A9DE7F3186F490700C95812 /* attach_icon_h@2x.png in Resources */,
+				3A13AFC61883CEFB00A35771 /* ambulance_marker.png in Resources */,
+				3A13AFD31883CEFB00A35771 /* metro_fray_servando.png in Resources */,
 				3A1A2A9C1879F4F500AF298C /* activity_icon@2x.png in Resources */,
 				3AC3AD3F18716AA40054732A /* upload_icon@2x.png in Resources */,
 				3A4E5F27186DEC0100D818ED /* bike_sharing_yellow_marker@2x.png in Resources */,
@@ -2213,15 +2309,19 @@
 				3A95480F186D6C3400428DF7 /* telephone_icon.png in Resources */,
 				3A52EAE01881E8B20068BD36 /* CyclingGroupView.xib in Resources */,
 				3AD40E18186ADA88000F84E3 /* join_menu.png in Resources */,
+				3A13AFE11883CEFB00A35771 /* metro_zocalo.png in Resources */,
 				180BD04317BAA6290080296E /* routes_layers@2x.png in Resources */,
 				180BD04417BAA6290080296E /* tips_layers.png in Resources */,
 				3A4BA332186E7A7D00F7531E /* start_route_marker@2x.png in Resources */,
 				3A95480D186D6C3400428DF7 /* cell_phone_icon.png in Resources */,
 				3A08AD2D18725B7400E79AA5 /* twitter_icon@2x.png in Resources */,
+				3A13AFFE1883CF8F00A35771 /* km_mark_marker@2x.png in Resources */,
 				18EE967717D52AD000923EC6 /* blue_set@2x.png in Resources */,
 				180BD04517BAA6290080296E /* tips_layers@2x.png in Resources */,
 				3ACF4F4D187136C700A46E33 /* SelectOnTapView.xib in Resources */,
 				3A954800186D5EBD00428DF7 /* workshop_icon@2x.png in Resources */,
+				3A13B0041883D37400A35771 /* finish_flag_marker.png in Resources */,
+				3A13AFE91883CEFB00A35771 /* metrobus_isabel_la_catolica.png in Resources */,
 				3A1A2A9B1879F4F500AF298C /* activity_icon.png in Resources */,
 				3A060C8417D2BE3200E006C0 /* settings_map_icon.png in Resources */,
 				3A4DD93618680917009506F0 /* navbar_back.png in Resources */,
@@ -2232,6 +2332,8 @@
 				3AA7E4A917CD74B800B059B3 /* Podfile in Resources */,
 				3A5382F718700D6E006346AE /* share_button.png in Resources */,
 				3AEAF1C31870B0C300003668 /* close_icon.png in Resources */,
+				3A13AFFD1883CF8F00A35771 /* grouped_services_marker@2x.png in Resources */,
+				3A13AFDB1883CEFB00A35771 /* metro_pino_suarez.png in Resources */,
 				3A9547D5186D44EF00428DF7 /* urban_mobiliary_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2302,45 +2404,25 @@
 				3A01B4AA164A2F6E00F78822 /* Wikicleta.xcdatamodeld in Sources */,
 				3A060C7417D2AE5200E006C0 /* UzysSMMenuItem.m in Sources */,
 				0C7E0B1E18516E110017CBCF /* CTARequestData.m in Sources */,
-				3A01B548164A315300F78822 /* ASIAuthenticationDialog.m in Sources */,
-				3A01B549164A315300F78822 /* ASIDataCompressor.m in Sources */,
 				3A44F4CA187907E4007E8AB5 /* ProfileViewController.m in Sources */,
-				3A01B54A164A315300F78822 /* ASIDataDecompressor.m in Sources */,
 				3A9547C2186D3F1900428DF7 /* Tip.m in Sources */,
-				3A01B54B164A315300F78822 /* ASIDownloadCache.m in Sources */,
-				3A01B54C164A315300F78822 /* ASIFormDataRequest.m in Sources */,
 				3A4A6C3718827C9700C8C3B9 /* CyclingGroupViewController.m in Sources */,
-				3A01B54D164A315300F78822 /* ASIHTTPRequest.m in Sources */,
 				3A4E5F2E186E192C00D818ED /* Route.m in Sources */,
-				3A01B54E164A315300F78822 /* ASIInputStream.m in Sources */,
 				3A08AD1E187254E300E79AA5 /* EditWorkshopViewController.m in Sources */,
-				3A01B54F164A315300F78822 /* ASINetworkQueue.m in Sources */,
 				3A4DD9311867E613009506F0 /* UIViewController+Helpers.m in Sources */,
+				3A13AF871883998300A35771 /* TripPoi.m in Sources */,
 				3A06B89B1866BCE9001C927F /* LoginViewController.m in Sources */,
 				0C7E0B2118516EF60017CBCF /* CTARequest.m in Sources */,
-				3A01B550164A315300F78822 /* ASICloudFilesCDNRequest.m in Sources */,
+				3AB2448B18864F79000C09EB /* TripsManager.m in Sources */,
 				3ACFA1391881C6D6008700C0 /* CyclingGroupView.m in Sources */,
-				3A01B551164A315300F78822 /* ASICloudFilesContainer.m in Sources */,
 				3AC2291D17CB2BF800E76E96 /* MenuListViewController.m in Sources */,
 				3ACF4F47187135C500A46E33 /* WikiMarker.m in Sources */,
-				3A01B552164A315300F78822 /* ASICloudFilesContainerRequest.m in Sources */,
-				3A01B553164A315300F78822 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				3A9547A4186CAA3A00428DF7 /* MarkerDetailsViewController.m in Sources */,
 				3ACF4F431871138600A46E33 /* RouteUIView.m in Sources */,
-				3A01B554164A315300F78822 /* ASICloudFilesObject.m in Sources */,
 				3ACF4F3D1871138600A46E33 /* CyclestationUIView.m in Sources */,
-				3A01B555164A315300F78822 /* ASICloudFilesObjectRequest.m in Sources */,
-				3A01B556164A315300F78822 /* ASICloudFilesRequest.m in Sources */,
-				3A01B557164A315300F78822 /* Reachability.m in Sources */,
-				3A01B558164A315300F78822 /* ASIS3Bucket.m in Sources */,
-				3A01B559164A315300F78822 /* ASIS3BucketObject.m in Sources */,
-				3A01B55A164A315300F78822 /* ASIS3BucketRequest.m in Sources */,
-				3A01B55B164A315300F78822 /* ASIS3ObjectRequest.m in Sources */,
-				3A01B55C164A315300F78822 /* ASIS3Request.m in Sources */,
 				3A4DD93C18681E77009506F0 /* UITextField+UIPlus.m in Sources */,
 				3ACFA12B1881B5E1008700C0 /* CyclingGroup.m in Sources */,
 				3A1A2A951879F3B100AF298C /* OnProfileSectionView.m in Sources */,
-				3A01B55D164A315300F78822 /* ASIS3ServiceRequest.m in Sources */,
 				3A01B56D164A315300F78822 /* NSObject+SBJson.m in Sources */,
 				3A0F9C13187FF247002CEC9D /* CyclePathView.m in Sources */,
 				3A01B56E164A315300F78822 /* SBJsonParser.m in Sources */,
@@ -2358,8 +2440,9 @@
 				3A01B578164A315300F78822 /* SBJsonWriter.m in Sources */,
 				3A01B579164A315300F78822 /* UIColor-Expanded.m in Sources */,
 				3A01B581164A321500F78822 /* App.m in Sources */,
-				3AC7B2B5164CD96B008A3B58 /* Authenticator.m in Sources */,
 				3ACF4F411871138600A46E33 /* POIChooserOverlayView.m in Sources */,
+				3A13AF8E18839E6300A35771 /* TripView.m in Sources */,
+				3A13AF841883903800A35771 /* Trip.m in Sources */,
 				3AE7A44A16693BFA006F251D /* MapViewController.m in Sources */,
 				0C7E0B2418516F770017CBCF /* CTANetWorking.m in Sources */,
 				3A5C3BD61669B310009DDA1C /* RegistrationViewController.m in Sources */,
@@ -2385,6 +2468,7 @@
 				1863D53B17B04B3A007E7460 /* AKCornerRadiusImageEffect.m in Sources */,
 				1863D53C17B04B3A007E7460 /* AKDrawingUtilities.m in Sources */,
 				3A9547F8186D50FF00428DF7 /* Workshop.m in Sources */,
+				3A91E0561884A8F0009DBD83 /* TripPoiView.m in Sources */,
 				3A893CFC1869306500638217 /* FormBaseViewController.m in Sources */,
 				1863D53D17B04B3A007E7460 /* AKFileManager.m in Sources */,
 				1863D53E17B04B3A007E7460 /* AKGradientImageEffect.m in Sources */,

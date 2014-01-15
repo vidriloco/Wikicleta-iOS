@@ -86,6 +86,7 @@
 //Layers Menu
 "layers_menu_title" = "Capas";
 "routes_layers" = "rutas";
+"trips_layers" = "paseos";
 "parkings_layers" = "estacionamientos de bicis";
 "bicycle_lanes_layers" = "ciclovias";
 "workshops_layers" = "talleres y tiendas";
@@ -184,3 +185,18 @@
 "days_to_event_unknown" = "Fecha desconocida";
 
 "not_available" = "No disponible";
+
+// TripPoi categories
+"bike_lending" = "Préstamo de bicis";
+"service_station" = "Estación de servicio";
+"ambulance" = "Ambulancia";
+"paramedic" = "Paramédico";
+"direction_mark" = "Marca de dirección";
+"km_mark" = "Kilómetro";
+"transport_connection" = "Estación de transporte";
+"sightseeing" = "Punto que ver";
+"start_flag" = "Inicio de recorrido";
+"finish_flag" = "Final de recorrido";
+"grouped_services" = "Servicios";
+"cycling_learning" = "Escuela ciclista";
+"free_grouped_services" = "Servicios gratuitos";

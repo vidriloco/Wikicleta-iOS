@@ -71,6 +71,16 @@
     
     [controller.view addSubview:controller.shareButton];
     
+    // ShowList button (disabled now)
+    /*UIImage *listImage = [UIImage imageNamed:@"list_button.png"];
+    controller.showListButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-listImage.size.width-marginUnit*2,
+                                                                        [App viewBounds].size.height-listImage.size.height-marginUnit*2.5,
+                                                                        listImage.size.width, listImage.size.height)];
+    [controller.showListButton setBackgroundImage:listImage forState:UIControlStateNormal];
+    [controller.showListButton addTarget:controller action:@selector(toggleListViewControls) forControlEvents:UIControlEventTouchUpInside];
+    
+    [controller.view addSubview:controller.showListButton];*/
+    
     UIImage *saveImage = [UIImage imageNamed:@"save_button.png"];
     controller.saveButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-saveImage.size.width-10,
                                                             [App viewBounds].size.height-saveImage.size.height-marginUnit*2.5,
@@ -150,7 +160,7 @@
         NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
         if ([[response objectForKey:@"success"] boolValue]) {
             NSArray *path = [[response objectForKey:@"route"] objectForKey:@"path"];
-            GMSPolyline *polyline = [self drawPolyline:path withColor:[LookAndFeel blueColor] withStroke:7.0f];
+            GMSPolyline *polyline = [self buildPolyline:path withColor:[LookAndFeel blueColor] withStroke:7.0f];
             [self deselectSelectedRoutePath];
             controller.selectedRoutePath = polyline;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -164,13 +174,19 @@
     return routeView;
 }
 
-- (GMSPolyline*) drawPolyline:(NSArray*) polyline withColor:(UIColor *)color withStroke:(float)stroke
+// Momentary fix for trips service returning inverted coordinates components
+- (GMSPolyline*) buildPolyline:(NSArray*) polyline withColor:(UIColor*)color withStroke:(float)stroke withCoordsInversion:(BOOL)coordsInversion
 {
     GMSMutablePath *path = [GMSMutablePath path];
+    
     for (NSArray *pair in polyline) {
-        double lat = [[pair objectAtIndex:0] doubleValue];
-        double lon = [[pair objectAtIndex:1] doubleValue];
-        [path addCoordinate:CLLocationCoordinate2DMake(lon, lat)];
+        double lon = [[pair objectAtIndex:0] doubleValue];
+        double lat = [[pair objectAtIndex:1] doubleValue];
+        if (coordsInversion) {
+            [path addCoordinate:CLLocationCoordinate2DMake(lon, lat)];
+        } else {
+            [path addCoordinate:CLLocationCoordinate2DMake(lat, lon)];
+        }
     }
     
     GMSPolyline *newRoutePath = [GMSPolyline polylineWithPath:path];
@@ -178,6 +194,12 @@
     newRoutePath.strokeWidth = stroke;
     newRoutePath.geodesic = YES;
     return newRoutePath;
+
+}
+
+- (GMSPolyline*) buildPolyline:(NSArray*) polyline withColor:(UIColor *)color withStroke:(float)stroke
+{
+    return [self buildPolyline:polyline withColor:color withStroke:stroke withCoordsInversion:NO];
 }
 
 - (void) deselectSelectedRoutePath
@@ -204,7 +226,7 @@
         return;
     }
     controller.requestOngoing = YES;
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     // bottom == near
     CLLocationCoordinate2D sw = controller.mapView.projection.visibleRegion.nearLeft;
     NSString *swString = [NSString stringWithFormat:@"%f,%f", sw.latitude, sw.longitude];
@@ -216,7 +238,7 @@
     NSString *resourceURL = [[App urlForResource:layer withSubresource:@"get"] stringByAppendingString:viewportParams];
 
     
-    if ([layer isEqualToString:layersCyclingGroups]) {
+    if ([layer isEqualToString:layersCyclingGroups] || [layer isEqualToString:layersTrips]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setLocale:[NSLocale currentLocale]];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -242,10 +264,10 @@
             }
             controller.itemsOnMap = newItems;
         });
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     };
     
     NSString *url = [NSString stringWithFormat:resourceURL, swString, neString];
-    NSLog(url);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -290,6 +312,10 @@
                 NSArray *jsonObjects = [response objectForKey:layersCyclingGroups];
                 [CyclingGroup buildFrom:jsonObjects];
                 drawItemsOnMap([[CyclingGroup cyclingGroupsLoaded] allValues]);
+            } else if ([layer isEqualToString:layersTrips]) {
+                NSArray *jsonObjects = [response objectForKey:layersTrips];
+                [Trip buildFrom:jsonObjects];
+                drawItemsOnMap([[Trip tripsLoaded] allValues]);
             }
         }
         

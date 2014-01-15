@@ -12,7 +12,7 @@
 #import "Route.h"
 #import "CyclePathView.h"
 #import "CyclingGroup.h"
-
+#import "Trip.h"
 #define marginUnit 20
 
 
@@ -28,7 +28,8 @@
 - (UIView*) generateMarkerDetailsOverlayViewForCyclestation:(Cyclestation *)cycleStation withMarker:(GMSMarker*)marker;
 - (UIView*) generateMarkerDetailsOverlayViewForCyclepath:(CyclePath *)cyclePath withMarker:(GMSMarker*)marker;
 
-- (GMSPolyline*) drawPolyline:(NSArray*) polyline withColor:(UIColor*)color withStroke:(float)stroke;
+- (GMSPolyline*) buildPolyline:(NSArray*) polyline withColor:(UIColor*)color withStroke:(float)stroke withCoordsInversion:(BOOL)coordsInversion;
+- (GMSPolyline*) buildPolyline:(NSArray*) polyline withColor:(UIColor*)color withStroke:(float)stroke;
 - (void) deselectSelectedRoutePath;
 
 - (void) fetchLayer:(NSString *)displayLayer;

@@ -78,6 +78,7 @@
 
 // Layers Menu
 "layers_menu_title" = "Layers";
+"trips_layers" = "tours";
 "routes_layers" = "routes";
 "parkings_layers" = "parkings";
 "workshops_layers" = "fix & buy";
@@ -176,3 +177,18 @@
 "days_to_event_unknown" = "Unknown date";
 
 "not_available" = "Not available";
+
+// TripPoi categories
+"bike_lending" = "Bike sharing";
+"service_station" = "Service station";
+"ambulance" = "Ambulance";
+"paramedic" = "Physician";
+"direction_mark" = "Direction mark";
+"km_mark" = "Kilometer";
+"transport_connection" = "Transport station";
+"sightseeing" = "Sightseeing";
+"start_flag" = "Trip start";
+"finish_flag" = "Trip end";
+"grouped_services" = "Services";
+"cycling_learning" = "Cycling school";
+"free_grouped_services" = "Free Services";

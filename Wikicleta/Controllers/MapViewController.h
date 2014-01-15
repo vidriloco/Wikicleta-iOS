@@ -38,6 +38,8 @@
 #import "CyclingGroupViewController.h"
 #import "OverlayMapMessageView.h"
 #import "CyclePath.h"
+#import "TripView.h"
+#import "TripPoiView.h"
 
 #define poiDetailedZoom 17
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
@@ -47,6 +49,7 @@
 typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 
 @class MapViewCompanionManager;
+@class TripsManager;
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate> {
     NSString *activeLayer;
@@ -84,6 +87,9 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 @property (nonatomic, strong) OverlayMapMessageView *mapMessageView;
 
 @property (nonatomic) id detailsView;
+@property (nonatomic) id secondaryView;
 @property (nonatomic) BOOL requestOngoing;
 
+- (void) transitionMapToMode:(MapMode)mode;
+- (MapMode) currentMapMode;
 @end
