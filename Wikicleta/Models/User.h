@@ -35,5 +35,6 @@
 + (User*) currentUser;
 - (NSDictionary*) dictionary;
 + (NSString*) userAuthToken;
++ (BOOL) isOwnerOf:(id) object;
 
 @end

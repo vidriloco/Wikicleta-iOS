@@ -9,8 +9,13 @@
 "close" = "Cerrar";
 "new" = "Nuevo";
 "save" = "Guardar";
+"edit" = "Modificar";
+"delete" = "Eliminar";
 "save_as_draft" = "Guardar como borrador";
 "cancel" = "Cancelar";
+
+"editing_on" = "En modo editar";
+"saved_success" = "Cambios guardados";
 
 "notice_message" = "Hey!";
 "accept" = "Va";
@@ -162,6 +167,9 @@
 // Select location
 "select_location_title" = "Arrastra el mapa";
 "select_location_subtitle" = "Y coloca el pin en su ubicación final";
+
+// Update location
+"update_location_subtitle" = "Puedes actualizar la ubicación del pin";
 
 // Profile view
 "profile_your_activity" = "Tu Actividad";

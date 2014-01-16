@@ -5,13 +5,18 @@
 "new" = "New";
 "save" = "Save";
 "save_as_draft" = "Save as draft";
+"delete" = "Destroy";
 "cancel" = "Cancel";
+"edit" = "Edit";
 
 "notice_message" = "Ups!";
 "accept" = "OK";
 "all_fields_required" = "All fields are required";
 "wait_please" = "Hold on, please";
 "map" = "Map";
+
+"editing_on" = "On editing mode";
+"saved_success" = "Saved changes";
 
 "created_by" = "created by ";
 "updated_at" = "updated ";
@@ -154,6 +159,9 @@
 // Select location
 "select_location_title" = "Drag the map";
 "select_location_subtitle" = "Set the final location for the pin";
+
+// Update location
+"update_location_subtitle" = "Update the pin's location if you wish";
 
 // Profile view
 "profile_your_activity" = "Your activity";

@@ -48,6 +48,7 @@
 - (void) bringToFrontViewWithIndex:(int)index
 {
     SelectOnTapView *view = [storedCollectedViews objectAtIndex:index];
+    currentView = index;
     [self bringSubviewToFront:view];
 }
 

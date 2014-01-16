@@ -10,7 +10,7 @@
 
 @implementation MarkerInfoUIView
 
-@synthesize titleLabel, subtitleLabel, favoriteButton, leftBottomLabel, rightBottomLabel;
+@synthesize titleLabel, subtitleLabel, favoriteButton, leftBottomLabel, rightBottomLabel, editButton, editView, deleteButton;
 
 - (void) stylizeView {
     [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.9f]];
@@ -27,6 +27,24 @@
     
     [leftBottomLabel setFont:[LookAndFeel defaultFontLightWithSize:12]];
     [leftBottomLabel setTextColor:[LookAndFeel middleBlueColor]];
+    
+    [editView setBackgroundColor:[LookAndFeel orangeColor]];
+    
+    [editButton.titleLabel setFont:[LookAndFeel defaultFontBoldWithSize:14]];
+    [editButton.titleLabel setTextColor:[UIColor whiteColor]];
+    
+    [deleteButton.titleLabel setFont:[LookAndFeel defaultFontBoldWithSize:14]];
+    [deleteButton.titleLabel setTextColor:[UIColor whiteColor]];
+    
+    [deleteButton setTitle:NSLocalizedString(@"delete", nil) forState:UIControlStateNormal];
+    [editButton setTitle:NSLocalizedString(@"edit", nil) forState:UIControlStateNormal];
+
+}
+
+- (void) clearEditArea
+{
+    [editView removeFromSuperview];
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 107)];
 }
 
 @end

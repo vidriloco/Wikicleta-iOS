@@ -37,6 +37,8 @@
     if ([selectedModel isKindOfClass:[Workshop class]]) {
         [self resizeContentScrollToFit:self.contentScrollView];
     }
+    
+    [self loadRightButtonWithString:NSLocalizedString(@"edit", nil) andStringSelector:@"attemptEdit"];
 }
 
 - (void)viewDidLoad
@@ -49,6 +51,17 @@
     [[self viewDeckController] setRightController:nil];
 
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void) attemptEdit
+{
+    if ([selectedModel isKindOfClass:[Workshop class]]) {
+        EditWorkshopViewController *tipController = [[EditWorkshopViewController alloc] initWithNibName:nil bundle:nil];
+        
+        [[self navigationController]
+         pushViewController:tipController
+         animated:NO];
+    }
 }
 
 - (void) completeLoadView

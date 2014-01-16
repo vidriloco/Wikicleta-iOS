@@ -41,15 +41,17 @@
 #import "TripView.h"
 #import "TripPoiView.h"
 
-#define poiDetailedZoom 17
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
 #define minZoom 2
+#define mediumZoom 14
+#define poiDetailedZoom 17
 #define marginUnit 20
 
-typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
+typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
 
 @class MapViewCompanionManager;
 @class TripsManager;
+@class POISManager;
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate> {
     NSString *activeLayer;
@@ -58,14 +60,18 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
     UIButton *saveButton;
     UIButton *returnButton;
     UIButton *shareButton;
+    
     UIImageView * sharePin;
+    UIImageView * editSharePin;
+    
     GMSMapView *mapView;
     GMSPolyline *selectedRoutePath;
     id detailsView;
     BOOL requestOngoing;
     
     OverlayMapMessageView *mapMessageView;
-    
+    id <ModelHumanizer> currentlySelectedModel;
+
     NSArray *itemsOnMap;
 }
 
@@ -76,6 +82,7 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 @property (nonatomic, strong) UIButton *saveButton;
 @property (nonatomic, strong) UIButton *returnButton;
 @property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UIImageView * editSharePin;
 
 @property (nonatomic, strong) UIImageView * sharePin;
 
@@ -89,7 +96,15 @@ typedef enum {Share, Explore, Detail, DetailFixed} MapMode;
 @property (nonatomic) id detailsView;
 @property (nonatomic) id secondaryView;
 @property (nonatomic) BOOL requestOngoing;
+@property (nonatomic) id <ModelHumanizer> currentlySelectedModel;
 
-- (void) transitionMapToMode:(MapMode)mode;
 - (MapMode) currentMapMode;
+- (void) hideViewForMarker;
+- (MapViewCompanionManager*) mapManager;
+- (POISManager*) poisManager;
+- (void) toggleShareControls;
+- (void) transitionMapToMode:(MapMode)mode;
+- (TripsManager*) tripsManager;
+- (void) displayMapOnPOILocation:(CLLocationCoordinate2D)coordinate;
+
 @end

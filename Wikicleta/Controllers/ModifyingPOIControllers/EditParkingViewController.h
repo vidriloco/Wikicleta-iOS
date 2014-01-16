@@ -10,7 +10,10 @@
 #import "UITextView+UIPlus.h"
 #import "SelectOnTapCollectionView.h"
 #import "SelectOnTapView.h"
+#import "Parking.h"
 #import "CommonEditViewController.h"
+#import "POISManager.h"
+
 
 @interface EditParkingViewController : CommonEditViewController 
 
@@ -20,5 +23,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *parkingHasRoofLabel;
 @property (nonatomic, weak) IBOutlet UISwitch *parkingHasRoofSwitch;
 @property (nonatomic, weak) IBOutlet UITextView *parkingDescriptionTextView;
+
+- (void) fillInWithDataFrom:(Parking*)parking;
 
 @end

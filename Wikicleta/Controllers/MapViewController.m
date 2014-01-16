@@ -9,14 +9,13 @@
 #import "MapViewController.h"
 #import "MapViewCompanionManager.h"
 #import "TripsManager.h"
+#import "POISManager.h"
 
 @interface MapViewController () {
     BOOL firstLocationUpdateReceived;
     
     CLLocation *mapLastCenteredAt;
-    
-    id <ModelHumanizer> currentlySelectedModel;
-        
+            
     GMSCameraPosition *lastCamera;
         
     UIViewController *defaultLeftViewController;
@@ -25,12 +24,12 @@
 
     MapViewCompanionManager *companionObject;
     TripsManager *tripsManager;
+    POISManager *poisManager;
 }
 
 - (void) addCyclePathMarkersToMap;
 - (void) addViewForMarker:(GMSMarker*)marker;
 - (void) attachViewToggled:(id)selector;
-- (void) hideViewForMarker;
 - (void) moveToMarker:(id)selector;
 
 - (void) openLeftDock;
@@ -40,24 +39,21 @@
 - (void) presentPOIEditViewControllerForCurrentLayer;
 - (void) presentCyclingGroupViewController:(id)sender;
 - (void) synchronize;
-- (void) toggleFavorite:(id)sender;
-- (void) toggleShareControls;
-- (void) toggleListViewControls;
 - (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate;
-- (TripsManager*) tripsManager;
 
 @end
 
+// TODOs
+// Add cyclepaths manager
+// Add routes manager
 @implementation MapViewController
 
-@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap, secondaryView;
+@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap, secondaryView, currentlySelectedModel, editSharePin;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        lastCamera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                 longitude:151.20
-                                                      zoom:minZoom];
+        lastCamera = [GMSCameraPosition cameraWithLatitude:19.343 longitude:-99.112 zoom:mediumZoom];
         defaultLeftViewController = [[MainMenuViewController alloc] initWithNibName:nil bundle:nil];
         defaultRightViewController = [[LayersChooserViewController alloc] init];
         [(LayersChooserViewController*) defaultRightViewController setDelegate:self];
@@ -65,7 +61,6 @@
         companionObject = [[MapViewCompanionManager alloc] initWithMapViewController:self];
         [companionObject loadSharePinView];
         [companionObject loadMapMessageView];
-        
     }
     return self;
 }
@@ -82,7 +77,6 @@
     [companionObject loadMapButtons];
     [self transitionMapToMode:Explore];
     [self.viewDeckController setDelegate:self];
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -108,6 +102,7 @@
     });
     
     [self addCyclePathMarkersToMap];
+
 }
 
 #pragma mark - IIViewDeck delegate methods
@@ -123,6 +118,7 @@
 - (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
     if (currentMode == Detail) {
+        NSLog(@"On mode Details");
         [self hideViewForMarker];
         [self transitionMapToMode:Explore];
     }
@@ -293,6 +289,13 @@
         
         [[detailsView favoriteButton] addTarget:self action:@selector(toggleFavorite:) forControlEvents:UIControlEventTouchUpInside];
         [[detailsView moreDetailsButton] addTarget:self action:@selector(presentMarkerDetailsViewController:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if ([User isOwnerOf:[currentlySelectedModel ownerId]]) {
+            [[detailsView editButton] addTarget:[self poisManager] action:@selector(prepareMapForPOIEditing) forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            [detailsView clearEditArea];
+        }
+        
     }
     
     if (![currentlySelectedModel isKindOfClass:[Trip class]]) {
@@ -541,42 +544,45 @@
     [self.navigationController.view.layer addAnimation:transition
                                                 forKey:kCATransition];
     
-    // Prepare visual marker to aid user on location selection
-    CGPoint center = CGPointMake(sharePin.frame.origin.x+(sharePin.frame.size.width)/2, sharePin.frame.origin.y+sharePin.frame.size.height);
-    
     NSString *layer = [[activeLayer componentsSeparatedByString:@"_layers"] objectAtIndex:0];
+    
+
+    
+    CommonEditViewController *editController;
     if ([layer isEqualToString:layersWorkshops]) {
-        EditWorkshopViewController *tipController = [[EditWorkshopViewController alloc] initWithNibName:nil bundle:nil];
-        [tipController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
-        
-        [nav
-         pushViewController:tipController
-         animated:NO];
+        editController = [[EditWorkshopViewController alloc] initWithNibName:nil bundle:nil];
     } else if ([layer isEqualToString:layersParkings]) {
-        EditParkingViewController *parkingController = [[EditParkingViewController alloc] initWithNibName:nil bundle:nil];
-        [parkingController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
-        [nav
-         pushViewController:parkingController
-         animated:NO];
+        editController = [[EditParkingViewController alloc] initWithNibName:nil bundle:nil];
+        if (currentMode == EditShare) {
+            [(EditParkingViewController*) editController fillInWithDataFrom:(Parking*) currentlySelectedModel];
+        }
     } else if ([layer isEqualToString:layersTips]) {
-        EditTipViewController *tipController = [[EditTipViewController alloc] initWithNibName:nil bundle:nil];
-        [tipController setSelectedCoordinate:[[mapView projection] coordinateForPoint:center]];
-        [nav
-         pushViewController:tipController
-         animated:NO];
+        editController = [[EditTipViewController alloc] initWithNibName:nil bundle:nil];
     }
+    
+    // Prepare visual marker to aid user on location selection
+    CGPoint center;
+    if (currentMode == Share) {
+        center = CGPointMake(sharePin.frame.origin.x+(sharePin.frame.size.width)/2, sharePin.frame.origin.y+sharePin.frame.size.height);
+        [editController setCoordinate:[[mapView projection] coordinateForPoint:center] withMode:New];
+
+    } else if (currentMode == EditShare) {
+        center = CGPointMake(editSharePin.frame.origin.x+(editSharePin.frame.size.width)/2, editSharePin.frame.origin.y+editSharePin.frame.size.height);
+        [editController setCoordinate:[[mapView projection] coordinateForPoint:center] withMode:Edit];
+    }
+
+    [nav
+     pushViewController:editController
+     animated:NO];
 }
 
-/*
- *   Makes sure that the currently selected model becomes a favorite (if it is not yet) of the user, or gets unfavorited (if it was already)
- */
-- (void) toggleFavorite:(id)sender {
-    NSLog(@"Favorite for");
-}
-
-- (void) toggleListViewControls
+- (POISManager*) poisManager
 {
-    // Display list controller
+    if (poisManager == nil) {
+        poisManager = [[POISManager alloc] initWithMapViewController:self];
+    }
+    
+    return poisManager;
 }
 
 /*
@@ -597,8 +603,7 @@
 - (void) transitionMapToMode:(MapMode)mode
 {
     NSString* layer = [[activeLayer componentsSeparatedByString:@"_"] objectAtIndex:0];
-    if (mode == Share) {
-        [self.view addSubview:sharePin];
+    if (mode == Share || mode == EditShare) {
         [leftButton setHidden:YES];
         [rightButton setHidden:YES];
         [shareButton setHidden:YES];
@@ -607,11 +612,20 @@
         [returnButton setHidden:NO];
         [self.viewDeckController setRightController:nil];
         [self.viewDeckController setLeftController:nil];
-        
-        [mapMessageView loadViewWithTitle:NSLocalizedString(@"select_location_title", nil) andSubtitle:NSLocalizedString(@"select_location_subtitle", nil)];
+        if (mode == Share) {
+            [mapMessageView loadViewWithTitle:NSLocalizedString(@"select_location_title", nil) andSubtitle:NSLocalizedString(@"select_location_subtitle", nil)];
+            [self.view addSubview:sharePin];
+        } else {
+            [mapMessageView loadViewWithTitle:NSLocalizedString(@"select_location_title", nil) andSubtitle:NSLocalizedString(@"update_location_subtitle", nil)];
+            [editSharePin setImage:[currentlySelectedModel markerIcon]];
+
+            [self.view addSubview:editSharePin];
+        }
         [mapView addSubview:mapMessageView];
     } else if (mode == Explore) {
+        [mapMessageView removeFromSuperview];
         [sharePin removeFromSuperview];
+        [editSharePin removeFromSuperview];
         [leftButton setHidden:NO];
         [rightButton setHidden:NO];
         
@@ -629,7 +643,9 @@
         [self.viewDeckController setLeftController:defaultLeftViewController];
         [mapMessageView removeFromSuperview];
     } else if (mode == Detail) {
+        [mapMessageView removeFromSuperview];
         [sharePin removeFromSuperview];
+        [editSharePin removeFromSuperview];
         [leftButton setHidden:YES];
         [rightButton setHidden:YES];
         [shareButton setHidden:YES];
@@ -661,6 +677,11 @@
     mapLastCenteredAt = newCoord;
 }
 
+- (MapViewCompanionManager*) mapManager
+{
+    return companionObject;
+}
+
 - (TripsManager*) tripsManager
 {
     if (tripsManager == nil) {
@@ -668,6 +689,12 @@
     }
     
     return tripsManager;
+}
+
+- (void) displayMapOnPOILocation:(CLLocationCoordinate2D)coordinate
+{
+    lastCamera = [GMSCameraPosition cameraWithLatitude:coordinate.latitude longitude:coordinate.longitude zoom:poiDetailedZoom];
+    [mapView setCamera:lastCamera];
 }
 
 @end

@@ -16,6 +16,8 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "Workshop.h"
 
+#import "EditWorkshopViewController.h"
+
 @interface MarkerDetailsViewController : UIViewController {
     id <ModelHumanizer> selectedModel;
 }
@@ -56,5 +58,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *phoneLabel;
 @property (nonatomic, weak) IBOutlet UILabel *cellphoneLabel;
 @property (nonatomic, weak) IBOutlet UIView *contactView;
+
+- (void) attemptEdit;
 
 @end

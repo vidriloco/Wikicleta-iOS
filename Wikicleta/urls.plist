@@ -62,7 +62,7 @@
 		<string>/api/tips?</string>
 	</dict>
 	<key>backendURLDev</key>
-	<string>http://192.168.1.67:3000</string>
+	<string>http://192.168.1.65:3000</string>
 	<key>createUsers</key>
 	<string>/api/users.json</string>
 	<key>backendURL</key>

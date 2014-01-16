@@ -14,12 +14,19 @@
 #import "User.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
+typedef enum {New, Edit} POIMode;
+
+@class  MapViewController;
+
 @interface CommonEditViewController : FormBaseViewController {
     CLLocationCoordinate2D selectedCoordinate;
+    POIMode selectedMode;
 }
 
 @property (nonatomic, assign) CLLocationCoordinate2D selectedCoordinate;
+@property (nonatomic, assign) POIMode selectedMode;
 
+- (void) setCoordinate:(CLLocationCoordinate2D)coordinate withMode:(POIMode)mode;
 - (NSArray*) selectableCategories;
 - (void) loadCategoriesInView;
 - (SelectOnTapCollectionView*) selectOnTapCollectionView;

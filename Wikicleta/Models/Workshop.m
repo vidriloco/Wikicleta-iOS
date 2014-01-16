@@ -10,7 +10,7 @@
 
 @implementation Workshop
 
-@synthesize latitude, longitude, userPicURL, username, name, details, likesCount, dislikesCount, isStore, marker, remoteId, coordinate;
+@synthesize latitude, longitude, userPicURL, username, name, details, likesCount, dislikesCount, isStore, marker, remoteId, coordinate, userId;
 
 static NSMutableDictionary *workshopsLoaded;
 
@@ -87,7 +87,7 @@ ignore_fields_do(
         self.createdAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
         self.updatedAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
         
-        self.userId = [NSNumber numberWithInt:[[dictionary objectForKey:@"owner"] objectForKey:@"id"]];
+        self.userId = [[dictionary objectForKey:@"owner"] objectForKey:@"id"];
         self.userPicURL = [[dictionary objectForKey:@"owner"] objectForKey:@"pic"];
         self.username = [[dictionary objectForKey:@"owner"] objectForKey:@"username"];
         
@@ -156,6 +156,11 @@ ignore_fields_do(
 - (NSString*) userPicURL
 {
     return userPicURL;
+}
+
+- (NSNumber*) ownerId
+{
+    return userId;
 }
 
 

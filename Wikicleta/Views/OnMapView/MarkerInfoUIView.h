@@ -20,6 +20,11 @@
 @property (nonatomic, weak) IBOutlet UILabel *rightBottomLabel;
 @property (nonatomic, weak) IBOutlet UIButton *moreDetailsButton;
 
-- (void) stylizeView;
+@property (nonatomic, weak) IBOutlet UIView *editView;
+@property (nonatomic, weak) IBOutlet UIButton *editButton;
+@property (nonatomic, weak) IBOutlet UIButton *deleteButton;
 
+
+- (void) stylizeView;
+- (void) clearEditArea;
 @end

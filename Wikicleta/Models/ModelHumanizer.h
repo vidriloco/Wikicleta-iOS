@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WikiMarker.h"
 
 @protocol ModelHumanizer <NSObject>
 
@@ -24,4 +25,6 @@
 - (UIImage*) bigIcon;
 - (NSString*) extraAnnotation;
 - (NSString*) userPicURL;
+- (NSNumber*) ownerId;
+- (WikiMarker*) marker;
 @end

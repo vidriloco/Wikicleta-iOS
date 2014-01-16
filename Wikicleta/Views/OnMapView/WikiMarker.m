@@ -7,6 +7,7 @@
 //
 
 #import "WikiMarker.h"
+#import "ModelHumanizer.h"
 
 @implementation WikiMarker
 

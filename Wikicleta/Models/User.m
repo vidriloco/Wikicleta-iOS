@@ -79,6 +79,11 @@ static User *user;
     return [[User currentUser] token];
 }
 
++ (BOOL) isOwnerOf:(id)object
+{
+    return [[[User currentUser] identifier] intValue] == [object intValue];
+}
+
 - (NSDictionary*) dictionary
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];

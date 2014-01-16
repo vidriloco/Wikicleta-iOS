@@ -8,15 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "App.h"
-#import "MapViewController.h"
 #import "Route.h"
 #import "CyclePathView.h"
 #import "CyclingGroup.h"
 #import "Trip.h"
-#define marginUnit 20
+#import "POISManager.h"
+#import "CyclePath.h"
+#import "Cyclestation.h"
 
+#define marginUnit 20
+@class MapViewController;
 
 @interface MapViewCompanionManager : NSObject
+
 
 - (id) initWithMapViewController:(MapViewController*)mapViewController;
 
@@ -30,10 +34,17 @@
 
 - (GMSPolyline*) buildPolyline:(NSArray*) polyline withColor:(UIColor*)color withStroke:(float)stroke withCoordsInversion:(BOOL)coordsInversion;
 - (GMSPolyline*) buildPolyline:(NSArray*) polyline withColor:(UIColor*)color withStroke:(float)stroke;
+
+- (void) unmountSelectedModelMarkerFromMap;
+- (void) mountSelectedModelMarkerFromMap;
+
 - (void) deselectSelectedRoutePath;
 
 - (void) fetchLayer:(NSString *)displayLayer;
 - (void) clearItemsOnMap;
-//- (void) showSynchronizationView;
 
+- (void) restoreMapToPreviousState;
+
+- (void) displaySavedChangesNotification;
+- (void) displayOnEditModeNotification;
 @end

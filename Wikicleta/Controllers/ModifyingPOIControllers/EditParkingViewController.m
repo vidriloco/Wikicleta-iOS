@@ -10,6 +10,7 @@
 
 @interface EditParkingViewController () {
     MBProgressHUD *hud;
+    Parking *storedParking;
 }
 
 - (NSDictionary*) generateParams;
@@ -52,6 +53,14 @@
 - (void)dismissTap:(id)sender
 {
     [parkingDescriptionTextView resignFirstResponder];
+}
+
+- (void) fillInWithDataFrom:(Parking*)parking
+{
+    [parkingDescriptionTextView setText:parking.details];
+    [parkingHasRoofSwitch setOn:parking.hasRoof animated:YES];
+    [collectionView bringToFrontViewWithIndex:[parking.kind intValue]-1];
+    storedParking = parking;
 }
 
 - (NSArray*) selectableCategories
@@ -128,17 +137,34 @@
     [self.view endEditing:YES];
     [hud setHidden:NO];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:[App urlForResource:@"parkings" withSubresource:@"post"] parameters:[self generateParams] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    // Block for failure on the response
+    void (^responseOnFailure)(AFHTTPRequestOperation *operation, NSError *error) = ^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice_message", nil)
                                                         message:NSLocalizedString(@"could_not_upload_error", nil)
                                                        delegate:self cancelButtonTitle:NSLocalizedString(@"accept", nil) otherButtonTitles:NSLocalizedString(@"save_as_draft", nil), nil];
         [alert show];
-    }];
+    };
+    
+    // Block for success on the response
+    void (^responseOnSuccess)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[(MapViewController*) [[self.navigationController viewControllers] objectAtIndex:1] poisManager] restoreMapOnFinishedPOIEditing];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        [(MapViewController*) [self.navigationController topViewController] displayMapOnPOILocation:selectedCoordinate];
+    };
+    
+    if (selectedMode == New) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager POST:[App urlForResource:@"parkings" withSubresource:@"post"] parameters:[self generateParams] success:responseOnSuccess failure:responseOnFailure];
+    } else if (selectedMode == Edit) {
+        NSString *url = [[App urlForResource:@"parkings" withSubresource:@"put"]
+                         stringByReplacingOccurrencesOfString:@":id"
+                         withString: [NSString stringWithFormat:@"%d", [storedParking.remoteId intValue]]];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager PUT:url parameters:[self generateParams] success:responseOnSuccess failure:responseOnFailure];
+    }
     
 }
 

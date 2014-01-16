@@ -20,7 +20,7 @@
 
 static NSMutableDictionary* tipsLoaded;
 
-@synthesize latitude, longitude, details, likesCount, dislikesCount, username, userPicURL, kind, marker, categories, coordinate;
+@synthesize latitude, longitude, details, likesCount, dislikesCount, username, userPicURL, kind, marker, categories, coordinate, userId;
 
 ignore_fields_do(
     ignore_field(categories)
@@ -62,7 +62,7 @@ ignore_fields_do(
         self.createdAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
         self.updatedAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_updated_at"]];
         
-        self.userId = [NSNumber numberWithInt:[[dictionary objectForKey:@"owner"] objectForKey:@"id"]];
+        self.userId = [[dictionary objectForKey:@"owner"] objectForKey:@"id"];
         self.userPicURL = [[dictionary objectForKey:@"owner"] objectForKey:@"pic"];
         self.username = [[dictionary objectForKey:@"owner"] objectForKey:@"username"];
         
@@ -140,6 +140,11 @@ ignore_fields_do(
 - (NSString*) kindString
 {
     return [categories objectForKey:kind];
+}
+
+- (NSNumber*) ownerId
+{
+    return userId;
 }
 
 

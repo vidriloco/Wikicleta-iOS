@@ -7,6 +7,7 @@
 //
 
 #import "MapViewCompanionManager.h"
+#import "MapViewController.h"
 
 @interface MapViewCompanionManager () {
     MapViewController *controller;
@@ -37,6 +38,10 @@
     [controller.sharePin setFrame:CGRectMake([App viewBounds].size.width/2-controller.sharePin.frame.size.width/2,
                                   [App viewBounds].size.height/2-controller.sharePin.frame.size.height/2,
                                   controller.sharePin.frame.size.width, controller.sharePin.frame.size.height)];
+    controller.editSharePin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sightseeing_marker.png"]];
+    [controller.editSharePin setFrame:CGRectMake([App viewBounds].size.width/2-controller.editSharePin.frame.size.width/2,
+                                             [App viewBounds].size.height/2-controller.editSharePin.frame.size.height,
+                                             controller.editSharePin.frame.size.width, controller.editSharePin.frame.size.height)];
 }
 
 - (void) loadMapButtons
@@ -95,7 +100,7 @@
                                                               [App viewBounds].size.height-returnImage.size.height-marginUnit*2.5,
                                                               returnImage.size.width, returnImage.size.height)];
     [controller.returnButton setBackgroundImage:returnImage forState:UIControlStateNormal];
-    [controller.returnButton addTarget:controller action:@selector(toggleShareControls) forControlEvents:UIControlEventTouchUpInside];
+    [controller.returnButton addTarget:self action:@selector(restoreMapToPreviousState) forControlEvents:UIControlEventTouchUpInside];
     [controller.returnButton setHidden:YES];
     [controller.view addSubview:controller.returnButton];
 }
@@ -323,6 +328,43 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         controller.requestOngoing = NO;
     }];
+}
+
+- (void) restoreMapToPreviousState
+{
+    if ([controller currentMapMode] == EditShare) {
+        [controller.poisManager restoreMapOnCancelPOIEditing];
+    } else {
+        [controller toggleShareControls];
+	}
+}
+
+- (void) unmountSelectedModelMarkerFromMap {
+    [[controller.currentlySelectedModel marker] setIcon:[UIImage imageNamed:@"guess_marker.png"]];
+}
+
+- (void) mountSelectedModelMarkerFromMap {
+    [[controller.currentlySelectedModel marker] setIcon:[controller.currentlySelectedModel markerIcon]];
+}
+
+- (void) displaySavedChangesNotification
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:controller.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = NSLocalizedString(@"saved_success", nil);
+    [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"save_icon.png"]];
+    [hud hide:YES afterDelay:1];
+}
+
+- (void) displayOnEditModeNotification
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:controller.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = NSLocalizedString(@"editing_on", nil);
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"editing_mode_icon.png"]];
+    [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
+    [hud hide:YES afterDelay:1];
 }
 
 /*- (void) showSynchronizationView

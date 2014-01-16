@@ -7,7 +7,8 @@
 //
 
 #import <GoogleMaps/GoogleMaps.h>
-#import "ModelHumanizer.h"
+
+@protocol ModelHumanizer;
 
 @interface WikiMarker : GMSMarker {
     id<ModelHumanizer> model;

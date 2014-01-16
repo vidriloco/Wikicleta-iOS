@@ -7,14 +7,17 @@
 //
 
 #import "CommonEditViewController.h"
+#import "MapViewController.h"
 
-@interface CommonEditViewController ()
+@interface CommonEditViewController () {
+    
+}
 
 @end
 
 @implementation CommonEditViewController
 
-@synthesize selectedCoordinate;
+@synthesize selectedCoordinate, selectedMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,6 +97,16 @@
 - (void) dismiss
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) setCoordinate:(CLLocationCoordinate2D)coordinate withMode:(POIMode)mode {
+    selectedCoordinate = coordinate;
+    selectedMode = mode;
+    if (selectedMode == New) {
+        self.title = NSLocalizedString(@"new", nil);
+    } else if (selectedMode == Edit) {
+        self.title = NSLocalizedString(@"edit", nil);
+    }
 }
 
 @end
