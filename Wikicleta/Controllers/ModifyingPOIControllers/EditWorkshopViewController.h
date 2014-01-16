@@ -14,6 +14,8 @@
 #import "CommonEditViewController.h"
 #import "EditWorkshopInfoContactViewController.h"
 #import "IIViewDeckController.h"
+#import "POISManager.h"
+#import "Workshop.h"
 
 @interface EditWorkshopViewController : CommonEditViewController
 
@@ -25,5 +27,7 @@
 
 @property (nonatomic, weak) IBOutlet UITextField *nameTextField;
 @property (nonatomic, weak) IBOutlet UITextView *workshopHoraryTextView;
+
+- (void) fillInWithDataFrom:(Workshop*)workshop;
 
 @end

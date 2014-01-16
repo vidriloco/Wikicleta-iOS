@@ -551,6 +551,9 @@
     CommonEditViewController *editController;
     if ([layer isEqualToString:layersWorkshops]) {
         editController = [[EditWorkshopViewController alloc] initWithNibName:nil bundle:nil];
+        if (currentMode == EditShare) {
+            [(EditWorkshopViewController*) editController fillInWithDataFrom:(Workshop*) currentlySelectedModel];
+        }
     } else if ([layer isEqualToString:layersParkings]) {
         editController = [[EditParkingViewController alloc] initWithNibName:nil bundle:nil];
         if (currentMode == EditShare) {
