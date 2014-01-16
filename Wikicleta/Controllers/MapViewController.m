@@ -558,6 +558,9 @@
         }
     } else if ([layer isEqualToString:layersTips]) {
         editController = [[EditTipViewController alloc] initWithNibName:nil bundle:nil];
+        if (currentMode == EditShare) {
+            [(EditTipViewController*) editController fillInWithDataFrom:(Tip*) currentlySelectedModel];
+        }
     }
     
     // Prepare visual marker to aid user on location selection

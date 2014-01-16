@@ -56,6 +56,8 @@
 	</dict>
 	<key>tips</key>
 	<dict>
+		<key>put</key>
+		<string>/api/tips/:id</string>
 		<key>post</key>
 		<string>/api/tips</string>
 		<key>get</key>

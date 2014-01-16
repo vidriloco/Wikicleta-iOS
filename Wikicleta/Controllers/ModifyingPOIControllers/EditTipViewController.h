@@ -11,6 +11,8 @@
 #import "SelectOnTapCollectionView.h"
 #import "SelectOnTapView.h"
 #import "CommonEditViewController.h"
+#import "Tip.h"
+#import "POISManager.h"
 
 @interface EditTipViewController : CommonEditViewController <UIAlertViewDelegate> 
 
@@ -18,5 +20,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *instructionOne;
 @property (nonatomic, weak) IBOutlet SelectOnTapCollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UITextView *tipDescriptionTextView;
+
+- (void) fillInWithDataFrom:(Tip*)tip;
 
 @end
