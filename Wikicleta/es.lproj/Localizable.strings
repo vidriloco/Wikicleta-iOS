@@ -31,6 +31,7 @@
 
 "created_by" = "creado por ";
 "updated_at" = "actualizado ";
+"updating" = "actualizando";
 "distance_at" = "a ";
 "km_s" = "KMs";
 
@@ -216,3 +217,8 @@
 "grouped_services" = "Servicios";
 "cycling_learning" = "Escuela ciclista";
 "free_grouped_services" = "Servicios gratuitos";
+
+// Profile view
+"no_activities_to_show" = "Sin actividades que mostrar";
+"no_activities_loaded" = "No fué posible descargar tus actividades";
+"no_activities_loaded_try" = "Haz tap aquí para intentar nuevamente";

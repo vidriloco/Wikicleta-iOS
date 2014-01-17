@@ -319,6 +319,10 @@
 		3A893CFC1869306500638217 /* FormBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A893CFB1869306500638217 /* FormBaseViewController.m */; };
 		3A91E0531884A712009DBD83 /* TripPoiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91E0521884A712009DBD83 /* TripPoiView.xib */; };
 		3A91E0561884A8F0009DBD83 /* TripPoiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91E0551884A8F0009DBD83 /* TripPoiView.m */; };
+		3A94A5EC1889D117002BC047 /* GenericBigMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94A5EB1889D117002BC047 /* GenericBigMessageView.xib */; };
+		3A94A5EF1889D171002BC047 /* GenericBigMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A94A5EE1889D171002BC047 /* GenericBigMessageView.m */; };
+		3A94A5F21889D86E002BC047 /* reload_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A94A5F01889D86E002BC047 /* reload_icon.png */; };
+		3A94A5F31889D86E002BC047 /* reload_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A94A5F11889D86E002BC047 /* reload_icon@2x.png */; };
 		3A9547A4186CAA3A00428DF7 /* MarkerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9547A2186CAA3A00428DF7 /* MarkerDetailsViewController.m */; };
 		3A9547A5186CAA3A00428DF7 /* MarkerDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9547A3186CAA3A00428DF7 /* MarkerDetailsViewController.xib */; };
 		3A9547AA186CBE1000428DF7 /* dislike_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9547A6186CBE1000428DF7 /* dislike_icon.png */; };
@@ -848,6 +852,11 @@
 		3A91E0521884A712009DBD83 /* TripPoiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripPoiView.xib; sourceTree = "<group>"; };
 		3A91E0541884A8F0009DBD83 /* TripPoiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPoiView.h; sourceTree = "<group>"; };
 		3A91E0551884A8F0009DBD83 /* TripPoiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPoiView.m; sourceTree = "<group>"; };
+		3A94A5EB1889D117002BC047 /* GenericBigMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GenericBigMessageView.xib; path = ../OnMapView/GenericBigMessageView.xib; sourceTree = "<group>"; };
+		3A94A5ED1889D171002BC047 /* GenericBigMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericBigMessageView.h; sourceTree = "<group>"; };
+		3A94A5EE1889D171002BC047 /* GenericBigMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericBigMessageView.m; sourceTree = "<group>"; };
+		3A94A5F01889D86E002BC047 /* reload_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_icon.png; sourceTree = "<group>"; };
+		3A94A5F11889D86E002BC047 /* reload_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload_icon@2x.png"; sourceTree = "<group>"; };
 		3A9547A1186CAA3A00428DF7 /* MarkerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerDetailsViewController.h; sourceTree = "<group>"; };
 		3A9547A2186CAA3A00428DF7 /* MarkerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerDetailsViewController.m; sourceTree = "<group>"; };
 		3A9547A3186CAA3A00428DF7 /* MarkerDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerDetailsViewController.xib; sourceTree = "<group>"; };
@@ -1681,6 +1690,8 @@
 		3A1A2A961879F4F500AF298C /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				3A94A5F01889D86E002BC047 /* reload_icon.png */,
+				3A94A5F11889D86E002BC047 /* reload_icon@2x.png */,
 				3A1A2AA4187A1F2B00AF298C /* activity_icon_big.png */,
 				3A1A2AA5187A1F2B00AF298C /* activity_icon_big@2x.png */,
 				3A1A2AA6187A1F2B00AF298C /* favorites_icon_big.png */,
@@ -1729,6 +1740,9 @@
 		3A4A6C39188298A300C8C3B9 /* OnActivitiesView */ = {
 			isa = PBXGroup;
 			children = (
+				3A94A5EB1889D117002BC047 /* GenericBigMessageView.xib */,
+				3A94A5ED1889D171002BC047 /* GenericBigMessageView.h */,
+				3A94A5EE1889D171002BC047 /* GenericBigMessageView.m */,
 			);
 			path = OnActivitiesView;
 			sourceTree = "<group>";
@@ -2128,6 +2142,7 @@
 				3A9DE7F7186F4EFD00C95812 /* start_route_icon@2x.png in Resources */,
 				3A1A2AAB187A1F2B00AF298C /* favorites_icon_big@2x.png in Resources */,
 				3A13AFC81883CEFB00A35771 /* cycling_learning_marker.png in Resources */,
+				3A94A5EC1889D117002BC047 /* GenericBigMessageView.xib in Resources */,
 				181534C417B1644A009FE8CB /* gothamrndbook.ttf in Resources */,
 				3A0F9C10187FF13D002CEC9D /* CyclePathView.xib in Resources */,
 				18EE967117D5053900923EC6 /* check@2x.png in Resources */,
@@ -2137,6 +2152,7 @@
 				3A91E0531884A712009DBD83 /* TripPoiView.xib in Resources */,
 				3A5382FD18701068006346AE /* return_button.png in Resources */,
 				3ACF4F3E1871138600A46E33 /* CyclestationUIView.xib in Resources */,
+				3A94A5F31889D86E002BC047 /* reload_icon@2x.png in Resources */,
 				3A060C9017D2DC2C00E006C0 /* drag_to_back@2x.png in Resources */,
 				3A9547F3186D47E600428DF7 /* danger_icon@2x.png in Resources */,
 				181534C517B1644A009FE8CB /* gothamrndlight.ttf in Resources */,
@@ -2240,6 +2256,7 @@
 				3A4DD93918680917009506F0 /* navbar_back_7@2x.png in Resources */,
 				3A9547F1186D47E600428DF7 /* alert_icon@2x.png in Resources */,
 				3A13AFDA1883CEFB00A35771 /* metro_patriotismo.png in Resources */,
+				3A94A5F21889D86E002BC047 /* reload_icon.png in Resources */,
 				3A785A2017D46F1200D1B6F6 /* next.png in Resources */,
 				3ACF4F441871138600A46E33 /* RouteUIView.xib in Resources */,
 				3A9DE803186F901C00C95812 /* LayerItemView.xib in Resources */,
@@ -2535,6 +2552,7 @@
 				1863D54517B04B3A007E7460 /* AKMutableColorImageEffect.m in Sources */,
 				3A4511B41888F0C700E45EA5 /* LightPOI.m in Sources */,
 				1863D54617B04B3A007E7460 /* AKNoiseImageEffect.m in Sources */,
+				3A94A5EF1889D171002BC047 /* GenericBigMessageView.m in Sources */,
 				1863D54717B04B3A007E7460 /* AKPatternImageEffect.m in Sources */,
 				1863D54817B04B3A007E7460 /* NSString+AKCryptography.m in Sources */,
 				3A1A2A911879DA7A00AF298C /* OverlayMapMessageView.m in Sources */,

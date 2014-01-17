@@ -15,9 +15,11 @@
 #import "TTTTimeIntervalFormatter.h"
 #import "MapViewController.h"
 #import "IIViewDeckController.h"
+#import "GenericBigMessageView.h"
 
 @interface ActivityViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *activityList;
+    
 }
 
 @property (nonatomic, strong) NSArray *activityList;
