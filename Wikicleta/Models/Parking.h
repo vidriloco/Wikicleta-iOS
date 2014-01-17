@@ -15,7 +15,6 @@
 
 @interface Parking : ActiveRecord <ModelHumanizer>
 
-@property (nonatomic, strong) NSDictionary *categories;
 @property (nonatomic) BOOL hasRoof;
 @property (nonatomic) BOOL anyoneCanEdit;
 @property (nonatomic, strong) WikiMarker* marker;
@@ -34,5 +33,6 @@
 
 - (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)remoteId_;
 + (NSDictionary*) parkingsLoaded;
++ (NSDictionary*) categories;
 
 @end

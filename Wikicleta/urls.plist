@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ownerships</key>
+	<dict>
+		<key>get</key>
+		<string>/api/ownerships/list/:id</string>
+	</dict>
 	<key>trips</key>
 	<dict>
 		<key>get</key>

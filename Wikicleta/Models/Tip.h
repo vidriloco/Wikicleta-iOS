@@ -18,7 +18,6 @@
 @property (nonatomic, strong) NSNumber *remoteId;
 @property (nonatomic, strong) WikiMarker* marker;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
-@property (nonatomic, strong) NSDictionary *categories;
 
 @property (nonatomic, strong) NSNumber *kind;
 @property (nonatomic, strong) NSString *details;
@@ -35,5 +34,6 @@
 
 - (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)remoteId_;
 + (NSDictionary*) tipsLoaded;
++ (NSDictionary*) categories;
 
 @end

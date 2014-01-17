@@ -40,6 +40,7 @@
 #import "CyclePath.h"
 #import "TripView.h"
 #import "TripPoiView.h"
+#import "LightPOI.h"
 
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
 #define minZoom 2
@@ -106,5 +107,5 @@ typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
 - (void) transitionMapToMode:(MapMode)mode;
 - (TripsManager*) tripsManager;
 - (void) displayMapOnPOILocation:(CLLocationCoordinate2D)coordinate;
-
+- (void) centerOnLightPOI:(LightPOI*)lightPOI;
 @end

@@ -64,6 +64,12 @@
     
 }
 
+- (void) setLayerSelected:(NSString*)layerIdentifier
+{
+    LayerItemView *selected = [layersMenuList objectForKey:layerIdentifier];
+    [self selectedLayer:selected];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

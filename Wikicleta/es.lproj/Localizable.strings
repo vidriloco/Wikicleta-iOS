@@ -34,6 +34,7 @@
 "distance_at" = "a ";
 "km_s" = "KMs";
 
+"see_on_map" = "ir";
 
 // Global errors
 "no_backend_response_error" = "Sin respuesta del servidor remoto, quizás perdiste la conexión a internet";
@@ -129,6 +130,7 @@
 "workshop_and_store_title" = "Taller y Tienda de Bicis";
 "workshop_title" = "Taller de bicis";
 "contact_title_label" = "Info de Contacto";
+"workshop_store_title" = "Taller/Tienda";
 
 // Cyclestations View
 "slots_available" = "Espacios disponibles";

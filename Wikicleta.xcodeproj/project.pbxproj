@@ -242,6 +242,11 @@
 		3A44F4CA187907E4007E8AB5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A44F4C8187907E4007E8AB5 /* ProfileViewController.m */; };
 		3A44F4CB187907E4007E8AB5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */; };
 		3A44F4CE1879573D007E8AB5 /* MapViewCompanionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A44F4CD1879573D007E8AB5 /* MapViewCompanionManager.m */; };
+		3A4511AA1888DB1400E45EA5 /* POICellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4511A91888DB1400E45EA5 /* POICellView.xib */; };
+		3A4511AD1888DCD400E45EA5 /* see_on_map_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4511AB1888DCD400E45EA5 /* see_on_map_icon.png */; };
+		3A4511AE1888DCD500E45EA5 /* see_on_map_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4511AC1888DCD400E45EA5 /* see_on_map_icon@2x.png */; };
+		3A4511B11888E02F00E45EA5 /* POICellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4511B01888E02F00E45EA5 /* POICellView.m */; };
+		3A4511B41888F0C700E45EA5 /* LightPOI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4511B31888F0C700E45EA5 /* LightPOI.m */; };
 		3A4A6C3718827C9700C8C3B9 /* CyclingGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A6C3518827C9700C8C3B9 /* CyclingGroupViewController.m */; };
 		3A4A6C3818827C9700C8C3B9 /* CyclingGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4A6C3618827C9700C8C3B9 /* CyclingGroupViewController.xib */; };
 		3A4BA32F186E7A7D00F7531E /* end_route_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BA32B186E7A7D00F7531E /* end_route_marker.png */; };
@@ -751,6 +756,13 @@
 		3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		3A44F4CC1879573D007E8AB5 /* MapViewCompanionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewCompanionManager.h; sourceTree = "<group>"; };
 		3A44F4CD1879573D007E8AB5 /* MapViewCompanionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewCompanionManager.m; sourceTree = "<group>"; };
+		3A4511A91888DB1400E45EA5 /* POICellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICellView.xib; sourceTree = "<group>"; };
+		3A4511AB1888DCD400E45EA5 /* see_on_map_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = see_on_map_icon.png; sourceTree = "<group>"; };
+		3A4511AC1888DCD400E45EA5 /* see_on_map_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "see_on_map_icon@2x.png"; sourceTree = "<group>"; };
+		3A4511AF1888E02F00E45EA5 /* POICellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICellView.h; sourceTree = "<group>"; };
+		3A4511B01888E02F00E45EA5 /* POICellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICellView.m; sourceTree = "<group>"; };
+		3A4511B21888F0C700E45EA5 /* LightPOI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPOI.h; sourceTree = "<group>"; };
+		3A4511B31888F0C700E45EA5 /* LightPOI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightPOI.m; sourceTree = "<group>"; };
 		3A47594E17D0EC1100A524C5 /* LayersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayersDelegate.h; sourceTree = "<group>"; };
 		3A4A6C3418827C9700C8C3B9 /* CyclingGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclingGroupViewController.h; sourceTree = "<group>"; };
 		3A4A6C3518827C9700C8C3B9 /* CyclingGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclingGroupViewController.m; sourceTree = "<group>"; };
@@ -1420,6 +1432,8 @@
 				3A13AF831883903800A35771 /* Trip.m */,
 				3A13AF851883998300A35771 /* TripPoi.h */,
 				3A13AF861883998300A35771 /* TripPoi.m */,
+				3A4511B21888F0C700E45EA5 /* LightPOI.h */,
+				3A4511B31888F0C700E45EA5 /* LightPOI.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1657,6 +1671,9 @@
 			children = (
 				3A1A2A931879F3B100AF298C /* OnProfileSectionView.h */,
 				3A1A2A941879F3B100AF298C /* OnProfileSectionView.m */,
+				3A4511A91888DB1400E45EA5 /* POICellView.xib */,
+				3A4511AF1888E02F00E45EA5 /* POICellView.h */,
+				3A4511B01888E02F00E45EA5 /* POICellView.m */,
 			);
 			path = OnProfileView;
 			sourceTree = "<group>";
@@ -1758,6 +1775,8 @@
 		3A785A1717D46EDF00D1B6F6 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				3A4511AB1888DCD400E45EA5 /* see_on_map_icon.png */,
+				3A4511AC1888DCD400E45EA5 /* see_on_map_icon@2x.png */,
 				3A61E71D1887BC0D0089D3BC /* save_icon.png */,
 				3A61E71E1887BC0D0089D3BC /* save_icon@2x.png */,
 				3A61E7191887BB8B0089D3BC /* editing_mode_icon.png */,
@@ -2240,6 +2259,7 @@
 				3A4E5F23186DEC0100D818ED /* bike_sharing_green_marker@2x.png in Resources */,
 				18EE967017D5053900923EC6 /* check.png in Resources */,
 				3AC2291917CB250000E76E96 /* LandingViewController.xib in Resources */,
+				3A4511AA1888DB1400E45EA5 /* POICellView.xib in Resources */,
 				180E327F17B932E600322194 /* profile_menu.png in Resources */,
 				3A52EAE41881EC860068BD36 /* cycling_group_logo@2x.png in Resources */,
 				3A785A2117D46F1200D1B6F6 /* next@2x.png in Resources */,
@@ -2267,6 +2287,7 @@
 				180E328C17B93FE300322194 /* gear_menu_selected@2x.png in Resources */,
 				3A4A6C3818827C9700C8C3B9 /* CyclingGroupViewController.xib in Resources */,
 				3A9547E8186D47D700428DF7 /* sightseeing_marker.png in Resources */,
+				3A4511AE1888DCD500E45EA5 /* see_on_map_icon@2x.png in Resources */,
 				3A13AFCE1883CEFB00A35771 /* start_flag_marker.png in Resources */,
 				3A61E7201887BC0D0089D3BC /* save_icon@2x.png in Resources */,
 				3A9547AB186CBE1000428DF7 /* dislike_icon@2x.png in Resources */,
@@ -2358,6 +2379,7 @@
 				180BD04717BAA6290080296E /* workshops_layers@2x.png in Resources */,
 				3A9547E9186D47D700428DF7 /* sightseeing_marker@2x.png in Resources */,
 				3A08AD1F187254E300E79AA5 /* EditWorkshopViewController.xib in Resources */,
+				3A4511AD1888DCD400E45EA5 /* see_on_map_icon.png in Resources */,
 				3AA7E4A917CD74B800B059B3 /* Podfile in Resources */,
 				3A5382F718700D6E006346AE /* share_button.png in Resources */,
 				3AEAF1C31870B0C300003668 /* close_icon.png in Resources */,
@@ -2443,6 +2465,7 @@
 				3A06B89B1866BCE9001C927F /* LoginViewController.m in Sources */,
 				0C7E0B2118516EF60017CBCF /* CTARequest.m in Sources */,
 				3AB2448B18864F79000C09EB /* TripsManager.m in Sources */,
+				3A4511B11888E02F00E45EA5 /* POICellView.m in Sources */,
 				3ACFA1391881C6D6008700C0 /* CyclingGroupView.m in Sources */,
 				3AC2291D17CB2BF800E76E96 /* MenuListViewController.m in Sources */,
 				3ACF4F47187135C500A46E33 /* WikiMarker.m in Sources */,
@@ -2510,6 +2533,7 @@
 				1863D54317B04B3A007E7460 /* AKInnerShadowImageEffect.m in Sources */,
 				1863D54417B04B3A007E7460 /* AKMaskImageEffect.m in Sources */,
 				1863D54517B04B3A007E7460 /* AKMutableColorImageEffect.m in Sources */,
+				3A4511B41888F0C700E45EA5 /* LightPOI.m in Sources */,
 				1863D54617B04B3A007E7460 /* AKNoiseImageEffect.m in Sources */,
 				1863D54717B04B3A007E7460 /* AKPatternImageEffect.m in Sources */,
 				1863D54817B04B3A007E7460 /* NSString+AKCryptography.m in Sources */,

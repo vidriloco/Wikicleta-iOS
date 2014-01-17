@@ -11,18 +11,16 @@
 @interface Parking(){
 }
 
-- (void) setCategories;
-
 @end
 
 @implementation Parking
 
 static NSMutableDictionary* parkingsLoaded;
+static NSDictionary* categories;
 
-@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,userId,userPicURL, coordinate, marker, categories, kind, remoteId;
+@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,userId,userPicURL, coordinate, marker, kind, remoteId;
 
 ignore_fields_do(
-    ignore_field(categories)
     ignore_field(hasRoof)
     ignore_field(anyoneCanEdit)
     ignore_field(marker)
@@ -50,7 +48,6 @@ ignore_fields_do(
 - (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)identifier
 {
     if (self = [super init]) {
-        [self setCategories];
         self.remoteId = identifier;
         self.details = [dictionary objectForKey:@"details"];
         self.hasRoof = [[dictionary objectForKey:@"has_roof"] boolValue];
@@ -79,7 +76,7 @@ ignore_fields_do(
     return self;
 }
 
-- (void) setCategories
++ (NSDictionary*) categories
 {
     if (categories == NULL) {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -89,6 +86,7 @@ ignore_fields_do(
 
         categories = [NSDictionary dictionaryWithDictionary:dict];
     }
+    return categories;
 }
 
 - (NSString*) title
@@ -108,7 +106,7 @@ ignore_fields_do(
 
 - (UIImage*) markerIcon
 {
-    return [UIImage imageNamed:[self.kindString stringByAppendingString:@"_marker.png"]];
+    return [UIImage imageNamed:[[self kindString] stringByAppendingString:@"_marker.png"]];
 }
 
 - (UIImage*) bigIcon
@@ -143,7 +141,7 @@ ignore_fields_do(
 
 - (NSString*) kindString
 {
-    return [categories objectForKey:kind];
+    return [[Parking categories] objectForKey:kind];
 }
 
 - (NSNumber*) ownerId

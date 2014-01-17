@@ -12,18 +12,16 @@
     
 }
 
-- (void) setCategories;
-
 @end
 
 @implementation Tip
 
+static NSDictionary *categories;
 static NSMutableDictionary* tipsLoaded;
 
-@synthesize latitude, longitude, details, likesCount, dislikesCount, username, userPicURL, kind, marker, categories, coordinate, userId, remoteId;
+@synthesize latitude, longitude, details, likesCount, dislikesCount, username, userPicURL, kind, marker, coordinate, userId, remoteId;
 
 ignore_fields_do(
-    ignore_field(categories)
     ignore_field(marker)
     ignore_field(coordinate)
 )
@@ -49,7 +47,6 @@ ignore_fields_do(
 - (id) initWithDictionary:(NSDictionary*)dictionary withId:(NSNumber*)identifier
 {
     if (self = [super init]) {
-        [self setCategories];
         self.remoteId = identifier;
         self.details = [dictionary objectForKey:@"content"];
         self.kind = [NSNumber numberWithInt:[[dictionary objectForKey:@"category"] integerValue]];
@@ -75,7 +72,7 @@ ignore_fields_do(
     return self;
 }
 
-- (void) setCategories
++ (NSDictionary*) categories
 {
     if (categories == NULL) {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -85,6 +82,7 @@ ignore_fields_do(
         
         categories = [NSDictionary dictionaryWithDictionary:dict];
     }
+    return categories;
 }
 
 - (UIImage*) markerIcon
@@ -139,7 +137,7 @@ ignore_fields_do(
 
 - (NSString*) kindString
 {
-    return [categories objectForKey:kind];
+    return [[Tip categories] objectForKey:kind];
 }
 
 - (NSNumber*) ownerId

@@ -48,6 +48,7 @@
 // Add routes manager
 @implementation MapViewController
 
+
 @synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap, secondaryView, currentlySelectedModel, editSharePin;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -118,7 +119,6 @@
 - (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
     if (currentMode == Detail) {
-        NSLog(@"On mode Details");
         [self hideViewForMarker];
         [self transitionMapToMode:Explore];
     }
@@ -703,6 +703,25 @@
 {
     lastCamera = [GMSCameraPosition cameraWithLatitude:coordinate.latitude longitude:coordinate.longitude zoom:poiDetailedZoom];
     [mapView setCamera:lastCamera];
+}
+
+- (void) centerOnLightPOI:(LightPOI *)lightPOI
+{
+    
+    if ([defaultRightViewController isKindOfClass:[LayersChooserViewController class]]) {
+        if ([lightPOI.kind isEqualToString:@"Tip"]) {
+            [(LayersChooserViewController*) defaultRightViewController setLayerSelected:[layersTips stringByAppendingString:@"_layers"]];
+        } else if ([lightPOI.kind isEqualToString:@"Parking"]) {
+            [(LayersChooserViewController*) defaultRightViewController setLayerSelected:[layersParkings stringByAppendingString:@"_layers"]];
+        } else if ([lightPOI.kind isEqualToString:@"Route"]) {
+            [(LayersChooserViewController*) defaultRightViewController setLayerSelected:[layersRoutes stringByAppendingString:@"_layers"]];
+        } else if ([lightPOI.kind isEqualToString:@"Workshop"]) {
+            [(LayersChooserViewController*) defaultRightViewController setLayerSelected:[layersWorkshops stringByAppendingString:@"_layers"]];
+        }
+    }
+    
+    [self displayMapOnPOILocation:lightPOI.coordinate];
+    
 }
 
 @end

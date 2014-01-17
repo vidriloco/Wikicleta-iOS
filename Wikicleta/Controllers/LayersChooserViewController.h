@@ -24,5 +24,5 @@
 @property (nonatomic, strong) id<LayersDelegate> delegate;
 
 - (void) selectedLayer:(id)layer;
-
+- (void) setLayerSelected:(NSString*)layerIdentifier;
 @end

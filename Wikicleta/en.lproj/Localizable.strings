@@ -28,6 +28,8 @@
 "distance_at" = "at ";
 "km_s" = "KMs";
 
+"see_on_map" = "go";
+
 // Global errors
 "no_backend_response_error" = "No response from remote server, perhaps your internet connection is down";
 "could_not_upload_error" = "We are sorry, we were unable to save this now";
@@ -115,6 +117,7 @@
 "workshop_and_store_title" = "Bikeshop";
 "workshop_title" = "Bicycle Repair";
 "contact_title_label" = "Contact Info";
+"workshop_store_title" = "Bikeshop";
 
 // Tip View
 "tips_title" = "Tip";
