@@ -10,6 +10,8 @@
 "edit" = "Edit";
 
 "notice_message" = "Ups!";
+"question_message" = "Question";
+"delete_record_message" = "Do you want to delete this sharing?";
 "accept" = "OK";
 "all_fields_required" = "All fields are required";
 "wait_please" = "Hold on, please";
@@ -17,6 +19,9 @@
 
 "editing_on" = "On editing mode";
 "saved_success" = "Saved changes";
+"deleting_on" = "Deleting";
+"deleted_success" = "Deleted successfully";
+"could_not_delete_error" = "We couldn't delete it";
 
 "created_by" = "created by ";
 "updated_at" = "updated ";

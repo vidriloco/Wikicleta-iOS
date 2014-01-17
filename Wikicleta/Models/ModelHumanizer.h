@@ -18,6 +18,7 @@
 - (NSDate*) updatedAt;
 
 @optional
+- (NSNumber*) identifier;
 - (NSString*) details;
 - (NSString*) createdBy;
 - (NSString*) likes;

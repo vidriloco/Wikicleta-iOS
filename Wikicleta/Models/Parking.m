@@ -19,7 +19,7 @@
 
 static NSMutableDictionary* parkingsLoaded;
 
-@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,userId,userPicURL, coordinate, marker, categories, kind;
+@synthesize longitude,latitude,anyoneCanEdit,createdAt,details,hasRoof,username, likesCount, dislikesCount,userId,userPicURL, coordinate, marker, categories, kind, remoteId;
 
 ignore_fields_do(
     ignore_field(categories)
@@ -149,6 +149,11 @@ ignore_fields_do(
 - (NSNumber*) ownerId
 {
     return userId;
+}
+
+- (NSNumber*) identifier
+{
+    return remoteId;
 }
 
 @end

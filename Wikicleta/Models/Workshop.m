@@ -163,5 +163,9 @@ ignore_fields_do(
     return userId;
 }
 
+- (NSNumber*) identifier
+{
+    return remoteId;
+}
 
 @end

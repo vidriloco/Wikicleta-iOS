@@ -16,6 +16,12 @@
 
 "editing_on" = "En modo editar";
 "saved_success" = "Cambios guardados";
+"deleting_on" = "Eliminando";
+"deleted_success" = "Eliminado exitosamente";
+
+"question_message" = "Pregunta";
+"delete_record_message" = "¿Deseas eliminar este elemento?";
+"could_not_delete_error" = "Fué imposible eliminarlo";
 
 "notice_message" = "Hey!";
 "accept" = "Va";

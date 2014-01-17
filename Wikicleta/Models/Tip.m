@@ -20,7 +20,7 @@
 
 static NSMutableDictionary* tipsLoaded;
 
-@synthesize latitude, longitude, details, likesCount, dislikesCount, username, userPicURL, kind, marker, categories, coordinate, userId;
+@synthesize latitude, longitude, details, likesCount, dislikesCount, username, userPicURL, kind, marker, categories, coordinate, userId, remoteId;
 
 ignore_fields_do(
     ignore_field(categories)
@@ -147,5 +147,9 @@ ignore_fields_do(
     return userId;
 }
 
+- (NSNumber*) identifier
+{
+    return remoteId;
+}
 
 @end

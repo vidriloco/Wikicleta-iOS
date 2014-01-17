@@ -367,6 +367,16 @@
     [hud hide:YES afterDelay:1];
 }
 
+- (void) displayDeletedNotification
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:controller.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = NSLocalizedString(@"deleted_success", nil);
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"save_icon.png"]];
+    [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
+    [hud hide:YES afterDelay:1];
+}
+
 /*- (void) showSynchronizationView
  {
      poiView = [[[NSBundle mainBundle] loadNibNamed:@"POIChooserOverlayView" owner:self options:nil] objectAtIndex:0];

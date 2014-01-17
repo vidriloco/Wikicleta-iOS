@@ -292,6 +292,8 @@
         
         if ([User isOwnerOf:[currentlySelectedModel ownerId]]) {
             [[detailsView editButton] addTarget:[self poisManager] action:@selector(prepareMapForPOIEditing) forControlEvents:UIControlEventTouchUpInside];
+            [[detailsView deleteButton] addTarget:[self poisManager] action:@selector(confirmPOIDelete) forControlEvents:UIControlEventTouchUpInside];
+
         } else {
             [detailsView clearEditArea];
         }

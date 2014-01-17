@@ -10,7 +10,11 @@
 #import "MapViewController.h"
 #import "MapViewCompanionManager.h"
 
-@interface POISManager : NSObject {
+#import "Tip.h"
+#import "Parking.h"
+#import "Workshop.h"
+
+@interface POISManager : NSObject <UIAlertViewDelegate> {
     MapViewController *controller;
 }
 
@@ -22,4 +26,6 @@
 - (void) restoreMapOnCancelPOIEditing;
 - (void) restoreMapOnFinishedPOIEditing;
 
+- (void) confirmPOIDelete;
+- (void) attemptDelete;
 @end

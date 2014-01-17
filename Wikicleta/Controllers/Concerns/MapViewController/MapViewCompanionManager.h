@@ -47,4 +47,5 @@
 
 - (void) displaySavedChangesNotification;
 - (void) displayOnEditModeNotification;
+- (void) displayDeletedNotification;
 @end
