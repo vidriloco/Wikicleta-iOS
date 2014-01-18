@@ -132,4 +132,9 @@ ignore_fields_do(
     return [[distanceString substringToIndex:3] hasSuffix:@"."] ? [distanceString substringToIndex:2] : [distanceString substringToIndex:3];
 }
 
+- (NSNumber*) identifier
+{
+    return remoteId;
+}
+
 @end

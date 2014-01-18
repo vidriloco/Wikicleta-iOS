@@ -53,6 +53,7 @@ typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
 @class MapViewCompanionManager;
 @class TripsManager;
 @class POISManager;
+@class FavoritesManager;
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate> {
     NSString *activeLayer;

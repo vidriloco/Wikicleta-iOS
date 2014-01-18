@@ -247,6 +247,7 @@
 		3A4511AE1888DCD500E45EA5 /* see_on_map_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4511AC1888DCD400E45EA5 /* see_on_map_icon@2x.png */; };
 		3A4511B11888E02F00E45EA5 /* POICellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4511B01888E02F00E45EA5 /* POICellView.m */; };
 		3A4511B41888F0C700E45EA5 /* LightPOI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4511B31888F0C700E45EA5 /* LightPOI.m */; };
+		3A4A259D188A6E0100287C3D /* FavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A259C188A6E0100287C3D /* FavoritesManager.m */; };
 		3A4A6C3718827C9700C8C3B9 /* CyclingGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A6C3518827C9700C8C3B9 /* CyclingGroupViewController.m */; };
 		3A4A6C3818827C9700C8C3B9 /* CyclingGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4A6C3618827C9700C8C3B9 /* CyclingGroupViewController.xib */; };
 		3A4BA32F186E7A7D00F7531E /* end_route_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BA32B186E7A7D00F7531E /* end_route_marker.png */; };
@@ -768,6 +769,8 @@
 		3A4511B21888F0C700E45EA5 /* LightPOI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPOI.h; sourceTree = "<group>"; };
 		3A4511B31888F0C700E45EA5 /* LightPOI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightPOI.m; sourceTree = "<group>"; };
 		3A47594E17D0EC1100A524C5 /* LayersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayersDelegate.h; sourceTree = "<group>"; };
+		3A4A259B188A6E0100287C3D /* FavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesManager.h; sourceTree = "<group>"; };
+		3A4A259C188A6E0100287C3D /* FavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesManager.m; sourceTree = "<group>"; };
 		3A4A6C3418827C9700C8C3B9 /* CyclingGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclingGroupViewController.h; sourceTree = "<group>"; };
 		3A4A6C3518827C9700C8C3B9 /* CyclingGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclingGroupViewController.m; sourceTree = "<group>"; };
 		3A4A6C3618827C9700C8C3B9 /* CyclingGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CyclingGroupViewController.xib; sourceTree = "<group>"; };
@@ -1916,6 +1919,8 @@
 				3AB2448A18864F79000C09EB /* TripsManager.m */,
 				3A05FC66188704A50073D448 /* POISManager.h */,
 				3A05FC67188704A50073D448 /* POISManager.m */,
+				3A4A259B188A6E0100287C3D /* FavoritesManager.h */,
+				3A4A259C188A6E0100287C3D /* FavoritesManager.m */,
 			);
 			path = MapViewController;
 			sourceTree = "<group>";
@@ -2509,6 +2514,7 @@
 				3A01B578164A315300F78822 /* SBJsonWriter.m in Sources */,
 				3A01B579164A315300F78822 /* UIColor-Expanded.m in Sources */,
 				3A01B581164A321500F78822 /* App.m in Sources */,
+				3A4A259D188A6E0100287C3D /* FavoritesManager.m in Sources */,
 				3ACF4F411871138600A46E33 /* POIChooserOverlayView.m in Sources */,
 				3A13AF8E18839E6300A35771 /* TripView.m in Sources */,
 				3A13AF841883903800A35771 /* Trip.m in Sources */,

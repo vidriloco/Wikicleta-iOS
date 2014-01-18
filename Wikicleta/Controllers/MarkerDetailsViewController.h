@@ -60,5 +60,6 @@
 @property (nonatomic, weak) IBOutlet UIView *contactView;
 
 - (void) attemptEdit;
+- (void) reflectFavoritedStatusForItemWithId:(NSNumber *)itemId andType:(NSString *)type;
 
 @end

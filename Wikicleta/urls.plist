@@ -4,6 +4,8 @@
 <dict>
 	<key>favorites</key>
 	<dict>
+		<key>get_status</key>
+		<string>/api/favorites/marked/:object_id/:object_type/:user_id</string>
 		<key>get</key>
 		<string>/api/favorites/list/:id</string>
 	</dict>

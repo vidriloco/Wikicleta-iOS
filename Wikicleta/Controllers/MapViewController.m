@@ -10,6 +10,7 @@
 #import "MapViewCompanionManager.h"
 #import "TripsManager.h"
 #import "POISManager.h"
+#import "FavoritesManager.h"
 
 @interface MapViewController () {
     BOOL firstLocationUpdateReceived;
@@ -25,6 +26,7 @@
     MapViewCompanionManager *companionObject;
     TripsManager *tripsManager;
     POISManager *poisManager;
+    FavoritesManager *favoritesManager;
 }
 
 - (void) addCyclePathMarkersToMap;
@@ -286,6 +288,8 @@
         // Build view from XIB file
         detailsView = [[[NSBundle mainBundle] loadNibNamed:@"MarkerInfoUIView" owner:self options:nil] objectAtIndex:0];
         [[detailsView rightBottomLabel] setText:[currentlySelectedModel extraAnnotation]];
+        
+        [[self favoritesManager] reflectFavoritedStatusForItemWithId:[currentlySelectedModel identifier] andType:NSStringFromClass([currentlySelectedModel class])];
         
         [[detailsView favoriteButton] addTarget:self action:@selector(toggleFavorite:) forControlEvents:UIControlEventTouchUpInside];
         [[detailsView moreDetailsButton] addTarget:self action:@selector(presentMarkerDetailsViewController:) forControlEvents:UIControlEventTouchUpInside];
@@ -697,6 +701,15 @@
     }
     
     return tripsManager;
+}
+
+- (FavoritesManager*) favoritesManager
+{
+    if (favoritesManager == nil) {
+        favoritesManager = [[FavoritesManager alloc] initWithMapViewController:self];
+    }
+    
+    return favoritesManager;
 }
 
 - (void) displayMapOnPOILocation:(CLLocationCoordinate2D)coordinate

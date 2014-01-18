@@ -36,9 +36,7 @@
     
     if ([selectedModel isKindOfClass:[Workshop class]]) {
         [self resizeContentScrollToFit:self.contentScrollView];
-    }
-    
-    [self loadRightButtonWithString:NSLocalizedString(@"edit", nil) andStringSelector:@"attemptEdit"];
+    }    
 }
 
 - (void)viewDidLoad
@@ -49,7 +47,7 @@
     [self loadNavigationBarDefaultStyle];
     [self completeLoadView];
     [[self viewDeckController] setRightController:nil];
-
+    [self reflectFavoritedStatusForItemWithId:[selectedModel identifier] andType:NSStringFromClass([selectedModel class])];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -199,6 +197,30 @@
     [viewBlock.layer setShadowOffset:CGSizeMake(0.2, 0.2)];
     [viewBlock.layer setShadowOpacity:0.1];
 }
+
+- (void) reflectFavoritedStatusForItemWithId:(NSNumber *)itemId andType:(NSString *)type
+{
+    NSString *url = [[[[App urlForResource:@"favorites" withSubresource:@"get_status"]
+                       stringByReplacingOccurrencesOfString:@":object_id"
+                       withString: [NSString stringWithFormat:@"%d", [itemId intValue]]] stringByReplacingOccurrencesOfString:@":object_type" withString:type]
+                     stringByReplacingOccurrencesOfString:@":user_id" withString:[NSString stringWithFormat:@"%d", [[[User currentUser] identifier] intValue]]];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.responseSerializer setAcceptableContentTypes:nil];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
+        if ([[response objectForKey:@"success"] boolValue]) {
+            if ([[response objectForKey:@"is_favorite"] boolValue]) {
+                [self.favoriteButton setImage:[UIImage imageNamed:@"favorited_icon"] forState:UIControlStateNormal];
+            } else {
+                [self.favoriteButton setImage:[UIImage imageNamed:@"non_favorited_icon"] forState:UIControlStateNormal];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+
 
 - (void) viewWillDisappear:(BOOL)animated
 {
