@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>favorites</key>
+	<dict>
+		<key>get</key>
+		<string>/api/favorites/list/:id</string>
+	</dict>
 	<key>ownerships</key>
 	<dict>
 		<key>get</key>

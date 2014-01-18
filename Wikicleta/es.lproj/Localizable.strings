@@ -138,6 +138,7 @@
 "bikes_available" = "Bicis disponibles";
 
 // Route View
+"routes_title" = "Ruta";
 "route" = "Ruta";
 "route_to_start" = "Ir al inicio";
 "route_to_end" = "Ir al final";
@@ -222,3 +223,12 @@
 "no_activities_to_show" = "Sin actividades que mostrar";
 "no_activities_loaded" = "No fué posible descargar tus actividades";
 "no_activities_loaded_try" = "Haz tap aquí para intentar nuevamente";
+
+"no_favorites_to_show" = "No tienes favoritos aún";
+"no_favorites_loaded" = "No pudimos actualizar tus favoritos";
+"no_favorites_loaded_try" = "Haz tap aquí para intentar nuevamente";
+
+"workshop_store_title_plural" = "Talleres/Tiendas";
+"routes_title_plural" = "Rutas";
+"parkings_title_plural" = "Bici-estacionamientos";
+"tips_title_plural" = "Tips";

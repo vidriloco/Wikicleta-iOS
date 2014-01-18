@@ -19,7 +19,6 @@
 
 @interface ActivityViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *activityList;
-    
 }
 
 @property (nonatomic, strong) NSArray *activityList;

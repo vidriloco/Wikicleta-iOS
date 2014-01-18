@@ -107,7 +107,7 @@
 "venue_provided" = "Venue provided";
 
 // Parking View
-"parkings_title" = "Bicycle Parking";
+"parkings_title" = "Bike-parking";
 "ranking" = "%f ranking";
 "rankings" = "%f rankings";
 "has_roof" = "Has roof";
@@ -131,6 +131,7 @@
 "bikes_available" = "Available bicycles";
 
 // Route View
+"routes_title" = "Route";
 "route" = "Route";
 "route_to_start" = "Go to start";
 "route_to_end" = "Go to end";
@@ -162,8 +163,8 @@
 "workshop_info_contact" = "Contact Info";
 // Categories
 "tip" = "Tip";
-"workshop" = "Bike store";
-"parking" = "Bike parking";
+"workshop" = "Bikeshop";
+"parking" = "Bike-parking";
 
 // Select location
 "select_location_title" = "Drag the map";
@@ -214,3 +215,12 @@
 "no_activities_to_show" = "No activities to show";
 "no_activities_loaded" = "We were unable to download your activities";
 "no_activities_loaded_try" = "Tap here to try again";
+
+"no_favorites_to_show" = "No favorites to show";
+"no_favorites_loaded" = "We were unable to load your favorites";
+"no_favorites_loaded_try" = "Tap here to try again";
+
+"workshop_store_title_plural" = "Bikeshops";
+"routes_title_plural" = "Routes";
+"parkings_title_plural" = "Bike-parkings";
+"tips_title_plural" = "Tips";
