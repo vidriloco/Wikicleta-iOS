@@ -21,7 +21,7 @@
     [GMSServices provideAPIKey:@"AIzaSyDMKDw8oVSqOMBMat2P4O2_g1OqZzYbl9Q"];
     [ActiveRecord registerDatabaseName:@"WikicletaDB" useDirectory:ARStorageDocuments];
     
-    [App initializeWithEnv:kProd];
+    [App initializeWithEnv:kDev];
     
     self.window = [[UIWindow alloc] initWithFrame:[App viewBounds]];
     // Override point for customization after application launch.

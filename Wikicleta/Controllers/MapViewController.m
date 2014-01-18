@@ -291,7 +291,7 @@
         
         [[self favoritesManager] reflectFavoritedStatusForItemWithId:[currentlySelectedModel identifier] andType:NSStringFromClass([currentlySelectedModel class])];
         
-        [[detailsView favoriteButton] addTarget:self action:@selector(toggleFavorite:) forControlEvents:UIControlEventTouchUpInside];
+        [[detailsView favoriteButton] addTarget:[self favoritesManager] action:@selector(toggleFavoritedStatus) forControlEvents:UIControlEventTouchUpInside];
         [[detailsView moreDetailsButton] addTarget:self action:@selector(presentMarkerDetailsViewController:) forControlEvents:UIControlEventTouchUpInside];
         
         if ([User isOwnerOf:[currentlySelectedModel ownerId]]) {
@@ -706,11 +706,22 @@
 - (FavoritesManager*) favoritesManager
 {
     if (favoritesManager == nil) {
-        favoritesManager = [[FavoritesManager alloc] initWithMapViewController:self];
+        favoritesManager = [[FavoritesManager alloc] initWithController:self];
     }
     
     return favoritesManager;
 }
+
+- (UIButton*) togglerButton
+{
+    return [detailsView favoriteButton];
+}
+
+- (id<ModelHumanizer>) subjectModel
+{
+    return currentlySelectedModel;
+}
+
 
 - (void) displayMapOnPOILocation:(CLLocationCoordinate2D)coordinate
 {

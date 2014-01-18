@@ -812,6 +812,7 @@
 		3A5382FA18701068006346AE /* return_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return_button@2x.png"; sourceTree = "<group>"; };
 		3A5382FB18701068006346AE /* save_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_button.png; sourceTree = "<group>"; };
 		3A5382FC18701068006346AE /* save_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save_button@2x.png"; sourceTree = "<group>"; };
+		3A584454188AEA8E00DD950A /* FavoritesManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesManagerDelegate.h; sourceTree = "<group>"; };
 		3A5C3BD31669B310009DDA1C /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		3A5C3BD41669B310009DDA1C /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		3A5C3BD51669B310009DDA1C /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
@@ -1921,6 +1922,7 @@
 				3A05FC67188704A50073D448 /* POISManager.m */,
 				3A4A259B188A6E0100287C3D /* FavoritesManager.h */,
 				3A4A259C188A6E0100287C3D /* FavoritesManager.m */,
+				3A584454188AEA8E00DD950A /* FavoritesManagerDelegate.h */,
 			);
 			path = MapViewController;
 			sourceTree = "<group>";

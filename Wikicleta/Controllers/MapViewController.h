@@ -41,6 +41,7 @@
 #import "TripView.h"
 #import "TripPoiView.h"
 #import "LightPOI.h"
+#import "FavoritesManagerDelegate.h"
 
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
 #define minZoom 2
@@ -55,7 +56,7 @@ typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
 @class POISManager;
 @class FavoritesManager;
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate> {
+@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate, FavoritesManagerDelegate> {
     NSString *activeLayer;
     UIButton *rightButton;
     UIButton *leftButton;
@@ -104,6 +105,8 @@ typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
 - (void) hideViewForMarker;
 - (MapViewCompanionManager*) mapManager;
 - (POISManager*) poisManager;
+- (FavoritesManager*) favoritesManager;
+
 - (void) toggleShareControls;
 - (void) transitionMapToMode:(MapMode)mode;
 - (TripsManager*) tripsManager;

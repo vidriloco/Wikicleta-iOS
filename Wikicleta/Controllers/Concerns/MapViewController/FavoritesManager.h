@@ -11,14 +11,20 @@
 #import "User.h"
 #import <AFNetworking/AFNetworking.h>
 #import "MapViewController.h"
+#import "FavoritesManagerDelegate.h"
+
+#define favoritedTag    111111
+#define unfavoritedTag  999999
 
 @interface FavoritesManager : NSObject {
-    MapViewController *controller;
+    id<FavoritesManagerDelegate> controller;
 }
 
-@property (nonatomic, strong) MapViewController *controller;
+@property (nonatomic) id<FavoritesManagerDelegate> controller;
 
-- (id) initWithMapViewController:(MapViewController*)mapViewController;
+- (id) initWithController:(id<FavoritesManagerDelegate>)delegateController;
 - (void) reflectFavoritedStatusForItemWithId:(NSNumber*)itemId andType:(NSString*)type;
+- (void) changeFavoritedStatusForItemWithId:(NSNumber*)itemId andType:(NSString*)type;
 
+- (void) toggleFavoritedStatus;
 @end

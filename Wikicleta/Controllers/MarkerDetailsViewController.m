@@ -7,13 +7,15 @@
 //
 
 #import "MarkerDetailsViewController.h"
+#import "FavoritesManager.h"
 
 @interface MarkerDetailsViewController () {
-    
+    FavoritesManager *favoritesManager;
 }
 
 - (void) completeLoadView;
 - (void) stylizeViewContainerBlock:(UIView*)viewBlock;
+- (FavoritesManager*) favoritesManager;
 @end
 
 @implementation MarkerDetailsViewController
@@ -92,6 +94,8 @@
     [communityTitleLabel setFont:[LookAndFeel defaultFontBookWithSize:12]];
     [communityTitleLabel setTextColor:[LookAndFeel orangeColor]];
     [communityTitleLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    [self.favoriteButton addTarget:[self favoritesManager] action:@selector(toggleFavoritedStatus) forControlEvents:UIControlEventTouchUpInside];
     
     [likesLabel setTextColor:[LookAndFeel orangeColor]];
     [likesLabel setFont:[LookAndFeel defaultFontBoldWithSize:18]];
@@ -221,6 +225,24 @@
     }];
 }
 
+- (UIButton*) togglerButton
+{
+    return self.favoriteButton;
+}
+
+- (id<ModelHumanizer>) subjectModel
+{
+    return selectedModel;
+}
+
+- (FavoritesManager*) favoritesManager
+{
+    if (favoritesManager == nil) {
+        favoritesManager = [[FavoritesManager alloc] initWithController:self];
+    }
+    
+    return favoritesManager;
+}
 
 - (void) viewWillDisappear:(BOOL)animated
 {

@@ -17,8 +17,12 @@
 #import "Workshop.h"
 
 #import "EditWorkshopViewController.h"
+#import "FavoritesManager.h"
+#import "FavoritesManagerDelegate.h"
 
-@interface MarkerDetailsViewController : UIViewController {
+@class FavoritesManager;
+
+@interface MarkerDetailsViewController : UIViewController<FavoritesManagerDelegate> {
     id <ModelHumanizer> selectedModel;
 }
 
@@ -61,5 +65,4 @@
 
 - (void) attemptEdit;
 - (void) reflectFavoritedStatusForItemWithId:(NSNumber *)itemId andType:(NSString *)type;
-
 @end
