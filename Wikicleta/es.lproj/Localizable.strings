@@ -85,6 +85,11 @@
 "could_not_log_in_explanation" = "Verifica tu nombre de usuario y contraseña";
 "could_not_log_in" = "No fué posible iniciar sesión";
 
+// Settings view
+"username_placeholder" = "tu nombre de usuario";
+"userbio_placeholder" = "tu bio";
+"user_settings_instructions" = "Actualiza tu perfil aquí";
+
 // Menu
 "discover_menu" = "descubre";
 "events_menu" = "eventos";
@@ -184,6 +189,7 @@
 // Profile view
 "profile_your_activity" = "Tu Actividad";
 "profile_your_favorites" = "Tus Favoritos";
+"profile_your_settings" = "Tu configuración";
 
 // Synchronization
 "synchronization_question" = "¿Sincronizar ahora?";

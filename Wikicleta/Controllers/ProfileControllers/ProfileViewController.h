@@ -17,6 +17,7 @@
 #import "MainMenuViewController.h"
 #import "ActivityViewController.h"
 #import "FavoritesViewController.h"
+#import "SettingsViewController.h"
 
 @interface ProfileViewController : UIViewController<IIViewDeckControllerDelegate>
 
@@ -25,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *userPictureImage;
 @property (nonatomic, weak) IBOutlet OnProfileSectionView *activityButton;
 @property (nonatomic, weak) IBOutlet OnProfileSectionView *favoriteButton;
+@property (nonatomic, weak) IBOutlet OnProfileSectionView *settingsButton;
 @property (nonatomic, weak) IBOutlet UIView *leftborderView;
 @property (nonatomic, weak) IBOutlet UIButton *leftButton;
 

@@ -11,6 +11,7 @@
                 <outlet property="favoriteButton" destination="x18-fB-mlN" id="uig-Ea-hSS"/>
                 <outlet property="leftButton" destination="G94-ke-4cX" id="0dv-Rd-OG7"/>
                 <outlet property="leftborderView" destination="WNO-wg-93Q" id="113-G0-703"/>
+                <outlet property="settingsButton" destination="Pxs-OO-r9C" id="eSZ-ci-FI5"/>
                 <outlet property="userBioLabel" destination="rMH-yF-l5N" id="iWw-ht-xxn"/>
                 <outlet property="userPictureImage" destination="eI7-xR-LG9" id="QiV-Ah-nPA"/>
                 <outlet property="usernameLabel" destination="yfr-aT-AlT" id="y7m-K4-qEL"/>
@@ -26,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-xR-LG9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-xR-LG9">
                     <rect key="frame" x="115" y="40" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -99,6 +100,29 @@
                                 <outlet property="titleLabel" destination="SN8-ze-Slv" id="ByD-Ie-oQM"/>
                             </connections>
                         </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxs-OO-r9C" customClass="OnProfileSectionView">
+                            <rect key="frame" x="0.0" y="151" width="320" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gear_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-r3-IHf">
+                                    <rect key="frame" x="20" y="13" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tus Preferencias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqY-AQ-IRL">
+                                    <rect key="frame" x="92" y="14" width="208" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                            <connections>
+                                <outlet property="pictureImageView" destination="d5Q-r3-IHf" id="HDx-fh-5pi"/>
+                                <outlet property="titleLabel" destination="UqY-AQ-IRL" id="3Va-pk-tI2"/>
+                            </connections>
+                        </view>
                     </subviews>
                 </scrollView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNO-wg-93Q">
@@ -154,8 +178,10 @@
         <image name="activity_icon.png" width="24" height="50"/>
         <image name="blue_gradient_iphone.png" width="9" height="470"/>
         <image name="favorites_icon.png" width="50" height="48"/>
+        <image name="gear_icon.png" width="50" height="50"/>
         <image name="map_menu.png" width="70" height="70"/>
         <image name="menu_button.png" width="20" height="50"/>
         <image name="pin.png" width="125" height="291"/>
+        <image name="profile_placeholder.png" width="90" height="90"/>
     </resources>
 </document>

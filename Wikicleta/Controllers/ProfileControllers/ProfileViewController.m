@@ -12,12 +12,14 @@
 
 - (void) presentActivityViewController;
 - (void) presentFavoritesViewController;
+- (void) presentSettingsViewController;
+- (void) updateUserData;
 
 @end
 
 @implementation ProfileViewController
 
-@synthesize usernameLabel, userPictureImage, userBioLabel, activityButton, favoriteButton, leftborderView, leftButton;
+@synthesize usernameLabel, userPictureImage, userBioLabel, activityButton, favoriteButton, leftborderView, leftButton, settingsButton;
 
 - (void)viewDidLoad
 {
@@ -30,26 +32,13 @@
     
     [activityButton stylizeViewWithString:@"profile_your_activity"];
     [favoriteButton stylizeViewWithString:@"profile_your_favorites"];
+    [settingsButton stylizeViewWithString:@"profile_your_settings"];
     
     [activityButton addTarget:self action:@selector(presentActivityViewController) forControlEvents:UIControlEventTouchUpInside];
     [favoriteButton addTarget:self action:@selector(presentFavoritesViewController) forControlEvents:UIControlEventTouchUpInside];
-
-    NSString *url = [App urlForResource:@"profiles" withSubresource:@"get" andReplacementSymbol:@":id" withReplacementValue:[NSString stringWithFormat:@"%d", [[User currentUser].identifier intValue]]];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [settingsButton addTarget:self action:@selector(presentSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
     
-    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
-
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
-        if ([[response objectForKey:@"success"] boolValue]) {
-            [User buildOrUpdateUserFromDictionary:[response objectForKey:@"user"]];
-            [self loadPictureImage];
-            [self loadUserInfo];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self loadPictureImage];
-    }];
-    
+    [self updateUserData];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -62,6 +51,25 @@
     [usernameLabel setFont:[LookAndFeel defaultFontBoldWithSize:25]];
     [userBioLabel setFont:[LookAndFeel defaultFontLightWithSize:14]];
 
+}
+
+- (void) updateUserData
+{
+    NSString *url = [App urlForResource:@"profiles" withSubresource:@"get" andReplacementSymbol:@":id" withReplacementValue:[NSString stringWithFormat:@"%d", [[User currentUser].identifier intValue]]];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
+        if ([[response objectForKey:@"success"] boolValue]) {
+            [User buildOrUpdateUserFromDictionary:[response objectForKey:@"user"]];
+            [self loadPictureImage];
+            [self loadUserInfo];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self loadPictureImage];
+    }];
 }
 
 - (void) loadPictureImage
@@ -86,6 +94,7 @@
     [super viewWillAppear:animated];
     [[self.navigationController viewDeckController] setDelegate:self];
     [[self.navigationController viewDeckController] setRightController:nil];
+    [self updateUserData];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -146,5 +155,24 @@
          animated:NO];
     }];
 }
+
+- (void) presentSettingsViewController
+{
+    [settingsButton animateSelectionExecutingBlockOnComplete:^{
+        UINavigationController *nav = (UINavigationController*) [[self viewDeckController] centerController];
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.4f;
+        transition.type = kCATransitionMoveIn;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition
+                                                    forKey:kCATransition];
+        
+        SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithNibName:nil bundle:nil];
+        [nav
+         pushViewController:settingsViewController
+         animated:NO];
+    }];
+}
+
 
 @end

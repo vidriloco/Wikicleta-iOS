@@ -78,6 +78,11 @@
 
 "could_not_sign_in" = "Could not sign you on";
 
+// Settings view
+"username_placeholder" = "your username";
+"userbio_placeholder" = "your bio";
+"user_settings_instructions" = "Update your profile here";
+
 // Details view for POIs
 "poi_details_title" = "Details";
 "community_title_label" = "What the community says?";
@@ -176,6 +181,7 @@
 // Profile view
 "profile_your_activity" = "Your activity";
 "profile_your_favorites" = "Your favorites";
+"profile_your_settings" = "Your settings";
 
 // Synchronization
 "synchronization_question" = "Synchronize now?";
