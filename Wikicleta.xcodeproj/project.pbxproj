@@ -222,6 +222,8 @@
 		3A2A2026186C1B1900FF7C59 /* favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */; };
 		3A2A2027186C1B1900FF7C59 /* non_favorited_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */; };
 		3A2A2028186C1B1900FF7C59 /* non_favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2024186C1B1900FF7C59 /* non_favorited_icon@2x.png */; };
+		3A2B6E96188C683E00B92607 /* compass_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2B6E94188C683E00B92607 /* compass_button.png */; };
+		3A2B6E97188C683E00B92607 /* compass_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2B6E95188C683E00B92607 /* compass_button@2x.png */; };
 		3A417ACF16699E9000E6DF0B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44216692E7C006F251D /* Accounts.framework */; };
 		3A44F4CA187907E4007E8AB5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A44F4C8187907E4007E8AB5 /* ProfileViewController.m */; };
 		3A44F4CB187907E4007E8AB5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */; };
@@ -726,6 +728,8 @@
 		3A2A2022186C1B1900FF7C59 /* favorited_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorited_icon@2x.png"; sourceTree = "<group>"; };
 		3A2A2023186C1B1900FF7C59 /* non_favorited_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = non_favorited_icon.png; sourceTree = "<group>"; };
 		3A2A2024186C1B1900FF7C59 /* non_favorited_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "non_favorited_icon@2x.png"; sourceTree = "<group>"; };
+		3A2B6E94188C683E00B92607 /* compass_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_button.png; sourceTree = "<group>"; };
+		3A2B6E95188C683E00B92607 /* compass_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_button@2x.png"; sourceTree = "<group>"; };
 		3A417AD51669A53000E6DF0B /* SinglySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinglySDK.bundle; sourceTree = "<group>"; };
 		3A417AD61669A53000E6DF0B /* SinglySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinglySDK.framework; sourceTree = "<group>"; };
 		3A44F4C7187907E4007E8AB5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -1058,6 +1062,8 @@
 		1807475417B4525E00A04D61 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				3A2B6E94188C683E00B92607 /* compass_button.png */,
+				3A2B6E95188C683E00B92607 /* compass_button@2x.png */,
 				3A653E5418833DB3002B9AA6 /* list_button.png */,
 				3A653E5518833DB3002B9AA6 /* list_button@2x.png */,
 				3A5382F918701068006346AE /* return_button.png */,
@@ -2261,12 +2267,14 @@
 				3A4511AE1888DCD500E45EA5 /* see_on_map_icon@2x.png in Resources */,
 				3A13AFCE1883CEFB00A35771 /* start_flag_marker.png in Resources */,
 				3A61E7201887BC0D0089D3BC /* save_icon@2x.png in Resources */,
+				3A2B6E97188C683E00B92607 /* compass_button@2x.png in Resources */,
 				3A9547AB186CBE1000428DF7 /* dislike_icon@2x.png in Resources */,
 				3A13AF8A18839C8D00A35771 /* trip_marker.png in Resources */,
 				3AD40E14186AD6DE000F84E3 /* events_menu.png in Resources */,
 				3A13AFDC1883CEFB00A35771 /* metro_san_antonio.png in Resources */,
 				3A61E7181887A7DD0089D3BC /* guess_marker@2x.png in Resources */,
 				3A08AD2C18725B7400E79AA5 /* twitter_icon.png in Resources */,
+				3A2B6E96188C683E00B92607 /* compass_button.png in Resources */,
 				3A653E5218833728002B9AA6 /* trips_layers.png in Resources */,
 				3A13AFFF1883CF8F00A35771 /* paramedic_marker@2x.png in Resources */,
 				3AEAF1BA18708F3E00003668 /* return_icon@2x.png in Resources */,

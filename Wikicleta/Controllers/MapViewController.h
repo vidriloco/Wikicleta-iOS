@@ -50,19 +50,20 @@
 #define marginUnit 20
 
 typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
-
+typedef enum {Zoom, UnZoom} MapZoom;
 @class MapViewCompanionManager;
 @class TripsManager;
 @class POISManager;
 @class FavoritesManager;
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate, FavoritesManagerDelegate> {
+@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate, FavoritesManagerDelegate, CLLocationManagerDelegate> {
     NSString *activeLayer;
     UIButton *rightButton;
     UIButton *leftButton;
     UIButton *saveButton;
     UIButton *returnButton;
     UIButton *shareButton;
+    UIButton *locationButton;
     
     UIImageView * sharePin;
     UIImageView * editSharePin;
@@ -71,6 +72,8 @@ typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
     GMSPolyline *selectedRoutePath;
     id detailsView;
     BOOL requestOngoing;
+    
+    CLLocationManager *locationManager;
     
     OverlayMapMessageView *mapMessageView;
     id <ModelHumanizer> currentlySelectedModel;
@@ -85,6 +88,10 @@ typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
 @property (nonatomic, strong) UIButton *saveButton;
 @property (nonatomic, strong) UIButton *returnButton;
 @property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UIButton *locationButton;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
 @property (nonatomic, strong) UIImageView * editSharePin;
 
 @property (nonatomic, strong) UIImageView * sharePin;
@@ -112,4 +119,6 @@ typedef enum {Share, Explore, Detail, DetailFixed, EditShare} MapMode;
 - (TripsManager*) tripsManager;
 - (void) displayMapOnPOILocation:(CLLocationCoordinate2D)coordinate;
 - (void) centerOnLightPOI:(LightPOI*)lightPOI;
+- (void) showMyLocationOnMap;
+
 @end

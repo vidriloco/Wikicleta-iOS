@@ -13,8 +13,6 @@
 #import "FavoritesManager.h"
 
 @interface MapViewController () {
-    BOOL firstLocationUpdateReceived;
-    
     CLLocation *mapLastCenteredAt;
             
     GMSCameraPosition *lastCamera;
@@ -27,6 +25,8 @@
     TripsManager *tripsManager;
     POISManager *poisManager;
     FavoritesManager *favoritesManager;
+    
+    MapZoom nextMapZoom;
 }
 
 - (void) addCyclePathMarkersToMap;
@@ -51,7 +51,7 @@
 @implementation MapViewController
 
 
-@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap, secondaryView, currentlySelectedModel, editSharePin;
+@synthesize activeLayer, rightButton, leftButton, saveButton, returnButton, shareButton, sharePin, mapView, selectedRoutePath, detailsView, requestOngoing, mapMessageView, itemsOnMap, secondaryView, currentlySelectedModel, editSharePin, locationButton, locationManager;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,6 +64,11 @@
         companionObject = [[MapViewCompanionManager alloc] initWithMapViewController:self];
         [companionObject loadSharePinView];
         [companionObject loadMapMessageView];
+        
+        locationManager = [[CLLocationManager alloc] init];
+        [locationManager setDelegate:self];
+        locationManager.desiredAccuracy=kCLLocationAccuracyBest;
+        locationManager.distanceFilter=kCLDistanceFilterNone;
     }
     return self;
 }
@@ -95,10 +100,10 @@
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
 
-    [mapView addObserver:self
+    /*[mapView addObserver:self
               forKeyPath:@"myLocation"
                  options:NSKeyValueObservingOptionNew
-                 context:NULL];
+                 context:NULL];*/
     // Ask for My Location data after the map has already been added to the UI.
     dispatch_async(dispatch_get_main_queue(), ^{
         mapView.myLocationEnabled = YES;
@@ -164,19 +169,15 @@
 
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
+/*- (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-    if (!firstLocationUpdateReceived) {
-        // If the first location update has not yet been recieved, then jump to that
-        // location.
-        firstLocationUpdateReceived = YES;
-        CLLocation *location = [change objectForKey:NSKeyValueChangeNewKey];
-        mapView.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
-                                                        zoom:minZoom];
-    }
-}
+
+    CLLocation *location = [change objectForKey:NSKeyValueChangeNewKey];
+    mapView.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
+                                                    zoom:minZoom];
+}*/
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
@@ -746,6 +747,41 @@
     
     [self displayMapOnPOILocation:lightPOI.coordinate];
     
+}
+
+- (void) showMyLocationOnMap
+{
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim.duration = 0.125;
+    anim.repeatCount = 1;
+    anim.autoreverses = YES;
+    anim.removedOnCompletion = YES;
+    anim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)];
+    [locationButton.layer addAnimation:anim forKey:nil];
+    
+    CABasicAnimation *opacityAnim = [CABasicAnimation animationWithKeyPath:@"alpha"];
+    opacityAnim.fromValue = [NSNumber numberWithFloat:1.0];
+    opacityAnim.toValue = [NSNumber numberWithFloat:0.1];
+    opacityAnim.removedOnCompletion = YES;
+
+    if (nextMapZoom == UnZoom) {
+        lastCamera = [GMSCameraPosition cameraWithLatitude:lastCamera.target.latitude longitude:lastCamera.target.longitude zoom:mediumZoom];
+        [mapView setCamera:lastCamera];
+        nextMapZoom = Zoom;
+    } else {
+        [locationManager startUpdatingLocation];
+        nextMapZoom = UnZoom;
+    }
+}
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocationCoordinate2D location  =  [(CLLocation*) [locations objectAtIndex:0] coordinate];
+    lastCamera = [GMSCameraPosition cameraWithLatitude:location.latitude longitude:location.longitude zoom:poiDetailedZoom];
+    [mapView setCamera:lastCamera];
+    [locationManager stopUpdatingLocation];
+    //[locationButton.layer removeAllAnimations];
 }
 
 @end
