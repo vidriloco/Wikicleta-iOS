@@ -89,7 +89,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [mapView removeObserver:self forKeyPath:@"myLocation"];
+    //[mapView removeObserver:self forKeyPath:@"myLocation"];
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [super viewDidDisappear:animated];

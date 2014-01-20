@@ -224,6 +224,7 @@
 		3A2A2028186C1B1900FF7C59 /* non_favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2024186C1B1900FF7C59 /* non_favorited_icon@2x.png */; };
 		3A2B6E96188C683E00B92607 /* compass_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2B6E94188C683E00B92607 /* compass_button.png */; };
 		3A2B6E97188C683E00B92607 /* compass_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2B6E95188C683E00B92607 /* compass_button@2x.png */; };
+		3A2B6E9D188C7C6400B92607 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2B6E99188C7C6400B92607 /* libTestFlight.a */; };
 		3A417ACF16699E9000E6DF0B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44216692E7C006F251D /* Accounts.framework */; };
 		3A44F4CA187907E4007E8AB5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A44F4C8187907E4007E8AB5 /* ProfileViewController.m */; };
 		3A44F4CB187907E4007E8AB5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */; };
@@ -730,6 +731,10 @@
 		3A2A2024186C1B1900FF7C59 /* non_favorited_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "non_favorited_icon@2x.png"; sourceTree = "<group>"; };
 		3A2B6E94188C683E00B92607 /* compass_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_button.png; sourceTree = "<group>"; };
 		3A2B6E95188C683E00B92607 /* compass_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_button@2x.png"; sourceTree = "<group>"; };
+		3A2B6E99188C7C6400B92607 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		3A2B6E9A188C7C6400B92607 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		3A2B6E9B188C7C6400B92607 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		3A2B6E9C188C7C6400B92607 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		3A417AD51669A53000E6DF0B /* SinglySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinglySDK.bundle; sourceTree = "<group>"; };
 		3A417AD61669A53000E6DF0B /* SinglySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinglySDK.framework; sourceTree = "<group>"; };
 		3A44F4C7187907E4007E8AB5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -996,6 +1001,7 @@
 				3AC2291317CACD0000E76E96 /* Accelerate.framework in Frameworks */,
 				3A01B495164A2F6E00F78822 /* CoreData.framework in Frameworks */,
 				3A73F56117B3608000FA7A71 /* libicucore.dylib in Frameworks */,
+				3A2B6E9D188C7C6400B92607 /* libTestFlight.a in Frameworks */,
 				3A73F56417B3609400FA7A71 /* OpenGLES.framework in Frameworks */,
 				3A73F55E17B3606A00FA7A71 /* libc++.dylib in Frameworks */,
 				3A73F55B17B3605100FA7A71 /* GLKit.framework in Frameworks */,
@@ -1451,6 +1457,7 @@
 		3A01B4D8164A313900F78822 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3A2B6E98188C7C6400B92607 /* TestFlight */,
 				3A060C6A17D2AE5200E006C0 /* UzysSlideMenu */,
 				3AC2290C17CACC7E00E76E96 /* RealTimeBlur */,
 				1807474717B447FD00A04D61 /* ViewDeck */,
@@ -1680,6 +1687,17 @@
 				3A1A2A9A1879F4F500AF298C /* favorites_icon@2x.png */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		3A2B6E98188C7C6400B92607 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				3A2B6E99188C7C6400B92607 /* libTestFlight.a */,
+				3A2B6E9A188C7C6400B92607 /* TestFlight+AsyncLogging.h */,
+				3A2B6E9B188C7C6400B92607 /* TestFlight+ManualSessions.h */,
+				3A2B6E9C188C7C6400B92607 /* TestFlight.h */,
+			);
+			path = TestFlight;
 			sourceTree = "<group>";
 		};
 		3A417AD41669A53000E6DF0B /* Singly */ = {
@@ -2648,8 +2666,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
-					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/iOS App Unit Tests/Frameworks/OCMockLibrary\"",
-					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks/OCMockLibrary\"",
+					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/iOS\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
+					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/Mac\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
+					"/Users/spalatin/Desktop/wikicleta-ios/Wikicleta/Libraries/TestFlight",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -2677,8 +2696,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/iOS App Unit Tests/Frameworks/OCMockLibrary\"",
-					"\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project Files/Mac App Unit Tests/Frameworks/OCMockLibrary\"",
+					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/iOS\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
+					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/Mac\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
+					"/Users/spalatin/Desktop/wikicleta-ios/Wikicleta/Libraries/TestFlight",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";

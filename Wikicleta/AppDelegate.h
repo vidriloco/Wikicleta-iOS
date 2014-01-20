@@ -12,6 +12,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "IIViewDeckController.h"
 #import "ActiveRecord.h"
+#import "TestFlight.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    [TestFlight takeOff:@"185e9b46-741b-4e47-b1ce-7de10fba6910"];
     [GMSServices provideAPIKey:@"AIzaSyDMKDw8oVSqOMBMat2P4O2_g1OqZzYbl9Q"];
     [ActiveRecord registerDatabaseName:@"WikicletaDB" useDirectory:ARStorageDocuments];
     
