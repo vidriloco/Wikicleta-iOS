@@ -288,6 +288,8 @@
 		3A653E5318833728002B9AA6 /* trips_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5118833728002B9AA6 /* trips_layers@2x.png */; };
 		3A653E5618833DB3002B9AA6 /* list_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5418833DB3002B9AA6 /* list_button.png */; };
 		3A653E5718833DB3002B9AA6 /* list_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5518833DB3002B9AA6 /* list_button@2x.png */; };
+		3A692933188CED3300D7B335 /* compass_disabled_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A692931188CED3300D7B335 /* compass_disabled_button.png */; };
+		3A692934188CED3300D7B335 /* compass_disabled_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A692932188CED3300D7B335 /* compass_disabled_button@2x.png */; };
 		3A6BE526187C69F300200A87 /* CyclePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BE525187C69F300200A87 /* CyclePath.m */; };
 		3A6BE529187C8D6E00200A87 /* cycle_path_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6BE527187C8D6E00200A87 /* cycle_path_marker.png */; };
 		3A6BE52A187C8D6E00200A87 /* cycle_path_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6BE528187C8D6E00200A87 /* cycle_path_marker@2x.png */; };
@@ -814,6 +816,8 @@
 		3A653E5118833728002B9AA6 /* trips_layers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trips_layers@2x.png"; sourceTree = "<group>"; };
 		3A653E5418833DB3002B9AA6 /* list_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_button.png; sourceTree = "<group>"; };
 		3A653E5518833DB3002B9AA6 /* list_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_button@2x.png"; sourceTree = "<group>"; };
+		3A692931188CED3300D7B335 /* compass_disabled_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_disabled_button.png; sourceTree = "<group>"; };
+		3A692932188CED3300D7B335 /* compass_disabled_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_disabled_button@2x.png"; sourceTree = "<group>"; };
 		3A6BE524187C69F300200A87 /* CyclePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePath.h; sourceTree = "<group>"; };
 		3A6BE525187C69F300200A87 /* CyclePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclePath.m; sourceTree = "<group>"; };
 		3A6BE527187C8D6E00200A87 /* cycle_path_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_path_marker.png; sourceTree = "<group>"; };
@@ -1068,6 +1072,8 @@
 		1807475417B4525E00A04D61 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				3A692931188CED3300D7B335 /* compass_disabled_button.png */,
+				3A692932188CED3300D7B335 /* compass_disabled_button@2x.png */,
 				3A2B6E94188C683E00B92607 /* compass_button.png */,
 				3A2B6E95188C683E00B92607 /* compass_button@2x.png */,
 				3A653E5418833DB3002B9AA6 /* list_button.png */,
@@ -2328,6 +2334,7 @@
 				3A13AFDD1883CEFB00A35771 /* metro_san_juan_de_letran.png in Resources */,
 				3A13AFCD1883CEFB00A35771 /* service_station_marker.png in Resources */,
 				3A13AFE61883CEFB00A35771 /* metrobus_goma.png in Resources */,
+				3A692933188CED3300D7B335 /* compass_disabled_button.png in Resources */,
 				3A13AFDE1883CEFB00A35771 /* metro_sevilla.png in Resources */,
 				180E329317B99AA600322194 /* layer_button.png in Resources */,
 				180E329417B99AA600322194 /* layer_button@2x.png in Resources */,
@@ -2377,6 +2384,7 @@
 				3A4511AD1888DCD400E45EA5 /* see_on_map_icon.png in Resources */,
 				3AA7E4A917CD74B800B059B3 /* Podfile in Resources */,
 				3A5382F718700D6E006346AE /* share_button.png in Resources */,
+				3A692934188CED3300D7B335 /* compass_disabled_button@2x.png in Resources */,
 				3AEAF1C31870B0C300003668 /* close_icon.png in Resources */,
 				3A13AFFD1883CF8F00A35771 /* grouped_services_marker@2x.png in Resources */,
 				3A13AFDB1883CEFB00A35771 /* metro_pino_suarez.png in Resources */,
@@ -2673,6 +2681,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Wikicleta;
+				PROVISIONING_PROFILE = "342584F1-52D3-4962-B319-3FC9D5DFD7B0";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2682,6 +2691,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7749400903248DF8FE7620E /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alejandro Cruz (9CLTPS4792)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alejandro Cruz (9CLTPS4792)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2703,6 +2714,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Wikicleta;
+				PROVISIONING_PROFILE = "342584F1-52D3-4962-B319-3FC9D5DFD7B0";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

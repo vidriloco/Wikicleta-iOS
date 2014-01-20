@@ -54,7 +54,6 @@
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [userPicButton addTarget:self action:@selector(selectPicture) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 - (void) viewWillDisappear:(BOOL)animated

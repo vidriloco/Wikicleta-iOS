@@ -42,6 +42,7 @@
 - (void) presentCyclingGroupViewController:(id)sender;
 - (void) synchronize;
 - (void) triggerControlledFetch:(CLLocationCoordinate2D)coordinate;
+- (void) showMyLocationOnMap;
 
 @end
 
@@ -769,9 +770,13 @@
         lastCamera = [GMSCameraPosition cameraWithLatitude:lastCamera.target.latitude longitude:lastCamera.target.longitude zoom:mediumZoom];
         [mapView setCamera:lastCamera];
         nextMapZoom = Zoom;
+        [locationButton setImage:[UIImage imageNamed:@"compass_disabled_button.png"] forState:UIControlStateNormal];
+        mapView.myLocationEnabled = NO;
     } else {
         [locationManager startUpdatingLocation];
         nextMapZoom = UnZoom;
+        [locationButton setImage:[UIImage imageNamed:@"compass_button.png"] forState:UIControlStateNormal];
+        mapView.myLocationEnabled = YES;
     }
 }
 

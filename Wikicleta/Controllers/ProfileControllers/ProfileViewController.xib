@@ -27,9 +27,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-xR-LG9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="profile_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-xR-LG9">
                     <rect key="frame" x="115" y="40" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="cvV-e8-GFL"/>
+                        <constraint firstAttribute="width" constant="90" id="gPJ-u2-7bz"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bicito" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfr-aT-AlT">
                     <rect key="frame" x="20" y="138" width="280" height="40"/>
@@ -39,23 +43,23 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bicito" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rMH-yF-l5N">
-                    <rect key="frame" x="20" y="180" width="280" height="54"/>
+                    <rect key="frame" x="20" y="170" width="280" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view alpha="0.19999999999999968" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-0D-g3A">
-                    <rect key="frame" x="0.0" y="242" width="320" height="5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.76543473110000004" green="0.86338631899999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ey2-oZ-gMb">
-                    <rect key="frame" x="0.0" y="247" width="320" height="321"/>
+                    <rect key="frame" x="0.0" y="240" width="320" height="328"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
+                        <view alpha="0.19999999999999968" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-0D-g3A">
+                            <rect key="frame" x="0.0" y="1" width="320" height="5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.76543473110000004" green="0.86338631899999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x18-fB-mlN" customClass="OnProfileSectionView">
-                            <rect key="frame" x="0.0" y="76" width="320" height="74"/>
+                            <rect key="frame" x="0.0" y="83" width="320" height="74"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favorites_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="6J9-Ul-1YP">
@@ -78,7 +82,7 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwi-Br-ikf" customClass="OnProfileSectionView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                            <rect key="frame" x="0.0" y="7" width="320" height="74"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="activity_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="U4s-8h-NPY">
@@ -101,7 +105,7 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxs-OO-r9C" customClass="OnProfileSectionView">
-                            <rect key="frame" x="0.0" y="151" width="320" height="74"/>
+                            <rect key="frame" x="0.0" y="158" width="320" height="74"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gear_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-r3-IHf">

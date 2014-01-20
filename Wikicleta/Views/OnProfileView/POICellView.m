@@ -27,7 +27,6 @@
     [viewOnMapButton setTitleColor:[LookAndFeel orangeColor] forState:UIControlStateNormal];
     [viewOnMapButton setTitle:NSLocalizedString(@"see_on_map", nil) forState:UIControlStateNormal];
     [viewOnMapButton.titleLabel setFont:[LookAndFeel defaultFontBoldWithSize:13]];
-    
 }
 
 @end

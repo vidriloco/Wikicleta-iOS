@@ -90,17 +90,19 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
     [tableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:nil];
     
     NSString *selectedMenuItem = [menuSections objectAtIndex:[indexPath row]];
-    if ([selectedMenuItem isEqualToString:@"discover"]) {
-        if (![[(UINavigationController*) [[associatedController viewDeckController] centerController] topViewController] isKindOfClass:[MapViewController class]]) {
-            [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[MapViewController alloc]init] animated:YES];
+
+    [associatedController.viewDeckController closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
+        if ([selectedMenuItem isEqualToString:@"discover"]) {
+            if (![[(UINavigationController*) [[associatedController viewDeckController] centerController] topViewController] isKindOfClass:[MapViewController class]]) {
+                [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[MapViewController alloc]init] animated:NO];
+            }
+        } else if ([selectedMenuItem isEqualToString:@"join"]) {
+            [(UINavigationController*) [[associatedController viewDeckController] centerController] popToRootViewControllerAnimated:NO];
+            
+        } else if ([selectedMenuItem isEqualToString:@"profile"]) {
+            [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[ProfileViewController alloc] initWithNibName:nil bundle:nil] animated:NO];
         }
-    } else if ([selectedMenuItem isEqualToString:@"join"]) {
-        [(UINavigationController*) [[associatedController viewDeckController] centerController] popToRootViewControllerAnimated:YES];
-        
-    } else if ([selectedMenuItem isEqualToString:@"profile"]) {
-        [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[ProfileViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
-    } 
-    [associatedController.viewDeckController closeLeftViewAnimated:YES];
+    }];
 }
 
 

@@ -76,7 +76,9 @@
     [subtitleLabel setTextColor:[LookAndFeel orangeColor]];
     
     [detailsLabel setText:[selectedModel details]];
-    [detailsLabel setTextAlignment:NSTextAlignmentJustified];
+    if (IS_OS_7_OR_LATER) {
+        [detailsLabel setTextAlignment:NSTextAlignmentJustified];
+    }
     [detailsLabel setFont:[LookAndFeel defaultFontLightWithSize:18]];
     [detailsLabel setTextColor:[LookAndFeel blueColor]];
     

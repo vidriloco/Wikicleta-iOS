@@ -14,6 +14,7 @@
 #import "NSObject+FieldValidators.h"
 #import "UITextView+UIPlus.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface SettingsViewController : FormBaseViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
 

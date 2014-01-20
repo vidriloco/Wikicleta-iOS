@@ -13,8 +13,6 @@
     MapViewController *controller;
 }
 
-- (void) showMyLocationOnMap;
-
 @end
 
 
@@ -88,8 +86,8 @@
     
     [controller.view addSubview:controller.showListButton];*/
     
-    UIImage *locationImage = [UIImage imageNamed:@"compass_button.png"];
-    controller.locationButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-locationImage.size.width-10, 30, locationImage.size.width, locationImage.size.height)];
+    UIImage *locationImage = [UIImage imageNamed:@"compass_disabled_button.png"];
+    controller.locationButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-locationImage.size.width-10, 120, locationImage.size.width, locationImage.size.height)];
     [controller.locationButton setBackgroundImage:locationImage forState:UIControlStateNormal];
     [controller.locationButton addTarget:controller action:@selector(showMyLocationOnMap) forControlEvents:UIControlEventTouchUpInside];
     [controller.view addSubview:controller.locationButton];
