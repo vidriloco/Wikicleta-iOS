@@ -1,1 +1,13 @@
-<?xml version='1.0' encoding='UTF-8'?><Workspace version='1.0'><FileRef location='group:Pods/Pods.xcodeproj'/><FileRef location='group:Wikicleta.xcodeproj'/></Workspace>
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../Documents/open-gpstracker/OpenGPSTracker/test/res/xml/amsterdam2utrecht.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Wikicleta.xcodeproj">
+   </FileRef>
+</Workspace>

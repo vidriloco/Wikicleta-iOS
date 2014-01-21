@@ -13,6 +13,8 @@
 #import "IIViewDeckController.h"
 #import "ActiveRecord.h"
 #import "TestFlight.h"
+#import "LocationManager.h"
+#import "Instant.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

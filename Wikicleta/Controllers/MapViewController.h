@@ -42,6 +42,8 @@
 #import "TripPoiView.h"
 #import "LightPOI.h"
 #import "FavoritesManagerDelegate.h"
+#import "LocationManagerDelegate.h"
+#import "LocationManager.h"
 
 #define viewportParams  @"viewport[sw]=%@&viewport[ne]=%@"
 #define minZoom 2
@@ -55,8 +57,9 @@ typedef enum {Zoom, UnZoom} MapZoom;
 @class TripsManager;
 @class POISManager;
 @class FavoritesManager;
+@class LocationManager;
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate, FavoritesManagerDelegate, CLLocationManagerDelegate> {
+@interface MapViewController : UIViewController<GMSMapViewDelegate, LayersDelegate, UIGestureRecognizerDelegate, IIViewDeckControllerDelegate, UIAlertViewDelegate, FavoritesManagerDelegate, CLLocationManagerDelegate, LocationManagerDelegate> {
     NSString *activeLayer;
     UIButton *rightButton;
     UIButton *leftButton;
@@ -72,9 +75,7 @@ typedef enum {Zoom, UnZoom} MapZoom;
     GMSPolyline *selectedRoutePath;
     id detailsView;
     BOOL requestOngoing;
-    
-    CLLocationManager *locationManager;
-    
+        
     OverlayMapMessageView *mapMessageView;
     id <ModelHumanizer> currentlySelectedModel;
 

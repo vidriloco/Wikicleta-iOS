@@ -30,6 +30,10 @@
 @property (nonatomic, weak) IBOutlet UIView *leftborderView;
 @property (nonatomic, weak) IBOutlet UIButton *leftButton;
 
+@property (nonatomic, weak) IBOutlet UILabel *distanceValueLabel;
+@property (nonatomic, weak) IBOutlet UILabel *distanceTextLabel;
+@property (nonatomic, weak) IBOutlet UILabel *speedValueLabel;
+@property (nonatomic, weak) IBOutlet UILabel *speedTextLabel;
 
 - (void) loadPictureImage;
 - (void) loadUserInfo;

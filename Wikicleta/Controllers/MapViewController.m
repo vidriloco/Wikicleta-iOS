@@ -11,6 +11,7 @@
 #import "TripsManager.h"
 #import "POISManager.h"
 #import "FavoritesManager.h"
+#import "LocationManager.h"
 
 @interface MapViewController () {
     CLLocation *mapLastCenteredAt;
@@ -65,11 +66,7 @@
         companionObject = [[MapViewCompanionManager alloc] initWithMapViewController:self];
         [companionObject loadSharePinView];
         [companionObject loadMapMessageView];
-        
-        locationManager = [[CLLocationManager alloc] init];
-        [locationManager setDelegate:self];
-        locationManager.desiredAccuracy=kCLLocationAccuracyBest;
-        locationManager.distanceFilter=kCLDistanceFilterNone;
+
     }
     return self;
 }
@@ -86,6 +83,8 @@
     [companionObject loadMapButtons];
     [self transitionMapToMode:Explore];
     [self.viewDeckController setDelegate:self];
+    
+    [[LocationManager sharedInstance] setDelegate:self];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -106,9 +105,9 @@
                  options:NSKeyValueObservingOptionNew
                  context:NULL];*/
     // Ask for My Location data after the map has already been added to the UI.
-    dispatch_async(dispatch_get_main_queue(), ^{
-        mapView.myLocationEnabled = YES;
-    });
+    //dispatch_async(dispatch_get_main_queue(), ^{
+    //    mapView.myLocationEnabled = YES;
+    //});
     
     [self addCyclePathMarkersToMap];
 
@@ -768,25 +767,31 @@
 
     if (nextMapZoom == UnZoom) {
         lastCamera = [GMSCameraPosition cameraWithLatitude:lastCamera.target.latitude longitude:lastCamera.target.longitude zoom:mediumZoom];
-        [mapView setCamera:lastCamera];
+
         nextMapZoom = Zoom;
         [locationButton setImage:[UIImage imageNamed:@"compass_disabled_button.png"] forState:UIControlStateNormal];
         mapView.myLocationEnabled = NO;
     } else {
-        [locationManager startUpdatingLocation];
+        lastCamera = [GMSCameraPosition cameraWithLatitude:lastCamera.target.latitude longitude:lastCamera.target.longitude zoom:poiDetailedZoom];
+
         nextMapZoom = UnZoom;
         [locationButton setImage:[UIImage imageNamed:@"compass_button.png"] forState:UIControlStateNormal];
         mapView.myLocationEnabled = YES;
     }
+    [mapView setCamera:lastCamera];
+
 }
 
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+- (void) locationUpdated:(CLLocation *)location
 {
-    CLLocationCoordinate2D location  =  [(CLLocation*) [locations objectAtIndex:0] coordinate];
-    lastCamera = [GMSCameraPosition cameraWithLatitude:location.latitude longitude:location.longitude zoom:poiDetailedZoom];
-    [mapView setCamera:lastCamera];
-    [locationManager stopUpdatingLocation];
-    //[locationButton.layer removeAllAnimations];
+    lastCamera = [GMSCameraPosition cameraWithLatitude:[location coordinate].latitude
+                                             longitude:[location coordinate].longitude
+                                                  zoom:poiDetailedZoom];
+    
+    if (nextMapZoom == UnZoom) {
+        [mapView setCamera:lastCamera];
+    }
+    NSLog(@"Retrieved location");
 }
 
 @end

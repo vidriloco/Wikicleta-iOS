@@ -8,10 +8,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
             <connections>
                 <outlet property="activityButton" destination="uwi-Br-ikf" id="wjd-Ja-xVc"/>
+                <outlet property="distanceTextLabel" destination="2Lx-k2-42k" id="l9I-d5-F7D"/>
+                <outlet property="distanceValueLabel" destination="PFu-OJ-8ra" id="ccA-hq-TLb"/>
                 <outlet property="favoriteButton" destination="x18-fB-mlN" id="uig-Ea-hSS"/>
                 <outlet property="leftButton" destination="G94-ke-4cX" id="0dv-Rd-OG7"/>
                 <outlet property="leftborderView" destination="WNO-wg-93Q" id="113-G0-703"/>
                 <outlet property="settingsButton" destination="Pxs-OO-r9C" id="eSZ-ci-FI5"/>
+                <outlet property="speedTextLabel" destination="UKD-NM-m9K" id="87y-7c-FCe"/>
+                <outlet property="speedValueLabel" destination="P0n-d3-O1h" id="Av7-Ie-QF8"/>
                 <outlet property="userBioLabel" destination="rMH-yF-l5N" id="iWw-ht-xxn"/>
                 <outlet property="userPictureImage" destination="eI7-xR-LG9" id="QiV-Ah-nPA"/>
                 <outlet property="usernameLabel" destination="yfr-aT-AlT" id="y7m-K4-qEL"/>
@@ -50,7 +54,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ey2-oZ-gMb">
-                    <rect key="frame" x="0.0" y="240" width="320" height="328"/>
+                    <rect key="frame" x="0.0" y="293" width="320" height="275"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <view alpha="0.19999999999999968" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-0D-g3A">
@@ -59,15 +63,15 @@
                             <color key="backgroundColor" red="0.76543473110000004" green="0.86338631899999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x18-fB-mlN" customClass="OnProfileSectionView">
-                            <rect key="frame" x="0.0" y="83" width="320" height="74"/>
+                            <rect key="frame" x="0.0" y="1" width="163" height="115"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favorites_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="6J9-Ul-1YP">
-                                    <rect key="frame" x="20" y="13" width="50" height="50"/>
+                                    <rect key="frame" x="56" y="20" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tus Favoritos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-SZ-T6U">
-                                    <rect key="frame" x="92" y="14" width="208" height="47"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tus Favoritos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-SZ-T6U">
+                                    <rect key="frame" x="8" y="68" width="147" height="47"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -82,15 +86,15 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwi-Br-ikf" customClass="OnProfileSectionView">
-                            <rect key="frame" x="0.0" y="7" width="320" height="74"/>
+                            <rect key="frame" x="163" y="1" width="157" height="115"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="activity_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="U4s-8h-NPY">
-                                    <rect key="frame" x="20" y="12" width="50" height="50"/>
+                                    <rect key="frame" x="53" y="20" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tu Actividad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN8-ze-Slv">
-                                    <rect key="frame" x="92" y="13" width="208" height="47"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tu Actividad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN8-ze-Slv">
+                                    <rect key="frame" x="3" y="68" width="150" height="47"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -105,26 +109,18 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxs-OO-r9C" customClass="OnProfileSectionView">
-                            <rect key="frame" x="0.0" y="158" width="320" height="74"/>
+                            <rect key="frame" x="0.0" y="134" width="320" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gear_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-r3-IHf">
-                                    <rect key="frame" x="20" y="13" width="50" height="50"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gear_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-r3-IHf">
+                                    <rect key="frame" x="141" y="8" width="38" height="38"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tus Preferencias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqY-AQ-IRL">
-                                    <rect key="frame" x="92" y="14" width="208" height="47"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                             <connections>
                                 <outlet property="pictureImageView" destination="d5Q-r3-IHf" id="HDx-fh-5pi"/>
-                                <outlet property="titleLabel" destination="UqY-AQ-IRL" id="3Va-pk-tI2"/>
                             </connections>
                         </view>
                     </subviews>
@@ -135,6 +131,10 @@
                     <color key="backgroundColor" red="1" green="0.18427354967080323" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-0a-6Hh">
+                    <rect key="frame" x="-11" y="138" width="149" height="304"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G94-ke-4cX">
                     <rect key="frame" x="0.0" y="60" width="20" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -143,10 +143,30 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-0a-6Hh">
-                    <rect key="frame" x="-9" y="100" width="149" height="304"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-OJ-8ra">
+                    <rect key="frame" x="32" y="229" width="96" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="km recorridos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2Lx-k2-42k">
+                    <rect key="frame" x="32" y="262" width="122" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15.5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-d3-O1h">
+                    <rect key="frame" x="194" y="233" width="97" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="km/h promedio" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UKD-NM-m9K">
+                    <rect key="frame" x="162" y="263" width="129" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

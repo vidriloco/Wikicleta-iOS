@@ -11,6 +11,7 @@
 #import "App.h"
 #import "IIViewDeckController.h"
 #import "User.h"
+#import "LocationManager.h"
 
 @interface MainMenuViewController : UIViewController {
 }

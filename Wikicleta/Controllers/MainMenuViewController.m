@@ -12,8 +12,10 @@
 
 @interface MainMenuViewController () {
     MenuListViewController *firstList;
-    UIButton *configButton;
+    UIButton *trackerActivator;
 }
+
+- (void) toggleTrackingEngine;
 
 @end
 
@@ -28,10 +30,16 @@
     return self;
 }
 
-- (void) viewDidAppear:(BOOL)animated
+- (void) viewDidLoad
 {
-    [super viewDidAppear:animated];
+    [super viewDidLoad];
     [self loadMenuView];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadGPSActiveButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,7 +49,6 @@
 }
 
 - (void) deselectAll {
-    [configButton setSelected:NO];
     [firstList deselectAllRows];
 }
 
@@ -60,9 +67,38 @@
         [mainSections addObject:@"join"];
     }
     
-    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withController:self];
+    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 30, 130, 300) withOptions:mainSections withController:self];
     [self.view addSubview:firstList.view];
+    
 }
 
+- (void) loadGPSActiveButton {
+    if (trackerActivator == NULL) {
+        trackerActivator = [[UIButton alloc] initWithFrame:CGRectMake(35, [App viewBounds].size.height-120, 80 , 80)];
+        
+        [trackerActivator addTarget:self action:@selector(toggleTrackingEngine) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:trackerActivator];
+    }
+    if ([[LocationManager sharedInstance] active]) {
+        [trackerActivator setImage:[UIImage imageNamed:@"compass_activated_menu.png"] forState:UIControlStateNormal];
+    } else {
+        [trackerActivator setImage:[UIImage imageNamed:@"compass_deactivated_menu.png"] forState:UIControlStateNormal];
+    }
+
+}
+
+- (void) toggleTrackingEngine {
+    if ([[LocationManager sharedInstance] active]) {
+        [trackerActivator setImage:[UIImage imageNamed:@"compass_deactivated_menu.png"] forState:UIControlStateNormal];
+        [[LocationManager sharedInstance] deactivateUpdating];
+    } else {
+        [trackerActivator setImage:[UIImage imageNamed:@"compass_activated_menu.png"] forState:UIControlStateNormal];
+        [[LocationManager sharedInstance] activateUpdating];
+    }
+    [[self viewDeckController] closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
+        [[LocationManager sharedInstance] displayDialog];
+    }];
+}
 
 @end

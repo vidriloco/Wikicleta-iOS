@@ -19,7 +19,7 @@
 
 @implementation ProfileViewController
 
-@synthesize usernameLabel, userPictureImage, userBioLabel, activityButton, favoriteButton, leftborderView, leftButton, settingsButton;
+@synthesize usernameLabel, userPictureImage, userBioLabel, activityButton, favoriteButton, leftborderView, leftButton, settingsButton, distanceTextLabel, distanceValueLabel, speedTextLabel, speedValueLabel;
 
 - (void)viewDidLoad
 {
@@ -32,7 +32,9 @@
     
     [activityButton stylizeViewWithString:@"profile_your_activity"];
     [favoriteButton stylizeViewWithString:@"profile_your_favorites"];
-    [settingsButton stylizeViewWithString:@"profile_your_settings"];
+    
+    [[activityButton titleLabel] setFont:[LookAndFeel defaultFontBookWithSize:17]];
+    [[favoriteButton titleLabel] setFont:[LookAndFeel defaultFontBookWithSize:17]];
     
     [activityButton addTarget:self action:@selector(presentActivityViewController) forControlEvents:UIControlEventTouchUpInside];
     [favoriteButton addTarget:self action:@selector(presentFavoritesViewController) forControlEvents:UIControlEventTouchUpInside];
@@ -50,7 +52,19 @@
     [LookAndFeel decorateUILabelAsMainViewSubtitle:userBioLabel withLocalizedString:nil];
     [usernameLabel setFont:[LookAndFeel defaultFontBoldWithSize:25]];
     [userBioLabel setFont:[LookAndFeel defaultFontLightWithSize:14]];
-
+    
+    [distanceValueLabel setFont:[LookAndFeel defaultFontBoldWithSize:35]];
+    [speedValueLabel setFont:[LookAndFeel defaultFontBoldWithSize:35]];
+    [distanceValueLabel setTextColor:[LookAndFeel blueColor]];
+    [speedValueLabel setTextColor:[LookAndFeel blueColor]];
+    
+    [distanceTextLabel setFont:[LookAndFeel defaultFontLightWithSize:13]];
+    [speedTextLabel setFont:[LookAndFeel defaultFontLightWithSize:13]];
+    [distanceTextLabel setTextColor:[LookAndFeel orangeColor]];
+    [speedTextLabel setTextColor:[LookAndFeel orangeColor]];
+    
+    [speedTextLabel setText:NSLocalizedString(@"speed_text_profile", nil).uppercaseString];
+    [distanceTextLabel setText:NSLocalizedString(@"distance_text_profile", nil).uppercaseString];
 }
 
 - (void) updateUserData
@@ -70,6 +84,10 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self loadPictureImage];
     }];
+    
+    [distanceValueLabel setText:[NSString stringWithFormat:@"%2f", [Instant accumulatedDistance]]];
+    [speedValueLabel setText:[NSString stringWithFormat:@"%2f", [Instant accumulatedSpeed]]];
+
 }
 
 - (void) loadPictureImage

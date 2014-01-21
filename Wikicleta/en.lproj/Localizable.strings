@@ -31,6 +31,9 @@
 
 "see_on_map" = "go";
 
+"tracking_off" = "gps tracking off";
+"tracking_on" = "gps tracking on";
+
 // Global errors
 "no_backend_response_error" = "No response from remote server, perhaps your internet connection is down";
 "could_not_upload_error" = "We are sorry, we were unable to save this now";
@@ -230,3 +233,6 @@
 "routes_title_plural" = "Routes";
 "parkings_title_plural" = "Bike-parkings";
 "tips_title_plural" = "Tips";
+
+"speed_text_profile" = "km/s Speed";
+"distance_text_profile" = "km Distance";

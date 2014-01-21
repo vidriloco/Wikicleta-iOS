@@ -224,7 +224,6 @@
 		3A2A2028186C1B1900FF7C59 /* non_favorited_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A2024186C1B1900FF7C59 /* non_favorited_icon@2x.png */; };
 		3A2B6E96188C683E00B92607 /* compass_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2B6E94188C683E00B92607 /* compass_button.png */; };
 		3A2B6E97188C683E00B92607 /* compass_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2B6E95188C683E00B92607 /* compass_button@2x.png */; };
-		3A2B6E9D188C7C6400B92607 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2B6E99188C7C6400B92607 /* libTestFlight.a */; };
 		3A417ACF16699E9000E6DF0B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7A44216692E7C006F251D /* Accounts.framework */; };
 		3A44F4CA187907E4007E8AB5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A44F4C8187907E4007E8AB5 /* ProfileViewController.m */; };
 		3A44F4CB187907E4007E8AB5 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A44F4C9187907E4007E8AB5 /* ProfileViewController.xib */; };
@@ -290,6 +289,7 @@
 		3A653E5718833DB3002B9AA6 /* list_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A653E5518833DB3002B9AA6 /* list_button@2x.png */; };
 		3A692933188CED3300D7B335 /* compass_disabled_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A692931188CED3300D7B335 /* compass_disabled_button.png */; };
 		3A692934188CED3300D7B335 /* compass_disabled_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A692932188CED3300D7B335 /* compass_disabled_button@2x.png */; };
+		3A692939188D172300D7B335 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A692937188D172300D7B335 /* LocationManager.m */; };
 		3A6BE526187C69F300200A87 /* CyclePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BE525187C69F300200A87 /* CyclePath.m */; };
 		3A6BE529187C8D6E00200A87 /* cycle_path_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6BE527187C8D6E00200A87 /* cycle_path_marker.png */; };
 		3A6BE52A187C8D6E00200A87 /* cycle_path_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6BE528187C8D6E00200A87 /* cycle_path_marker@2x.png */; };
@@ -311,6 +311,14 @@
 		3A785A2117D46F1200D1B6F6 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A785A1B17D46F1200D1B6F6 /* next@2x.png */; };
 		3A893CF318691BD600638217 /* NSObject+FieldValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A893CF218691BD600638217 /* NSObject+FieldValidators.m */; };
 		3A893CFC1869306500638217 /* FormBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A893CFB1869306500638217 /* FormBaseViewController.m */; };
+		3A8D7B8E188E26F1002CEC22 /* compass_activated_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B8A188E26F1002CEC22 /* compass_activated_menu.png */; };
+		3A8D7B8F188E26F1002CEC22 /* compass_activated_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B8B188E26F1002CEC22 /* compass_activated_menu@2x.png */; };
+		3A8D7B90188E26F1002CEC22 /* compass_deactivated_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B8C188E26F1002CEC22 /* compass_deactivated_menu.png */; };
+		3A8D7B91188E26F1002CEC22 /* compass_deactivated_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B8D188E26F1002CEC22 /* compass_deactivated_menu@2x.png */; };
+		3A8D7B92188E2824002CEC22 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2B6E99188C7C6400B92607 /* libTestFlight.a */; };
+		3A8D7B95188E31D3002CEC22 /* gps_tracking_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B93188E31D3002CEC22 /* gps_tracking_icon.png */; };
+		3A8D7B96188E31D3002CEC22 /* gps_tracking_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B94188E31D3002CEC22 /* gps_tracking_icon@2x.png */; };
+		3A8D7B99188E418A002CEC22 /* Instant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D7B98188E418A002CEC22 /* Instant.m */; };
 		3A91E0531884A712009DBD83 /* TripPoiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91E0521884A712009DBD83 /* TripPoiView.xib */; };
 		3A91E0561884A8F0009DBD83 /* TripPoiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91E0551884A8F0009DBD83 /* TripPoiView.m */; };
 		3A94A5EC1889D117002BC047 /* GenericBigMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94A5EB1889D117002BC047 /* GenericBigMessageView.xib */; };
@@ -818,6 +826,9 @@
 		3A653E5518833DB3002B9AA6 /* list_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_button@2x.png"; sourceTree = "<group>"; };
 		3A692931188CED3300D7B335 /* compass_disabled_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_disabled_button.png; sourceTree = "<group>"; };
 		3A692932188CED3300D7B335 /* compass_disabled_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_disabled_button@2x.png"; sourceTree = "<group>"; };
+		3A692936188D172300D7B335 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		3A692937188D172300D7B335 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		3A692938188D172300D7B335 /* LocationManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagerDelegate.h; sourceTree = "<group>"; };
 		3A6BE524187C69F300200A87 /* CyclePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePath.h; sourceTree = "<group>"; };
 		3A6BE525187C69F300200A87 /* CyclePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclePath.m; sourceTree = "<group>"; };
 		3A6BE527187C8D6E00200A87 /* cycle_path_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_path_marker.png; sourceTree = "<group>"; };
@@ -843,6 +854,14 @@
 		3A893CF218691BD600638217 /* NSObject+FieldValidators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FieldValidators.m"; sourceTree = "<group>"; };
 		3A893CFA1869306500638217 /* FormBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormBaseViewController.h; sourceTree = "<group>"; };
 		3A893CFB1869306500638217 /* FormBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormBaseViewController.m; sourceTree = "<group>"; };
+		3A8D7B8A188E26F1002CEC22 /* compass_activated_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_activated_menu.png; sourceTree = "<group>"; };
+		3A8D7B8B188E26F1002CEC22 /* compass_activated_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_activated_menu@2x.png"; sourceTree = "<group>"; };
+		3A8D7B8C188E26F1002CEC22 /* compass_deactivated_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_deactivated_menu.png; sourceTree = "<group>"; };
+		3A8D7B8D188E26F1002CEC22 /* compass_deactivated_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_deactivated_menu@2x.png"; sourceTree = "<group>"; };
+		3A8D7B93188E31D3002CEC22 /* gps_tracking_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gps_tracking_icon.png; sourceTree = "<group>"; };
+		3A8D7B94188E31D3002CEC22 /* gps_tracking_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gps_tracking_icon@2x.png"; sourceTree = "<group>"; };
+		3A8D7B97188E418A002CEC22 /* Instant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instant.h; sourceTree = "<group>"; };
+		3A8D7B98188E418A002CEC22 /* Instant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instant.m; sourceTree = "<group>"; };
 		3A91E0521884A712009DBD83 /* TripPoiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripPoiView.xib; sourceTree = "<group>"; };
 		3A91E0541884A8F0009DBD83 /* TripPoiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPoiView.h; sourceTree = "<group>"; };
 		3A91E0551884A8F0009DBD83 /* TripPoiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPoiView.m; sourceTree = "<group>"; };
@@ -1002,10 +1021,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8D7B92188E2824002CEC22 /* libTestFlight.a in Frameworks */,
 				3AC2291317CACD0000E76E96 /* Accelerate.framework in Frameworks */,
 				3A01B495164A2F6E00F78822 /* CoreData.framework in Frameworks */,
 				3A73F56117B3608000FA7A71 /* libicucore.dylib in Frameworks */,
-				3A2B6E9D188C7C6400B92607 /* libTestFlight.a in Frameworks */,
 				3A73F56417B3609400FA7A71 /* OpenGLES.framework in Frameworks */,
 				3A73F55E17B3606A00FA7A71 /* libc++.dylib in Frameworks */,
 				3A73F55B17B3605100FA7A71 /* GLKit.framework in Frameworks */,
@@ -1101,6 +1120,10 @@
 		1807476417B622BD00A04D61 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
+				3A8D7B8A188E26F1002CEC22 /* compass_activated_menu.png */,
+				3A8D7B8B188E26F1002CEC22 /* compass_activated_menu@2x.png */,
+				3A8D7B8C188E26F1002CEC22 /* compass_deactivated_menu.png */,
+				3A8D7B8D188E26F1002CEC22 /* compass_deactivated_menu@2x.png */,
 				3AD40E16186ADA88000F84E3 /* join_menu.png */,
 				3AD40E17186ADA88000F84E3 /* join_menu@2x.png */,
 				3AD40E12186AD6DE000F84E3 /* events_menu.png */,
@@ -1437,6 +1460,8 @@
 				3A13AF861883998300A35771 /* TripPoi.m */,
 				3A4511B21888F0C700E45EA5 /* LightPOI.h */,
 				3A4511B31888F0C700E45EA5 /* LightPOI.m */,
+				3A8D7B97188E418A002CEC22 /* Instant.h */,
+				3A8D7B98188E418A002CEC22 /* Instant.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1765,6 +1790,16 @@
 			path = FirstAccessControllers;
 			sourceTree = "<group>";
 		};
+		3A692935188D172300D7B335 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				3A692936188D172300D7B335 /* LocationManager.h */,
+				3A692937188D172300D7B335 /* LocationManager.m */,
+				3A692938188D172300D7B335 /* LocationManagerDelegate.h */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		3A73F54317B3513E00FA7A71 /* LandingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1781,6 +1816,8 @@
 		3A785A1717D46EDF00D1B6F6 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				3A8D7B93188E31D3002CEC22 /* gps_tracking_icon.png */,
+				3A8D7B94188E31D3002CEC22 /* gps_tracking_icon@2x.png */,
 				3A4511AB1888DCD400E45EA5 /* see_on_map_icon.png */,
 				3A4511AC1888DCD400E45EA5 /* see_on_map_icon@2x.png */,
 				3A61E71D1887BC0D0089D3BC /* save_icon.png */,
@@ -1894,6 +1931,7 @@
 		3A9DE808186FAAD000C95812 /* Concerns */ = {
 			isa = PBXGroup;
 			children = (
+				3A692935188D172300D7B335 /* Global */,
 				3A9DE809186FAAD000C95812 /* MapViewController */,
 			);
 			path = Concerns;
@@ -2125,8 +2163,10 @@
 				3A01B585164A329D00F78822 /* urls.plist in Resources */,
 				3A2A2026186C1B1900FF7C59 /* favorited_icon@2x.png in Resources */,
 				3A5C3BD71669B310009DDA1C /* RegistrationViewController.xib in Resources */,
+				3A8D7B95188E31D3002CEC22 /* gps_tracking_icon.png in Resources */,
 				3A08AD2B18725B7400E79AA5 /* telephone_icon@2x.png in Resources */,
 				3A060C8617D2BE3200E006C0 /* settings_social_icon.png in Resources */,
+				3A8D7B96188E31D3002CEC22 /* gps_tracking_icon@2x.png in Resources */,
 				3A1A2AAA187A1F2B00AF298C /* favorites_icon_big.png in Resources */,
 				181534C317B1644A009FE8CB /* gothamrndbold.ttf in Resources */,
 				3A4E5F26186DEC0100D818ED /* bike_sharing_yellow_marker.png in Resources */,
@@ -2140,6 +2180,7 @@
 				3A584463188B049600DD950A /* gear_icon.png in Resources */,
 				18EE967117D5053900923EC6 /* check@2x.png in Resources */,
 				3AE6B4B917CDD11900923D15 /* icon57.png in Resources */,
+				3A8D7B91188E26F1002CEC22 /* compass_deactivated_menu@2x.png in Resources */,
 				3ACFA12F1881BE05008700C0 /* cycle_path_icon@2x.png in Resources */,
 				3A9547FC186D5EB400428DF7 /* workshop_marker@2x.png in Resources */,
 				3A91E0531884A712009DBD83 /* TripPoiView.xib in Resources */,
@@ -2271,6 +2312,7 @@
 				3A785A2117D46F1200D1B6F6 /* next@2x.png in Resources */,
 				3A4E5F2A186DED9100D818ED /* cycle_stations_layers.png in Resources */,
 				180E328017B932E600322194 /* profile_menu@2x.png in Resources */,
+				3A8D7B8F188E26F1002CEC22 /* compass_activated_menu@2x.png in Resources */,
 				3A13AFCF1883CEFB00A35771 /* metro_aculco.png in Resources */,
 				3A653E5318833728002B9AA6 /* trips_layers@2x.png in Resources */,
 				3ACFA1311881BE05008700C0 /* cycling_group_icon@2x.png in Resources */,
@@ -2287,6 +2329,7 @@
 				3A954805186D6B3F00428DF7 /* twitter_icon.png in Resources */,
 				3A06B8A71866C4A4001C927F /* cyclers@2x.png in Resources */,
 				3A4A6C3818827C9700C8C3B9 /* CyclingGroupViewController.xib in Resources */,
+				3A8D7B8E188E26F1002CEC22 /* compass_activated_menu.png in Resources */,
 				3A9547E8186D47D700428DF7 /* sightseeing_marker.png in Resources */,
 				3A4511AE1888DCD500E45EA5 /* see_on_map_icon@2x.png in Resources */,
 				3A13AFCE1883CEFB00A35771 /* start_flag_marker.png in Resources */,
@@ -2300,6 +2343,7 @@
 				3A08AD2C18725B7400E79AA5 /* twitter_icon.png in Resources */,
 				3A2B6E96188C683E00B92607 /* compass_button.png in Resources */,
 				3A653E5218833728002B9AA6 /* trips_layers.png in Resources */,
+				3A8D7B90188E26F1002CEC22 /* compass_deactivated_menu.png in Resources */,
 				3A13AFFF1883CF8F00A35771 /* paramedic_marker@2x.png in Resources */,
 				3AEAF1BA18708F3E00003668 /* return_icon@2x.png in Resources */,
 				3A13AFD41883CEFB00A35771 /* metro_garibaldi.png in Resources */,
@@ -2506,6 +2550,7 @@
 				3ADA306F166C479500839DD9 /* User.m in Sources */,
 				3ACF4F6018715ADB00A46E33 /* CommonEditViewController.m in Sources */,
 				3A060C7517D2AE5200E006C0 /* UzysSMMenuItemView.m in Sources */,
+				3A8D7B99188E418A002CEC22 /* Instant.m in Sources */,
 				3ACF4F5C18715A5800A46E33 /* EditTipViewController.m in Sources */,
 				18F76ED517CE6851008D9B3E /* LookAndFeel.m in Sources */,
 				3AC2291117CACC7E00E76E96 /* DRNRealTimeBlurView.m in Sources */,
@@ -2552,6 +2597,7 @@
 				3ACF4F501871387A00A46E33 /* SelectOnTapCollectionView.m in Sources */,
 				1863D54C17B04B3A007E7460 /* UIImage+AKPixelData.m in Sources */,
 				1863D54D17B04B3A007E7460 /* UIView+AKScaleInfo.m in Sources */,
+				3A692939188D172300D7B335 /* LocationManager.m in Sources */,
 				1807474E17B447FD00A04D61 /* IISideController.m in Sources */,
 				1807474F17B447FD00A04D61 /* IIViewDeckController.m in Sources */,
 				1807475017B447FD00A04D61 /* IIWrapController.m in Sources */,
@@ -2674,14 +2720,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
-					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/iOS\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
-					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/Mac\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
+					"\\\\\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\\\\\ Files/iOS\\\\\\ App\\\\\\ Unit\\\\\\ Tests/Frameworks/OCMockLibrary\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\\\\\ Files/Mac\\\\\\ App\\\\\\ Unit\\\\\\ Tests/Frameworks/OCMockLibrary\\\\\\\"",
 					"/Users/spalatin/Desktop/wikicleta-ios/Wikicleta/Libraries/TestFlight",
+					"/Users/spalatin/Desktop/wikicleta-ios-def/Wikicleta/Libraries/TestFlight",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Wikicleta;
-				PROVISIONING_PROFILE = "342584F1-52D3-4962-B319-3FC9D5DFD7B0";
+				PROVISIONING_PROFILE = "34AF4A87-733E-4E7F-82DA-15C47DD6BC27";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2707,14 +2754,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/iOS\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
-					"\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\ Files/Mac\\ App\\ Unit\\ Tests/Frameworks/OCMockLibrary\\\"",
+					"\\\\\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\\\\\ Files/iOS\\\\\\ App\\\\\\ Unit\\\\\\ Tests/Frameworks/OCMockLibrary\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Wikicleta/Libraries/MagicalRecord/Project\\\\\\ Files/Mac\\\\\\ App\\\\\\ Unit\\\\\\ Tests/Frameworks/OCMockLibrary\\\\\\\"",
 					"/Users/spalatin/Desktop/wikicleta-ios/Wikicleta/Libraries/TestFlight",
+					"/Users/spalatin/Desktop/wikicleta-ios-def/Wikicleta/Libraries/TestFlight",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Wikicleta;
-				PROVISIONING_PROFILE = "342584F1-52D3-4962-B319-3FC9D5DFD7B0";
+				PROVISIONING_PROFILE = "34AF4A87-733E-4E7F-82DA-15C47DD6BC27";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
