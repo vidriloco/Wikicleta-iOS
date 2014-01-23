@@ -40,7 +40,6 @@
     [favoriteButton addTarget:self action:@selector(presentFavoritesViewController) forControlEvents:UIControlEventTouchUpInside];
     [settingsButton addTarget:self action:@selector(presentSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
     
-    [self updateUserData];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -71,6 +70,19 @@
 {
     NSString *url = [App urlForResource:@"profiles" withSubresource:@"get" andReplacementSymbol:@":id" withReplacementValue:[NSString stringWithFormat:@"%d", [[User currentUser].identifier intValue]]];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    void (^setRankingNumbers)(void) = ^(void) {
+        float distance = [[[User currentUser] distance] floatValue]+[Instant accumulatedDistance];
+        float speed;
+        if ([[[User currentUser] speed] floatValue] == 0.0f) {
+            speed = [Instant accumulatedSpeed];
+        } else {
+            speed = ([[[User currentUser] speed] floatValue]+[Instant accumulatedSpeed])/2;
+        }
+        [distanceValueLabel setText:[NSString stringWithFormat:@"%.02f", distance]];
+        [speedValueLabel setText:[NSString stringWithFormat:@"%.02f", speed]];
+        
+    };
     
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
     
@@ -80,13 +92,13 @@
             [User buildOrUpdateUserFromDictionary:[response objectForKey:@"user"]];
             [self loadPictureImage];
             [self loadUserInfo];
+            setRankingNumbers();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self loadPictureImage];
+        setRankingNumbers();
     }];
     
-    [distanceValueLabel setText:[NSString stringWithFormat:@"%2f", [Instant accumulatedDistance]]];
-    [speedValueLabel setText:[NSString stringWithFormat:@"%2f", [Instant accumulatedSpeed]]];
 
 }
 

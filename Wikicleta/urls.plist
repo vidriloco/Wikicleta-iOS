@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>instants</key>
+	<dict>
+		<key>post</key>
+		<string>/api/instants</string>
+	</dict>
 	<key>favorites</key>
 	<dict>
 		<key>post</key>
@@ -86,7 +91,7 @@
 		<string>/api/tips?</string>
 	</dict>
 	<key>backendURLDev</key>
-	<string>http://192.168.1.70:3000</string>
+	<string>http://192.168.1.64:3000</string>
 	<key>createUsers</key>
 	<string>/api/users.json</string>
 	<key>backendURL</key>

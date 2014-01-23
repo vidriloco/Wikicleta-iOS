@@ -70,7 +70,8 @@ static LocationManager* manager = nil;
 {
     lastInstant = [[Instant alloc] initWithInstant:lastInstant withLocation:location];
     [lastInstant save];
-    NSLog([[Instant allRecords] description]);
+    
+    [Instant uploadStalled];
 }
 
 - (void) activateUpdating

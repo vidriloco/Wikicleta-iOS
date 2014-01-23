@@ -17,7 +17,7 @@
 
 static User *user;
 
-@synthesize username, email, token, bio, identifier, picURL;
+@synthesize username, email, token, bio, identifier, picURL, speed, distance;
 
 + (void) save
 {
@@ -46,6 +46,14 @@ static User *user;
     
     if ([dictionary objectForKey:kIdentifier]) {
         [user setIdentifier:[dictionary objectForKey:kIdentifier]];
+    }
+    
+    if ([dictionary objectForKey:kSpeed]) {
+        [user setSpeed:[[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:kSpeed] floatValue]]];
+    }
+    
+    if ([dictionary objectForKey:kDistance]) {
+        [user setDistance:[[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:kDistance] floatValue]]];
     }
     
     if ([dictionary objectForKey:kUserPic] && [dictionary objectForKey:kUserPic] != [NSNull null]) {

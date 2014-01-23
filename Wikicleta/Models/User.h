@@ -18,6 +18,8 @@
 #define kIdentifier           @"identifier"
 #define kUser                 @"user"
 #define kUserPic              @"user_pic"
+#define kSpeed                @"speed"
+#define kDistance             @"distance"
 
 @interface User : NSObject
 
@@ -27,6 +29,8 @@
 @property (nonatomic, strong) NSString * token;
 @property (nonatomic, strong) NSNumber * identifier;
 @property (nonatomic, strong) NSString * picURL;
+@property (nonatomic, strong) NSDecimalNumber * speed;
+@property (nonatomic, strong) NSDecimalNumber * distance;
 
 + (void) save;
 + (User*) buildOrUpdateUserFromDictionary:(NSDictionary*)dictionary;

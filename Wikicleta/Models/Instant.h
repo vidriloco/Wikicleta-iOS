@@ -11,6 +11,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "NSObject+ModelBase.h"
 #import "App.h"
+#import <AFNetworking/AFNetworking.h>
+#import "User.h"
 
 @interface Instant : ActiveRecord {
 }
@@ -21,8 +23,12 @@
 @property (nonatomic, strong) NSDecimalNumber *timing;
 @property (nonatomic, strong) NSDecimalNumber *speed;
 
-- (id) initWithInstant:(Instant*)instant withLocation:(CLLocation*)location;
 + (float) accumulatedSpeed;
 + (float) accumulatedDistance;
++ (void)  uploadStalled;
+
+- (id) initWithInstant:(Instant*)instant withLocation:(CLLocation*)location;
+- (BOOL) attemptSave;
+- (NSDictionary*) attributes;
 
 @end

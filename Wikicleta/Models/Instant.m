@@ -25,7 +25,29 @@
     for (Instant *instant in [Instant allRecords]) {
         distance = [[instant distance] floatValue]+distance;
     }
-    return distance/[[Instant allRecords] count];
+    return distance;
+}
+
++ (void) uploadStalled
+{
+    NSArray *instants = [Instant allRecords];
+    if ([instants count] >= 10) {
+        
+        NSMutableArray *dictionaries = [NSMutableArray array];
+        for (Instant *instant in instants) {
+            [dictionaries addObject:[instant attributes]];
+        }
+        
+        NSDictionary *params = @{@"instants": dictionaries, @"extras": @{@"auth_token": [[User currentUser] token] }};
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager POST:[App urlForResource:@"instants" withSubresource:@"post"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            for (Instant *instant in instants) {
+                [instant dropRecord];
+            }
+            NSLog([[Instant allRecords] description]);
+        } failure:nil];
+    }
 }
 
 - (id) initWithInstant:(Instant*)instant withLocation:(CLLocation*)location
@@ -36,10 +58,6 @@
         self.latitude = [[NSDecimalNumber alloc] initWithFloat:[location coordinate].latitude];
         self.longitude = [[NSDecimalNumber alloc] initWithFloat:[location coordinate].longitude];
         
-        CLLocationDegrees prevLatitude = (CLLocationDegrees) [[instant latitude] doubleValue];
-        CLLocationDegrees prevLongitude = (CLLocationDegrees) [[instant latitude] doubleValue];
-        CLLocationDistance distanceToPrev = [location distanceFromLocation:[[CLLocation alloc] initWithLatitude:prevLatitude longitude:prevLongitude]];
-
         self.createdAt = [NSDate date];
         self.updatedAt = [NSDate date];
         
@@ -48,15 +66,41 @@
         self.speed = 0;
         
         if (instant != nil) {
-            self.timing = [[NSDecimalNumber alloc] initWithFloat:(float) [createdAt timeIntervalSince1970]-[[instant createdAt] timeIntervalSince1970]];
-            self.distance = [[NSDecimalNumber alloc] initWithFloat: (float) distanceToPrev*0.001];
+            CLLocationDegrees prevLatitude = (CLLocationDegrees) [[instant latitude] doubleValue];
+            CLLocationDegrees prevLongitude = (CLLocationDegrees) [[instant longitude] doubleValue];
+            CLLocation *previousLocation = [[CLLocation alloc] initWithLatitude:prevLatitude longitude:prevLongitude];
+            // In kilometers
+            float distanceToPrev = (float) [previousLocation distanceFromLocation:location]/1000;
+            // In seconds
+            self.timing = [[NSDecimalNumber alloc] initWithFloat:(float) [createdAt timeIntervalSinceDate:[instant createdAt]]];
             
-            float hours   = (([timing doubleValue] / (1000*60*60)));
+            self.distance = [[NSDecimalNumber alloc] initWithFloat: (float) distanceToPrev];
+            
+            float hours = [timing doubleValue]/60/60;
             self.speed = [[NSDecimalNumber alloc] initWithFloat: (float) [self.distance floatValue]/hours];
         }
 
     }
     return self;
+}
+
+- (BOOL) attemptSave
+{
+    if ([self.speed floatValue] <= 30.0f) {
+        return [self save];
+    } else {
+        return NO;
+    }
+}
+
+- (NSDictionary*) attributes
+{
+    return @{@"latitude": latitude,
+             @"longitude": longitude,
+             @"distance": distance,
+             @"elapsed_time": timing,
+             @"speed": speed,
+             @"created_at": [self.formatter stringFromDate:createdAt]};
 }
 
 @end
