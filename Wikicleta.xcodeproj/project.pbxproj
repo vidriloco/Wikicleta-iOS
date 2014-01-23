@@ -77,9 +77,6 @@
 		3A01B495164A2F6E00F78822 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01B494164A2F6E00F78822 /* CoreData.framework */; };
 		3A01B49D164A2F6E00F78822 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B49C164A2F6E00F78822 /* main.m */; };
 		3A01B4A1164A2F6E00F78822 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4A0164A2F6E00F78822 /* AppDelegate.m */; };
-		3A01B4A3164A2F6E00F78822 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B4A2164A2F6E00F78822 /* Default.png */; };
-		3A01B4A5164A2F6E00F78822 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B4A4164A2F6E00F78822 /* Default@2x.png */; };
-		3A01B4A7164A2F6E00F78822 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B4A6164A2F6E00F78822 /* Default-568h@2x.png */; };
 		3A01B4AA164A2F6E00F78822 /* Wikicleta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A01B4A8164A2F6E00F78822 /* Wikicleta.xcdatamodeld */; };
 		3A01B4B2164A2F6E00F78822 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01B4B1164A2F6E00F78822 /* SenTestingKit.framework */; };
 		3A01B4B3164A2F6E00F78822 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01B48E164A2F6E00F78822 /* UIKit.framework */; };
@@ -383,6 +380,10 @@
 		3AA7E4A917CD74B800B059B3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3AA7E4A817CD74B800B059B3 /* Podfile */; };
 		3AA7E4AC17CD76F300B059B3 /* Parking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7E4AB17CD76F300B059B3 /* Parking.m */; };
 		3AB2448B18864F79000C09EB /* TripsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2448A18864F79000C09EB /* TripsManager.m */; };
+		3AB604F81891007600A8BBE5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB604F51891007500A8BBE5 /* Default.png */; };
+		3AB604F91891007600A8BBE5 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB604F61891007600A8BBE5 /* Default~iphone.png */; };
+		3AB604FA1891007600A8BBE5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB604F71891007600A8BBE5 /* Default-568h@2x.png */; };
+		3AB604FC1891023000A8BBE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB604FB1891023000A8BBE5 /* Images.xcassets */; };
 		3AC2291117CACC7E00E76E96 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2290E17CACC7E00E76E96 /* DRNRealTimeBlurView.m */; };
 		3AC2291217CACC7E00E76E96 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2291017CACC7E00E76E96 /* UIImage+BoxBlur.m */; };
 		3AC2291317CACD0000E76E96 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC228FD17CABB8900E76E96 /* Accelerate.framework */; };
@@ -562,9 +563,6 @@
 		3A01B49E164A2F6E00F78822 /* Wikicleta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wikicleta-Prefix.pch"; sourceTree = "<group>"; };
 		3A01B49F164A2F6E00F78822 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A01B4A0164A2F6E00F78822 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A01B4A2164A2F6E00F78822 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		3A01B4A4164A2F6E00F78822 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		3A01B4A6164A2F6E00F78822 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A01B4A9164A2F6E00F78822 /* Wikicleta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wikicleta.xcdatamodel; sourceTree = "<group>"; };
 		3A01B4B0164A2F6E00F78822 /* WikicletaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikicletaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01B4B1164A2F6E00F78822 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -936,6 +934,10 @@
 		3AA7E4AB17CD76F300B059B3 /* Parking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parking.m; sourceTree = "<group>"; };
 		3AB2448918864F79000C09EB /* TripsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripsManager.h; sourceTree = "<group>"; };
 		3AB2448A18864F79000C09EB /* TripsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsManager.m; sourceTree = "<group>"; };
+		3AB604F51891007500A8BBE5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Assets/Images/General/Default.png; sourceTree = "<group>"; };
+		3AB604F61891007600A8BBE5 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "Assets/Images/General/Default~iphone.png"; sourceTree = "<group>"; };
+		3AB604F71891007600A8BBE5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Assets/Images/General/Default-568h@2x.png"; sourceTree = "<group>"; };
+		3AB604FB1891023000A8BBE5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3AC228FD17CABB8900E76E96 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		3AC2290D17CACC7E00E76E96 /* DRNRealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRNRealTimeBlurView.h; sourceTree = "<group>"; };
 		3AC2290E17CACC7E00E76E96 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
@@ -1354,6 +1356,7 @@
 				3A01B4A8164A2F6E00F78822 /* Wikicleta.xcdatamodeld */,
 				3A01B497164A2F6E00F78822 /* Supporting Files */,
 				3AA7E4A817CD74B800B059B3 /* Podfile */,
+				3AB604FB1891023000A8BBE5 /* Images.xcassets */,
 			);
 			path = Wikicleta;
 			sourceTree = "<group>";
@@ -1361,13 +1364,13 @@
 		3A01B497164A2F6E00F78822 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3AB604F51891007500A8BBE5 /* Default.png */,
+				3AB604F61891007600A8BBE5 /* Default~iphone.png */,
+				3AB604F71891007600A8BBE5 /* Default-568h@2x.png */,
 				3A14D97717B6BCF2007E16FA /* Localizable.strings */,
 				3A01B498164A2F6E00F78822 /* Wikicleta-Info.plist */,
 				3A01B49C164A2F6E00F78822 /* main.m */,
 				3A01B49E164A2F6E00F78822 /* Wikicleta-Prefix.pch */,
-				3A01B4A2164A2F6E00F78822 /* Default.png */,
-				3A01B4A4164A2F6E00F78822 /* Default@2x.png */,
-				3A01B4A6164A2F6E00F78822 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2145,7 +2148,6 @@
 			files = (
 				3A9547D7186D44EF00428DF7 /* venue_provided_icon@2x.png in Resources */,
 				3A13B0051883D37400A35771 /* finish_flag_marker@2x.png in Resources */,
-				3A01B4A3164A2F6E00F78822 /* Default.png in Resources */,
 				3A4BA32F186E7A7D00F7531E /* end_route_marker.png in Resources */,
 				3AEAF1C41870B0C300003668 /* close_icon@2x.png in Resources */,
 				3A9547AD186CBE1000428DF7 /* like_icon@2x.png in Resources */,
@@ -2153,11 +2155,9 @@
 				3A08AD2818725B7400E79AA5 /* cell_phone_icon.png in Resources */,
 				3A13AFE01883CEFB00A35771 /* metro_villa_basilica.png in Resources */,
 				3A653E5718833DB3002B9AA6 /* list_button@2x.png in Resources */,
-				3A01B4A5164A2F6E00F78822 /* Default@2x.png in Resources */,
 				3ACF4F421871138600A46E33 /* POIChooserOverlayView.xib in Resources */,
 				3A9547AA186CBE1000428DF7 /* dislike_icon.png in Resources */,
 				3A653E5618833DB3002B9AA6 /* list_button.png in Resources */,
-				3A01B4A7164A2F6E00F78822 /* Default-568h@2x.png in Resources */,
 				3A9547DB186D44EF00428DF7 /* urban_mobiliary_marker@2x.png in Resources */,
 				3A13B0011883CF8F00A35771 /* start_flag_marker@2x.png in Resources */,
 				3A01B585164A329D00F78822 /* urls.plist in Resources */,
@@ -2167,6 +2167,7 @@
 				3A08AD2B18725B7400E79AA5 /* telephone_icon@2x.png in Resources */,
 				3A060C8617D2BE3200E006C0 /* settings_social_icon.png in Resources */,
 				3A8D7B96188E31D3002CEC22 /* gps_tracking_icon@2x.png in Resources */,
+				3AB604F81891007600A8BBE5 /* Default.png in Resources */,
 				3A1A2AAA187A1F2B00AF298C /* favorites_icon_big.png in Resources */,
 				181534C317B1644A009FE8CB /* gothamrndbold.ttf in Resources */,
 				3A4E5F26186DEC0100D818ED /* bike_sharing_yellow_marker.png in Resources */,
@@ -2193,6 +2194,7 @@
 				3A4BA330186E7A7D00F7531E /* end_route_marker@2x.png in Resources */,
 				3A9547FB186D5EB400428DF7 /* workshop_marker.png in Resources */,
 				3A1A2AA3187A0D3F00AF298C /* ActivityViewController.xib in Resources */,
+				3AB604FC1891023000A8BBE5 /* Images.xcassets in Resources */,
 				3A1A2AA9187A1F2B00AF298C /* activity_icon_big@2x.png in Resources */,
 				3A08AD2A18725B7400E79AA5 /* telephone_icon.png in Resources */,
 				3A6BE529187C8D6E00200A87 /* cycle_path_marker.png in Resources */,
@@ -2353,6 +2355,7 @@
 				3A9547D4186D44EF00428DF7 /* urban_mobiliary_icon.png in Resources */,
 				3A06B8A11866BE76001C927F /* hand.png in Resources */,
 				3A13B0001883CF8F00A35771 /* service_station_marker@2x.png in Resources */,
+				3AB604FA1891007600A8BBE5 /* Default-568h@2x.png in Resources */,
 				3A61E71F1887BC0D0089D3BC /* save_icon.png in Resources */,
 				3A06B8A21866BE76001C927F /* hand@2x.png in Resources */,
 				3A95480E186D6C3400428DF7 /* cell_phone_icon@2x.png in Resources */,
@@ -2380,6 +2383,7 @@
 				3A13AFE61883CEFB00A35771 /* metrobus_goma.png in Resources */,
 				3A692933188CED3300D7B335 /* compass_disabled_button.png in Resources */,
 				3A13AFDE1883CEFB00A35771 /* metro_sevilla.png in Resources */,
+				3AB604F91891007600A8BBE5 /* Default~iphone.png in Resources */,
 				180E329317B99AA600322194 /* layer_button.png in Resources */,
 				180E329417B99AA600322194 /* layer_button@2x.png in Resources */,
 				3A9547AC186CBE1000428DF7 /* like_icon.png in Resources */,
@@ -2705,6 +2709,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7749400903248DF8FE7620E /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2738,6 +2744,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7749400903248DF8FE7620E /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alejandro Cruz (9CLTPS4792)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alejandro Cruz (9CLTPS4792)";
 				FRAMEWORK_SEARCH_PATHS = (

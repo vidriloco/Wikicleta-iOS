@@ -28,7 +28,7 @@
     FavoritesManager *favoritesManager;
     
     MapZoom nextMapZoom;
-    Instant *lastlInstant;
+    //Instant *lastlInstant;
 }
 
 - (void) addCyclePathMarkersToMap;
@@ -88,6 +88,12 @@
     [[LocationManager sharedInstance] setDelegate:self];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self navigationController] setNavigationBarHidden:YES];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     //[mapView removeObserver:self forKeyPath:@"myLocation"];
@@ -99,7 +105,6 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[self navigationController] setNavigationBarHidden:YES];
 
     /*[mapView addObserver:self
               forKeyPath:@"myLocation"
@@ -126,10 +131,10 @@
 
 - (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    lastlInstant = [[Instant alloc] initWithInstant:lastlInstant withLocation:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
+    /*lastlInstant = [[Instant alloc] initWithInstant:lastlInstant withLocation:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
     [lastlInstant save];
     NSLog([NSString stringWithFormat:@"%d", [[Instant allRecords] count]]);
-    [Instant uploadStalled];
+    [Instant uploadStalled];*/
     
     if (currentMode == Detail) {
         [self hideViewForMarker];

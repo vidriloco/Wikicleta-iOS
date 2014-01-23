@@ -13,7 +13,7 @@
 @synthesize distance, latitude, longitude, createdAt, updatedAt, timing, speed;
 
 + (float) accumulatedSpeed {
-    float speed;
+    float speed = 0.0f;
     for (Instant *instant in [Instant allRecords]) {
         speed = [[instant speed] floatValue]+speed;
     }
@@ -21,7 +21,7 @@
 }
 
 + (float) accumulatedDistance {
-    float distance;
+    float distance = 0.0f;
     for (Instant *instant in [Instant allRecords]) {
         distance = [[instant distance] floatValue]+distance;
     }
@@ -45,7 +45,7 @@
             for (Instant *instant in instants) {
                 [instant dropRecord];
             }
-            NSLog([[Instant allRecords] description]);
+            //NSLog([[Instant allRecords] description]);
         } failure:nil];
     }
 }
