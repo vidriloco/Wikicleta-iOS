@@ -8,8 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController">
             <connections>
                 <outlet property="decoratorView" destination="g6K-iY-TOw" id="DHY-zc-wge"/>
-                <outlet property="exploreButton" destination="1Vk-5x-ihQ" id="PN9-Fy-1n4"/>
-                <outlet property="exploreLabel" destination="iga-AH-KMU" id="oIx-qf-01a"/>
                 <outlet property="loginButton" destination="V6u-BU-vu4" id="Dgt-K1-Qrp"/>
                 <outlet property="loginLabel" destination="Iap-lj-3zx" id="aVo-NI-hlb"/>
                 <outlet property="registerButton" destination="shm-mU-gfd" id="cRZ-dV-hX1"/>
@@ -39,7 +37,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="V6u-BU-vu4" customClass="UIButton">
-                            <rect key="frame" x="112" y="15" width="97" height="97"/>
+                            <rect key="frame" x="46" y="15" width="97" height="97"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" id="zWe-1d-vXy">
@@ -56,26 +54,8 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                         </view>
-                        <view contentMode="scaleToFill" id="1Vk-5x-ihQ" customClass="UIButton">
-                            <rect key="frame" x="0.0" y="15" width="97" height="97"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="explore.png" id="btV-cJ-Fy1">
-                                    <rect key="frame" x="23" y="9" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iga-AH-KMU">
-                                    <rect key="frame" x="9" y="67" width="78" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                        </view>
                         <view contentMode="scaleToFill" id="shm-mU-gfd" customClass="UIButton">
-                            <rect key="frame" x="223" y="15" width="97" height="97"/>
+                            <rect key="frame" x="173" y="15" width="97" height="97"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join.png" id="Lg6-qF-NiT">
@@ -101,7 +81,6 @@
     </objects>
     <resources>
         <image name="blue_gradient_iphone.png" width="9" height="470"/>
-        <image name="explore.png" width="45" height="45"/>
         <image name="join.png" width="45" height="45"/>
         <image name="login.png" width="45" height="45"/>
         <image name="logo.png" width="300" height="300"/>

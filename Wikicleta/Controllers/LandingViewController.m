@@ -18,7 +18,7 @@
 
 @implementation LandingViewController
 
-@synthesize decoratorView, exploreButton, loginButton, registerButton, exploreLabel, loginLabel, registerLabel;
+@synthesize decoratorView, loginButton, registerButton, loginLabel, registerLabel;
 
 - (void) launchLoginController
 {
@@ -48,10 +48,10 @@
         [decoratorView setFrame:CGRectMake(decoratorView.frame.origin.x-2, decoratorView.frame.origin.x+2, [App viewBounds].size.width+4, decoratorView.frame.size.height)];
         // Buttons load
         
-        [exploreButton addTarget:self action:@selector(launchDiscoverController) forControlEvents:UIControlEventTouchUpInside];
+        /*[exploreButton addTarget:self action:@selector(launchDiscoverController) forControlEvents:UIControlEventTouchUpInside];
         [exploreLabel setText:NSLocalizedString(@"explore", nil)];
         [exploreLabel setFont:[LookAndFeel defaultFontBookWithSize:16]];
-        [exploreLabel setTextColor:[LookAndFeel orangeColor]];
+        [exploreLabel setTextColor:[LookAndFeel orangeColor]];*/
         
         [registerButton addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
         [registerLabel setText:NSLocalizedString(@"join", nil)];
