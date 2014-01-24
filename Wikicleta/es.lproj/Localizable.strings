@@ -35,6 +35,8 @@
 "distance_at" = "a ";
 "km_s" = "KMs";
 
+"dont_show_again" = "No mostrar de nuevo";
+
 "see_on_map" = "ir";
 
 "tracking_off" = "gps encendido";
@@ -244,3 +246,10 @@
 
 "speed_text_profile" = "km/h Velocidad";
 "distance_text_profile" = "km Distancia";
+
+// Cycleprints
+"trails_menu" = "pedaleos";
+"suggestion_message" = "Sugerencia";
+"get_the_best_from_cycleprints" = "Enciende el modo GPS para medir tu pedal-power";
+"fetching_cycleprints" = "cargando tus pedaleos de hoy";
+"syncing_cycleprints" = "sincronizando pedaleos";

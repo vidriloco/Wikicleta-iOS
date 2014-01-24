@@ -29,6 +29,8 @@
 "distance_at" = "at ";
 "km_s" = "KMs";
 
+"dont_show_again" = "Don't show again";
+
 "see_on_map" = "go";
 
 "tracking_off" = "gps tracking off";
@@ -236,3 +238,9 @@
 
 "speed_text_profile" = "km/h Speed";
 "distance_text_profile" = "km Distance";
+
+"trails_menu" = "cycleprints";
+"suggestion_message" = "Suggestion";
+"get_the_best_from_cycleprints" = "Enable GPS mode to count your cycleprints";
+"fetching_cycleprints" = "loading today's cycleprints";
+"syncing_cycleprints" = "syncing cycleprints";

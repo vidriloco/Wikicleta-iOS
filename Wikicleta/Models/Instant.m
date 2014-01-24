@@ -10,6 +10,8 @@
 
 @implementation Instant
 
+static NSArray *remoteInstants;
+
 @synthesize distance, latitude, longitude, createdAt, updatedAt, timing, speed;
 
 + (float) accumulatedSpeed {
@@ -28,10 +30,26 @@
     return distance;
 }
 
-+ (void) uploadStalled
++ (NSArray*) remoteInstants
+{
+    return remoteInstants;
+}
+
++ (void) buildFrom:(NSArray *)array
+{
+    NSMutableArray *arrayOfInstants = [NSMutableArray array];
+    
+    for (NSDictionary *dict in array) {
+        Instant *instant = [[Instant alloc] initWithDictionary:dict];
+        [arrayOfInstants addObject:instant];
+    }
+    remoteInstants = arrayOfInstants;
+}
+
++ (void)  uploadStalled:(SimpleAnonymousBlock)block
 {
     NSArray *instants = [Instant allRecords];
-    if ([instants count] >= 10) {
+    if ([instants count] >= 5) {
         
         NSMutableArray *dictionaries = [NSMutableArray array];
         for (Instant *instant in instants) {
@@ -44,6 +62,9 @@
         [manager POST:[App urlForResource:@"instants" withSubresource:@"post"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             for (Instant *instant in instants) {
                 [instant dropRecord];
+            }
+            if (block != nil) {
+                block();
             }
             //NSLog([[Instant allRecords] description]);
         } failure:nil];
@@ -84,6 +105,28 @@
     return self;
 }
 
+- (id) initWithDictionary:(NSDictionary *)dictionary
+{
+    if (self = [super init]) {
+        self.latitude = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"lat"] floatValue]];
+        self.longitude = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"lon"] floatValue]];
+        
+        if ([dictionary objectForKey:@"speed_at"] && [dictionary objectForKey:@"speed_at"] != [NSNull null]) {
+            self.speed = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"speed_at"] floatValue]];
+        }
+        
+        if ([dictionary objectForKey:@"distance_at"] && [dictionary objectForKey:@"distance_at"] != [NSNull null]) {
+            self.distance = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"distance_at"] floatValue]];
+        }
+        
+        if ([dictionary objectForKey:@"elapsed_time"] && [dictionary objectForKey:@"elapsed_time"] != [NSNull null]) {
+            self.timing = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"elapsed_time"] floatValue]];
+        }
+        self.createdAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
+    }
+    return self;
+}
+
 - (BOOL) attemptSave
 {
     if ([self.speed floatValue] <= 30.0f) {
@@ -101,6 +144,18 @@
              @"elapsed_time": timing,
              @"speed": speed,
              @"created_at": [self.formatter stringFromDate:createdAt]};
+}
+
+- (UIImage*) markerIcon {
+    return [UIImage imageNamed:@"timing-marker.png"];
+}
+
+- (NSString*) title {
+    return NSLocalizedString(@"instant_instance", nil);
+}
+
+- (NSString*) subtitle {
+    return [self.formatter stringFromDate:self.createdAt];
 }
 
 @end

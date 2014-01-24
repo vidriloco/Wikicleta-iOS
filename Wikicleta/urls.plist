@@ -4,6 +4,8 @@
 <dict>
 	<key>instants</key>
 	<dict>
+		<key>get</key>
+		<string>/api/instants/:user_id/:range</string>
 		<key>post</key>
 		<string>/api/instants</string>
 	</dict>
@@ -91,7 +93,7 @@
 		<string>/api/tips?</string>
 	</dict>
 	<key>backendURLDev</key>
-	<string>http://192.168.1.67:3000</string>
+	<string>http://192.168.1.64:3000</string>
 	<key>createUsers</key>
 	<string>/api/users.json</string>
 	<key>backendURL</key>

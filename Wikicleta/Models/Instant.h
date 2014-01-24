@@ -13,8 +13,11 @@
 #import "App.h"
 #import <AFNetworking/AFNetworking.h>
 #import "User.h"
+#import "ModelHumanizer.h"
 
-@interface Instant : ActiveRecord {
+typedef void (^SimpleAnonymousBlock)(void);
+
+@interface Instant : ActiveRecord<ModelHumanizer> {
 }
 
 @property (nonatomic, strong) NSDecimalNumber *latitude;
@@ -25,9 +28,13 @@
 
 + (float) accumulatedSpeed;
 + (float) accumulatedDistance;
-+ (void)  uploadStalled;
++ (void)  uploadStalled:(SimpleAnonymousBlock)block;
++ (void) buildFrom:(NSArray *)array;
++ (NSArray*) remoteInstants;
 
 - (id) initWithInstant:(Instant*)instant withLocation:(CLLocation*)location;
+- (id) initWithDictionary:(NSDictionary *)dictionary;
+
 - (BOOL) attemptSave;
 - (NSDictionary*) attributes;
 

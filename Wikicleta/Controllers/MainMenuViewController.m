@@ -67,14 +67,16 @@
         [mainSections addObject:@"join"];
     }
     
-    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 30, 130, 300) withOptions:mainSections withController:self];
+    [mainSections addObject:@"trails"];
+    
+    firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withController:self];
     [self.view addSubview:firstList.view];
     
 }
 
 - (void) loadGPSActiveButton {
     if (trackerActivator == NULL) {
-        trackerActivator = [[UIButton alloc] initWithFrame:CGRectMake(35, [App viewBounds].size.height-120, 80 , 80)];
+        trackerActivator = [[UIButton alloc] initWithFrame:CGRectMake(35, [App viewBounds].size.height-110, 80 , 80)];
         
         [trackerActivator addTarget:self action:@selector(toggleTrackingEngine) forControlEvents:UIControlEventTouchUpInside];
         

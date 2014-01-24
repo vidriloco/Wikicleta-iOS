@@ -13,6 +13,7 @@
 #import "User.h"
 #import "LandingViewController.h"
 #import "ProfileViewController.h"
+#import "CycleprintsViewController.h"
 
 @class MainMenuViewController;
 

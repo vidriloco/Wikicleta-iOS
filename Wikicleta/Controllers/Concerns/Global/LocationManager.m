@@ -71,7 +71,10 @@ static LocationManager* manager = nil;
     lastInstant = [[Instant alloc] initWithInstant:lastInstant withLocation:location];
     [lastInstant save];
     
-    [Instant uploadStalled];
+    NSArray *instants = [Instant allRecords];
+    if ([instants count] % 5 == 0) {
+        [Instant uploadStalled:nil];
+    }
 }
 
 - (void) activateUpdating

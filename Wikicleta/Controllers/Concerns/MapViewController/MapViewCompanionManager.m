@@ -205,7 +205,6 @@
     newRoutePath.strokeWidth = stroke;
     newRoutePath.geodesic = YES;
     return newRoutePath;
-
 }
 
 - (GMSPolyline*) buildPolyline:(NSArray*) polyline withColor:(UIColor *)color withStroke:(float)stroke
