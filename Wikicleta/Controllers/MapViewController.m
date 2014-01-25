@@ -59,7 +59,7 @@
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        lastCamera = [GMSCameraPosition cameraWithLatitude:19.343 longitude:-99.112 zoom:mediumZoom];
+        lastCamera = [GMSCameraPosition cameraWithLatitude:19.43249681370738 longitude:-99.13298747498362 zoom:mediumZoom];
         defaultLeftViewController = [[MainMenuViewController alloc] initWithNibName:nil bundle:nil];
         defaultRightViewController = [[LayersChooserViewController alloc] init];
         [(LayersChooserViewController*) defaultRightViewController setDelegate:self];
@@ -67,6 +67,9 @@
         companionObject = [[MapViewCompanionManager alloc] initWithMapViewController:self];
         [companionObject loadSharePinView];
         [companionObject loadMapMessageView];
+        nextMapZoom = UnZoom;
+        [(LayersChooserViewController*) defaultRightViewController setLayerSelected:[layersTips stringByAppendingString:@"_layers"]];
+
     }
     return self;
 }

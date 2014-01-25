@@ -86,7 +86,7 @@
     
     [controller.view addSubview:controller.showListButton];*/
     
-    UIImage *locationImage = [UIImage imageNamed:@"compass_disabled_button.png"];
+    UIImage *locationImage = [UIImage imageNamed:@"compass_button.png"];
     controller.locationButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-locationImage.size.width-10, 120, locationImage.size.width, locationImage.size.height)];
     [controller.locationButton setBackgroundImage:locationImage forState:UIControlStateNormal];
     [controller.locationButton addTarget:controller action:@selector(showMyLocationOnMap) forControlEvents:UIControlEventTouchUpInside];

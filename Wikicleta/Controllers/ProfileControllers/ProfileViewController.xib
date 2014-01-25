@@ -47,7 +47,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Programador y ciclista urbano" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rMH-yF-l5N">
-                    <rect key="frame" x="20" y="159" width="280" height="47"/>
+                    <rect key="frame" x="20" y="172" width="280" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -131,7 +131,7 @@
                     <color key="backgroundColor" red="1" green="0.18427354967080323" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-0a-6Hh">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-0a-6Hh">
                     <rect key="frame" x="-11" y="138" width="149" height="304"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -182,6 +182,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="rMH-yF-l5N" firstAttribute="top" secondItem="Tw4-ex-bnh" secondAttribute="top" constant="-55" id="Hv9-Tz-SZ4"/>
+                <constraint firstItem="P0n-d3-O1h" firstAttribute="top" secondItem="rMH-yF-l5N" secondAttribute="top" constant="61" id="lqa-0E-RyY"/>
+                <constraint firstItem="PFu-OJ-8ra" firstAttribute="top" secondItem="Wui-0a-6Hh" secondAttribute="top" constant="95" id="wFs-Ia-WT9"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

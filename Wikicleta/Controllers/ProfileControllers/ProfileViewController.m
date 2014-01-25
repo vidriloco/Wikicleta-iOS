@@ -74,12 +74,8 @@
 
     void (^setRankingNumbers)(void) = ^(void) {
         float distance = [[[User currentUser] distance] floatValue]+[Instant accumulatedDistance];
-        float speed;
-        if ([[[User currentUser] speed] floatValue] == 0.0f) {
-            speed = [Instant accumulatedSpeed];
-        } else {
-            speed = ([[[User currentUser] speed] floatValue]+[Instant accumulatedSpeed])/2;
-        }
+        float speed = [[[User currentUser] speed] floatValue];
+
         [distanceValueLabel setText:[NSString stringWithFormat:@"%.02f", distance]];
         [speedValueLabel setText:[NSString stringWithFormat:@"%.02f", speed]];
         

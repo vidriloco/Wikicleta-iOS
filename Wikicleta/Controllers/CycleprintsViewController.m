@@ -38,11 +38,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         lastCamera = [GMSCameraPosition cameraWithLatitude:19.343 longitude:-99.112 zoom:mediumZoom];
-        UIImage *locationImage = [UIImage imageNamed:@"compass_disabled_button.png"];
+        UIImage *locationImage = [UIImage imageNamed:@"compass_button.png"];
         locationButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-locationImage.size.width-10, [App viewBounds].size.height-locationImage.size.height-marginUnit*2.5, locationImage.size.width, locationImage.size.height)];
         [locationButton setBackgroundImage:locationImage forState:UIControlStateNormal];
         [locationButton addTarget:self action:@selector(showMyLocationOnMap) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:locationButton];
+        nextMapZoom = UnZoom;
     }
     return self;
 }
@@ -50,7 +51,6 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[LocationManager sharedInstance] setDelegate:self];
 
     [[self.navigationController viewDeckController] setDelegate:self];
     [[self.navigationController viewDeckController] setRightController:nil];
@@ -133,6 +133,13 @@
     hud.mode = MBProgressHUDAnimationFade;
     [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
     [hud setHidden:NO];
+    [[LocationManager sharedInstance] setDelegate:self];
+    
+    if ([[LocationManager sharedInstance] location] != NULL) {
+        lastCamera = [[GMSCameraPosition alloc]
+                      initWithTarget:[[LocationManager sharedInstance] location].coordinate zoom:poiDetailedZoom bearing:mapView.camera.bearing viewingAngle:mapView.camera.viewingAngle];
+        [mapView setCamera:lastCamera];
+    }
     
     [self fetchCycleprints];
 }
@@ -169,23 +176,8 @@
     
     NSDate *now = [[NSDate alloc] init];
     
-    
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
-    
-    [components setHour:-[components hour]];
-    [components setMinute:-[components minute]];
-    [components setSecond:-[components second]];
-    NSDate *today = [cal dateByAddingComponents:components toDate:[[NSDate alloc] init] options:0]; //This variable should now be pointing at a date object that is the start of today (midnight);
-    
-    [components setHour:-24];
-    [components setMinute:0];
-    [components setSecond:0];
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
-    
-    
-    NSDictionary *dict = @{@"start_date": [self.formatter stringFromDate:[DateHelpers begginingOfDay:yesterday]],
-                           @"end_date": [self.formatter stringFromDate:[DateHelpers endOfDay:yesterday]]};
+    NSDictionary *dict = @{@"start_date": [self.formatter stringFromDate:[DateHelpers begginingOfDay:now]],
+                           @"end_date": [self.formatter stringFromDate:[DateHelpers endOfDay:now]]};
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -333,6 +325,7 @@
 
 - (void) locationUpdated:(CLLocation *)location
 {
+    NSLog(@"RRRR");
     lastCamera = [GMSCameraPosition cameraWithLatitude:[location coordinate].latitude
                                              longitude:[location coordinate].longitude
                                                   zoom:poiDetailedZoom];

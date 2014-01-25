@@ -17,6 +17,7 @@
 #import "WikiMarker.h"
 #import "DateHelpers.h"
 #import "InstantDetailsView.h"
+#import "LocationManagerDelegate.h"
 
 #define routeSpliterThreshold 1000
 
