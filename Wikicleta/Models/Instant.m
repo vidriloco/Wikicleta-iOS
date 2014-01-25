@@ -49,26 +49,24 @@ static NSArray *remoteInstants;
 + (void)  uploadStalled:(SimpleAnonymousBlock)block
 {
     NSArray *instants = [Instant allRecords];
-    if ([instants count] >= 5) {
-        
-        NSMutableArray *dictionaries = [NSMutableArray array];
-        for (Instant *instant in instants) {
-            [dictionaries addObject:[instant attributes]];
-        }
-        
-        NSDictionary *params = @{@"instants": dictionaries, @"extras": @{@"auth_token": [[User currentUser] token] }};
-        
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager POST:[App urlForResource:@"instants" withSubresource:@"post"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            for (Instant *instant in instants) {
-                [instant dropRecord];
-            }
-            if (block != nil) {
-                block();
-            }
-            //NSLog([[Instant allRecords] description]);
-        } failure:nil];
+    
+    NSMutableArray *dictionaries = [NSMutableArray array];
+    for (Instant *instant in instants) {
+        [dictionaries addObject:[instant attributes]];
     }
+    
+    NSDictionary *params = @{@"instants": dictionaries, @"extras": @{@"auth_token": [[User currentUser] token] }};
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:[App urlForResource:@"instants" withSubresource:@"post"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        for (Instant *instant in instants) {
+            [instant dropRecord];
+        }
+        if (block != nil) {
+            block();
+        }
+        //NSLog([[Instant allRecords] description]);
+    } failure:nil];
 }
 
 - (id) initWithInstant:(Instant*)instant withLocation:(CLLocation*)location

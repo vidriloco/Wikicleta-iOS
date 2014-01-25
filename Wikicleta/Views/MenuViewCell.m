@@ -18,6 +18,7 @@
     [self.mainLabel setTextAlignment:NSTextAlignmentCenter];
     [self.iconCell setImage:[UIImage imageNamed:[name stringByAppendingString:@"_menu.png"]]];
     [self.mainLabel setFont:[LookAndFeel defaultFontLightWithSize:15]];
+    [self.mainLabel setAdjustsFontSizeToFitWidth:YES];
 }
 
 - (void) setDefaultLookAndFeel

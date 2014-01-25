@@ -239,8 +239,16 @@
 "speed_text_profile" = "km/h Speed";
 "distance_text_profile" = "km Distance";
 
-"trails_menu" = "cycleprints";
+"trails_menu" = "pedal-punch";
 "suggestion_message" = "Suggestion";
-"get_the_best_from_cycleprints" = "Enable GPS mode to count your cycleprints";
-"fetching_cycleprints" = "loading today's cycleprints";
-"syncing_cycleprints" = "syncing cycleprints";
+"get_the_best_from_cycleprints" = "Enable GPS mode to track your pedal-punch";
+"fetching_cycleprints" = "recalculating your pedal-punch";
+"syncing_cycleprints" = "pushing pedal-punch";
+"pedal_power_title" = "You, today";
+"pedal_punch_distance" = "km cycled";
+"pedal_punch_speed" = "km/h speed";
+
+"stucked_pedal_punch" = "Pedal-punch stucked!";
+"free_pedal_punch" = "Free-it by tapping here!";
+"unfetched_pedal_power_title" = "We couldn't fetch your pedal-punch status";
+"unfetched_pedal_power_subtitle" = "Tap here to retry";

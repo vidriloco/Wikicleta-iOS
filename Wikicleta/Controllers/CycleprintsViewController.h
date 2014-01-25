@@ -21,15 +21,19 @@
     UIButton *locationButton;
 }
 
-@property (nonatomic, weak) IBOutlet UILabel *noteTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *noteSubtitleLabel;
+
 
 @property (nonatomic, weak) IBOutlet UILabel *distanceValueLabel;
 @property (nonatomic, weak) IBOutlet UILabel *distanceTextLabel;
 @property (nonatomic, weak) IBOutlet UILabel *speedValueLabel;
 @property (nonatomic, weak) IBOutlet UILabel *speedTextLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIView *statsContainerView;
-@property (nonatomic, weak) IBOutlet UIView *messagesContainerView;
+
+@property (nonatomic, weak) IBOutlet UIView *unfetchedContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *unfetchedTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *unfetchedSubtitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *unfetchedMainTitleLabel;
 
 @property (nonatomic, strong) UIButton *locationButton;
 
@@ -37,5 +41,6 @@
 
 - (void) fetchCycleprints;
 - (void) showMyLocationOnMap;
+- (void) loadMessagesContainer;
 
 @end

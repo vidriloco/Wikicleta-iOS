@@ -16,6 +16,10 @@
     NSMutableArray *markers;
     
     MapZoom nextMapZoom;
+    
+    UIView *messagesContainerView;
+    UILabel *messageTitleLabel;
+    UILabel *messageSubtitleLabel;
 }
 
 - (void) openLeftDock;
@@ -25,7 +29,7 @@
 
 @implementation CycleprintsViewController
 
-@synthesize distanceTextLabel, distanceValueLabel, speedTextLabel, speedValueLabel, noteSubtitleLabel, noteTitleLabel, displayLeftMenuButton, statsContainerView, messagesContainerView, locationButton;
+@synthesize distanceTextLabel, distanceValueLabel, speedTextLabel, speedValueLabel, displayLeftMenuButton, statsContainerView, locationButton, titleLabel, unfetchedContainerView, unfetchedSubtitleLabel, unfetchedTitleLabel, unfetchedMainTitleLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,9 +53,7 @@
     [[self.navigationController viewDeckController] setDelegate:self];
     [[self.navigationController viewDeckController] setRightController:nil];
     
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attemptToSynchronize)];
-    [gestureRecognizer setNumberOfTapsRequired:1];
-    [[self messagesContainerView] addGestureRecognizer:gestureRecognizer];
+    
 
     if (![[LocationManager sharedInstance] active] && ![Settings settingHoldsTrue:kDisablePedalPowerMessage]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"suggestion_message", nil)
@@ -60,15 +62,14 @@
         [alert show];
     }
     
-    if ([[Instant allRecords] count] > 10) {
-        [[self messagesContainerView] setHidden:YES];
-    }
+    [[self statsContainerView] setHidden:YES];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
+    [self loadMessagesContainer];
 }
 
 - (void)viewDidLoad
@@ -83,12 +84,27 @@
     [speedTextLabel setFont:[LookAndFeel defaultFontLightWithSize:13]];
     [distanceTextLabel setTextColor:[LookAndFeel orangeColor]];
     [speedTextLabel setTextColor:[LookAndFeel orangeColor]];
+    [distanceTextLabel setText:NSLocalizedString(@"pedal_punch_distance", nil)];
+    [speedTextLabel setText:NSLocalizedString(@"pedal_punch_speed", nil)];
+
+    [titleLabel setFont:[LookAndFeel defaultFontBoldWithSize:15]];
+    [titleLabel setTextColor:[LookAndFeel orangeColor]];
+    [titleLabel setText:NSLocalizedString(@"pedal_power_title", nil).uppercaseString];
+
+    [unfetchedMainTitleLabel setFont:[LookAndFeel defaultFontBoldWithSize:15]];
+    [unfetchedMainTitleLabel setTextColor:[LookAndFeel orangeColor]];
+    [unfetchedMainTitleLabel setText:NSLocalizedString(@"pedal_power_title", nil).uppercaseString];
     
-    [noteTitleLabel setFont:[LookAndFeel defaultFontBookWithSize:18]];
-    [noteTitleLabel setTextColor:[UIColor whiteColor]];
-    
-    [noteSubtitleLabel setFont:[LookAndFeel defaultFontLightWithSize:15]];
-    [noteSubtitleLabel setTextColor:[UIColor whiteColor]];
+    [unfetchedTitleLabel setFont:[LookAndFeel defaultFontBookWithSize:12]];
+    [unfetchedTitleLabel setTextColor:[LookAndFeel blueColor]];
+    [unfetchedTitleLabel setText:NSLocalizedString(@"unfetched_pedal_power_title", nil)];
+ 
+    [unfetchedSubtitleLabel setFont:[LookAndFeel defaultFontBoldWithSize:11]];
+    [unfetchedSubtitleLabel setTextColor:[LookAndFeel blueColor]];
+    [unfetchedSubtitleLabel setText:NSLocalizedString(@"unfetched_pedal_power_subtitle", nil)];
+ 
+    [[self statsContainerView] setHidden:YES];
+    [[self unfetchedContainerView] setHidden:YES];
     
     UIImage *menuImage = [UIImage imageNamed:@"menu_button.png"];
     displayLeftMenuButton = [[UIButton alloc] initWithFrame:CGRectMake(0, [App viewBounds].size.height-menuImage.size.height-20*2.5,
@@ -98,6 +114,12 @@
     [displayLeftMenuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchDragOutside];
     [displayLeftMenuButton addTarget:self action:@selector(openLeftDock) forControlEvents:UIControlEventTouchUpInside];
     
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fetchCycleprints)];
+    [gestureRecognizer setNumberOfTapsRequired:1];
+    [unfetchedContainerView addGestureRecognizer:gestureRecognizer];
+    
+    
     mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) camera:lastCamera];
     mapView.myLocationEnabled = YES;
     [mapView setDelegate:self];
@@ -105,7 +127,8 @@
     [self.view bringSubviewToFront:statsContainerView];
     [self.view bringSubviewToFront:messagesContainerView];
     [self.view bringSubviewToFront:displayLeftMenuButton];
-    
+    [self.view bringSubviewToFront:unfetchedContainerView];
+
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
@@ -163,8 +186,12 @@
             [self drawInstants];
         }
         [hud setHidden:YES];
+        [[self statsContainerView] setHidden:NO];
+        [[self unfetchedContainerView] setHidden:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud setHidden:YES];
+        [[self unfetchedContainerView] setHidden:NO];
+        [[self statsContainerView] setHidden:YES];
     }];
 }
 
@@ -258,6 +285,34 @@
         [mapView setCamera:lastCamera];
     }
     NSLog(@"Retrieved location");
+}
+
+- (void) loadMessagesContainer
+{
+    messagesContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, statsContainerView.frame.size.height, [App viewBounds].size.width, 60)];
+    
+    messageTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, [App viewBounds].size.width-10, 20)];
+    messageSubtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, [App viewBounds].size.width-10, 20)];
+    
+    [messageTitleLabel setText:NSLocalizedString(@"stucked_pedal_punch", nil)];
+    [messageSubtitleLabel setText:NSLocalizedString(@"free_pedal_punch", nil)];
+    [messageTitleLabel setFont:[LookAndFeel defaultFontBookWithSize:17]];
+    [messageSubtitleLabel setFont:[LookAndFeel defaultFontLightWithSize:13]];
+    [messageTitleLabel setTextColor:[UIColor whiteColor]];
+    [messageSubtitleLabel setTextColor:[UIColor whiteColor]];
+    
+    [messagesContainerView setBackgroundColor:[LookAndFeel orangeColor]];
+    [messagesContainerView addSubview:messageTitleLabel];
+    [messagesContainerView addSubview:messageSubtitleLabel];
+    [self.view addSubview:messagesContainerView];
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(attemptToSynchronize)];
+    [gestureRecognizer setNumberOfTapsRequired:1];
+    [messagesContainerView addGestureRecognizer:gestureRecognizer];
+    
+    if ([[Instant allRecords] count] <= 10) {
+        [messagesContainerView setHidden:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
