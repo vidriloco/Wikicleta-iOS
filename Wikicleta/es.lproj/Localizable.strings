@@ -251,5 +251,5 @@
 "trails_menu" = "pedaleos";
 "suggestion_message" = "Sugerencia";
 "get_the_best_from_cycleprints" = "Enciende el modo GPS para medir tu pedal-power";
-"fetching_cycleprints" = "cargando tus pedaleos de hoy";
+"fetching_cycleprints" = "cargando tus pedaleos del día";
 "syncing_cycleprints" = "sincronizando pedaleos";

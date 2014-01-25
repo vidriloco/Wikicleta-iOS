@@ -67,7 +67,6 @@
         companionObject = [[MapViewCompanionManager alloc] initWithMapViewController:self];
         [companionObject loadSharePinView];
         [companionObject loadMapMessageView];
-
     }
     return self;
 }

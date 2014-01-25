@@ -16,8 +16,9 @@
 #import "Settings.h"
 #import "WikiMarker.h"
 
-@interface CycleprintsViewController : UIViewController<IIViewDeckControllerDelegate, GMSMapViewDelegate, UIAlertViewDelegate> {
+@interface CycleprintsViewController : UIViewController<IIViewDeckControllerDelegate, GMSMapViewDelegate, UIAlertViewDelegate, LocationManagerDelegate> {
     UIButton *displayLeftMenuButton;
+    UIButton *locationButton;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel *noteTitleLabel;
@@ -30,8 +31,11 @@
 @property (nonatomic, weak) IBOutlet UIView *statsContainerView;
 @property (nonatomic, weak) IBOutlet UIView *messagesContainerView;
 
+@property (nonatomic, strong) UIButton *locationButton;
+
 @property (nonatomic, strong) UIButton *displayLeftMenuButton;
 
 - (void) fetchCycleprints;
+- (void) showMyLocationOnMap;
 
 @end

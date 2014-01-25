@@ -14,6 +14,8 @@
     MBProgressHUD *hud;
     GMSPolyline *linePath;
     NSMutableArray *markers;
+    
+    MapZoom nextMapZoom;
 }
 
 - (void) openLeftDock;
@@ -23,14 +25,18 @@
 
 @implementation CycleprintsViewController
 
-@synthesize distanceTextLabel, distanceValueLabel, speedTextLabel, speedValueLabel, noteSubtitleLabel, noteTitleLabel, displayLeftMenuButton, statsContainerView, messagesContainerView;
+@synthesize distanceTextLabel, distanceValueLabel, speedTextLabel, speedValueLabel, noteSubtitleLabel, noteTitleLabel, displayLeftMenuButton, statsContainerView, messagesContainerView, locationButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         lastCamera = [GMSCameraPosition cameraWithLatitude:19.343 longitude:-99.112 zoom:mediumZoom];
-        
+        UIImage *locationImage = [UIImage imageNamed:@"compass_disabled_button.png"];
+        locationButton = [[UIButton alloc] initWithFrame:CGRectMake([App viewBounds].size.width-locationImage.size.width-10, [App viewBounds].size.height-locationImage.size.height-marginUnit*2.5, locationImage.size.width, locationImage.size.height)];
+        [locationButton setBackgroundImage:locationImage forState:UIControlStateNormal];
+        [locationButton addTarget:self action:@selector(showMyLocationOnMap) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:locationButton];
     }
     return self;
 }
@@ -38,6 +44,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[LocationManager sharedInstance] setDelegate:self];
 
     [[self.navigationController viewDeckController] setDelegate:self];
     [[self.navigationController viewDeckController] setRightController:nil];
@@ -206,6 +213,51 @@
         
     }
     return YES;
+}
+
+- (void) showMyLocationOnMap
+{
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim.duration = 0.125;
+    anim.repeatCount = 1;
+    anim.autoreverses = YES;
+    anim.removedOnCompletion = YES;
+    anim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)];
+    [locationButton.layer addAnimation:anim forKey:nil];
+    
+    CABasicAnimation *opacityAnim = [CABasicAnimation animationWithKeyPath:@"alpha"];
+    opacityAnim.fromValue = [NSNumber numberWithFloat:1.0];
+    opacityAnim.toValue = [NSNumber numberWithFloat:0.1];
+    opacityAnim.removedOnCompletion = YES;
+    
+    if (nextMapZoom == UnZoom) {
+        lastCamera = [GMSCameraPosition cameraWithLatitude:lastCamera.target.latitude longitude:lastCamera.target.longitude zoom:mediumZoom];
+        
+        nextMapZoom = Zoom;
+        [locationButton setImage:[UIImage imageNamed:@"compass_disabled_button.png"] forState:UIControlStateNormal];
+        mapView.myLocationEnabled = NO;
+    } else {
+        lastCamera = [GMSCameraPosition cameraWithLatitude:lastCamera.target.latitude longitude:lastCamera.target.longitude zoom:poiDetailedZoom];
+        
+        nextMapZoom = UnZoom;
+        [locationButton setImage:[UIImage imageNamed:@"compass_button.png"] forState:UIControlStateNormal];
+        mapView.myLocationEnabled = YES;
+    }
+    [mapView setCamera:lastCamera];
+    
+}
+
+- (void) locationUpdated:(CLLocation *)location
+{
+    lastCamera = [GMSCameraPosition cameraWithLatitude:[location coordinate].latitude
+                                             longitude:[location coordinate].longitude
+                                                  zoom:poiDetailedZoom];
+    
+    if (nextMapZoom == UnZoom) {
+        [mapView setCamera:lastCamera];
+    }
+    NSLog(@"Retrieved location");
 }
 
 - (void)didReceiveMemoryWarning

@@ -31,4 +31,6 @@
 
 - (void) displayDialog;
 - (void) executeTaskWhenLocationUpdated;
+- (void) adjustAccuracyThreshold;
+
 @end

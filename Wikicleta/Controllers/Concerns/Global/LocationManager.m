@@ -35,13 +35,15 @@ static LocationManager* manager = nil;
         [locationManager setDelegate:self];
         
         locationManager.desiredAccuracy=kCLLocationAccuracyBestForNavigation;
-        locationManager.distanceFilter=400.0f;
     }
     return self;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
+    if(self.locationManager.distanceFilter < 400.0f) {
+        [self adjustAccuracyThreshold];
+    }
     [delegate locationUpdated:[locations objectAtIndex:0]];
     location = [locations objectAtIndex:0];
     [self executeTaskWhenLocationUpdated];
@@ -50,12 +52,7 @@ static LocationManager* manager = nil;
 - (void) setLocationDelegate:(id<LocationManagerDelegate>)locationDelegate
 {
     [self setDelegate:locationDelegate];
-    if ([locationDelegate isKindOfClass:[MapViewController class]]) {
-        self.locationManager.distanceFilter = 400.0f;
-    } else {
-        // kCLLocationAccuracyHundredMeters
-        self.locationManager.distanceFilter = 800.0f;
-    }
+    [self adjustAccuracyThreshold];
     
     if ([locationDelegate isKindOfClass:[UIViewController class]]) {
         if (active) {
@@ -105,6 +102,16 @@ static LocationManager* manager = nil;
     
     [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
     [hud hide:YES afterDelay:1];
+}
+
+- (void) adjustAccuracyThreshold
+{
+    if ([self.delegate isKindOfClass:[MapViewController class]]) {
+        self.locationManager.distanceFilter = 400.0f;
+    } else {
+        // kCLLocationAccuracyHundredMeters
+        self.locationManager.distanceFilter = 800.0f;
+    }
 }
 
 @end
