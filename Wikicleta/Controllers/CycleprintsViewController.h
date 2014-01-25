@@ -15,6 +15,10 @@
 #import "LocationManager.h"
 #import "Settings.h"
 #import "WikiMarker.h"
+#import "DateHelpers.h"
+#import "InstantDetailsView.h"
+
+#define routeSpliterThreshold 1000
 
 @interface CycleprintsViewController : UIViewController<IIViewDeckControllerDelegate, GMSMapViewDelegate, UIAlertViewDelegate, LocationManagerDelegate> {
     UIButton *displayLeftMenuButton;

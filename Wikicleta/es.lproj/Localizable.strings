@@ -248,7 +248,7 @@
 "distance_text_profile" = "km Distancia";
 
 // Pedal-punch
-"trails_menu" = "pedal-punch";
+"pedal_pow_menu" = "pedal-punch";
 "suggestion_message" = "Sugerencia";
 "get_the_best_from_cycleprints" = "Activa el modo GPS para medir tu pedal-punch";
 "fetching_cycleprints" = "recalculando tu pedal-punch";
@@ -261,3 +261,10 @@
 
 "unfetched_pedal_power_title" = "No pudimos actualizar tu pedal-punch";
 "unfetched_pedal_power_subtitle" = "Haz tap aquí para re-intentar";
+
+"pedal_punch_at_this_point_speed" = "Tu velocidad en este punto:";
+"pedal_punch_at_this_point_distance" = "Añadiste a tu recorrido:";
+"pedal_punch_at_this_point_timing" = "En un tiempo de:";
+"pedal_punch_at_this_point" = "En este punto";
+
+"pedal_punch_at_this_minutes" = "minutos";

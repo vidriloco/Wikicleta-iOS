@@ -67,7 +67,7 @@
         [mainSections addObject:@"join"];
     }
     
-    [mainSections addObject:@"trails"];
+    [mainSections addObject:@"pedal_pow"];
     
     firstList = [[MenuListViewController alloc] initWithFrame:CGRectMake(10, 10, 130, 390) withOptions:mainSections withController:self];
     [self.view addSubview:firstList.view];

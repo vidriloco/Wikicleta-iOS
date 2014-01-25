@@ -261,6 +261,12 @@
 		3A4E5F2B186DED9100D818ED /* cycle_stations_layers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4E5F29186DED9100D818ED /* cycle_stations_layers@2x.png */; };
 		3A4E5F2E186E192C00D818ED /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E5F2D186E192C00D818ED /* Route.m */; };
 		3A4FC1521880F1B100B77CF7 /* NSObject+ModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FC1511880F1B100B77CF7 /* NSObject+ModelBase.m */; };
+		3A50637918942AB0008F2376 /* InstantDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A50637818942AB0008F2376 /* InstantDetailsView.xib */; };
+		3A50638018942FCD008F2376 /* chronometer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A50637E18942FCD008F2376 /* chronometer_icon.png */; };
+		3A50638118942FCD008F2376 /* chronometer_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A50637F18942FCD008F2376 /* chronometer_icon@2x.png */; };
+		3A50638418943077008F2376 /* InstantDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A50638318943077008F2376 /* InstantDetailsView.m */; };
+		3A50638B18943C72008F2376 /* pedal_pow_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A50638918943C72008F2376 /* pedal_pow_menu.png */; };
+		3A50638C18943C72008F2376 /* pedal_pow_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A50638A18943C72008F2376 /* pedal_pow_menu@2x.png */; };
 		3A52EAE01881E8B20068BD36 /* CyclingGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A52EADF1881E8B20068BD36 /* CyclingGroupView.xib */; };
 		3A52EAE31881EC860068BD36 /* cycling_group_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A52EAE11881EC860068BD36 /* cycling_group_logo.png */; };
 		3A52EAE41881EC860068BD36 /* cycling_group_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A52EAE21881EC860068BD36 /* cycling_group_logo@2x.png */; };
@@ -321,6 +327,7 @@
 		3A8D7B95188E31D3002CEC22 /* gps_tracking_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B93188E31D3002CEC22 /* gps_tracking_icon.png */; };
 		3A8D7B96188E31D3002CEC22 /* gps_tracking_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7B94188E31D3002CEC22 /* gps_tracking_icon@2x.png */; };
 		3A8D7B99188E418A002CEC22 /* Instant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D7B98188E418A002CEC22 /* Instant.m */; };
+		3A918A1E1893968000CFDD27 /* DateHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A918A1D1893968000CFDD27 /* DateHelpers.m */; };
 		3A91E0531884A712009DBD83 /* TripPoiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91E0521884A712009DBD83 /* TripPoiView.xib */; };
 		3A91E0561884A8F0009DBD83 /* TripPoiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91E0551884A8F0009DBD83 /* TripPoiView.m */; };
 		3A94A5EC1889D117002BC047 /* GenericBigMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94A5EB1889D117002BC047 /* GenericBigMessageView.xib */; };
@@ -805,6 +812,13 @@
 		3A4E5F2D186E192C00D818ED /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		3A4FC1501880F1B100B77CF7 /* NSObject+ModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ModelBase.h"; sourceTree = "<group>"; };
 		3A4FC1511880F1B100B77CF7 /* NSObject+ModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ModelBase.m"; sourceTree = "<group>"; };
+		3A50637818942AB0008F2376 /* InstantDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstantDetailsView.xib; sourceTree = "<group>"; };
+		3A50637E18942FCD008F2376 /* chronometer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chronometer_icon.png; sourceTree = "<group>"; };
+		3A50637F18942FCD008F2376 /* chronometer_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chronometer_icon@2x.png"; sourceTree = "<group>"; };
+		3A50638218943077008F2376 /* InstantDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstantDetailsView.h; sourceTree = "<group>"; };
+		3A50638318943077008F2376 /* InstantDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstantDetailsView.m; sourceTree = "<group>"; };
+		3A50638918943C72008F2376 /* pedal_pow_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pedal_pow_menu.png; sourceTree = "<group>"; };
+		3A50638A18943C72008F2376 /* pedal_pow_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pedal_pow_menu@2x.png"; sourceTree = "<group>"; };
 		3A52EADF1881E8B20068BD36 /* CyclingGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CyclingGroupView.xib; sourceTree = "<group>"; };
 		3A52EAE11881EC860068BD36 /* cycling_group_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycling_group_logo.png; sourceTree = "<group>"; };
 		3A52EAE21881EC860068BD36 /* cycling_group_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cycling_group_logo@2x.png"; sourceTree = "<group>"; };
@@ -874,6 +888,8 @@
 		3A8D7B94188E31D3002CEC22 /* gps_tracking_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gps_tracking_icon@2x.png"; sourceTree = "<group>"; };
 		3A8D7B97188E418A002CEC22 /* Instant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instant.h; sourceTree = "<group>"; };
 		3A8D7B98188E418A002CEC22 /* Instant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instant.m; sourceTree = "<group>"; };
+		3A918A1C1893968000CFDD27 /* DateHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelpers.h; sourceTree = "<group>"; };
+		3A918A1D1893968000CFDD27 /* DateHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelpers.m; sourceTree = "<group>"; };
 		3A91E0521884A712009DBD83 /* TripPoiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripPoiView.xib; sourceTree = "<group>"; };
 		3A91E0541884A8F0009DBD83 /* TripPoiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPoiView.h; sourceTree = "<group>"; };
 		3A91E0551884A8F0009DBD83 /* TripPoiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPoiView.m; sourceTree = "<group>"; };
@@ -1138,6 +1154,8 @@
 		1807476417B622BD00A04D61 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
+				3A50638918943C72008F2376 /* pedal_pow_menu.png */,
+				3A50638A18943C72008F2376 /* pedal_pow_menu@2x.png */,
 				3A4E400118921FC900AA4586 /* trails_menu.png */,
 				3A4E400218921FC900AA4586 /* trails_menu@2x.png */,
 				3A8D7B8A188E26F1002CEC22 /* compass_activated_menu.png */,
@@ -1192,6 +1210,7 @@
 		181534C617B1645F009FE8CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A50637D18942FCD008F2376 /* CycleprintsView */,
 				3A13AF911883A4BD00A35771 /* Trips */,
 				3A1A2A961879F4F500AF298C /* ProfileView */,
 				3A9547C3186D44EF00428DF7 /* POIs */,
@@ -1495,6 +1514,7 @@
 		3A01B4CC164A2FAA00F78822 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A50637718942A95008F2376 /* OnCycleprintsView */,
 				3A4A6C39188298A300C8C3B9 /* OnActivitiesView */,
 				3A1A2A921879F38800AF298C /* OnProfileView */,
 				3ACF4F481871363200A46E33 /* OnModifyingViews */,
@@ -1803,6 +1823,25 @@
 			path = OnActivitiesView;
 			sourceTree = "<group>";
 		};
+		3A50637718942A95008F2376 /* OnCycleprintsView */ = {
+			isa = PBXGroup;
+			children = (
+				3A50637818942AB0008F2376 /* InstantDetailsView.xib */,
+				3A50638218943077008F2376 /* InstantDetailsView.h */,
+				3A50638318943077008F2376 /* InstantDetailsView.m */,
+			);
+			path = OnCycleprintsView;
+			sourceTree = "<group>";
+		};
+		3A50637D18942FCD008F2376 /* CycleprintsView */ = {
+			isa = PBXGroup;
+			children = (
+				3A50637E18942FCD008F2376 /* chronometer_icon.png */,
+				3A50637F18942FCD008F2376 /* chronometer_icon@2x.png */,
+			);
+			path = CycleprintsView;
+			sourceTree = "<group>";
+		};
 		3A5C3BD21669B2F1009DDA1C /* FirstAccessControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2004,6 +2043,8 @@
 				3A893CF218691BD600638217 /* NSObject+FieldValidators.m */,
 				3AEA68CC1870F12600FB9588 /* UITextView+UIPlus.h */,
 				3AEA68CD1870F12600FB9588 /* UITextView+UIPlus.m */,
+				3A918A1C1893968000CFDD27 /* DateHelpers.h */,
+				3A918A1D1893968000CFDD27 /* DateHelpers.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2276,6 +2317,7 @@
 				3A13AFD71883CEFB00A35771 /* metro_misterios.png in Resources */,
 				3AD1C3DB186B8B24005BEA3C /* bottom_triangle@2x.png in Resources */,
 				3A4E5F2B186DED9100D818ED /* cycle_stations_layers@2x.png in Resources */,
+				3A50638B18943C72008F2376 /* pedal_pow_menu.png in Resources */,
 				3AD40E19186ADA88000F84E3 /* join_menu@2x.png in Resources */,
 				3ACF4F5D18715A5800A46E33 /* EditTipViewController.xib in Resources */,
 				3A13AFFA1883CF8F00A35771 /* bike_lending_marker@2x.png in Resources */,
@@ -2293,6 +2335,7 @@
 				3A9547D6186D44EF00428DF7 /* venue_provided_icon.png in Resources */,
 				3A4BA336186EC72D00F7531E /* attach_icon@2x.png in Resources */,
 				3A4E5F24186DEC0100D818ED /* bike_sharing_red_marker.png in Resources */,
+				3A50638018942FCD008F2376 /* chronometer_icon.png in Resources */,
 				183F0C3417CC1576006B4F54 /* MenuViewCell.xib in Resources */,
 				3A1A2A9E1879F4F500AF298C /* favorites_icon@2x.png in Resources */,
 				3A08AD341872832000E79AA5 /* EditWorkshopInfoContactViewController.xib in Resources */,
@@ -2330,6 +2373,7 @@
 				3A13AFD01883CEFB00A35771 /* metro_allende.png in Resources */,
 				3A13AFE41883CEFB00A35771 /* metrobus_eje_central.png in Resources */,
 				3A13AFCA1883CEFB00A35771 /* grouped_services_marker.png in Resources */,
+				3A50638C18943C72008F2376 /* pedal_pow_menu@2x.png in Resources */,
 				3ACEA0ED17B7FD8600EE1B92 /* map_menu@2x.png in Resources */,
 				3AD40E15186AD6DE000F84E3 /* events_menu@2x.png in Resources */,
 				183F0C3817CD0646006B4F54 /* discover_menu@2x.png in Resources */,
@@ -2429,6 +2473,7 @@
 				3A0F9C0D187FEF19002CEC9D /* cycle_path_icon.png in Resources */,
 				3A9DE7F3186F490700C95812 /* attach_icon_h@2x.png in Resources */,
 				3A13AFC61883CEFB00A35771 /* ambulance_marker.png in Resources */,
+				3A50638118942FCD008F2376 /* chronometer_icon@2x.png in Resources */,
 				3A4E400918922E9B00AA4586 /* CycleprintsViewController.xib in Resources */,
 				3A13AFD31883CEFB00A35771 /* metro_fray_servando.png in Resources */,
 				3A1A2A9C1879F4F500AF298C /* activity_icon@2x.png in Resources */,
@@ -2458,6 +2503,7 @@
 				3A13B0041883D37400A35771 /* finish_flag_marker.png in Resources */,
 				3A13AFE91883CEFB00A35771 /* metrobus_isabel_la_catolica.png in Resources */,
 				3A1A2A9B1879F4F500AF298C /* activity_icon.png in Resources */,
+				3A50637918942AB0008F2376 /* InstantDetailsView.xib in Resources */,
 				3A060C8417D2BE3200E006C0 /* settings_map_icon.png in Resources */,
 				3A4DD93618680917009506F0 /* navbar_back.png in Resources */,
 				180BD04617BAA6290080296E /* workshops_layers.png in Resources */,
@@ -2589,9 +2635,11 @@
 				3A6BE526187C69F300200A87 /* CyclePath.m in Sources */,
 				3ADA306F166C479500839DD9 /* User.m in Sources */,
 				3ACF4F6018715ADB00A46E33 /* CommonEditViewController.m in Sources */,
+				3A50638418943077008F2376 /* InstantDetailsView.m in Sources */,
 				3A060C7517D2AE5200E006C0 /* UzysSMMenuItemView.m in Sources */,
 				3A8D7B99188E418A002CEC22 /* Instant.m in Sources */,
 				3ACF4F5C18715A5800A46E33 /* EditTipViewController.m in Sources */,
+				3A918A1E1893968000CFDD27 /* DateHelpers.m in Sources */,
 				18F76ED517CE6851008D9B3E /* LookAndFeel.m in Sources */,
 				3AC2291117CACC7E00E76E96 /* DRNRealTimeBlurView.m in Sources */,
 				3ACF4F5718715A2600A46E33 /* EditParkingViewController.m in Sources */,

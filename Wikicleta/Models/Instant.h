@@ -14,6 +14,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "User.h"
 #import "ModelHumanizer.h"
+#import "WikiMarker.h"
 
 typedef void (^SimpleAnonymousBlock)(void);
 
@@ -25,6 +26,8 @@ typedef void (^SimpleAnonymousBlock)(void);
 @property (nonatomic, strong) NSDecimalNumber *distance;
 @property (nonatomic, strong) NSDecimalNumber *timing;
 @property (nonatomic, strong) NSDecimalNumber *speed;
+@property (nonatomic, strong) WikiMarker* marker;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 + (float) accumulatedSpeed;
 + (float) accumulatedDistance;

@@ -20,11 +20,13 @@
     UIView *messagesContainerView;
     UILabel *messageTitleLabel;
     UILabel *messageSubtitleLabel;
+    InstantDetailsView *detailsView;
 }
 
 - (void) openLeftDock;
 - (void) attemptToSynchronize;
 - (void) drawInstants;
+- (void) hideInstantDetailsView;
 @end
 
 @implementation CycleprintsViewController
@@ -53,8 +55,6 @@
     [[self.navigationController viewDeckController] setDelegate:self];
     [[self.navigationController viewDeckController] setRightController:nil];
     
-    
-
     if (![[LocationManager sharedInstance] active] && ![Settings settingHoldsTrue:kDisablePedalPowerMessage]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"suggestion_message", nil)
                                                         message:NSLocalizedString(@"get_the_best_from_cycleprints", nil)
@@ -166,12 +166,32 @@
     hud.labelText = NSLocalizedString(@"fetching_cycleprints", nil);
 
     NSString *url = [App urlForResource:@"instants" withSubresource:@"get" andReplacementSymbol:@":user_id" withReplacementValue:[NSString stringWithFormat:@"%d", [[User currentUser].identifier intValue]]];
-    url = [url stringByReplacingOccurrencesOfString:@":range" withString:@"today"];
+    
+    NSDate *now = [[NSDate alloc] init];
+    
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    
+    [components setHour:-[components hour]];
+    [components setMinute:-[components minute]];
+    [components setSecond:-[components second]];
+    NSDate *today = [cal dateByAddingComponents:components toDate:[[NSDate alloc] init] options:0]; //This variable should now be pointing at a date object that is the start of today (midnight);
+    
+    [components setHour:-24];
+    [components setMinute:0];
+    [components setSecond:0];
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
+    
+    
+    NSDictionary *dict = @{@"start_date": [self.formatter stringFromDate:[DateHelpers begginingOfDay:yesterday]],
+                           @"end_date": [self.formatter stringFromDate:[DateHelpers endOfDay:yesterday]]};
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
 
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *response = [jsonParser objectWithString:[operation responseString] error:nil];
         if ([[response objectForKey:@"success"] boolValue]) {
@@ -210,25 +230,34 @@
     markers = [NSMutableArray array];
     
     GMSMutablePath *path = [GMSMutablePath path];
+    NSMutableArray *paths = [NSMutableArray array];
     for (Instant *instant in [Instant remoteInstants]) {
         float lat = [instant.latitude floatValue];
         float lon = [instant.longitude floatValue];
+        if ([instant.timing floatValue] > 1000) {
+            [paths addObject:path];
+            path = [GMSMutablePath path];
+        }
         CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lon);
 
         [path addCoordinate:position];
         
-        WikiMarker *marker = [[WikiMarker alloc] init];
-        marker.model = instant;
-        marker.map = mapView;
-        marker.icon = [instant markerIcon];
-        [markers addObject:marker];
+        [instant.marker setMap:mapView];
+        [markers addObject:instant.marker];
     }
-    
-    linePath = [GMSPolyline polylineWithPath:path];
-    linePath.strokeColor = [LookAndFeel greenColor];
-    linePath.strokeWidth = 3;
-    linePath.geodesic = YES;
-    [linePath setMap:mapView];
+    // Add last
+    if (![paths containsObject:path]) {
+        [paths addObject:path];
+    }
+
+    for (GMSMutablePath *collectedPath in paths) {
+        linePath = [GMSPolyline polylineWithPath:collectedPath];
+        linePath.strokeColor = [LookAndFeel greenColor];
+        linePath.strokeWidth = 3;
+        linePath.geodesic = YES;
+        [linePath setMap:mapView];
+    }
+
 }
 
 - (BOOL) mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
@@ -236,10 +265,37 @@
     if ([[(WikiMarker*) marker model] isKindOfClass:[Instant class]]) {
         WikiMarker *markerNew = (WikiMarker*) marker;
         Instant *instant = (Instant*) markerNew.model;
-        NSLog([instant createdBy]);
+        if (detailsView == NULL) {
+            detailsView = [[[NSBundle mainBundle] loadNibNamed:@"InstantDetailsView" owner:self options:nil] objectAtIndex:0];
+            [self.view addSubview:detailsView];
+            [detailsView setFrame:CGRectMake(0, statsContainerView.frame.size.height, detailsView.frame.size.width, detailsView.frame.size.height)];
+        }
         
+        [detailsView stylizeView];
+        float timing = [[instant timing] floatValue]/60;
+        
+        [[detailsView timingValueLabel] setText:[NSString stringWithFormat:@"%0.2f", timing]];
+        [[detailsView distanceValueLabel] setText:[NSString stringWithFormat:@"%0.2f", [[instant distance] floatValue]]];
+        [[detailsView speedValueLabel] setText:[NSString stringWithFormat:@"%0.2f", [[instant speed] floatValue]]];
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideInstantDetailsView)];
+        [tapGesture setNumberOfTapsRequired:1];
+        [detailsView addGestureRecognizer:tapGesture];
     }
     return YES;
+}
+
+- (void) hideInstantDetailsView
+{
+    if (detailsView != NULL) {
+        [detailsView removeFromSuperview];
+        detailsView = NULL;
+    }
+}
+
+- (void) mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    [self hideInstantDetailsView];
 }
 
 - (void) showMyLocationOnMap
@@ -284,7 +340,6 @@
     if (nextMapZoom == UnZoom) {
         [mapView setCamera:lastCamera];
     }
-    NSLog(@"Retrieved location");
 }
 
 - (void) loadMessagesContainer

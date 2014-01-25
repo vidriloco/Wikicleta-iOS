@@ -101,7 +101,7 @@ static NSString *simpleTableIdentifier = @"mainMenuItem";
             
         } else if ([selectedMenuItem isEqualToString:@"profile"]) {
             [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[ProfileViewController alloc] initWithNibName:nil bundle:nil] animated:NO];
-        } else if ([selectedMenuItem isEqualToString:@"trails"]) {
+        } else if ([selectedMenuItem isEqualToString:@"pedal_pow"]) {
             [(UINavigationController*) [[associatedController viewDeckController] centerController] pushViewController:[[CycleprintsViewController alloc] initWithNibName:nil bundle:nil] animated:NO];
         }
     }];

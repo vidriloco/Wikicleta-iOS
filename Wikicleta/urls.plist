@@ -5,7 +5,7 @@
 	<key>instants</key>
 	<dict>
 		<key>get</key>
-		<string>/api/instants/:user_id/:range</string>
+		<string>/api/instants/:user_id</string>
 		<key>post</key>
 		<string>/api/instants</string>
 	</dict>

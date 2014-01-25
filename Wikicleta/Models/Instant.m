@@ -12,7 +12,12 @@
 
 static NSArray *remoteInstants;
 
-@synthesize distance, latitude, longitude, createdAt, updatedAt, timing, speed;
+@synthesize distance, latitude, longitude, createdAt, updatedAt, timing, speed, marker;
+
+ignore_fields_do(
+ ignore_field(coordinate)
+ ignore_field(marker)
+)
 
 + (float) accumulatedSpeed {
     float speed = 0.0f;
@@ -108,7 +113,8 @@ static NSArray *remoteInstants;
     if (self = [super init]) {
         self.latitude = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"lat"] floatValue]];
         self.longitude = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"lon"] floatValue]];
-        
+        self.coordinate = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+
         if ([dictionary objectForKey:@"speed_at"] && [dictionary objectForKey:@"speed_at"] != [NSNull null]) {
             self.speed = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"speed_at"] floatValue]];
         }
@@ -121,6 +127,11 @@ static NSArray *remoteInstants;
             self.timing = [[NSDecimalNumber alloc] initWithFloat:[[dictionary objectForKey:@"elapsed_time"] floatValue]];
         }
         self.createdAt = [self.formatter dateFromString:[dictionary objectForKey:@"str_created_at"]];
+        
+        marker = [WikiMarker markerWithPosition:self.coordinate];
+        marker.title = self.localizedKindString;
+        marker.icon = [self markerIcon];
+        marker.model = self;
     }
     return self;
 }
