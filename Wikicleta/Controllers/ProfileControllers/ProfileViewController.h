@@ -18,8 +18,10 @@
 #import "ActivityViewController.h"
 #import "FavoritesViewController.h"
 #import "SettingsViewController.h"
+#import "LocationManager.h"
+#import "LocationManagerDelegate.h"
 
-@interface ProfileViewController : UIViewController<IIViewDeckControllerDelegate>
+@interface ProfileViewController : UIViewController<IIViewDeckControllerDelegate, LocationManagerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *usernameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *userBioLabel;

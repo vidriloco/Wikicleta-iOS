@@ -39,7 +39,8 @@
     [activityButton addTarget:self action:@selector(presentActivityViewController) forControlEvents:UIControlEventTouchUpInside];
     [favoriteButton addTarget:self action:@selector(presentFavoritesViewController) forControlEvents:UIControlEventTouchUpInside];
     [settingsButton addTarget:self action:@selector(presentSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
-    
+    [[LocationManager sharedInstance] setDelegate:self];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -204,5 +205,8 @@
     }];
 }
 
+- (void) locationUpdated:(CLLocation *)location
+{
+}
 
 @end
