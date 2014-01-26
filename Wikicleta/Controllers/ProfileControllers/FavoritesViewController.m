@@ -204,6 +204,7 @@ static NSString *simpleTableIdentifier = @"POICellView";
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, -9, self.view.frame.size.width, 40)];
     [label setFont:[LookAndFeel defaultFontBoldWithSize:15]];
     [label setTextColor:[UIColor whiteColor]];
+    [label setBackgroundColor:[UIColor clearColor]];
     if ([key isEqualToString:@"Tip"]) {
         [label setText:NSLocalizedString(@"tips_title_plural", nil).uppercaseString];
     } else if ([key isEqualToString:@"Parking"]) {
