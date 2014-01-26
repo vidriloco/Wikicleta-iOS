@@ -28,6 +28,7 @@
         hud.mode = MBProgressHUDAnimationFade;
         [hud setHidden:YES];
         hud.labelText = NSLocalizedString(@"wait_please", nil);
+        [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
     }
     return self;
 }
