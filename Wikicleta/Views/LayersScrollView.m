@@ -17,7 +17,7 @@
 {
     self = [super initWithFrame:CGRectMake(200, 10, 150, [App viewBounds].size.height-20)];
     if (self) {
-        self.contentSize = CGSizeMake(150, 100 * [layers count]);
+        self.contentSize = CGSizeMake(150, 130 * [layers count]);
         [self setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
         [self setContentOffset:CGPointMake(0, -10)];
         [self setBackgroundColor:[UIColor clearColor]];
