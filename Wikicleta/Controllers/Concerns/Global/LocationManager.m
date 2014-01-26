@@ -107,10 +107,10 @@ static LocationManager* manager = nil;
 - (void) adjustAccuracyThreshold
 {
     if ([self.delegate isKindOfClass:[MapViewController class]]) {
-        self.locationManager.distanceFilter = 200.0f;
+        self.locationManager.distanceFilter = 400.0f;
     } else {
         // kCLLocationAccuracyHundredMeters
-        self.locationManager.distanceFilter = 400.0f;
+        self.locationManager.distanceFilter = 600.0f;
     }
 }
 

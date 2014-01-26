@@ -176,6 +176,21 @@
     
     NSDate *now = [[NSDate alloc] init];
     
+    /*
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    
+    [components setHour:-[components hour]];
+    [components setMinute:-[components minute]];
+    [components setSecond:-[components second]];
+    NSDate *today = [cal dateByAddingComponents:components toDate:[[NSDate alloc] init] options:0]; //This variable should now be pointing at a date object that is the start of today (midnight);
+    
+    [components setHour:-24];
+    [components setMinute:0];
+    [components setSecond:0];
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];*/
+    
     NSDictionary *dict = @{@"start_date": [self.formatter stringFromDate:[DateHelpers begginingOfDay:now]],
                            @"end_date": [self.formatter stringFromDate:[DateHelpers endOfDay:now]]};
     
