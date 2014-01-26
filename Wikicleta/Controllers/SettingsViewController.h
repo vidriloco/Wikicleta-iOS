@@ -15,8 +15,9 @@
 #import "UITextView+UIPlus.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "IIViewDeckController.h"
 
-@interface SettingsViewController : FormBaseViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface SettingsViewController : FormBaseViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, IIViewDeckControllerDelegate> {
 
 }
 

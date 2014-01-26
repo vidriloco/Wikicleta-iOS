@@ -54,6 +54,7 @@
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [userPicButton addTarget:self action:@selector(selectPicture) forControlEvents:UIControlEventTouchUpInside];
+    [self.viewDeckController setDelegate:self];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -177,6 +178,11 @@
     userPicButton.layer.masksToBounds = YES;
     [picker dismissModalViewControllerAnimated:YES];
     
+}
+
+- (BOOL)viewDeckController:(IIViewDeckController*)viewDeckController shouldOpenViewSide:(IIViewDeckSide)viewDeckSide
+{
+    return NO;
 }
 
 @end

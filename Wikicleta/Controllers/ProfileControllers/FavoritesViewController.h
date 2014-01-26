@@ -17,7 +17,7 @@
 #import "IIViewDeckController.h"
 #import "GenericBigMessageView.h"
 
-@interface FavoritesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface FavoritesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IIViewDeckControllerDelegate> {
     NSMutableDictionary *favoritesList;
 }
 

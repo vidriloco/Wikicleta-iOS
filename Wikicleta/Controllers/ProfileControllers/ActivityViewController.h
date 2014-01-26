@@ -17,7 +17,7 @@
 #import "IIViewDeckController.h"
 #import "GenericBigMessageView.h"
 
-@interface ActivityViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface ActivityViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IIViewDeckControllerDelegate> {
     NSArray *activityList;
 }
 

@@ -45,6 +45,7 @@
 {
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [self.viewDeckController setDelegate:self];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -202,6 +203,11 @@ static NSString *simpleTableIdentifier = @"POICellView";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 184;
+}
+
+- (BOOL)viewDeckController:(IIViewDeckController*)viewDeckController shouldOpenViewSide:(IIViewDeckSide)viewDeckSide
+{
+    return NO;
 }
 
 @end
