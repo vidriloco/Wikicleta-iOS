@@ -1,21 +1,21 @@
 PODS:
-  - AFNetworking (2.0.3):
+  - AFNetworking (2.1.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.3):
+  - AFNetworking/NSURLConnection (2.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.3):
+  - AFNetworking/NSURLSession (2.1.0):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.0.3)
-  - AFNetworking/Security (2.0.3)
-  - AFNetworking/Serialization (2.0.3)
-  - AFNetworking/UIKit (2.0.3):
+  - AFNetworking/Reachability (2.1.0)
+  - AFNetworking/Security (2.1.0)
+  - AFNetworking/Serialization (2.1.0)
+  - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
   - FormatterKit (1.4.0):
     - FormatterKit/AddressFormatter
@@ -36,7 +36,7 @@ PODS:
   - FormatterKit/URLRequestFormatter (1.4.0)
   - iActiveRecord (1.3.0)
   - MBProgressHUD (0.8)
-  - Mixpanel (2.0.4)
+  - Mixpanel (2.3.0)
   - SVSegmentedControl (0.2)
 
 DEPENDENCIES:
@@ -48,11 +48,11 @@ DEPENDENCIES:
   - SVSegmentedControl
 
 SPEC CHECKSUMS:
-  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
+  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   FormatterKit: 475c602b6098d69c3255c65cfe6cb6a27c175f57
   iActiveRecord: 5dd0ababe9b7ea1764da0d21d9f3fe61c73172ce
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  Mixpanel: b23d1b358f9e2d3904ee13621beed4e5205929a5
+  Mixpanel: a3536b6bf7f88bd8a6113392f91e9dc689c58434
   SVSegmentedControl: e874fc56c2a1efb9f597ddf0908101393f53fe96
 
 COCOAPODS: 0.29.0

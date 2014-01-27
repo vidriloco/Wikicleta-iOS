@@ -126,7 +126,6 @@
 {
     [[Mixpanel sharedInstance] track:@"On Profile Pic change" properties:nil];
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
-    imagePickerController = [[UIImagePickerController alloc] init];
     [imagePickerController setDelegate:self];
     imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:imagePickerController animated:YES completion:nil];

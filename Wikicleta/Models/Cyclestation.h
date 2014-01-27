@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "BaseModel.h"
 #import "ModelHumanizer.h"
 #import "NSObject+ModelBase.h"
 

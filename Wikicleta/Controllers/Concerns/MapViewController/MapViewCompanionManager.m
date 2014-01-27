@@ -222,7 +222,7 @@
 
 - (void) clearItemsOnMap
 {
-    for (BaseModel *model in controller.itemsOnMap) {
+    for (id<ModelHumanizer> model in controller.itemsOnMap) {
         [model.marker setMap:nil];
     }
 }
@@ -262,14 +262,14 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             NSMutableArray *newItems = [NSMutableArray array];
-            for (BaseModel *model in items) {
-                if ([controller.mapView.projection containsCoordinate:model.coordinate]) {
+            for (id<ModelHumanizer> model in items) {
+                if ([controller.mapView.projection containsCoordinate:[model marker].position]) {
                     if (model.marker.map == nil) {
                         model.marker.map = controller.mapView;
                         [newItems addObject:model];
                     }
                 } else {
-                    model.marker.map = nil;
+                    [model marker].map = nil;
                 }
             }
             controller.itemsOnMap = newItems;

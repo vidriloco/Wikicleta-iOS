@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "IIViewDeckController.h"
 #import "UIViewController+Helpers.h"
-#import "BaseModel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TTTTimeIntervalFormatter.h"
 #import "ModelHumanizer.h"
