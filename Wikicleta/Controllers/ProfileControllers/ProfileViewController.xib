@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
@@ -27,11 +27,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue_gradient_iphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="V02-b3-Msw">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="blue_gradient_iphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="V02-b3-Msw">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="profile_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-xR-LG9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="profile_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-xR-LG9">
                     <rect key="frame" x="115" y="32" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
@@ -53,7 +53,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ey2-oZ-gMb">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ey2-oZ-gMb">
                     <rect key="frame" x="0.0" y="293" width="320" height="275"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
@@ -182,16 +182,18 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="rMH-yF-l5N" firstAttribute="top" secondItem="Tw4-ex-bnh" secondAttribute="top" constant="-55" id="Hv9-Tz-SZ4"/>
+                <constraint firstItem="eI7-xR-LG9" firstAttribute="top" secondItem="V02-b3-Msw" secondAttribute="bottom" constant="-536" id="KNQ-fc-kdP"/>
+                <constraint firstItem="Tw4-ex-bnh" firstAttribute="top" secondItem="Ey2-oZ-gMb" secondAttribute="top" constant="-66" id="iWp-Cm-TJR"/>
                 <constraint firstItem="P0n-d3-O1h" firstAttribute="top" secondItem="rMH-yF-l5N" secondAttribute="top" constant="61" id="lqa-0E-RyY"/>
                 <constraint firstItem="PFu-OJ-8ra" firstAttribute="top" secondItem="Wui-0a-6Hh" secondAttribute="top" constant="95" id="wFs-Ia-WT9"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="266" ambiguous="YES" restorationIdentifier="menu-cell-reuse" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu-cell-reuse" rowHeight="102" id="7Sg-IU-E2B" customClass="MenuViewCell">
+        <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="266" restorationIdentifier="menu-cell-reuse" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu-cell-reuse" rowHeight="102" id="7Sg-IU-E2B" customClass="MenuViewCell">
             <rect key="frame" x="0.0" y="0.0" width="99" height="102"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="7Sg-IU-E2B" id="CFT-CH-opN">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Sg-IU-E2B" id="CFT-CH-opN">
                 <rect key="frame" x="0.0" y="0.0" width="99" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>

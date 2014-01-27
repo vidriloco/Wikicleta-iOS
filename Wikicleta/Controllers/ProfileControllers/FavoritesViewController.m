@@ -20,7 +20,7 @@
 
 @implementation FavoritesViewController
 
-@synthesize favoritesTableView;
+@synthesize favoritesTableView, favoritesList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
