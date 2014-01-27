@@ -67,6 +67,8 @@
 - (void) setLayerSelected:(NSString*)layerIdentifier
 {
     LayerItemView *selected = [layersMenuList objectForKey:layerIdentifier];
+    [[Mixpanel sharedInstance] track:[NSString stringWithFormat:@"On layer: %@", layerIdentifier] properties:nil];
+    
     [self selectedLayer:selected];
 }
 

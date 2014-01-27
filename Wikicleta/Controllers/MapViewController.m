@@ -69,7 +69,7 @@
         [companionObject loadMapMessageView];
         nextMapZoom = UnZoom;
         [(LayersChooserViewController*) defaultRightViewController setLayerSelected:[layersTips stringByAppendingString:@"_layers"]];
-
+        
     }
     return self;
 }
@@ -88,6 +88,12 @@
     [self.viewDeckController setDelegate:self];
     
     [[LocationManager sharedInstance] setDelegate:self];
+    
+    [[Mixpanel sharedInstance] track:@"On Mapview" properties:nil];
+    /*
+     [[Mixpanel sharedInstance].people set:@{
+     @"name": [[User currentUser] username],
+     @"email": [[User currentUser] email]}];*/
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -107,6 +113,7 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[LocationManager sharedInstance] activateUpdating];
 
     /*[mapView addObserver:self
               forKeyPath:@"myLocation"

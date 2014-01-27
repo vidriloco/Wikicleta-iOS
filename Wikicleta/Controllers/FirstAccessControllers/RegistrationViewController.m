@@ -85,6 +85,13 @@
         [User buildOrUpdateUserFromDictionary:successObject];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
+        [[Mixpanel sharedInstance] track:@"On Successful Registration" properties:@{
+            @"date": [[NSDate new] description]
+        }];
+        [[Mixpanel sharedInstance] identify:[[User currentUser] stringifiedId]];
+        [[Mixpanel sharedInstance].people set:@{
+                                                @"name": [[User currentUser] username],
+                                                @"email": [[User currentUser] email]}];
         [self dismissToMapViewController];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud setHidden:YES];
@@ -111,7 +118,9 @@
                 }
             }
         }
-        
+        [[Mixpanel sharedInstance] track:@"On Failed Registration" properties:@{
+           @"date": [[NSDate new] description]
+        }];
     }];
 }
 

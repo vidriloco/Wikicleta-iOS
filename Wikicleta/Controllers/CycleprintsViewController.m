@@ -70,6 +70,8 @@
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
     [self loadMessagesContainer];
+    [[Mixpanel sharedInstance] track:@"On Cycleprints View" properties:nil];
+    [[Mixpanel sharedInstance].people increment:@"pedal-punch-daily-checks" by:@1];
 }
 
 - (void)viewDidLoad

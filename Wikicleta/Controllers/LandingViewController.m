@@ -67,6 +67,10 @@
             [decoratorView setAlpha:1];
             [decoratorView setTransform:CGAffineTransformMakeTranslation(0, [App viewBounds].size.height-decoratorView.center.y-100)];
         }];
+        
+        [[Mixpanel sharedInstance] track:@"On Landing Page" properties:@{
+            @"date": [[NSDate new] description]
+        }];
     }
 }
 

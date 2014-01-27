@@ -73,12 +73,14 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     void (^setRankingNumbers)(void) = ^(void) {
-        float distance = [[[User currentUser] distance] floatValue]+[Instant accumulatedDistance];
+        float distance = [[[User currentUser] distance] floatValue];
         float speed = [[[User currentUser] speed] floatValue];
 
         [distanceValueLabel setText:[NSString stringWithFormat:@"%.02f", distance]];
         [speedValueLabel setText:[NSString stringWithFormat:@"%.02f", speed]];
-        
+        [[Mixpanel sharedInstance].people set:@{@"distance": [[User currentUser] distance],
+                                                @"speed": [[User currentUser] speed]}];
+        [[Mixpanel sharedInstance].people increment:@"pedal-punch-total-checks" by:@1];
     };
     
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
@@ -128,6 +130,7 @@
 {
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
+    [[Mixpanel sharedInstance] track:@"On Profile View" properties:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -47,7 +47,7 @@
     [self loadNavigationBarDefaultStyle];
     [self completeLoadView];
     [[self viewDeckController] setRightController:nil];
-    
+    [[Mixpanel sharedInstance] track:@"On CyclingGroup View" properties:nil];
     // Do any additional setup after loading the view from its nib.
 }
 

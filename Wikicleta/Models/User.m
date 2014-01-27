@@ -111,4 +111,9 @@ static User *user;
     return dict;
 }
 
+- (NSString*) stringifiedId
+{
+    return [NSString stringWithFormat:@"%d", [[self identifier] intValue]];
+}
+
 @end

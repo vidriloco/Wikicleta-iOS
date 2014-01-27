@@ -51,6 +51,8 @@
     [[self viewDeckController] setRightController:nil];
     [self reflectFavoritedStatusForItemWithId:[selectedModel identifier] andType:NSStringFromClass([selectedModel class])];
     // Do any additional setup after loading the view from its nib.
+    [[Mixpanel sharedInstance] track:@"On POI Details View"
+                          properties:@{@"type": [[selectedModel class] description]}];
 }
 
 - (void) attemptEdit

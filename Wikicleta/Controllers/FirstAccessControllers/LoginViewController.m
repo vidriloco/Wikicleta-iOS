@@ -48,6 +48,13 @@
             [User buildOrUpdateUserFromDictionary:successObject];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self dismissToMapViewController];
+            [[Mixpanel sharedInstance] track:@"On Successful Login" properties:@{
+                @"date": [[NSDate new] description]
+            }];
+            [[Mixpanel sharedInstance] identify:[[User currentUser] stringifiedId]];
+            [[Mixpanel sharedInstance].people set:@{
+                                                    @"name": [[User currentUser] username],
+                                                    @"email": [[User currentUser] email]}];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [hud setHidden:YES];
             if ([operation.responseString length] == 0) {
@@ -59,7 +66,9 @@
                                andContent:NSLocalizedString(@"could_not_log_in_explanation", nil)
                             andTextButton:NSLocalizedString(@"accept", nil)];
             }
-            
+            [[Mixpanel sharedInstance] track:@"On Failed Login" properties:@{
+                @"date": [[NSDate new] description]
+            }];
         }];
     }
 }
@@ -92,6 +101,10 @@
     [passwordField fixUI];
     
     [self loadRightButtonWithString:NSLocalizedString(@"login_button", nil) andStringSelector:@"attemptLogin"];
+    
+    [[Mixpanel sharedInstance] track:@"On Login Page" properties:@{
+        @"date": [[NSDate new] description]
+    }];
 }
 
 #pragma - mark UITextFieldDelegate

@@ -78,12 +78,16 @@ static LocationManager* manager = nil;
 {
     [[self locationManager] startUpdatingLocation];
     active = YES;
+    [[Mixpanel sharedInstance] track:@"Activated GPS Mode" properties:nil];
+    [[Mixpanel sharedInstance].people increment:@{@"gps-active": @1}];
 }
 
 - (void) deactivateUpdating
 {
     [[self locationManager] stopUpdatingLocation];
     active = NO;
+    [[Mixpanel sharedInstance] track:@"Stopped GPS Mode" properties:nil];
+    [[Mixpanel sharedInstance].people increment:@{@"gps-active": @0}];
 }
 
 - (void) displayDialog

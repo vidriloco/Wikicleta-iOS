@@ -46,6 +46,7 @@
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self.viewDeckController setDelegate:self];
+    [[Mixpanel sharedInstance] track:@"On Activity View" properties:nil];
 }
 
 - (void) viewWillDisappear:(BOOL)animated

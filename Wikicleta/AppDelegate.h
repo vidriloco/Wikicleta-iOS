@@ -16,6 +16,8 @@
 #import "LocationManager.h"
 #import "Instant.h"
 
+#define MIXPANEL_TOKEN @"def4310ad4a74133db2291d53f6abecc"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

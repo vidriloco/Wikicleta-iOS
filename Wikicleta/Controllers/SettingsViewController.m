@@ -46,7 +46,7 @@
 
     [LookAndFeel decorateUILabelAsMainViewTitle:titleLabel withLocalizedString:@"user_settings_instructions"];
     [userBioTextView fixUI];
-    
+    [[Mixpanel sharedInstance] track:@"On Settings View" properties:nil];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -124,11 +124,11 @@
 
 - (void) selectPicture
 {
+    [[Mixpanel sharedInstance] track:@"On Profile Pic change" properties:nil];
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
     imagePickerController = [[UIImagePickerController alloc] init];
     [imagePickerController setDelegate:self];
     imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
-    NSLog(@"selecting pic");
     [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 

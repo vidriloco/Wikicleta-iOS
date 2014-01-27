@@ -40,5 +40,6 @@
 - (NSDictionary*) dictionary;
 + (NSString*) userAuthToken;
 + (BOOL) isOwnerOf:(id) object;
+- (NSString*) stringifiedId;
 
 @end
