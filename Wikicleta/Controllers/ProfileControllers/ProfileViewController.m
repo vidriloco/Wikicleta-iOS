@@ -78,8 +78,8 @@
 
         [distanceValueLabel setText:[NSString stringWithFormat:@"%.02f", distance]];
         [speedValueLabel setText:[NSString stringWithFormat:@"%.02f", speed]];
-        [[Mixpanel sharedInstance].people set:@{@"distance": [[User currentUser] distance],
-                                                @"speed": [[User currentUser] speed]}];
+        [[Mixpanel sharedInstance].people set:@{@"distance": [NSString stringWithFormat:@"%f", distance],
+                                                @"speed": [NSString stringWithFormat:@"%f", speed]}];
         [[Mixpanel sharedInstance].people increment:@"pedal-punch-total-checks" by:@1];
     };
     
