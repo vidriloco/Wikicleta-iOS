@@ -36,7 +36,7 @@
 {
     [super viewDidLoad];
     [self loadImageBackgroundNamed:@"activity_icon_big.png"];
-    [self loadNavigationBarDefaultStyle];
+    
     [self loadLeftButtonWithString:NSLocalizedString(@"close", nil) andStringSelector:@"dismiss"];
     [contributionsTableView setHidden:YES];
 }
@@ -47,6 +47,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     [self.viewDeckController setDelegate:self];
     [[Mixpanel sharedInstance] track:@"On Activity View" properties:nil];
+    [self loadNavigationBarDefaultStyle];
 }
 
 - (void) viewWillDisappear:(BOOL)animated

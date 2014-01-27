@@ -106,6 +106,12 @@
         @"date": [[NSDate new] description]
     }];
 }
+    
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadNavigationBarDefaultStyle];
+}
 
 #pragma - mark UITextFieldDelegate
 

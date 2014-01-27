@@ -159,6 +159,12 @@
     [email fixUI];
 
 }
+    
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadNavigationBarDefaultStyle];
+}
 
 - (void)didReceiveMemoryWarning
 {

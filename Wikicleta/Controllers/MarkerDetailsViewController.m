@@ -79,7 +79,7 @@
     
     [detailsLabel setText:[selectedModel details]];
     if (IS_OS_7_OR_LATER) {
-        [detailsLabel setTextAlignment:NSTextAlignmentJustified];
+        [detailsLabel setTextAlignment:NSTextAlignmentCenter];
     }
     [detailsLabel setFont:[LookAndFeel defaultFontLightWithSize:18]];
     [detailsLabel setTextColor:[LookAndFeel blueColor]];

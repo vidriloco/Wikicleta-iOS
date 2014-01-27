@@ -47,6 +47,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     [self.viewDeckController setDelegate:self];
     [[Mixpanel sharedInstance] track:@"On Favorites View" properties:nil];
+    [self loadNavigationBarDefaultStyle];
 }
 
 - (void) viewWillDisappear:(BOOL)animated

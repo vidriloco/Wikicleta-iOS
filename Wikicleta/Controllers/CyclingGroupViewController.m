@@ -80,7 +80,7 @@
     [daysToEventLabel setTextColor:[LookAndFeel orangeColor]];
     
     [detailsLabel setText:[selectedModel details]];
-    [detailsLabel setTextAlignment:NSTextAlignmentJustified];
+    [detailsLabel setTextAlignment:NSTextAlignmentCenter];
     [detailsLabel setFont:[LookAndFeel defaultFontLightWithSize:18]];
     [detailsLabel setTextColor:[LookAndFeel blueColor]];
     

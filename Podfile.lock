@@ -36,7 +36,7 @@ PODS:
   - FormatterKit/URLRequestFormatter (1.4.0)
   - iActiveRecord (1.3.0)
   - MBProgressHUD (0.8)
-  - Mixpanel (2.3.0)
+  - Mixpanel (2.0.4)
   - SVSegmentedControl (0.2)
 
 DEPENDENCIES:
@@ -52,7 +52,7 @@ SPEC CHECKSUMS:
   FormatterKit: 475c602b6098d69c3255c65cfe6cb6a27c175f57
   iActiveRecord: 5dd0ababe9b7ea1764da0d21d9f3fe61c73172ce
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  Mixpanel: a3536b6bf7f88bd8a6113392f91e9dc689c58434
+  Mixpanel: b23d1b358f9e2d3904ee13621beed4e5205929a5
   SVSegmentedControl: e874fc56c2a1efb9f597ddf0908101393f53fe96
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.29.0

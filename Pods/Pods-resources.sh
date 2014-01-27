@@ -185,20 +185,6 @@ install_resource "FormatterKit/Localizations/ru.lproj"
 install_resource "FormatterKit/Localizations/sv.lproj"
 install_resource "FormatterKit/Localizations/tr.lproj"
 install_resource "FormatterKit/Localizations/vi.lproj"
-install_resource "Mixpanel/Mixpanel/MPArrowLeft.png"
-install_resource "Mixpanel/Mixpanel/MPArrowLeft@2x.png"
-install_resource "Mixpanel/Mixpanel/MPArrowRight.png"
-install_resource "Mixpanel/Mixpanel/MPArrowRight@2x.png"
-install_resource "Mixpanel/Mixpanel/MPCheckmark.png"
-install_resource "Mixpanel/Mixpanel/MPCheckmark@2x.png"
-install_resource "Mixpanel/Mixpanel/MPCloseBtn.png"
-install_resource "Mixpanel/Mixpanel/MPCloseBtn@2x.png"
-install_resource "Mixpanel/Mixpanel/MPDismissKeyboard.png"
-install_resource "Mixpanel/Mixpanel/MPDismissKeyboard@2x.png"
-install_resource "Mixpanel/Mixpanel/MPLogo.png"
-install_resource "Mixpanel/Mixpanel/MPLogo@2x.png"
-install_resource "Mixpanel/Mixpanel/MPNotification.storyboard"
-install_resource "Mixpanel/Mixpanel/MPSurvey.storyboard"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then
@@ -222,5 +208,5 @@ then
       TARGET_DEVICE_ARGS="--target-device mac"
       ;;  
   esac 
-  find "${PWD}" -name "*.xcassets" -print0 | xargs -0 actool --output-format human-readable-text --notices --warnings --platform "${PLATFORM_NAME}" --minimum-deployment-target "${IPHONEOS_DEPLOYMENT_TARGET}" ${TARGET_DEVICE_ARGS} --compress-pngs --compile "${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+  find "${PWD}" -name "*.xcassets" -print0 | xargs -0 actool --output-format human-readable-text --notices --warnings --platform "${PLATFORM_NAME}" --minimum-deployment-target "${IPHONEOS_DEPLOYMENT_TARGET}"  --compress-pngs --compile "${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 fi
