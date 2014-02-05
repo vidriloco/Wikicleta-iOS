@@ -90,9 +90,15 @@
         NSString *url = [App urlForResource:@"profiles" withSubresource:@"post" andReplacementSymbol:@":id" withReplacementValue:[NSString stringWithFormat:@"%d", [[User currentUser].identifier intValue]]];
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *params = @{@"user" : @{@"image_pic": imageOnBase64,
-                                             @"username": username,
-                                             @"bio": userBio},
+        NSMutableDictionary *userParams = [NSMutableDictionary dictionary];
+        if (imageOnBase64 != NULL) {
+            [userParams setObject:imageOnBase64 forKey:@"image_pic"];
+        }
+        
+        [userParams setObject:username forKey:@"username"];
+        [userParams setObject:userBio forKey:@"bio"];
+        
+        NSDictionary *params = @{@"user" : userParams,
                                  @"extras" : @{@"auth_token" : [[User currentUser] token]}};
         
         [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
