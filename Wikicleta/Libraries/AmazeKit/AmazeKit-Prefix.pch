@@ -1,9 +1,0 @@
-//
-// Prefix header for all source files of the 'AmazeKit' target in the 'AmazeKit' project
-//
-
-#ifdef __OBJC__
-	#import <Foundation/Foundation.h>
-	#import <QuartzCore/QuartzCore.h>
-	#import <UIKit/UIKit.h>
-#endif

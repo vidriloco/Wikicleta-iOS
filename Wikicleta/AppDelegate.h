@@ -12,7 +12,6 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "IIViewDeckController.h"
 #import "ActiveRecord.h"
-#import "TestFlight.h"
 #import "LocationManager.h"
 #import "Instant.h"
 
