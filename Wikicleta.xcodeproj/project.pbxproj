@@ -436,6 +436,10 @@
 		3AEAF1BA18708F3E00003668 /* return_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1B818708F3E00003668 /* return_icon@2x.png */; };
 		3AEAF1C31870B0C300003668 /* close_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1C11870B0C300003668 /* close_icon.png */; };
 		3AEAF1C41870B0C300003668 /* close_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAF1C21870B0C300003668 /* close_icon@2x.png */; };
+		3AF3C40D18B5E35500ABCE0E /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3C40918B5E35500ABCE0E /* fb.png */; };
+		3AF3C40E18B5E35500ABCE0E /* fb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3C40A18B5E35500ABCE0E /* fb@2x.png */; };
+		3AF3C40F18B5E35500ABCE0E /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3C40B18B5E35500ABCE0E /* twitter.png */; };
+		3AF3C41018B5E35500ABCE0E /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3C40C18B5E35500ABCE0E /* twitter@2x.png */; };
 		3AF65B451891792800779B7D /* timing-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF65B431891792800779B7D /* timing-marker.png */; };
 		3AF65B461891792800779B7D /* timing-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF65B441891792800779B7D /* timing-marker@2x.png */; };
 		6981D13EDC7742E088CEFBD7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A0F461E5540259685105B /* libPods.a */; };
@@ -980,6 +984,10 @@
 		3AEAF1B818708F3E00003668 /* return_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return_icon@2x.png"; sourceTree = "<group>"; };
 		3AEAF1C11870B0C300003668 /* close_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_icon.png; sourceTree = "<group>"; };
 		3AEAF1C21870B0C300003668 /* close_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_icon@2x.png"; sourceTree = "<group>"; };
+		3AF3C40918B5E35500ABCE0E /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
+		3AF3C40A18B5E35500ABCE0E /* fb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb@2x.png"; sourceTree = "<group>"; };
+		3AF3C40B18B5E35500ABCE0E /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		3AF3C40C18B5E35500ABCE0E /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
 		3AF65B431891792800779B7D /* timing-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timing-marker.png"; sourceTree = "<group>"; };
 		3AF65B441891792800779B7D /* timing-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timing-marker@2x.png"; sourceTree = "<group>"; };
 		4B8A0F461E5540259685105B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1706,6 +1714,10 @@
 		3A73F54317B3513E00FA7A71 /* LandingView */ = {
 			isa = PBXGroup;
 			children = (
+				3AF3C40918B5E35500ABCE0E /* fb.png */,
+				3AF3C40A18B5E35500ABCE0E /* fb@2x.png */,
+				3AF3C40B18B5E35500ABCE0E /* twitter.png */,
+				3AF3C40C18B5E35500ABCE0E /* twitter@2x.png */,
 				3A73F54417B3513E00FA7A71 /* explore.png */,
 				3A73F54517B3513E00FA7A71 /* explore@2x.png */,
 				3A73F54617B3513E00FA7A71 /* login.png */,
@@ -2126,6 +2138,7 @@
 				181534C517B1644A009FE8CB /* gothamrndlight.ttf in Resources */,
 				3A13AFEC1883CEFB00A35771 /* metrobus_patriotismo.png in Resources */,
 				3A4BA330186E7A7D00F7531E /* end_route_marker@2x.png in Resources */,
+				3AF3C41018B5E35500ABCE0E /* twitter@2x.png in Resources */,
 				3A9547FB186D5EB400428DF7 /* workshop_marker.png in Resources */,
 				3A1A2AA3187A0D3F00AF298C /* ActivityViewController.xib in Resources */,
 				3AB604FC1891023000A8BBE5 /* Images.xcassets in Resources */,
@@ -2196,6 +2209,7 @@
 				3A4E5F24186DEC0100D818ED /* bike_sharing_red_marker.png in Resources */,
 				3A50638018942FCD008F2376 /* chronometer_icon.png in Resources */,
 				183F0C3417CC1576006B4F54 /* MenuViewCell.xib in Resources */,
+				3AF3C40F18B5E35500ABCE0E /* twitter.png in Resources */,
 				3A1A2A9E1879F4F500AF298C /* favorites_icon@2x.png in Resources */,
 				3A08AD341872832000E79AA5 /* EditWorkshopInfoContactViewController.xib in Resources */,
 				3A4DD93718680917009506F0 /* navbar_back@2x.png in Resources */,
@@ -2332,6 +2346,7 @@
 				3A9DE7F3186F490700C95812 /* attach_icon_h@2x.png in Resources */,
 				3A13AFC61883CEFB00A35771 /* ambulance_marker.png in Resources */,
 				3A50638118942FCD008F2376 /* chronometer_icon@2x.png in Resources */,
+				3AF3C40D18B5E35500ABCE0E /* fb.png in Resources */,
 				3A4E400918922E9B00AA4586 /* CycleprintsViewController.xib in Resources */,
 				3A13AFD31883CEFB00A35771 /* metro_fray_servando.png in Resources */,
 				3A1A2A9C1879F4F500AF298C /* activity_icon@2x.png in Resources */,
@@ -2378,6 +2393,7 @@
 				3A9547D5186D44EF00428DF7 /* urban_mobiliary_icon@2x.png in Resources */,
 				3AA789B818963D1B0033EF8C /* Icon-40.png in Resources */,
 				3AA789B918963D1B0033EF8C /* Icon-40@2x.png in Resources */,
+				3AF3C40E18B5E35500ABCE0E /* fb@2x.png in Resources */,
 				3AA789BA18963D1B0033EF8C /* Icon-60.png in Resources */,
 				3AA789BB18963D1B0033EF8C /* Icon-60@2x.png in Resources */,
 				3AA789BC18963D1B0033EF8C /* Icon-72.png in Resources */,

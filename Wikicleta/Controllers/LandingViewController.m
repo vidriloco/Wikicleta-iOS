@@ -13,12 +13,14 @@
 - (void) launchJoinController;
 - (void) launchLoginController;
 - (void) launchDiscoverController;
+- (void) twitterSignIn;
+- (void) facebookSignIn;
 
 @end
 
 @implementation LandingViewController
 
-@synthesize decoratorView, loginButton, registerButton, loginLabel, registerLabel;
+@synthesize loginLabel, registerLabel, titleLabel, twitterSigninButton, facebookSigninButton;
 
 - (void) launchLoginController
 {
@@ -35,6 +37,16 @@
     [[self navigationController] pushViewController:[[MapViewController alloc] init] animated:NO];
 }
 
+- (void) twitterSignIn
+{
+    NSLog(@"twitter");
+}
+
+- (void) facebookSignIn
+{
+    NSLog(@"facebook");
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,35 +54,32 @@
     if ([User userLoggedIn]) {
         [self launchDiscoverController];
     } else {
-        [decoratorView.layer setBorderColor:[UIColor colorWithHexString:@"d5e6f3"].CGColor];
-        [decoratorView.layer setBorderWidth:0.3];
-        [decoratorView setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.4]];
-        [decoratorView setFrame:CGRectMake(decoratorView.frame.origin.x-2, decoratorView.frame.origin.x+2, [App viewBounds].size.width+4, decoratorView.frame.size.height)];
-        // Buttons load
+        [twitterSigninButton addTarget:self action:@selector(twitterSignIn) forControlEvents:UIControlEventTouchUpInside];
+        [facebookSigninButton addTarget:self action:@selector(facebookSignIn) forControlEvents:UIControlEventTouchUpInside];
+
+        [titleLabel setFont:[LookAndFeel defaultFontLightWithSize:19]];
+        [titleLabel setTextColor:[LookAndFeel orangeColor]];
+        [titleLabel setText:NSLocalizedString(@"connect_with", nil)];
         
-        /*[exploreButton addTarget:self action:@selector(launchDiscoverController) forControlEvents:UIControlEventTouchUpInside];
-        [exploreLabel setText:NSLocalizedString(@"explore", nil)];
-        [exploreLabel setFont:[LookAndFeel defaultFontBookWithSize:16]];
-        [exploreLabel setTextColor:[LookAndFeel orangeColor]];*/
-        
-        [registerButton addTarget:self action:@selector(launchJoinController) forControlEvents:UIControlEventTouchUpInside];
-        [registerLabel setText:NSLocalizedString(@"join", nil)];
-        [registerLabel setFont:[LookAndFeel defaultFontBookWithSize:16]];
+        [registerLabel setFont:[LookAndFeel defaultFontBookWithSize:14]];
         [registerLabel setTextColor:[LookAndFeel orangeColor]];
+        [registerLabel setText:NSLocalizedString(@"join", nil)];
+        UITapGestureRecognizer *tapRegisterLabel = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchJoinController)];
+        [tapRegisterLabel setNumberOfTapsRequired:1];
+        [registerLabel addGestureRecognizer:tapRegisterLabel];
+        [registerLabel setUserInteractionEnabled:YES];
         
-        [loginButton addTarget:self action:@selector(launchLoginController) forControlEvents:UIControlEventTouchUpInside];
-        [loginLabel setText:NSLocalizedString(@"login", nil)];
-        [loginLabel setFont:[LookAndFeel defaultFontBookWithSize:16]];
+        [loginLabel setFont:[LookAndFeel defaultFontBookWithSize:14]];
         [loginLabel setTextColor:[LookAndFeel orangeColor]];
-        
-        [UIView animateWithDuration:1 animations:^{
-            [decoratorView setAlpha:1];
-            [decoratorView setTransform:CGAffineTransformMakeTranslation(0, [App viewBounds].size.height-decoratorView.center.y-100)];
-        }];
-        
-        [[Mixpanel sharedInstance] track:@"On Landing Page" properties:@{
-            @"date": [[NSDate new] description]
-        }];
+        [loginLabel setText:NSLocalizedString(@"login", nil)];
+        UITapGestureRecognizer *tapLoginLabel = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchLoginController)];
+        [tapLoginLabel setNumberOfTapsRequired:1];
+        [loginLabel addGestureRecognizer:tapLoginLabel];
+        [loginLabel setUserInteractionEnabled:YES];
+
+        //[[Mixpanel sharedInstance] track:@"On Landing Page" properties:@{
+        //    @"date": [[NSDate new] description]
+        //}];
     }
 }
 

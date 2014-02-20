@@ -1,9 +1,9 @@
-/* 
-  Localizable.strings
-
-  Created by Alejandro on 5/21/12.
-  Copyright (c) 2013 Wikicleta. All rights reserved.
-*/
+/*
+ Localizable.strings
+ 
+ Created by Alejandro on 5/21/12.
+ Copyright (c) 2013 Wikicleta. All rights reserved.
+ */
 
 "back" = "Atrás";
 "close" = "Cerrar";
@@ -53,9 +53,12 @@
 
 
 // Landing page
-"explore" = "Explora";
-"login" = "Entra";
-"join" = "Registro";
+"connect_with" = "Conéctate a través de:";
+"login" = "Iniciar Sesión";
+"join" = "Crear una cuenta";
+
+"twitter_accounts_not_found" = "No hay cuentas de Twitter";
+"twitter_accounts_not_found_message" = "No hay cuentas de Twitter configuradas. Puedes añadir una cuenta en Preferencias";
 
 // Registration page
 "registration_title" = "Únete a Wikicleta";

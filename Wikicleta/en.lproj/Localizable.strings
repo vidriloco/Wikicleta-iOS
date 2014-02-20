@@ -46,9 +46,12 @@
 "name_cannot_be_empty" = "A name should be given";
 
 // Landing page
-"explore" = "Explore";
-"login" = "Log-in";
-"join" = "Sign-up";
+"connect_with" = "Connect using:";
+"login" = "Sign in";
+"join" = "Create account";
+
+"twitter_accounts_not_found" = "No Twitter Accounts";
+"twitter_accounts_not_found_message" = "There are no Twitter accounts configured. You can add or create a Twitter account in Settings.";
 
 // Login page
 "login_title" = "Enter Wikicleta";
