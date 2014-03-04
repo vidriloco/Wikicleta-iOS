@@ -12,9 +12,9 @@
 #import "RegistrationViewController.h"
 #import "LoginViewController.h"
 #import "IIViewDeckController.h"
+#import "SocialConnectorEnabledViewController.h"
 
-
-@interface LandingViewController : UIViewController {
+@interface LandingViewController : SocialConnectorEnabledViewController {
 }
 
 

@@ -7,8 +7,11 @@
 //
 
 #import "LandingViewController.h"
+#import <Accounts/Accounts.h>
+#import <Twitter/Twitter.h>
 
-@interface LandingViewController ()
+@interface LandingViewController () {
+}
 
 - (void) launchJoinController;
 - (void) launchLoginController;
@@ -39,12 +42,20 @@
 
 - (void) twitterSignIn
 {
-    NSLog(@"twitter");
+    [socialConnector connectWithTwitter];
 }
+
+- (void) onAuthenticationFinishedWith:(NSDictionary *)dictionary
+{
+    RegistrationViewController *registrationController = [[RegistrationViewController alloc] init];
+    [registrationController setAuthenticatedFields:dictionary];
+    [[self navigationController] pushViewController:registrationController animated:YES];    
+}
+
 
 - (void) facebookSignIn
 {
-    NSLog(@"facebook");
+    //[socialConnector connectWithFacebook];
 }
 
 - (void)viewDidLoad

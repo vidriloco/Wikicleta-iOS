@@ -11,6 +11,7 @@
 
 @interface RegistrationViewController () {
     MBProgressHUD *hud;
+    NSDictionary *authenticatedFields;
 }
 
 - (void) commitRegistration;
@@ -36,6 +37,11 @@
         [hud setLabelFont:[LookAndFeel defaultFontBookWithSize:15]];
     }
     return self;
+}
+
+- (void) setAuthenticatedFields:(NSDictionary *)fields
+{
+    authenticatedFields = fields;
 }
 
 - (void) attemptSignup
@@ -69,7 +75,9 @@
     [hud setHidden:NO];
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *registerDictionary = [[NSMutableDictionary alloc] init];
-    
+    NSMutableDictionary *authorizationDictionary = [[NSMutableDictionary alloc] init];
+
+    [userDictionary setValue:authorizationDictionary forKey:@"authorization"];
     [userDictionary setValue:registerDictionary forKey:@"registration"];
     
     [registerDictionary setValue:username.text forKey:@"username"];
@@ -77,6 +85,14 @@
     [registerDictionary setValue:password.text forKey:@"password"];
     [registerDictionary setValue:passwordConfirmation.text forKey:@"password_confirmation"];
     
+    if (authenticatedFields != nil) {
+        [authorizationDictionary setValue:[authenticatedFields objectForKey:@"provider"] forKey:@"provider"];
+        [authorizationDictionary setValue:[authenticatedFields objectForKey:@"secret"] forKey:@"secret"];
+        [authorizationDictionary setValue:[authenticatedFields objectForKey:@"token"] forKey:@"token"];
+        [authorizationDictionary setValue:[authenticatedFields objectForKey:@"user_id"] forKey:@"uid"];
+    }
+    
+    NSLog([userDictionary description]);
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -157,13 +173,15 @@
     
     [LookAndFeel decorateUITextField:email withLocalizedPlaceholder:@"registration_email_placeholder"];
     [email fixUI];
-
 }
     
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self loadNavigationBarDefaultStyle];
+    if (authenticatedFields != nil) {
+        [username setText:[authenticatedFields objectForKey:@"screen_name"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -29,4 +29,6 @@
 @property (nonatomic, weak) IBOutlet UITextField* email;
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
 
+- (void) setAuthenticatedFields:(NSDictionary*)fields;
+
 @end

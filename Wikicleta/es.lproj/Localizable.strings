@@ -60,6 +60,9 @@
 "twitter_accounts_not_found" = "No hay cuentas de Twitter";
 "twitter_accounts_not_found_message" = "No hay cuentas de Twitter configuradas. Puedes añadir una cuenta en Preferencias";
 
+"facebook_accounts_not_found" = "No hay cuentas de Facebook";
+"facebook_accounts_not_found_message" = "No hay cuentas de Facebook configuradas. Puedes añadir una cuenta en Preferencias";
+
 // Registration page
 "registration_title" = "Únete a Wikicleta";
 "registration_button" = "Finalizar";
@@ -92,6 +95,8 @@
 
 "could_not_log_in_explanation" = "Verifica tu nombre de usuario y contraseña";
 "could_not_log_in" = "No fué posible iniciar sesión";
+
+"choose_an_account" = "Selecciona una Cuenta";
 
 // Settings view
 "username_placeholder" = "tu nombre de usuario";
