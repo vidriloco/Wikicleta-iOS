@@ -55,7 +55,7 @@
 
 - (void) facebookSignIn
 {
-    //[socialConnector connectWithFacebook];
+    [socialConnector connectWithFacebook];
 }
 
 - (void)viewDidLoad

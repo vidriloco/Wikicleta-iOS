@@ -28,6 +28,11 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountChanged) name:ACAccountStoreDidChangeNotification object:nil];
+}
 
 - (void) onAuthenticationStarted
 {
@@ -70,16 +75,20 @@
     }
 }
 
-- (void)viewDidLoad
+-(void)accountChanged:(NSNotification *)notif//no user info associated with this notif
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [socialConnector attemptRenewCredentials];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:ACAccountStoreDidChangeNotification];
 }
 
 @end

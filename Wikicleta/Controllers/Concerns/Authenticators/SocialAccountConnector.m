@@ -15,6 +15,8 @@
     NSString *currentAttemptWithAccountType;
 }
 
+- (void) fetchFBUserData;
+
 @end
 
 @implementation SocialAccountConnector
@@ -25,6 +27,8 @@
     if (self) {
         [self setDelegate:delegate];
         twitterAPIManager = [[TWAPIManager alloc] init];
+        _store = [[ACAccountStore alloc] init];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountChanged) name:ACAccountStoreDidChangeNotification object:nil];
     }
     return self;
 }
@@ -34,11 +38,10 @@
     currentAttemptWithAccountType = ACAccountTypeIdentifierTwitter;
     [self.delegate onAuthenticationStarted];
     
-    ACAccountStore *store = [[ACAccountStore alloc] init]; // Long-lived
-    ACAccountType *twitterType = [store accountTypeWithAccountTypeIdentifier:currentAttemptWithAccountType];
-    [store requestAccessToAccountsWithType:twitterType options:nil completion:^(BOOL granted, NSError *error) {
+    ACAccountType *twitterType = [_store accountTypeWithAccountTypeIdentifier:currentAttemptWithAccountType];
+    [_store requestAccessToAccountsWithType:twitterType options:nil completion:^(BOOL granted, NSError *error) {
         if (granted) {
-            twitterAccounts = [store accountsWithAccountType:twitterType];
+            twitterAccounts = [_store accountsWithAccountType:twitterType];
             
             // If there are no accounts, we need to pop up an alert
             if(twitterAccounts != nil && [twitterAccounts count] == 0) {
@@ -63,26 +66,36 @@
     currentAttemptWithAccountType = ACAccountTypeIdentifierFacebook;
     [self.delegate onAuthenticationStarted];
     
-    ACAccountStore *store = [[ACAccountStore alloc] init]; // Long-lived
-    ACAccountType *fbType = [store accountTypeWithAccountTypeIdentifier:currentAttemptWithAccountType];
-    [store requestAccessToAccountsWithType:fbType options:nil completion:^(BOOL granted, NSError *error) {
+    ACAccountType *fbType = [_store accountTypeWithAccountTypeIdentifier:currentAttemptWithAccountType];
+    
+    NSDictionary *fbOpts = @{ACFacebookAppIdKey: @"261609860582235",
+                             ACFacebookPermissionsKey : @[@"email", @"publish_actions"],
+                             ACFacebookAudienceKey:ACFacebookAudienceEveryone};
+    
+
+    void (^errorResponse) (void) = ^ {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"facebook_accounts_not_found", nil)
+                                                        message:NSLocalizedString(@"facebook_accounts_not_found_message", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"close", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+        [_delegate onAuthenticationFinished];
+    };
+    
+    [_store requestAccessToAccountsWithType:fbType options:fbOpts completion:^(BOOL granted, NSError *error) {
         if (granted) {
-            fbAccounts = [store accountsWithAccountType:fbType];
-            
+            fbAccounts = [_store accountsWithAccountType:fbType];
             // If there are no accounts, we need to pop up an alert
             if(fbAccounts != nil && [fbAccounts count] == 0) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"facebook_accounts_not_found", nil)
-                                                                message:NSLocalizedString(@"facebook_accounts_not_found_message", nil)
-                                                               delegate:nil
-                                                      cancelButtonTitle:NSLocalizedString(@"close", nil)
-                                                      otherButtonTitles:nil];
-                [alert show];
+                errorResponse();
             } else {
-                [self.delegate onAccountSelectionPhaseWithAccounts:fbAccounts];
+                [self fetchFBUserData];
             }
+        } else {
+            errorResponse();
         }
-        
-        [self.delegate onAuthenticationFinished];
+        [_delegate onAuthenticationFinished];
     }];
 }
 
@@ -135,8 +148,79 @@
             else {
             }
         }];
+    } else if (currentAttemptWithAccountType == ACAccountTypeIdentifierFacebook) {
+        [self fetchFBUserData];
     }
     
+}
+
+- (void) fetchFBUserData
+{
+    NSURL *requestURL = [NSURL URLWithString:@"https://graph.facebook.com/me"];
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeFacebook
+                                            requestMethod:SLRequestMethodGET
+                                                      URL:requestURL
+                                               parameters:nil];
+    request.account = [fbAccounts lastObject];
+    [request performRequestWithHandler:^(NSData *data,
+                                         NSHTTPURLResponse *response,
+                                         NSError *error) {
+
+        if(!error){
+            NSDictionary *list =[NSJSONSerialization JSONObjectWithData:data
+                                                                options:kNilOptions error:&error];
+            //NSLog(@"Dictionary contains: %@", list);
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [_delegate onAuthenticationFinishedWith:@{@"provider" : @"facebook",
+                                                          @"token" : [request.account credential].oauthToken,
+                                                          @"secret" : @"",
+                                                          @"user_id" : [list objectForKey:@"id"],
+                                                          @"screen_name" : [list objectForKey:@"username"],
+                                                          @"email" : [list objectForKey:@"email"]}];
+            });
+
+        }
+        else{
+            // Check for error 2005
+            // [self attemptRenewCredentials];
+        }
+        
+    }];
+}
+
+-(void)attemptRenewCredentials{
+    [_store renewCredentialsForAccount:(ACAccount *) [fbAccounts lastObject] completion:^(ACAccountCredentialRenewResult renewResult, NSError *error){
+        if(!error)
+        {
+            switch (renewResult) {
+                case ACAccountCredentialRenewResultRenewed:
+                    NSLog(@"Good to go");
+                    [self fetchFBUserData];
+                    break;
+                    
+                case ACAccountCredentialRenewResultRejected:
+                    
+                    NSLog(@"User declined permission");
+                    
+                    break;
+                    
+                case ACAccountCredentialRenewResultFailed:
+                    
+                    NSLog(@"non-user-initiated cancel, you may attempt to retry");
+                    
+                    break;
+                    
+                default:
+                    break;
+                    
+            }
+        }
+        
+        else{
+            NSLog(@"error from renew credentials%@",error);
+        }
+        
+    }];
 }
 
 @end

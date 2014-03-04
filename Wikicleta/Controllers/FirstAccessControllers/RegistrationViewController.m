@@ -91,8 +91,8 @@
         [authorizationDictionary setValue:[authenticatedFields objectForKey:@"token"] forKey:@"token"];
         [authorizationDictionary setValue:[authenticatedFields objectForKey:@"user_id"] forKey:@"uid"];
     }
+    NSLog([authorizationDictionary description]);
     
-    NSLog([userDictionary description]);
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -181,6 +181,9 @@
     [self loadNavigationBarDefaultStyle];
     if (authenticatedFields != nil) {
         [username setText:[authenticatedFields objectForKey:@"screen_name"]];
+        if ([authenticatedFields objectForKey:@"email"]) {
+            [email setText:[authenticatedFields objectForKey:@"email"]];
+        }
     }
 }
 

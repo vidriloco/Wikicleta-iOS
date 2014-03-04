@@ -15,11 +15,12 @@
 @interface SocialAccountConnector : NSObject
 
 @property (nonatomic, assign) id<SocialAccountConnectorDelegate> delegate;
+@property (nonatomic, strong) ACAccountStore *store;
 
 - (id) initWithConnectorDelegate:(id)delegate;
 
 - (void) connectWithTwitter;
 - (void) connectWithFacebook;
 - (void) attemptFetchingUserAuthenticationDataForAccountAtIndex:(NSInteger)number;
-
+- (void) attemptRenewCredentials; 
 @end
